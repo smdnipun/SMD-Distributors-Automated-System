@@ -18,6 +18,12 @@ git checkout [reponame]
 
 1. If you did new changes to code and wants to push them to the repo please create a new branch and push it.
 ```
+git add .
+```
+```
+git commit -m "<write comment what you did>"
+```
+```
 git push -u origin feature_branch_name
 ```
 
