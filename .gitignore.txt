@@ -1,0 +1,5 @@
+/.metadata
+/Servers
+/Backup
+/smd-distributors-automated-system/bin
+/smd-distributors-automated-system/build
