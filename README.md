@@ -21,7 +21,7 @@ git checkout [reponame]
 git add .
 ```
 ```
-git commit -m "<write comment what you did>"
+git commit -m "<write a comment what you did>"
 ```
 ```
 git push -u origin feature_branch_name
