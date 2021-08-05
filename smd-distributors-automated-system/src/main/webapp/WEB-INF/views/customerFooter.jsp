@@ -7,12 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<header>
-		<jsp:include page="../WEB-INF/views/customerHeader.jsp"></jsp:include>
-	</header>
-	
-	<footer>
-		<jsp:include page="../WEB-INF/views/customerFooter.jsp"></jsp:include>
-	</footer>
+
 </body>
 </html>
