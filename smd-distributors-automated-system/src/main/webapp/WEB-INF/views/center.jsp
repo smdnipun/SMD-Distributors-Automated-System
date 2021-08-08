@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-3" style="background-color:darkgray;">
+  <div class="col-3" style="background-color:#E0E0E2;">
     <!-- Tab navs -->
     <div
       class="nav flex-column nav-tabs text-center"
@@ -101,5 +101,5 @@
     <!-- Tab navs -->
   </div>
 
-  <div class="col-9"></div>
+  <div class="col-9"></div> <!--  Code Here -->
 </div>
