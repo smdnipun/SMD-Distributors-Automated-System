@@ -10,6 +10,6 @@
 <jsp:include page="./WEB-INF/views/head.jsp"></jsp:include>
 <jsp:include page="./WEB-INF/views/header.jsp"></jsp:include>
 <jsp:include page="./WEB-INF/views/center.jsp"></jsp:include>
-<jsp:include page="./WEB-INF/views/footer.jsp"></jsp:include>
+<jsp:include page="./WEB-INF/views/adminFooter.jsp"></jsp:include>
 </body>
 </html>
