@@ -1,15 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
+<jsp:include page="./WEB-INF/views/common/head.jsp">
+	<jsp:param name="Title" value="SMD Distributors" /></jsp:include>
 <body>
-<jsp:include page="./WEB-INF/views/head.jsp"></jsp:include>
-<jsp:include page="./WEB-INF/views/header.jsp"></jsp:include>
-<jsp:include page="./WEB-INF/views/center.jsp"></jsp:include>
-<jsp:include page="./WEB-INF/views/adminFooter.jsp"></jsp:include>
+	<jsp:include page="./WEB-INF/views/common/header.jsp"></jsp:include>
+	<jsp:include page="./WEB-INF/views/productM/center.jsp"></jsp:include>
+	<jsp:include page="./WEB-INF/views/common/adminFooter.jsp"></jsp:include>
 </body>
 </html>
