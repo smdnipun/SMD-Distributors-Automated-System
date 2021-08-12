@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +11,7 @@
 
 <!--fonts-->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" />
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap"
 	rel="stylesheet" />
@@ -38,5 +39,22 @@
 <!-- MDB -->
 <script type="text/javascript"
 	src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
+<style>
+/* Hide scrollbar for Chrome, Safari and Opera */
+.example::-webkit-scrollbar {
+	display: none;
+}
 
+/* Hide scrollbar for IE, Edge and Firefox */
+.example {
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+
+footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+</style>
 </head>

@@ -4,4 +4,5 @@
     © 2020 Copyright:
     <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
   </div>
+ </footer>
   <!-- Copyright -->
