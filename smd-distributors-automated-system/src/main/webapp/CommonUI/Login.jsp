@@ -4,64 +4,62 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<link rel="stylesheet" href="login.css">
+<title>SMD Distributors</title>
 </head>
 <body>
 <jsp:include page="../WEB-INF/views/head.jsp"></jsp:include>
 <div>
-	<!--  <form action="login" method="post">
-		<fieldset>
-		    <div class="formtop">
-		        <span>Sign in or <a href="User/Registration1.jsp" class="link">Create an Account</a></span>
-		    </div><br>
-		    <div>
-		        <label for="email">EMAIL ADDRESS:</label><br>
-		        <input type="text" id="email" name="email" size="48" value=""><br><br>
-		
-		        <label for="password">PASSWORD :</label><br>
-		        <input type ="password" id="password" name="password" size="48"><br>
-		    </div>
-		    <div>
-		        <a href="User/forgot_password1.jsp" class="link">Forgot Password?</a>
-		    </div>
-		    <div class='center'>
-		    	<div style = "color:red;"><p>${Message}</p></div>
-		        </div>
-		        <div class="center">
-		            <button type="submit" id="login" class="greenbtn btn">sign in</button> 
-		        </div>    
-		</fieldset>
-	</form>-->
 	<main>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-6 login-section-wrapper">
-          <div class="brand-wrapper">
-            <img src="../img/Logo.png" alt="logo" class="logo" height="150" width="150">
-          </div>
-          <div class="login-wrapper my-auto">
-            <h1 class="login-title">Log in</h1>
-            <form action="login" method="post">
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" class="form-control" placeholder="email@example.com">
-              </div>
-              <div class="form-group mb-4">
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password" class="form-control" placeholder="Enter your passsword">
-              </div>
-              <input name="login" id="login" class="btn btn-block login-btn btn-warning" type="button" value="Login">
-            </form>
-            <a href="#!" class="forgot-password-link">Forgot password?</a>
-            <p class="login-wrapper-footer-text">Don't have an account? <a href="#!" class="text-reset">Register here</a></p>
-          </div>
+    <div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+    <div class="card card0 border-0">
+        <div class="row d-flex">
+            <div class="col-lg-6">
+                <div class="card1 pb-5">
+                    <div class="row"> <img src="https://i.imgur.com/CXQmsmF.png" class="logo"> </div>
+                    <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src="https://i.imgur.com/uNGdWHi.png" class="image"> </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card2 card border-0 px-4 py-5">
+                    <div class="row mb-4 px-3">
+                        <h6 class="mb-0 mr-4 mt-2">Sign in with</h6>
+                        <div class="facebook text-center mr-3">
+                            <div class="fa fa-facebook"></div>
+                        </div>
+                        <div class="twitter text-center mr-3">
+                            <div class="fa fa-twitter"></div>
+                        </div>
+                        <div class="linkedin text-center mr-3">
+                            <div class="fa fa-linkedin"></div>
+                        </div>
+                    </div>
+                    <div class="row px-3 mb-4">
+                        <div class="line"></div> <small class="or text-center">Or</small>
+                        <div class="line"></div>
+                    </div>
+                    <div class="row px-3"> <label class="mb-1">
+                            <h6 class="mb-0 text-sm">Email Address</h6>
+                        </label> <input class="mb-4" type="text" name="email" placeholder="Enter a valid email address"> </div>
+                    <div class="row px-3"> <label class="mb-1">
+                            <h6 class="mb-0 text-sm">Password</h6>
+                        </label> <input type="password" name="password" placeholder="Enter password"> </div>
+                    <div class="row px-3 mb-4">
+                        <div class="custom-control custom-checkbox custom-control-inline"> <input id="chk1" type="checkbox" name="chk" class="custom-control-input"> <label for="chk1" class="custom-control-label text-sm">Remember me</label> </div> <a href="#" class="ml-auto mb-0 text-sm">Forgot Password?</a>
+                    </div>
+                    <div class="row mb-3 px-3"> <button type="submit" class="btn btn-blue text-center">Login</button> </div>
+                    <div class="row mb-4 px-3"> <small class="font-weight-bold">Don't have an account? <a class="text-danger ">Register</a></small> </div>
+                </div>
+            </div>
         </div>
-        <div class="col-6 px-0">
-          <img src="../img/login2.png" alt="login image" style="height:auto; max-width:100%;">
+        <div class="bg-blue py-4">
+            <div class="row px-3"> <small class="ml-4 ml-sm-5 mb-2">Copyright &copy; 2019. All rights reserved.</small>
+                <div class="social-contact ml-4 ml-sm-auto"> <span class="fa fa-facebook mr-4 text-sm"></span> <span class="fa fa-google-plus mr-4 text-sm"></span> <span class="fa fa-linkedin mr-4 text-sm"></span> <span class="fa fa-twitter mr-4 mr-sm-5 text-sm"></span> </div>
+            </div>
         </div>
-      </div>
     </div>
-  </main>
+</div>
+ </main>
 </div>
 </body>
 </html>
