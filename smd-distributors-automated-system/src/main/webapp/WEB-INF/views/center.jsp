@@ -1,8 +1,8 @@
 <div class="row">
-  <div class="col-3" style="background-color:#E0E0E2;">
+  <div class="col-2" style="background-color:#E0E0E2;">
     <!-- Tab navs -->
     <div
-      class="nav flex-column nav-tabs text-center"
+      class="nav flex-column nav-tabs"
       id="v-tabs-tab"
       role="tablist"
       aria-orientation="vertical"
@@ -101,5 +101,5 @@
     <!-- Tab navs -->
   </div>
 
-  <div class="col-9"></div> <!--  Code Here -->
+  <div class="col-9">fjfjfjfjfj</div> <!--  Code Here -->
 </div>
