@@ -7,8 +7,8 @@
 <title>CustomerPayments</title>
 </head>
 <body>
-<jsp:include page="../../WEB-INF/views/head.jsp"></jsp:include>
-<jsp:include page="../../WEB-INF/views/header.jsp"></jsp:include>
+<jsp:include page="../../WEB-INF/views/common/head.jsp"></jsp:include>
+<jsp:include page="../../WEB-INF/views/common/header.jsp"></jsp:include>
 <div class="row">
   <div class="col-3" style="background-color:#E0E0E2;">
     <!-- Tab navs -->
@@ -100,14 +100,15 @@
     </tr>
   </tbody>
 </table>
-<p align="right"> 
-<button type="button" class="btn btn-secondary" style="background-color:#b8b8b8">Generate Report</button>
-</p>
-  </div>
+			<p align="right">
+				<button type="button" class="btn btn-secondary"
+					style="background-color: #b8b8b8">Generate Report</button>
+			</p>
+		</div>
   </div> <!--  Code Here -->
   	
 </div>
 
-<jsp:include page="../../WEB-INF/views/footer.jsp"></jsp:include>
+<jsp:include page="../../WEB-INF/views/common/footer.jsp"></jsp:include>
 </body>
 </html>
