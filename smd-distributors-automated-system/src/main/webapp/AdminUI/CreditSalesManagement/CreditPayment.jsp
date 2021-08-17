@@ -7,8 +7,8 @@
 <title>CustomerDuePayment</title>
 </head>
 <body>
-<jsp:include page="../../WEB-INF/views/head.jsp"></jsp:include>
-<jsp:include page="../../WEB-INF/views/header.jsp"></jsp:include>
+<jsp:include page="../../WEB-INF/views/common/head.jsp"></jsp:include>
+<jsp:include page="../../WEB-INF/views/common/header.jsp"></jsp:include>
 <div class="row">
   <div class="col-3" style="background-color:#E0E0E2;">
     <!-- Tab navs -->
@@ -115,6 +115,6 @@
   	
 </div>
 
-<jsp:include page="../../WEB-INF/views/footer.jsp"></jsp:include>
+<jsp:include page="../../WEB-INF/views/common/footer.jsp"></jsp:include>
 </body>
 </html>

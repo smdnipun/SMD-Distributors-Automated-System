@@ -13,56 +13,24 @@ body {
 }
 
 .card2 {
+	margin-top: 50px;
     margin: 0px 40px
 }
 
 .logo {
-    width: 200px;
-    height: 100px;
-    margin-top: 20px;
-    margin-left: 35px
+    width: 150px;
+    height: 125px;
+    margin-top: 15px;
 }
 
 .image {
-    width: 360px;
-    height: 280px
+	margin-top:50px;
+    max-width: auto;
+    max-height: auto;
 }
 
 .border-line {
     border-right: 1px solid #EEEEEE
-}
-
-.facebook {
-    background-color: #3b5998;
-    color: #fff;
-    font-size: 18px;
-    padding-top: 5px;
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    cursor: pointer
-}
-
-.twitter {
-    background-color: #1DA1F2;
-    color: #fff;
-    font-size: 18px;
-    padding-top: 5px;
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    cursor: pointer
-}
-
-.linkedin {
-    background-color: #2867B2;
-    color: #fff;
-    font-size: 18px;
-    padding-top: 5px;
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    cursor: pointer
 }
 
 .line {
@@ -132,15 +100,8 @@ a {
     cursor: pointer
 }
 
-.btn-blue {
+.btn-primary:hover {
     background-color: #1A237E;
-    width: 150px;
-    color: #fff;
-    border-radius: 2px
-}
-
-.btn-blue:hover {
-    background-color: #000;
     cursor: pointer
 }
 
