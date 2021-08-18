@@ -1,5 +1,6 @@
 
 <div class="col-9">
+	<jsp:include page="centerNav.jsp"></jsp:include>
 	<center>
 		<h5>Customer Aged Recivable</h5>
 	</center>
