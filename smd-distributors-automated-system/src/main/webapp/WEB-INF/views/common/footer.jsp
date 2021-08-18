@@ -1,4 +1,4 @@
-<footer class="text-center text-lg-start bg-light text-muted">
+<footer class="text-center text-lg-start text-muted" style="background-color:#252424">
     <!-- Section: Links  -->
     <section class="" style="padding-top: 0.1rem;">
       <div class="container text-center text-md-start mt-5">

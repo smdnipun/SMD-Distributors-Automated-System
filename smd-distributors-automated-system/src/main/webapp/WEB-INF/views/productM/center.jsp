@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-2" style="background-color: #E0E0E2;">
+	<div class="col-2" style="background-color: #d7d7d7;">
 		<!-- Tab navs -->
 		<div class="nav flex-column nav-tabs" id="v-tabs-tab" role="tablist"
 			aria-orientation="vertical">

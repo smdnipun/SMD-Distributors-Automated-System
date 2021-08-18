@@ -2,7 +2,7 @@
     class="container-fluid"
     style="
       padding-top: 1rem;
-      background-color: rgb(124, 122, 122);
+      background-color:#000000;
       padding-bottom: 0.5rem;
     "
   >
