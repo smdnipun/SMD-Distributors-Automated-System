@@ -1,4 +1,5 @@
 <div class="col-9">
+	<jsp:include page="centerNav.jsp"></jsp:include>
 	<center>
 		<h5>Customer Payments</h5>
 	</center>
