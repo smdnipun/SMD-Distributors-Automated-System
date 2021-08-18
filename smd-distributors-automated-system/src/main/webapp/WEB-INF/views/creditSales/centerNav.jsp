@@ -1,5 +1,6 @@
-<div>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+<div class="pt-2">
+	<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #d7d7d7;">
 		<div class="container-fluid">
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
