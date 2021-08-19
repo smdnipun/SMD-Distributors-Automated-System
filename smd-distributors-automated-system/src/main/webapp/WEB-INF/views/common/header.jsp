@@ -2,7 +2,7 @@
     class="container-fluid"
     style="
       padding-top: 1rem;
-      background-color:#000000;
+      background-color: rgb(124, 122, 122);
       padding-bottom: 0.5rem;
     "
   >
@@ -13,7 +13,6 @@
        </div>
        <div
          style="
-           color:#ffffff;
            padding-left: 2rem;
            font-size: 1.5rem;
            font-family: 'Noto Serif', serif;
