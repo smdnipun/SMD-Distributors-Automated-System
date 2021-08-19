@@ -12,14 +12,9 @@
 
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link"
-						href="CustomerAged.jsp">Credit Sales</a></li>
+						href="CustomerAged.jsp">Customers</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="NewOrdersconfirmation.jsp">New Orders</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="CreditPayment.jsp">Payments</a></li>
-					<li class="nav-item"><a class="nav-link"
-						href="PaymentHistory.jsp">Payments History</a></li>
-
+						href="NewOrdersconfirmation.jsp">Inactive Customers</a></li>
 				</ul>
 				<form class="d-flex">
 					<input class="form-control me-2" type="search" placeholder="Search"

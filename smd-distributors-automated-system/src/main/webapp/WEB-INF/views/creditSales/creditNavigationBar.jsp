@@ -11,6 +11,5 @@
 			data-mdb-toggle="tab" href="#v-tabs-messages" role="tab"
 			aria-controls="v-tabs-messages" aria-selected="false">cash
 			calculators</a>
-
 	</div>
 </div>
