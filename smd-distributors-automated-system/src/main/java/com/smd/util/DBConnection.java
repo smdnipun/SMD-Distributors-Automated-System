@@ -8,7 +8,8 @@ import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
 
-
+import com.classes.Customer;
+import com.smd.model.NewOrders;
 import com.smd.model.Payment;
 
 public class DBConnection {
@@ -31,6 +32,7 @@ public class DBConnection {
 		}
 		return con;
 	}
+
 //	database connection of payment 
 	public Payment[] getPaymentdetails() {
 		List<Payment> ll = new LinkedList<Payment>();
@@ -49,5 +51,25 @@ public class DBConnection {
 		}
 		return array;
 
+	}
+
+
+//database connection of New orders
+	public NewOrders[] getNewOrderDetails() {
+		List<NewOrders> ll = new LinkedList<NewOrders>();
+		NewOrders[] array = null;
+		try {
+			Statement stmt = this.getConnection().createStatement();
+			ResultSet rs = stmt.executeQuery("select * from ");
+			while (rs.next()) {
+				NewOrders n = new NewOrders(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getDouble(4));
+				ll.add(n);
+			}
+
+			array = ll.toArray(new NewOrders[ll.size()]);
+
+		} catch (Exception e) {
+		}
+		return array;
 	}
 }
