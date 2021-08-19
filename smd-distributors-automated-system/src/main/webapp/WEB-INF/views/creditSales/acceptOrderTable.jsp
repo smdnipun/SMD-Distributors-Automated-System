@@ -9,7 +9,6 @@
 				<th scope="col">Date</th>
 				<th scope="col">Customer</th>
 				<th scope="col">Quantity</th>
-				<th scope="col">Price</th>
 				<th scope="col">Total Amount</th>
 
 			</tr>
@@ -19,7 +18,6 @@
 				<th scope="row">1</th>
 				<td>Mark</td>
 				<td>Otto</td>
-				<td>@mdo</td>
 				<td>@mdo</td>
 				<td><button type="button" class="btn btn-secondary"
 						style="background-color: #b8b8b8">Customer Details</button> <br>
