@@ -1,4 +1,4 @@
-<div style="background-color: #E0E0E2;">
+<div style="background-color: #e4e4e4;">
 	<!-- Tab navs -->
 	<div class="nav flex-column nav-tabs text-center" id="v-tabs-tab"
 		role="tablist" aria-orientation="vertical">
