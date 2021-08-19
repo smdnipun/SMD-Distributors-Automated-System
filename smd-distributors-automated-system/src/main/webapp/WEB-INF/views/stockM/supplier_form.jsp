@@ -1,5 +1,4 @@
 <div class="col-4">
-
 	<form>
 		<div class="form-group">
 			<label for="exampleInputEmail1">Name</label> <input type="email"
@@ -21,9 +20,7 @@
 				type="password" class="form-control" id="exampleInputPassword1"
 				placeholder="Password">
 		</div>
-
-
-
+		
 		<button type="submit" class="btn btn-primary">Submit</button>
 	</form>
 </div>
