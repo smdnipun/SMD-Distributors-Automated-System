@@ -9,6 +9,6 @@
 				<label for="formGroupExampleInput" class="form-label">Amount</label>
 				<input type="text" class="form-control" id="formGroupExampleInput">
 			</div>
-			<button type="submit" class="btn btn-primary">Pay</button>
+			<button type="submit" class="btn btn-primary"style="background-color:#fbda57; color:#000000">Pay</button>
 		</form>
 	</div>
