@@ -3,10 +3,10 @@
 <body>
 	<jsp:include page="../../WEB-INF/views/common/header.jsp"></jsp:include>
 	<div class="row">
-		<div class="col-3">
+		<div class="col-2">
 			<jsp:include page="../../WEB-INF/views/stockM/stock_navi.jsp"></jsp:include>
 		</div>
-		<div class="col-9">
+		<div class="col-10">
 			<jsp:include page="../../WEB-INF/views/stockM/Stock_table.jsp"></jsp:include>
 			<jsp:include page="../../WEB-INF/views/stockM/stock_orderdetails.jsp"></jsp:include>
 		</div>
