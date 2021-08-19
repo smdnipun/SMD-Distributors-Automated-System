@@ -1,4 +1,4 @@
-<div class="pt-2">
+<div>
 	<nav class="navbar navbar-expand-lg navbar-light"
 		style="background-color: #d7d7d7;">
 		<div class="container-fluid">
@@ -12,7 +12,7 @@
 
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item"><a class="nav-link"
-						href="CustomerAged.jsp">Customer Due</a></li>
+						href="customerDue.jsp">Customer Due</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="NewOrdersconfirmation.jsp">Customer Sales</a></li>
 				</ul>
