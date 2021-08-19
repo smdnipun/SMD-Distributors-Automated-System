@@ -80,4 +80,3 @@
 		</form>
 	</div>
 </div>
-<div class
