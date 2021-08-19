@@ -13,6 +13,7 @@
        </div>
        <div
          style="
+           color:#ffffff;
            padding-left: 2rem;
            font-size: 1.5rem;
            font-family: 'Noto Serif', serif;

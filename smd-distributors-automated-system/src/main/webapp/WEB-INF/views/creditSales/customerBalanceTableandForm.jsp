@@ -1,8 +1,9 @@
 <jsp:include page="centerNav.jsp"></jsp:include>
-<center>
-	<h5>Customer Balance</h5>
-</center>
-
+<div class="pt-2">
+	<center>
+		<h5>Customer Balance</h5>
+	</center>
+</div>
 <table class="table table-hover">
 
 	<thead>
