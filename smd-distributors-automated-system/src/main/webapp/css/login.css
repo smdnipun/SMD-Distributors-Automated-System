@@ -1,4 +1,3 @@
-@charset "ISO-8859-1";
 body {
     color: #000;
     overflow-x: hidden;
@@ -12,25 +11,51 @@ body {
     border-radius: 0px
 }
 
-.card2 {
-	margin-top: 50px;
-    margin: 0px 40px
-}
-
 .logo {
     width: 150px;
-    height: 125px;
-    margin-top: 15px;
+    height: 100px;
 }
 
 .image {
-	margin-top:50px;
-    max-width: auto;
-    max-height: auto;
+    width: 60vh;
+    height: 40vh;
 }
 
 .border-line {
     border-right: 1px solid #EEEEEE
+}
+
+.facebook {
+    background-color: #3b5998;
+    color: #fff;
+    font-size: 18px;
+    padding-top: 5px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer
+}
+
+.twitter {
+    background-color: #1DA1F2;
+    color: #fff;
+    font-size: 18px;
+    padding-top: 5px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer
+}
+
+.linkedin {
+    background-color: #2867B2;
+    color: #fff;
+    font-size: 18px;
+    padding-top: 5px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer
 }
 
 .line {
@@ -100,8 +125,15 @@ a {
     cursor: pointer
 }
 
-.btn-primary:hover {
+.btn-blue {
     background-color: #1A237E;
+    width: 150px;
+    color: #fff;
+    border-radius: 2px
+}
+
+.btn-blue:hover {
+    background-color: #000;
     cursor: pointer
 }
 
