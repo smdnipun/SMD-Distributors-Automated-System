@@ -14,9 +14,11 @@
 						<!--<div class="row">
 						<img src=<%=request.getContextPath() + "/img/Logo.png"%> class="logo">
 					</div>-->
-						<div class="row px-3">
+						<div class="row justify-content-center">
 							<img src=<%=request.getContextPath() + "/img/Logo.png"%>
 								class="logo"> <label class="mb-1">
+						</div>
+						<div class="row px-3 pt-4">
 								<h6 class="mb-0 text-sm">Email Address</h6>
 							</label> <input class="mb-4" type="text" name="email"
 								placeholder="Enter a valid email address">
