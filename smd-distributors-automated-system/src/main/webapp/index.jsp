@@ -3,6 +3,5 @@
 <body>
 	<jsp:include page="./WEB-INF/views/common/header.jsp"></jsp:include>
 	<jsp:include page="./WEB-INF/views/productM/center.jsp"></jsp:include>
-	<jsp:include page="./WEB-INF/views/common/adminFooter.jsp"></jsp:include>
 </body>
 </html>
