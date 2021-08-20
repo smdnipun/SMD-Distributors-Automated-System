@@ -20,11 +20,11 @@
 				<td>Otto</td>
 				<td>@mdo</td>
 				<td><button type="button" class="btn btn-secondary"
-						style="background-color: #b8b8b8">Customer Details</button> <br>
+						style="background-color: #b8c248">Customer Details</button> <br>
 					<button type="button" class="btn btn-secondary"
-						style="background-color: #b8b8b8">Accept</button> <br>
+						style="background-color: #c28f48">Accept</button> <br>
 					<button type="button" class="btn btn-secondary"
-						style="background-color: #b8b8b8">Decline</button></td>
+						style="background-color: #9a4832">Decline</button></td>
 
 			</tr>
 		</tbody>
