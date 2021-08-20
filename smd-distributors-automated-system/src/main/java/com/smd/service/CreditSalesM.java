@@ -10,13 +10,14 @@ import com.smd.model.NewOrdersConf;
 import com.smd.model.Payment;
 
 
-
+public class CreditSalesM{
 //database connection of payment 
 public Payment[] getPaymentdetails() {
 	List<Payment> ll = new LinkedList<Payment>();
 	Payment[] array = null;
+	DBConnection con = new DBConnection();
 	try {
-		Statement stmt = this.getConnection().createStatement();
+		Statement stmt = con.getConnection().createStatement();
 		ResultSet rs = stmt.executeQuery("select * from payment");
 		while (rs.next()) {
 			Payment n = new Payment(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
@@ -36,8 +37,9 @@ public Payment[] getPaymentdetails() {
 public NewOrdersConf[] getNewOrderDetails() {
 	List<NewOrdersConf> ll = new LinkedList<NewOrdersConf>();
 	NewOrdersConf[] array = null;
+	DBConnection con = new DBConnection();
 	try {
-		Statement stmt = this.getConnection().createStatement();
+		Statement stmt = con.getConnection().createStatement();
 		ResultSet rs = stmt.executeQuery("select * from ");
 		while (rs.next()) {
 			NewOrdersConf n = new NewOrdersConf(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getDouble(4));
