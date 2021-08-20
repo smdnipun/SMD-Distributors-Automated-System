@@ -4,7 +4,7 @@
 	<jsp:include page="./WEB-INF/views/common/header.jsp"></jsp:include>
 	<jsp:include page="./WEB-INF/views/common/navbar.jsp">
 		<jsp:param name="navs" value="ttt,ffff ddddd,fff"  />
-	</jsp:include>
+	</jsp:include> 
 	<jsp:include page="./WEB-INF/views/common/adminFooter.jsp"></jsp:include>
 </body>
 </html>
