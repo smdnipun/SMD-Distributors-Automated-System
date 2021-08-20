@@ -9,8 +9,8 @@ pageEncoding="ISO-8859-1"%>
 	}
 
 	if(request.getAttribute("data")==null){
-		DBConnection dbc = new DBConnection();
-		Item[] items = (Item[]) dbc.getItemDetails();
+		CreditSalesM dbc = new CreditSalesM();
+		NewOrdersConf[] items = (NewOrdersConf[]) dbc.getNewOrderDetails();
 		request.setAttribute("data", items);
 	}
 	
