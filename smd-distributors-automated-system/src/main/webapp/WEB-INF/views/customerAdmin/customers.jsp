@@ -7,30 +7,34 @@
 		<jsp:include page="./cDetailsHnav.jsp"></jsp:include>
 		<div class="row pt-2">
 			<div class="col-9 border border-3 pt-3 table-responsive-md">
-				<table id="customerDetails" class="display nowrap" style="width:100%">
+				<table id="table" class="display nowrap" style="width:100%">
         <thead>
             <tr>
             	<th>Cus ID</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Shop Name</th>
+                <th>Username</th>
                 <th>NIC</th>
                 <th>Telephone</th>
                 <th>E-mail</th>
                 <th>Address</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody><!-- 
           	<c:forEach items="${data}" var="customers"> 
            		<tr>
-		    	 	<td><c:out value="${staff.getFname()}" /></td>
-		    	 	<td><c:out value="${staff.getLname()}" /></td>
-		    	 	<td><c:out value="${staff.getEmail()}" /></td>
-		    	 	<td><c:out value="${staff.getPhoneNo()}" /></td>
-		    	 	<td><c:out value="${staff.getPassword()}" /></td>
-		    	 	<td><c:out value="${staff.getStaff()}" /></td>
+		    	 	<td><c:out value="${Customer.getCusID()}" /></td>
+		    	 	<td><c:out value="${Customer.getFname()}" /></td>
+		    	 	<td><c:out value="${Customer.getLname()}" /></td>
+		    	 	<td><c:out value="${Customer.getHardwareName()}" /></td>
+		    	 	<td><c:out value="${Customer.getUsername()}" /></td>
+		    	 	<td><c:out value="${Customer.getNIC()}" /></td>
+		    	 	<td><c:out value="${Customer.getPhoneNo()}" /></td>
+		    	 	<td><c:out value="${Customer.getEmail()}" /></td>
+		    	 	<td><c:out value="${Customer.getAddress()}" /></td>
 	    	 	</tr>
-   			</c:forEach>
+   			</c:forEach> -->
         </tbody>
     </table>
 			</div>
@@ -51,6 +55,9 @@
                         
                         <label for="hname">Shop Name :</label><br>
                         <input type="text" id="hname" name="hname" size="31"><br>
+                        
+                        <label for="hname">Username :</label><br>
+                        <input type="text" id="username" name="username" size="31"><br>
                         
                         <label for="nic">NIC :</label><br>
                         <input type="number" id="nic" name="nic" size="31"><br>

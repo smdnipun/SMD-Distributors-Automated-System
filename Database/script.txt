@@ -352,42 +352,55 @@ VALUES (3,'Holcim','Holcim Cement,Puttalam rd, Kurunagala','0377800800'),
 	(4,'Sanstha','Sanstha cement(pvt),Oruwala,Colombo','0111461005'),
 	(5,'Tokyo','Tokyo cement,Wallampitiya,Colombo.','0112532832');
 
+--
+-- Database views 
+--
 
---PaymentDetails
- Create View PaymentDetails As 
+-- PaymentDetails
+Create View PaymentDetails As 
 Select p.Pay_ID,c.Hardware_Name,o.Order_ID,p.Date,pd.Prod_ID,o.Qty,o.Total_Price,o.Paid_Amount,o.Remaining_Amount
 from customer c,orders o,payment p,product pd
 where  c.Cus_ID=o.Cust_ID and c.Cus_ID=p.Cus_ID and o.Cust_ID=p.Cus_ID and pd.Prod_ID=o.Product_ID;
 
-
---Customer Aged
+-- Customer Aged
 Create View CustomerAged AS
 Select c.Hardware_Name,c.Phone,o.Order_ID,p.Date,o.Total_Price,o.Paid_Amount,o.Remaining_Amount
 from customer c,orders o,payment p
-where c.Cus_ID=o.Cust_ID and c.Cus_ID=p.Cus_ID and o.Cust_ID=p.Cus_ID 
+where c.Cus_ID=o.Cust_ID and c.Cus_ID=p.Cus_ID and o.Cust_ID=p.Cus_ID; 
 
-
-
---NewOrders
+-- NewOrders
 Create View NewOrders As
 Select o.Order_Date,c.Hardware_Name,o.Qty,o.Total_Price
 from customer c,orders o
-where c.Cus_ID=o.Cust_ID and Order_Status="pending"
+where c.Cus_ID=o.Cust_ID and Order_Status="pending";
+
+
+--
+-- Database functions & procedures
+--
 
 
 
+--
+-- select queries
+--
 
+-- select tables
+select * from smd.customer;
+select * from smd.delivery;
+select * from smd.employee;
+select * from smd.employeetype;
+select * from smd.feedback;
+select * from smd.has;
+select * from smd.orders;
+select * from smd.payment;
+select * from smd.product;
+select * from smd.stock;
+select * from smd.supply;
+select * from smd.vehicle;
+select * from smd.vendor;
 
-select * from customer;
-select * from delivery;
-select * from employee;
-select * from employeetype;
-select * from feedback;
-select * from has;
-select * from orders;
-select * from payment;
-select * from product;
-select * from stock;
-select * from supply;
-select * from vehicle;
-select * from vendor;
+-- select views
+select * from smd.PaymentDetails;
+select * from smd.CustomerAged;
+select * from smd.NewOrders;
