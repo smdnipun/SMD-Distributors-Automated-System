@@ -3,96 +3,49 @@
 		<jsp:include page="./customerAdminNavBar.jsp"></jsp:include>
 	</div>
 	
-	<div class="col-10">
+	<div class="col-10 pr-3 pt-2 pb-2">
 		<jsp:include page="./cDetailsHnav.jsp"></jsp:include>
-		<div class="col-7">
-			<table id="dtHorizontalVerticalExample" class="table table-striped table-bordered table-sm " cellspacing="0" width="100%">
-			  <thead>
-			    <tr>
-			      <th>First name</th>
-			      <th>Last name</th>
-			      <th>Position</th>
-			      <th>Office</th>
-			      <th>Age</th>
-			      <th>Start date</th>
-			      <th>Salary</th>
-			      <th>Extn.</th>
-			      <th>E-mail</th>
-			    </tr>
-			  </thead>
-			  <tbody>
-			    <tr>
-			      <td>Tiger</td>
-			      <td>Nixon</td>
-			      <td>System Architect</td>
-			      <td>Edinburgh</td>
-			      <td>61</td>
-			      <td>2011/04/25</td>
-			      <td>$320,800</td>
-			      <td>5421</td>
-			      <td>t.nixon@datatables.net</td>
-			    </tr>
-			    <tr>
-			      <td>Garrett</td>
-			      <td>Winters</td>
-			      <td>Accountant</td>
-			      <td>Tokyo</td>
-			      <td>63</td>
-			      <td>2011/07/25</td>
-			      <td>$170,750</td>
-			      <td>8422</td>
-			      <td>g.winters@datatables.net</td>
-			    </tr>
-			    <tr>
-			      <td>Ashton</td>
-			      <td>Cox</td>
-			      <td>Junior Technical Author</td>
-			      <td>San Francisco</td>
-			      <td>66</td>
-			      <td>2009/01/12</td>
-			      <td>$86,000</td>
-			      <td>1562</td>
-			      <td>a.cox@datatables.net</td>
-			    </tr>
-			    <tr>
-			      <td>Cedric</td>
-			      <td>Kelly</td>
-			      <td>Senior Javascript Developer</td>
-			      <td>Edinburgh</td>
-			      <td>22</td>
-			      <td>2012/03/29</td>
-			      <td>$433,060</td>
-			      <td>6224</td>
-			      <td>c.kelly@datatables.net</td>
-			    </tr>
-			    <tr>
-			      <td>Airi</td>
-			      <td>Satou</td>
-			      <td>Accountant</td>
-			      <td>Tokyo</td>
-			      <td>33</td>
-			      <td>2008/11/28</td>
-			      <td>$162,700</td>
-			      <td>5407</td>
-			      <td>a.satou@datatables.net</td>
-			    </tr>
-			    <tr>
-			      <td>Brielle</td>
-			      <td>Williamson</td>
-			      <td>Integration Specialist</td>
-			      <td>New York</td>
-			      <td>61</td>
-			      <td>2012/12/02</td>
-			      <td>$372,000</td>
-			      <td>4804</td>
-			      <td>b.williamson@datatables.net</td>
-			    </tr>
-			  </tbody>
-			</table>
-		</div>
-		
-		<div class="col-5">
+		<div class="row pt-1">
+			<div class="col-9 border border-5">
 			
+			</div>
+			
+			<div class="col-3">
+			<form action="" method="Post" class="border border-3 p-2">
+                <fieldset>
+                    <legend class="d-flex justify-content-center">Customer Details</legend>
+                    <div>
+                    	<label for="Customer_ID">Cus_No :</label><br>
+                        <input type="text" id="cus_id" name="cus_id" size="31" disabled><br>
+                    
+                        <label for="fname">First Name :</label><br>
+                        <input type="text" id="fname" name="fname" size="31"><br>
+
+                        <label for="lname">Last Name :</label><br>
+                        <input type="text" id="lname" name="lname" size="31"><br>
+                        
+                        <label for="hname">Shop Name :</label><br>
+                        <input type="text" id="hname" name="hname" size="31"><br>
+                        
+                        <label for="nic">NIC :</label><br>
+                        <input type="number" id="nic" name="nic" size="31"><br>
+                        
+                        <label for="pno">Telephone :</label><br>
+                        <input type ="tel" id="pno" name="pno"  size="31" placeholder="94712345678" pattern="[0-9]{11}"><br>
+
+                        <label for="email">Email :</label><br>
+                        <input type="email" id="email" name="email" size="31" pattern="[a-z 0-9 .+-_%]+@+[a-z 0-9 +-_%]+\.[a-z]{2,3}"><br>
+
+						<label for="adress">Address :</label><br>
+                        <input type="text" id="adress" name="address" size="31"><br>
+                    </div>
+                    <div class="d-flex justify-content-around pt-3 pb-2">
+                        <button type="submit" id="updateD" class="btn btn-primary">Update</button>
+                        <button type="submit" id="DeleteC" class="btn btn-danger">Delete</button>
+                    </div>
+                </fieldset>
+            </form>
+			</div>	
 		</div>
 	</div>
 </div>
