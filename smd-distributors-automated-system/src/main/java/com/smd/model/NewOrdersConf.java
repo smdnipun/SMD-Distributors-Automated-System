@@ -1,7 +1,7 @@
 package com.smd.model;
 
 //create NewOrders class
-public class NewOrders {
+public class NewOrdersConf {
 
 	private String Customer;
 	private String Date;
@@ -9,7 +9,7 @@ public class NewOrders {
 	private double TotalPrice;
 
 //constructor
-	public NewOrders(String customer, String date, int quantity, double totalPrice) {
+	public NewOrdersConf(String customer, String date, int quantity, double totalPrice) {
 		super();
 		Customer = customer;
 		Date = date;
