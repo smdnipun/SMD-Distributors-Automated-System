@@ -5,9 +5,34 @@
 	
 	<div class="col-10 pr-3 pt-2 pb-2">
 		<jsp:include page="./cDetailsHnav.jsp"></jsp:include>
-		<div class="row pt-1">
-			<div class="col-9 border border-5">
-			
+		<div class="row pt-2">
+			<div class="col-9 border border-3 pt-3 table-responsive-md">
+				<table id="customerDetails" class="display nowrap" style="width:100%">
+        <thead>
+            <tr>
+            	<th>Cus ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Shop Name</th>
+                <th>NIC</th>
+                <th>Telephone</th>
+                <th>E-mail</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+          	<c:forEach items="${data}" var="customers"> 
+           		<tr>
+		    	 	<td><c:out value="${staff.getFname()}" /></td>
+		    	 	<td><c:out value="${staff.getLname()}" /></td>
+		    	 	<td><c:out value="${staff.getEmail()}" /></td>
+		    	 	<td><c:out value="${staff.getPhoneNo()}" /></td>
+		    	 	<td><c:out value="${staff.getPassword()}" /></td>
+		    	 	<td><c:out value="${staff.getStaff()}" /></td>
+	    	 	</tr>
+   			</c:forEach>
+        </tbody>
+    </table>
 			</div>
 			
 			<div class="col-3">
@@ -31,7 +56,7 @@
                         <input type="number" id="nic" name="nic" size="31"><br>
                         
                         <label for="pno">Telephone :</label><br>
-                        <input type ="tel" id="pno" name="pno"  size="31" placeholder="94712345678" pattern="[0-9]{11}"><br>
+                        <input type ="tel" id="pno" name="pno"  size="31" pattern="[0-9]{11}"><br>
 
                         <label for="email">Email :</label><br>
                         <input type="email" id="email" name="email" size="31" pattern="[a-z 0-9 .+-_%]+@+[a-z 0-9 +-_%]+\.[a-z]{2,3}"><br>
