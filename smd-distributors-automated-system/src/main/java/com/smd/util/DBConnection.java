@@ -9,13 +9,14 @@ import java.util.LinkedList;
 import java.util.List;
 
 
+import com.smd.model.NewOrdersConf;
 import com.smd.model.Payment;
 
 public class DBConnection {
 	private Connection con;
 
 	// This works according to singleton pattern
-	private DBConnection() {
+	public DBConnection() {
 
 	}
 
@@ -31,6 +32,7 @@ public class DBConnection {
 		}
 		return con;
 	}
+
 //	database connection of payment 
 	public Payment[] getPaymentdetails() {
 		List<Payment> ll = new LinkedList<Payment>();
@@ -49,5 +51,25 @@ public class DBConnection {
 		}
 		return array;
 
+	}
+
+
+//database connection of New orders
+	public NewOrdersConf[] getNewOrderDetails() {
+		List<NewOrdersConf> ll = new LinkedList<NewOrdersConf>();
+		NewOrdersConf[] array = null;
+		try {
+			Statement stmt = this.getConnection().createStatement();
+			ResultSet rs = stmt.executeQuery("select * from ");
+			while (rs.next()) {
+				NewOrdersConf n = new NewOrdersConf(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getDouble(4));
+				ll.add(n);
+			}
+
+			array = ll.toArray(new NewOrdersConf[ll.size()]);
+
+		} catch (Exception e) {
+		}
+		return array;
 	}
 }
