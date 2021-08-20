@@ -43,6 +43,7 @@
 * {
 	overflow: -moz-scrollbars-none;
 	scrollbar-width: none;
+	/* this will hide the scrollbar in internet explorers */
 	-ms-overflow-style: none;
 }
 
@@ -65,3 +66,16 @@ footer {
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+<body>
+	<jsp:include page="./WEB-INF/views/common/header.jsp"></jsp:include>
+	<div class="row" style="min-height: 100vh">
+		<jsp:include page="./WEB-INF/views/common/navbar.jsp">
+			<jsp:param name="navs" value="ttt,jjj ddddd,fff ddddd,fff" />
+		</jsp:include>
+		
+	</div>
+	<div class="row"><jsp:include
+			page="./WEB-INF/views/common/adminFooter.jsp"></jsp:include></div>
+</body>
+</html>
+
