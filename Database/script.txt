@@ -353,6 +353,9 @@ VALUES (3,'Holcim','Holcim Cement,Puttalam rd, Kurunagala','0377800800'),
 	(5,'Tokyo','Tokyo cement,Wallampitiya,Colombo.','0112532832');
 
 
+
+
+
 select * from customer;
 select * from delivery;
 select * from employee;
