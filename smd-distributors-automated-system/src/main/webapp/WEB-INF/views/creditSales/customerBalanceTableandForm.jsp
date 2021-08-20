@@ -1,3 +1,6 @@
+<%@ page import="com.smd.model."%><!--Import NewOrderCOnf.class-->
+<%@ page import="com.smd.service.CreditSalesM"%><!-- Import Database connection of creditSales -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="centerNav.jsp"></jsp:include>
 <div class="pt-2">
 	<center>
@@ -21,31 +24,18 @@
 	</thead>
 	<tbody>
 		<tr>
-			<th scope="row">1</th>
-			<td>Mark</td>
-			<td>Otto</td>
-			<td>@mdo</td>
-			<td>@mdo</td>
-			<td>@mdo</td>
-			<td>@mdo</td>
+		
+				
+				<td><c:out value="${Payment.getCusName()}" /></td>
+				<td><c:out value="${Payment.getInvoiceID()}" /></td>
+				<td><c:out value="${Payment.getDate()}" /></td>
+				<td><c:out value="${Payment.getProductCode()}" /></td>
+				<td><c:out value="${Payment.getQuantity()}" /></td>
+				<td><c:out value="${Payment.getTotalAmount()}" /></td>
+				<td><c:out value="${Payment.getBalance()}" /></td>k</td>
+			
+			
 		</tr>
-		<tr>
-			<th scope="row">2</th>
-			<td>Jacob</td>
-			<td>Thornton</td>
-			<td>@fat</td>
-			<td>@mdo</td>
-			<td>@mdo</td>
-			<td>@mdo</td>
-		</tr>
-		<tr>
-			<th scope="row">3</th>
-			<td>Larry</td>
-			<td>the Bird</td>
-			<td>@twitter</td>
-			<td>@mdo</td>
-			<td>@mdo</td>
-			<td>@mdo</td>
-		</tr>
+		
 	</tbody>
 </table>

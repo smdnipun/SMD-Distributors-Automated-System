@@ -1,3 +1,7 @@
+<%@ page import="com.smd.model.Payment"%><!--Import NewOrderCOnf.class-->
+<%@ page import="com.smd.service.CreditSalesM"%><!-- Import Database connection of creditSales -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 
 <div class="col-9">
 	<jsp:include page="centerNav.jsp"></jsp:include>
@@ -11,9 +15,6 @@
 			<tr>
 
 				<th scope="col">Customer</th>
-				<th scope="col">Customer Phone</th>
-				<th scope="col">Invoice No</th>
-				<th scope="col">Date</th>
 				<th scope="col">Total Amount</th>
 				<th scope="col">Paid Amount</th>
 				<th scope="col">Balance</th>
@@ -21,33 +22,18 @@
 			</tr>
 		</thead>
 		<tbody>
+		
 			<tr>
-				<th scope="row">1</th>
-				<td>Mark</td>
-				<td>Otto</td>
-				<td>@mdo</td>
-				<td>@mdo</td>
-				<td>@mdo</td>
-				<td>@mdo</td>
+
+		<!--  	<td><c:out value="${Payment.getCusName()}" /></td>
+				<td><c:out value="${Payment.getInvoiceID()}" /></td>
+				<td><c:out value="${Payment.getDate()}" /></td>
+				<td><c:out value="${Payment.getTotalAmount()}" /></td>
+				<td><c:out value="${Payment.getBalance()}" /></td>-->
+
 			</tr>
-			<tr>
-				<th scope="row">2</th>
-				<td>Jacob</td>
-				<td>Thornton</td>
-				<td>@fat</td>
-				<td>@mdo</td>
-				<td>@mdo</td>
-				<td>@mdo</td>
-			</tr>
-			<tr>
-				<th scope="row">3</th>
-				<td>Larry</td>
-				<td>the Bird</td>
-				<td>@twitter</td>
-				<td>@mdo</td>
-				<td>@mdo</td>
-				<td>@mdo</td>
-			</tr>
+	
+
 		</tbody>
 	</table>
 	<p align="right">

@@ -18,10 +18,10 @@ public Payment[] getPaymentdetails() {
 	DBConnection con = new DBConnection();
 	try {
 		Statement stmt = con.getConnection().createStatement();
-		ResultSet rs = stmt.executeQuery("select * from payment");
+		ResultSet rs = stmt.executeQuery("select * from paymentdetails");
 		while (rs.next()) {
 			Payment n = new Payment(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
-					rs.getString(5), rs.getInt(6), rs.getDouble(7), rs.getDouble(8));
+					rs.getString(5), rs.getInt(6), rs.getDouble(7), rs.getDouble(8),rs.getDouble(9));
 			ll.add(n);
 		}
 		array = ll.toArray(new Payment[ll.size()]);
@@ -40,7 +40,7 @@ public NewOrdersConf[] getNewOrderDetails() {
 	DBConnection con = new DBConnection();
 	try {
 		Statement stmt = con.getConnection().createStatement();
-		ResultSet rs = stmt.executeQuery("select * from ");
+		ResultSet rs = stmt.executeQuery("select * from neworders ");
 		while (rs.next()) {
 			NewOrdersConf n = new NewOrdersConf(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getDouble(4));
 			ll.add(n);
