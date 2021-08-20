@@ -6,11 +6,6 @@
 				aria-describedby="emailHelp" placeholder="Enter email">
 		</div>
 		<div class="form-group">
-			<label for="exampleInputPassword1">Item Name</label> <input
-				type="password" class="form-control" id="exampleInputPassword1"
-				placeholder="Password">
-		</div>
-		<div class="form-group">
 			<label for="exampleInputPassword1">Address</label> <input
 				type="password" class="form-control" id="exampleInputPassword1"
 				placeholder="Password">

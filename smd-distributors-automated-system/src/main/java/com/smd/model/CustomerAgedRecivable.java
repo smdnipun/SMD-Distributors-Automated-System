@@ -1,49 +1,40 @@
 package com.smd.model;
+
 //create CustomerAgedRecivable class
 public class CustomerAgedRecivable {
-
-	private String CusName;
-	private String InvoiceNo;
-	private String Date;
+	private String Cus_ID;
+	private String HardwareName;
 	private double TotalAmount;
 	private double PaidAmount;
 	private double Balance;
-	
-//constructor
-	public CustomerAgedRecivable(String cusName, String invoiceNo, String date, double totalAmount, double paidAmount,
+
+	// constructor
+
+	public CustomerAgedRecivable(String cus_ID, String hardwareName, double totalAmount, double paidAmount,
 			double balance) {
 		super();
-		CusName = cusName;
-		InvoiceNo = invoiceNo;
-		Date = date;
+		Cus_ID = cus_ID;
+		HardwareName = hardwareName;
 		TotalAmount = totalAmount;
 		PaidAmount = paidAmount;
 		Balance = balance;
 	}
 
-//setters and getters
-	public String getCusName() {
-		return CusName;
+	// setters and getters
+	public String getCus_ID() {
+		return Cus_ID;
 	}
 
-	public void setCusName(String cusName) {
-		CusName = cusName;
+	public void setCus_ID(String cus_ID) {
+		Cus_ID = cus_ID;
 	}
 
-	public String getInvoiceNo() {
-		return InvoiceNo;
+	public String getHardwareName() {
+		return HardwareName;
 	}
 
-	public void setInvoiceNo(String invoiceNo) {
-		InvoiceNo = invoiceNo;
-	}
-
-	public String getDate() {
-		return Date;
-	}
-
-	public void setDate(String date) {
-		Date = date;
+	public void setHardwareName(String hardwareName) {
+		HardwareName = hardwareName;
 	}
 
 	public double getTotalAmount() {

@@ -9,11 +9,13 @@ public class Payment {
 	private String ProductCode;
 	private int Quantity;
 	private double TotalAmount;
+	private double PaidAmount;
 	private double Balance;
 
 //Constructor
+
 	public Payment(String paymentID, String cusName, String invoiceID, String date, String productCode, int quantity,
-			double totalAmount, double balance) {
+			double totalAmount, double paidAmount, double balance) {
 		super();
 		PaymentID = paymentID;
 		CusName = cusName;
@@ -22,11 +24,11 @@ public class Payment {
 		ProductCode = productCode;
 		Quantity = quantity;
 		TotalAmount = totalAmount;
+		PaidAmount = paidAmount;
 		Balance = balance;
 	}
 
 	// Setters and getters
-
 	public String getPaymentID() {
 		return PaymentID;
 	}
@@ -81,6 +83,14 @@ public class Payment {
 
 	public void setTotalAmount(double totalAmount) {
 		TotalAmount = totalAmount;
+	}
+
+	public double getPaidAmount() {
+		return PaidAmount;
+	}
+
+	public void setPaidAmount(double paidAmount) {
+		PaidAmount = paidAmount;
 	}
 
 	public double getBalance() {
