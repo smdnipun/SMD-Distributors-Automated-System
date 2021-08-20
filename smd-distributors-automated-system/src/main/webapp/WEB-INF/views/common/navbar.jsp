@@ -13,6 +13,7 @@ request.setAttribute("navArray", navArray);
 			<a class="nav-link" id="v-tabs-home-tab" data-mdb-toggle="tab"
 				role="tab" aria-controls="v-tabs-home" aria-selected="true"
 				href=${nav.split(",")[1]}>${nav.split(",")[0]}</a>
+				
 		</c:forEach>
 	</div>
 </div>
