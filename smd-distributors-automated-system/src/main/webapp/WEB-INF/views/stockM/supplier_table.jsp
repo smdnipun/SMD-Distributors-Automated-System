@@ -1,5 +1,6 @@
 
-<div class="col-8 text-center align">
+
+<div class="col-7 justify-content-center">
 	<table class="table table-hover">
 		<caption>List of users</caption>
 		<thead>
