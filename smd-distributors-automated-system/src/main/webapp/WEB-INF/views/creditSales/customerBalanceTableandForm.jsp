@@ -1,6 +1,17 @@
-<%@ page import="com.smd.model."%><!--Import NewOrderCOnf.class-->
+<%@ page import="com.smd.model.Payment"%><!--Import NewOrderCOnf.class-->
 <%@ page import="com.smd.service.CreditSalesM"%><!-- Import Database connection of creditSales -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!--checking user logged or not -->
+<!-- creating array to get data from database -->
+<%
+if (request.getSession().getAttribute("Logged") == null) {
+	request.getSession().setAttribute("Logged", "Guest");
+}
+
+CreditSalesM dbc = new CreditSalesM();
+Payment[] payments = (Payment[]) dbc.getPaymentdetails();
+request.setAttribute("payments", payments);
+%>
 <jsp:include page="centerNav.jsp"></jsp:include>
 <div class="pt-2">
 	<center>
@@ -23,19 +34,21 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
-		
-				
+		<c:forEach items="${payments}" var="Payment">
+			<tr>
+
+
 				<td><c:out value="${Payment.getCusName()}" /></td>
 				<td><c:out value="${Payment.getInvoiceID()}" /></td>
 				<td><c:out value="${Payment.getDate()}" /></td>
 				<td><c:out value="${Payment.getProductCode()}" /></td>
 				<td><c:out value="${Payment.getQuantity()}" /></td>
 				<td><c:out value="${Payment.getTotalAmount()}" /></td>
-				<td><c:out value="${Payment.getBalance()}" /></td>k</td>
-			
-			
-		</tr>
-		
+				<td><c:out value="${Payment.getBalance()}" /></td>
+
+
+			</tr>
+		</c:forEach>
+
 	</tbody>
 </table>

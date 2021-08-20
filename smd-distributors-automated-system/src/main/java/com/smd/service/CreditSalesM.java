@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
+
+import com.smd.model.CustomerAgedRecivable;
 import com.smd.model.NewOrdersConf;
 import com.smd.model.Payment;
 
@@ -47,6 +49,27 @@ public NewOrdersConf[] getNewOrderDetails() {
 		}
 
 		array = ll.toArray(new NewOrdersConf[ll.size()]);
+
+	} catch (Exception e) {
+	}
+	return array;
+}
+
+//database connection of CustomerAged
+public CustomerAgedRecivable[] getCreditDetails() {
+	List<CustomerAgedRecivable> ll = new LinkedList<CustomerAgedRecivable>();
+	CustomerAgedRecivable[] array = null;
+	DBConnection con = new DBConnection();
+	try {
+		Statement stmt = con.getConnection().createStatement();
+		ResultSet rs = stmt.executeQuery("select * from customeraged");
+		while (rs.next()) {
+			CustomerAgedRecivable n = new CustomerAgedRecivable(rs.getString(1),rs.getString(2),rs.getDouble(3),rs. getDouble(4),
+					rs.getDouble(5));
+			ll.add(n);
+		}
+
+		array = ll.toArray(new CustomerAgedRecivable[ll.size()]);
 
 	} catch (Exception e) {
 	}

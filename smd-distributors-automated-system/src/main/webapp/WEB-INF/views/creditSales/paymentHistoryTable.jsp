@@ -3,6 +3,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!--checking user logged or not -->
 <!-- creating array to get data from database -->
+<%
+if (request.getSession().getAttribute("Logged") == null) {
+	request.getSession().setAttribute("Logged", "Guest");
+}
+
+CreditSalesM dbc = new CreditSalesM();
+Payment[] payments = (Payment[]) dbc.getPaymentdetails();
+request.setAttribute("payments", payments);
+%>
+
 
 <div class="col-9">
 	<jsp:include page="centerNav.jsp"></jsp:include>
@@ -18,7 +28,7 @@
 				<th scope="col">Payment ID</th>
 				<th scope="col">Customer</th>
 				<th scope="col">Invoice No</th>
-				<th scope="col">Date</th>
+				<th scope="col">Product Code</th>
 				<th scope="col">Total Amount</th>
 				<th scope="col">Paid Amount</th>
 				<th scope="col">Balance</th>
@@ -26,18 +36,16 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${data}" var="Payment">
+			<c:forEach items="${payments}" var="Payment">
 			<tr>
 				
 				<td><c:out value="${Payment.getPaymentID()}" /></td>
 				<td><c:out value="${Payment.getCusName()}" /></td>
 				<td><c:out value="${Payment.getInvoiceID()}" /></td>
-				<td><c:out value="${Payment.getDate()}" /></td>
 				<td><c:out value="${Payment.getProductCode()}" /></td>
-				<td><c:out value="${Payment.getQuantity()}" /></td>
+				<td><c:out value="${Payment.getPaidAmount()}" /></td>
 				<td><c:out value="${Payment.getTotalAmount()}" /></td>
-				<td><c:out value="${Payment.getBalance()}" /></td>
-				
+				<td><c:out value="${Payment.getBalance()}" /></td>	
 			</tr>
 			</c:forEach>
 		</tbody>
