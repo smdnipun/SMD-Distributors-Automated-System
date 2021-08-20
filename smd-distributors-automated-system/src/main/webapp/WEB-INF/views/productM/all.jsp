@@ -29,15 +29,7 @@
 		</div>
 	</div>
 	<div class="col-10 my-auto">
-		<div class="row">
-			<form action="../../search" method="post">
-				<input type="text" size="50" name="serach" />
-				<button type="submit" class="">
-					<i class="bi bi-search"></i>
-				</button>
-			</form>
-		</div>
-		<form action="../../deleteProduct" method="post">
+		<form action="">
 			<div class="row">
 				<div class="col-2">
 					<label>Product Price</label> <label>Product Price</label> <label>Product
@@ -84,10 +76,6 @@
 						</div>
 					</div>
 				</div>
-			</div>
-			<div>
-				<button type="submit" name="update">Update</button>
-				<button type="submit" name="delete">Delete</button>
 			</div>
 		</form>
 	</div>
