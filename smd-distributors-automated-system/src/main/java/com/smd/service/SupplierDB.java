@@ -8,6 +8,7 @@ import java.util.List;
 import com.smd.util.DBConnection;
 
 import com.smd.model.Supplier;
+
 public class SupplierDB{
 public Supplier[] geSupplierdetails() {
 	List<Supplier> ll = new LinkedList<Supplier>();
