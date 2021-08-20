@@ -14,7 +14,6 @@ public class Supplier {
 		this.itemName=itemName;
 		this.address=address;
 		this.tno=tno;
-		
 	}
 
 //Getters
@@ -56,10 +55,6 @@ public class Supplier {
 
 	public void setTno(int tno) {
 		this.tno = tno;
-	}
-
-	
-
-	
+	}	
 
 }
