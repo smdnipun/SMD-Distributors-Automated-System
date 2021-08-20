@@ -17,7 +17,7 @@ public class FeedbackServiceImpl implements IFeedback {
 		private static Statement state=null;
 		
 		public FeedbackServiceImpl() {
-			con=DBConnection.getConnection();
+//			con=DBConnection.getConnection();
 		}
 		
 	@Override
