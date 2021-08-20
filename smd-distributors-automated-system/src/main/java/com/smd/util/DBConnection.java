@@ -15,7 +15,7 @@ public class DBConnection {
 	private Connection con;
 
 	// This works according to singleton pattern
-	private DBConnection() {
+	public DBConnection() {
 
 	}
 
