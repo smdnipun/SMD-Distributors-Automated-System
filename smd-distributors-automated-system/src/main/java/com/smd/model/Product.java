@@ -2,6 +2,7 @@ package com.smd.model;
 
 public class Product {
 
+	private String productID;
 	private String name;
 	private String image;
 	private int quantity;
