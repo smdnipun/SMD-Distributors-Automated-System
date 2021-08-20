@@ -1,3 +1,17 @@
+<%@ page import="com.smd.model.CustomerAgedRecivable"%><!--Import NewOrderCOnf.class-->
+<%@ page import="com.smd.service.CreditSalesM"%><!-- Import Database connection of creditSales -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!--checking user logged or not -->
+<!-- creating array to get data from database -->
+<%
+if (request.getSession().getAttribute("Logged") == null) {
+	request.getSession().setAttribute("Logged", "Guest");
+}
+
+CreditSalesM dbc = new CreditSalesM();
+CustomerAgedRecivable[] customerAged = (CustomerAgedRecivable[]) dbc.getCreditDetails();
+request.setAttribute("data", customerAged);
+%>
 
 <div class="col-9">
 	<jsp:include page="centerNav.jsp"></jsp:include>
@@ -8,12 +22,10 @@
 	<table class="table table-hover">
 
 		<thead>
+		
 			<tr>
-
+				<th scope="col">CustomerID</th>
 				<th scope="col">Customer</th>
-				<th scope="col">Customer Phone</th>
-				<th scope="col">Invoice No</th>
-				<th scope="col">Date</th>
 				<th scope="col">Total Amount</th>
 				<th scope="col">Paid Amount</th>
 				<th scope="col">Balance</th>
@@ -21,33 +33,18 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<th scope="row">1</th>
-				<td>Mark</td>
-				<td>Otto</td>
-				<td>@mdo</td>
-				<td>@mdo</td>
-				<td>@mdo</td>
-				<td>@mdo</td>
+		<c:forEach items="${data}" var="CustomerAgedRecivable">
+		<tr>
+			<td><c:out value="${CustomerAgedRecivable.getCus_ID()}" /></td>
+		  	<td><c:out value="${CustomerAgedRecivable.getHardwareName()}" /></td>
+				<td><c:out value="${CustomerAgedRecivable.getTotalAmount()}" /></td>
+				<td><c:out value="${CustomerAgedRecivable.getPaidAmount()}" /></td>
+				<td><c:out value="${CustomerAgedRecivable.getBalance()}" /></td>
+
 			</tr>
+		
+			</c:forEach>
 			<tr>
-				<th scope="row">2</th>
-				<td>Jacob</td>
-				<td>Thornton</td>
-				<td>@fat</td>
-				<td>@mdo</td>
-				<td>@mdo</td>
-				<td>@mdo</td>
-			</tr>
-			<tr>
-				<th scope="row">3</th>
-				<td>Larry</td>
-				<td>the Bird</td>
-				<td>@twitter</td>
-				<td>@mdo</td>
-				<td>@mdo</td>
-				<td>@mdo</td>
-			</tr>
 		</tbody>
 	</table>
 	<p align="right">
