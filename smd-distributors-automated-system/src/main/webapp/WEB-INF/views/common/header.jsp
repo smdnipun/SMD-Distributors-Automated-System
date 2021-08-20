@@ -4,6 +4,9 @@
       padding-top: 1rem;
       background-color:#000000;
       padding-bottom: 0.5rem;
+      position:sticky;
+      top:0;
+      z-index:100;
     "
   >
    <div class="row">
