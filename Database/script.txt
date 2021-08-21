@@ -355,10 +355,9 @@ VALUES (3,'Holcim','Holcim Cement,Puttalam rd, Kurunagala','0377800800'),
 
 --PaymentDetails
  Create View PaymentDetails As 
-Select p.Pay_ID,c.Hardware_Name,o.Order_ID,p.Date,pd.Prod_ID,o.Qty,o.Total_Price,o.Paid_Amount,o.Remaining_Amount
-from customer c,orders o,payment p,product pd
-where  c.Cus_ID=o.Cust_ID and c.Cus_ID=p.Cus_ID and o.Cust_ID=p.Cus_ID and pd.Prod_ID=o.Product_ID;
-
+Select p.Pay_ID, c.Hardware_Name,c.Cus_ID, o.Order_ID,p.Date,pd.Prod_ID,o.Qty,o.Total_Price,o.Paid_Amount,o.Remaining_Amount,e.Emp_ID
+from customer c,orders o,payment p,product pd,employee e
+where  c.Cus_ID=o.Cust_ID and c.Cus_ID=p.Cus_ID and o.Cust_ID=p.Cus_ID and pd.Prod_ID=o.Product_ID and e.Emp_Type='cashCollector';
 
 --Customer Aged
 Create View CustomerAged AS
