@@ -44,7 +44,7 @@ public NewOrdersConf[] getNewOrderDetails() {
 		Statement stmt = con.getConnection().createStatement();
 		ResultSet rs = stmt.executeQuery("select * from neworders ");
 		while (rs.next()) {
-			NewOrdersConf n = new NewOrdersConf(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getDouble(4));
+			NewOrdersConf n = new NewOrdersConf(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getDouble(5));
 			ll.add(n);
 		}
 
