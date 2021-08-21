@@ -32,14 +32,6 @@
 		<jsp:param name="navs" value="home,/" />
 	</jsp:include>
 	<div class="col-10 my-auto">
-		<div class="row">
-			<form action="../../search" method="post">
-				<input type="text" size="50" name="serach" />
-				<button type="submit" class="">
-					<i class="bi bi-search"></i>
-				</button>
-			</form>
-		</div>
 		<form action="../../deleteProduct" method="post">
 			<div class="row">
 				<div class="col-2">
