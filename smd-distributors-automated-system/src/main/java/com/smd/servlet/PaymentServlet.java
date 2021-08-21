@@ -32,9 +32,9 @@ public class PaymentServlet extends HttpServlet {
 		CreditSalesM dbc = new CreditSalesM();
 		Payment pay = (Payment) request.getSession().getAttribute("Emp_ID");
 
-		pay.setPaidAmount(Double.parseDouble(request.getParameter("Amount")));
+		pay.setPaidAmount(Double.parseDouble(request.getParameter("PaidAmount"));
 		pay.setDate(request.getParameter("Date"));
-		pay.setInvoiceID(request.getParameter("Order_ID"));
+		pay.setInvoiceID(request.getParameter("InvoiceID"));
 		pay.setCusID(request.getParameter("CusID"));
 		pay.setEmpID(request.getParameter("EmpID"));
 
