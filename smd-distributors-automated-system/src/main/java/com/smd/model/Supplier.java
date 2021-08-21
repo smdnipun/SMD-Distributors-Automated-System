@@ -13,6 +13,24 @@ public class Supplier {
 		this.address=address;
 		this.tno=tno;
 	}
+	
+	//Setters
+		public void setSupplierID(String supplierID) {
+			this.supplierID = supplierID;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+		
+		public void setAddress(String address) {
+			this.address = address;
+		}
+
+		public void setTno(int tno) {
+			this.tno = tno;
+		}	
+
 
 //Getters
 	public String getSupplierID() {
@@ -30,21 +48,5 @@ public class Supplier {
 	public int getTno() {
 		return tno;
 	}
-//Setters
-	public void setSupplierID(String supplierID) {
-		this.supplierID = supplierID;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public void setTno(int tno) {
-		this.tno = tno;
-	}	
 
 }

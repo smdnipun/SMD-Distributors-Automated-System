@@ -1,19 +1,16 @@
 <div class="col-4">
-	<form >
+	<form action="../../Supplierservlet">
 		<div class="form-group">
-			<label for="exampleInputEmail1">Name</label> <input type="email"
-				class="form-control" id="exampleInputEmail1"
-				aria-describedby="emailHelp" placeholder="Enter email">
+			<label for="exampleInputEmail1">Name</label> <input type="text"
+				class="form-control" id="exampleInputEmail1" name="Name">
 		</div>
 		<div class="form-group">
 			<label for="exampleInputPassword1">Address</label> <input
-				type="password" class="form-control" id="exampleInputPassword1"
-				placeholder="Password">
+				type="text" class="form-control" id="exampleInputPassword1" name="Address">
 		</div>
 		<div class="form-group">
 			<label for="exampleInputPassword1">Telephone Number</label> <input
-				type="password" class="form-control" id="exampleInputPassword1"
-				placeholder="Password">
+				type="text" class="form-control" id="exampleInputPassword1" name="Tno">
 		</div>
 		
 		<button type="submit" class="btn btn-primary">Submit</button>
