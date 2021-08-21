@@ -4,11 +4,7 @@
 <body>
 	<script src="../js/table.js"></script>
 	<jsp:include page="../../WEB-INF/views/common/adminHeader.jsp"></jsp:include>
-	<div class="col-10">
-<form action="../../viewadmin" method="post">
-<button type="submit">submit</button>
-</form>
-</div>
+	<jsp:include page="../../WEB-INF/views/OrderM/AdminHome.jsp"></jsp:include>
 	<jsp:include page="../../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
 </body>
 </html>

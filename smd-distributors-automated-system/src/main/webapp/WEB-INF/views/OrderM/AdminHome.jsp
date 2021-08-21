@@ -8,9 +8,14 @@
 </head>
 <body>
 <div class="col-10">
-<form action="../../viewadmin" method="post">
+<form action=<%=request.getContextPath() + "/viewadmin"%> method="post">
 <button type="submit">submit</button>
 </form>
+
+<form action=<%=request.getContextPath() + "/monthlyOrderreport"%> method="post">
+<button type="submit">Generate Monthly Report</button>
+</form>
+
 </div>
 
 </body>

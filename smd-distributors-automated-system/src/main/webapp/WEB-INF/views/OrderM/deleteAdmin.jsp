@@ -21,7 +21,7 @@
 	String pid=request.getParameter("pty");
 
 %>
-	<form action=<%=request.getContextPath() + "/updateadmin"%> method="post">
+	<form action=<%=request.getContextPath() + "/deleteadmin"%> method="post">
 	
 <div class="mb-3">
   <label for="formGroupExampleInput2" class="form-label">Order ID</label>
@@ -33,31 +33,31 @@
 </div>
 <div class="mb-3">
   <label for="formGroupExampleInput" class="form-label">Order Date</label>
-  <input type="text" class="form-control" id="formGroupExampleInput" value="<%=odate %>" name="ODATE">
+  <input type="text" class="form-control" id="formGroupExampleInput" value="<%=odate %>" name="ODATE" readonly>
 </div>
 <div class="mb-3">
   <label for="formGroupExampleInput2" class="form-label">Order States</label>
-  <input type="text" class="form-control" id="formGroupExampleInput2" value="<%=ostate %>" name="OSTATES">
+  <input type="text" class="form-control" id="formGroupExampleInput2" value="<%=ostate %>" name="OSTATES" readonly>
 </div>
 <div class="mb-3">
   <label for="formGroupExampleInput" class="form-label">Total price</label>
-  <input type="text" class="form-control" id="formGroupExampleInput" value="<%=tprice %>"  name="TPRICE">
+  <input type="text" class="form-control" id="formGroupExampleInput" value="<%=tprice %>"  name="TPRICE" readonly>
 </div>
 <div class="mb-3">
   <label for="formGroupExampleInput2" class="form-label">Paid Amount</label>
-  <input type="text" class="form-control" id="formGroupExampleInput2" value="<%=pamount %>" name="PAT">
+  <input type="text" class="form-control" id="formGroupExampleInput2" value="<%=pamount %>" name="PAT" readonly>
 </div>
 <div class="mb-3">
   <label for="formGroupExampleInput2" class="form-label">Remain Amount</label>
-  <input type="text" class="form-control" id="formGroupExampleInput2" value="<%=ramount %>" name="RAT">
+  <input type="text" class="form-control" id="formGroupExampleInput2" value="<%=ramount %>" name="RAT" readonly>
 </div>
 <div class="mb-3">
   <label for="formGroupExampleInput2" class="form-label">Quantity</label>
-  <input type="text" class="form-control" id="formGroupExampleInput2" value="<%=qty %>" name="QTY">
+  <input type="text" class="form-control" id="formGroupExampleInput2" value="<%=qty %>" name="QTY" readonly>
 </div>
 <div class="mb-3">
   <label for="formGroupExampleInput2" class="form-label">Product ID</label>
-  <input type="text" class="form-control" id="formGroupExampleInput2" value="<%=pid %>" name="PID">
+  <input type="text" class="form-control" id="formGroupExampleInput2" value="<%=pid %>" name="PID" readonly>
 </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

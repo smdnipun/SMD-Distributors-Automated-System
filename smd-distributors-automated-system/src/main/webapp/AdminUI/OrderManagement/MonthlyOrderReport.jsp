@@ -6,8 +6,7 @@
 <body>
 	<script src="../js/table.js"></script>
 	<jsp:include page="../../WEB-INF/views/common/adminHeader.jsp"></jsp:include>
-	<jsp:include page="../../WEB-INF/views/OrderM/Adminview.jsp"></jsp:include>
+	<jsp:include page="../../WEB-INF/views/OrderM/MonthlyOrderReport.jsp"></jsp:include>
 	<jsp:include page="../../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
 </body>
 </html>
-

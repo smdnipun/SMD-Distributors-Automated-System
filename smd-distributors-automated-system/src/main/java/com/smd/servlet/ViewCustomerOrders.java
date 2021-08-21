@@ -1,7 +1,6 @@
 package com.smd.servlet;
 
 import java.io.IOException;
-
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -15,21 +14,19 @@ import com.smd.model.Order;
 import com.smd.service.OrderM;
 
 /**
- * Servlet implementation class viewAdminOrders
+ * Servlet implementation class ViewCustomerOrders
  */
-@WebServlet("/viewAdminOrders")
-public class viewAdminOrders extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-   
+@WebServlet("/ViewCustomerOrders")
+public class ViewCustomerOrders extends HttpServlet {
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-	List<Order> orderdetails=	OrderM.ViewOrder();
-	request.setAttribute("orderdetails", orderdetails);
-	
-	RequestDispatcher dis=request.getRequestDispatcher("AdminUI/OrderManagement/OrderAdmin.jsp");
-	dis.forward(request, response);
-	
+		List<Order> order=OrderM.ViewOrderCustomer();
+		
+		request.setAttribute("orderdetails", order);
+		
+		RequestDispatcher dis=request.getRequestDispatcher("MyOrders.jsp");
+		dis.forward(request, response);
 	}
 
 }

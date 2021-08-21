@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    	 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-   
+     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +13,8 @@
 <table class="table">
   <thead>
     <tr>
-       <th scope="col">Order ID</th>
+     
+      <th scope="col">Order ID</th>
        <th scope="col">Customer ID</th>
        <th scope="col">Order Date</th>
        <th scope="col">Order States</th>
@@ -44,7 +44,7 @@
   <c:set var="pty" value="${orders.PID}"/>
  
 
-      <th scope="row">${orders.OID}</th>
+      <th scope="row">${orders.OID}</th> 
       <td>${orders.CID}</td>
       <td>${orders.ODATE}</td>
       <td>${orders.OSTATE}</td>
@@ -55,7 +55,7 @@
       <td> ${orders.PID}</td>
       <td>
      
-      <c:url value="AdminUI/OrderManagement/UpdateOrderAdmin.jsp" var="orderupdate">
+      <c:url value="UpdateOrder.jsp" var="orderupdate">
       <c:param name="oid" value="${oid}"/>
       <c:param name="cid" value="${cid}"/>
       <c:param name="odate" value="${odate}"/>
@@ -76,7 +76,7 @@
       </td>
       
       <td>
-      <c:url value="AdminUI/OrderManagement/DeleteOrderAdmin.jsp" var="orderdelete">
+      <c:url value="DeleteOrder.jsp" var="orderdelete">
       <c:param name="oid" value="${oid}"/>
       <c:param name="cid" value="${cid}"/>
       <c:param name="odate" value="${odate}"/>
@@ -104,7 +104,6 @@
 </table>
 
 </div>
+
 </body>
 </html>
-
-

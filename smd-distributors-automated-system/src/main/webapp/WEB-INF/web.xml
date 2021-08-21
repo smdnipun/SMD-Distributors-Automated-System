@@ -23,5 +23,61 @@
 		<servlet-name>viewadminorder</servlet-name>
 		<url-pattern>/viewadmin</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>updateadminorder</servlet-name>
+		<servlet-class>com.smd.servlet.UpdateAdminOrders</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>updateadminorder</servlet-name>
+		<url-pattern>/updateadmin</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>deleteadminorder</servlet-name>
+		<servlet-class>com.smd.servlet.DeleteOrderAdmin</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>deleteadminorder</servlet-name>
+		<url-pattern>/deleteadmin</url-pattern>
+	</servlet-mapping>
+         
+         <servlet>
+		<servlet-name>viewcustomerOrder</servlet-name>
+		<servlet-class>com.smd.servlet.ViewCustomerOrders</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>viewcustomerOrder</servlet-name>
+		<url-pattern>/viewOrderCustomer</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>updatecustomerOrder</servlet-name>
+		<servlet-class>com.smd.servlet.UpdateCustomerOrders</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>updatecustomerOrder</servlet-name>
+		<url-pattern>/updateOrderCustomer</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>deletecustomerOrder</servlet-name>
+		<servlet-class>com.smd.servlet.DeleteCustomerOrders</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>deletecustomerOrder</servlet-name>
+		<url-pattern>/deleteOrderCustomer</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>monthlyOrderreport</servlet-name>
+		<servlet-class>com.smd.servlet.MonthlyOrderReport</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>monthlyOrderreport</servlet-name>
+		<url-pattern>/monthlyOrderreport</url-pattern>
+	</servlet-mapping>
+         
+         
          
     </web-app>
