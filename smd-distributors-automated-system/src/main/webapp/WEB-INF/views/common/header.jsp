@@ -26,6 +26,7 @@
        </div>
      </div>
      <div class="col-sm">
+     <% if(request.getServletPath().equals("/index.jsp")){ %>
        <div class="input-group mb-3">
          <input
            type="text"
@@ -39,6 +40,7 @@
            ></span>
          </div>
        </div>
+       <%} %>
      </div>
      <div class="col-sm d-flex justify-content-end">
        <i
