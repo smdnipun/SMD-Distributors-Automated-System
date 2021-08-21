@@ -1,5 +1,5 @@
 <div class="col-4">
-	<form>
+	<form >
 		<div class="form-group">
 			<label for="exampleInputEmail1">Name</label> <input type="email"
 				class="form-control" id="exampleInputEmail1"
@@ -17,5 +17,6 @@
 		</div>
 		
 		<button type="submit" class="btn btn-primary">Submit</button>
+		
 	</form>
 </div>

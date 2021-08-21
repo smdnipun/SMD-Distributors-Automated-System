@@ -23,7 +23,6 @@
 		</div>
 
 
-
-		<button type="submit" class="btn btn-primary">Add stock</button>
+		<button type="Add Stock" class="btn btn-primary">Add stock</button>
 	</form>
 </div>

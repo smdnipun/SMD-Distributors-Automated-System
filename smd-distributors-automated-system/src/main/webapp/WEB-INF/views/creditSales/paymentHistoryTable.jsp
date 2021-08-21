@@ -1,6 +1,9 @@
 <%@ page import="com.smd.model.Payment"%><!--Import NewOrderCOnf.class-->
 <%@ page import="com.smd.service.CreditSalesM"%><!-- Import Database connection of creditSales -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<link rel="stylesheet"
+	href=<%=request.getContextPath() + "/css/table.css"%>>
+<script src=<%=request.getContextPath() + "/js/table.js"%>></script>
 <!--checking user logged or not -->
 <!-- creating array to get data from database -->
 <%
@@ -20,7 +23,7 @@ request.setAttribute("payments", payments);
 		<h5>Customer Payments</h5>
 	</center>
 
-	<table class="table table-hover">
+	<table id="customerDetails" class="display nowrap" style="width: 100%">
 
 		<thead>
 			<tr>
@@ -37,16 +40,16 @@ request.setAttribute("payments", payments);
 		</thead>
 		<tbody>
 			<c:forEach items="${payments}" var="Payment">
-			<tr>
-				
-				<td><c:out value="${Payment.getPaymentID()}" /></td>
-				<td><c:out value="${Payment.getCusName()}" /></td>
-				<td><c:out value="${Payment.getInvoiceID()}" /></td>
-				<td><c:out value="${Payment.getProductCode()}" /></td>
-				<td><c:out value="${Payment.getPaidAmount()}" /></td>
-				<td><c:out value="${Payment.getTotalAmount()}" /></td>
-				<td><c:out value="${Payment.getBalance()}" /></td>	
-			</tr>
+				<tr>
+
+					<td><c:out value="${Payment.getPaymentID()}" /></td>
+					<td><c:out value="${Payment.getCusName()}" /></td>
+					<td><c:out value="${Payment.getInvoiceID()}" /></td>
+					<td><c:out value="${Payment.getProductCode()}" /></td>
+					<td><c:out value="${Payment.getPaidAmount()}" /></td>
+					<td><c:out value="${Payment.getTotalAmount()}" /></td>
+					<td><c:out value="${Payment.getBalance()}" /></td>
+				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
