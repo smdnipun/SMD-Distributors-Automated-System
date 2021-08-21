@@ -2,15 +2,16 @@ package com.smd.model;
 
 //create NewOrders class
 public class NewOrdersConf {
-
+	private String OrderID;
 	private String Customer;
 	private String Date;
 	private int Quantity;
 	private double TotalPrice;
 
 //constructor
-	public NewOrdersConf(String customer, String date, int quantity, double totalPrice) {
+	public NewOrdersConf(String orderID, String customer, String date, int quantity, double totalPrice) {
 		super();
+		OrderID = orderID;
 		Customer = customer;
 		Date = date;
 		Quantity = quantity;
@@ -18,6 +19,15 @@ public class NewOrdersConf {
 	}
 
 //setters and getters
+
+	public String getOrderID() {
+		return OrderID;
+	}
+
+	public void setOrderID(String orderID) {
+		OrderID = orderID;
+	}
+
 	public String getCustomer() {
 		return Customer;
 	}
