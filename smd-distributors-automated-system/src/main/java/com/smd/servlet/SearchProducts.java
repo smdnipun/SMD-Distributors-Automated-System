@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.smd.model.Product;
+import com.smd.service.ProductDB;
 import com.smd.util.DBConnection;
 
 @WebServlet("/searchP")
@@ -20,22 +21,11 @@ public class SearchProducts extends HttpServlet {
     }
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		DBConnection dbc = new DBConnection();
-
-		Product[] ProductData = dbc.search("tokyo");
-		request.setAttribute("ProductData", ProductData);
-		RequestDispatcher rd = request.getRequestDispatcher("admin/ProductM/all.jsp");
-		rd.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		DBConnection dbc = new DBConnection();
-
-		Product[] ProductData = dbc.search(request.getParameter("search"));
-		request.setAttribute("ProductData", ProductData);
-		//response.getWriter().append();
-//		RequestDispatcher rd = request.getRequestDispatcher("admin/ProductM/all.jsp");
-//		rd.forward(request, response);
+		String url="admin/ProductM/all.jsp?search="+request.getParameter("search");
+		response.sendRedirect(url);
 	}
 
 }

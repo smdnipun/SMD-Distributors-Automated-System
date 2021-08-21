@@ -2,6 +2,8 @@
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.LinkedList"%>
 <%@ page import="com.smd.model.Product"%>
+<%@ page import="com.smd.service.ProductDB"%>
+
 <div class="row">
 	<div class="col-2" style="background-color: #E0E0E2;">
 		<div class="nav flex-column nav-tabs" id="v-tabs-tab" role="tablist"
@@ -35,14 +37,33 @@
 	<div class="col-10 my-auto">
 		<div class="row">
 			<form action="../../searchP" method="post">
-				<input type="text" size="50" name="serach" />
+				<input type="text" size="50" name="search" />
 				<button type="submit" class="">
 					<i class="bi bi-search"></i>
 				</button>
 			</form>
 		</div>
-		<c:forEach items="${ProductData}" var="product">
-			<b><c:out value="${product.getName()}" /></b>
-		</c:forEach>
+		<c:choose>
+			<c:when test="${param.search==null}">
+				<%
+				ProductDB con = new ProductDB();
+				Product[] allProducts = con.getAllProducts();
+				request.setAttribute("allProducts", allProducts);
+				%>
+				<c:forEach items="${allProducts}" var="product">
+					<b><c:out value="${product.getName()}" /></b>
+				</c:forEach>
+			</c:when>
+			<c:otherwise>
+				<%
+				ProductDB con = new ProductDB();
+				Product[] searchData = con.search(request.getParameter("search"));
+				request.setAttribute("searchData", searchData);
+				%>
+				<c:forEach items="${searchData}" var="product">
+					<b>jjjjj</b>
+				</c:forEach>
+			</c:otherwise>
+		</c:choose>
 	</div>
 </div>
