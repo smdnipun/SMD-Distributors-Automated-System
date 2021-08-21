@@ -1,3 +1,19 @@
+<%@ page import="com.smd.model.Customer"%><!--Import Customer class-->
+<%@ page import="com.smd.service.CusDetailsServiceImpl"%><!-- Import Database connection of CusDetailsServiceImpl -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<!--checking user logged or not -->
+<!-- creating array to get data from database -->
+<%
+if (request.getSession().getAttribute("Logged") == null) {
+	request.getSession().setAttribute("Logged", "Guest");
+}
+
+CusDetailsServiceImpl dbc = new CusDetailsServiceImpl();
+Customer[] cusDetails = dbc.activeCustomers();
+request.setAttribute("data", cusDetails);
+%>
+
 <div class="row">
 	<div class="col-2">
 		<jsp:include page="./customerAdminNavBar.jsp"></jsp:include>
@@ -21,8 +37,8 @@
 			                <th>Address</th>
 			            </tr>
 			        </thead>
-			        <tbody><!-- 
-			          	<c:forEach items="${data}" var="customers"> 
+			        <tbody>
+			          	<c:forEach items="${data}" var="Customer"> 
 			           		<tr>
 					    	 	<td><c:out value="${Customer.getCusID()}" /></td>
 					    	 	<td><c:out value="${Customer.getFname()}" /></td>
@@ -34,7 +50,7 @@
 					    	 	<td><c:out value="${Customer.getEmail()}" /></td>
 					    	 	<td><c:out value="${Customer.getAddress()}" /></td>
 				    	 	</tr>
-			   			</c:forEach> -->
+			   			</c:forEach>
 			        </tbody>
 			    </table>
 			</div>
@@ -45,31 +61,31 @@
                     <legend class="d-flex justify-content-center">Customer Details</legend>
                     <div>
                     	<label for="Customer_ID">Cus_No :</label><br>
-                        <input type="text" id="cus_id" name="cus_id" value="cus_id" size="31" disabled><br>
+                        <input type="text" id="cus_id" name="cus_id" size="31" disabled><br>
                     
                         <label for="fname">First Name :</label><br>
-                        <input type="text" id="fname" name="fname" value="fname" size="31"><br>
+                        <input type="text" id="fname" name="fname" size="31"><br>
 
                         <label for="lname">Last Name :</label><br>
-                        <input type="text" id="lname" name="lname" value="lname" size="31"><br>
+                        <input type="text" id="lname" name="lname" size="31"><br>
                         
                         <label for="hname">Shop Name :</label><br>
-                        <input type="text" id="hname" name="hname" value="hname" size="31"><br>
+                        <input type="text" id="hname" name="hname" size="31"><br>
                         
                         <label for="hname">Username :</label><br>
-                        <input type="text" id="username" name="username" value="username" size="31"><br>
+                        <input type="text" id="username" name="username" size="31"><br>
                         
                         <label for="nic">NIC :</label><br>
-                        <input type="number" id="nic" name="nic" value="nic" size="31"><br>
+                        <input type="number" id="nic" name="nic" size="31"><br>
                         
                         <label for="pno">Telephone :</label><br>
-                        <input type ="tel" id="pno" name="pno" value="pno" size="31" pattern="[0-9]{11}"><br>
+                        <input type ="tel" id="pno" name="pno" size="31" pattern="[0-9]{11}"><br>
 
                         <label for="email">Email :</label><br>
-                        <input type="email" id="email" name="email" value="email" size="31" pattern="[a-z 0-9 .+-_%]+@+[a-z 0-9 +-_%]+\.[a-z]{2,3}"><br>
+                        <input type="email" id="email" name="email" size="31" pattern="[a-z 0-9 .+-_%]+@+[a-z 0-9 +-_%]+\.[a-z]{2,3}"><br>
 
 						<label for="adress">Address :</label><br>
-                        <input type="text" id="adress" name="address" value="address" size="31"><br>
+                        <input type="text" id="adress" name="address" size="31"><br>
                     </div>
                     <div class="d-flex justify-content-around pt-3 pb-2">
                         <button type="submit" id="updateD" class="btn btn-primary">Update</button>
