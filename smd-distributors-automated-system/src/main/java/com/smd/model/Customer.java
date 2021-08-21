@@ -1,152 +1,124 @@
 package com.smd.model;
 
 public class Customer {
-
-		private String CusID;
-		private String FirstName;
-		private String LastName;
-		private String HardwareName;
-		private int Phone;
-		private String UserName;
-		private String Password;
-		private String NIC;
-		private String Email;
-		private String Address;
+		private String cusID;
+		private String fname;
+		private String lname;
+		private String hardwareName;
+		private String phoneNo;
+		private String username;
+		private String password;
+		private String nic;
+		private String email;
+		private String address;
+		private String status;
 		
+		/*customer Constructor*/
 		
-		
-		public Customer(String cusID, String firstName, String lastName, String hardwareName, int phone,
-				String userName, String password, String nIC, String email, String address) {
+		public Customer(String cusID, String fname, String lname, String hardwareName, String phoneNo, String username,
+				String password, String nic, String email, String address, String status) {
 			super();
-			CusID = cusID;
-			FirstName = firstName;
-			LastName = lastName;
-			HardwareName = hardwareName;
-			Phone = phone;
-			UserName = userName;
-			Password = password;
-			NIC = nIC;
-			Email = email;
-			Address = address;
+			this.cusID = cusID;
+			this.fname = fname;
+			this.lname = lname;
+			this.hardwareName = hardwareName;
+			this.phoneNo = phoneNo;
+			this.username = username;
+			this.password = password;
+			this.nic = nic;
+			this.email = email;
+			this.address = address;
+			this.status = status;
 		}
 
-
-
+		/*Getters and setters*/
+		
 		public String getCusID() {
-			return CusID;
+			return cusID;
 		}
-
-
 
 		public void setCusID(String cusID) {
-			CusID = cusID;
+			this.cusID = cusID;
 		}
 
-
-
-		public String getFirstName() {
-			return FirstName;
+		public String getFname() {
+			return fname;
 		}
 
-
-
-		public void setFirstName(String firstName) {
-			FirstName = firstName;
+		public void setFname(String fname) {
+			this.fname = fname;
 		}
 
-
-
-		public String getLastName() {
-			return LastName;
+		public String getLname() {
+			return lname;
 		}
 
-
-
-		public void setLastName(String lastName) {
-			LastName = lastName;
+		public void setLname(String lname) {
+			this.lname = lname;
 		}
-
-
 
 		public String getHardwareName() {
-			return HardwareName;
+			return hardwareName;
 		}
-
-
 
 		public void setHardwareName(String hardwareName) {
-			HardwareName = hardwareName;
+			this.hardwareName = hardwareName;
 		}
 
-
-
-		public int getPhone() {
-			return Phone;
+		public String getPhoneNo() {
+			return phoneNo;
 		}
 
-
-
-		public void setPhone(int phone) {
-			Phone = phone;
+		public void setPhoneNo(String phoneNo) {
+			this.phoneNo = phoneNo;
 		}
 
-
-
-		public String getUserName() {
-			return UserName;
+		public String getUsername() {
+			return username;
 		}
 
-
-
-		public void setUserName(String userName) {
-			UserName = userName;
+		public void setUsername(String username) {
+			this.username = username;
 		}
-
-
 
 		public String getPassword() {
-			return Password;
+			return password;
 		}
-
-
 
 		public void setPassword(String password) {
-			Password = password;
+			this.password = password;
 		}
-
-
 
 		public String getNIC() {
-			return NIC;
+			return nic;
 		}
 
-
-
-		public void setNIC(String nIC) {
-			NIC = nIC;
+		public void setNIC(String nic) {
+			this.nic = nic;
 		}
-
-
 
 		public String getEmail() {
-			return Email;
+			return email;
 		}
-
-
 
 		public void setEmail(String email) {
-			Email = email;
+			this.email = email;
 		}
-
-
 
 		public String getAddress() {
-			return Address;
+			return address;
 		}
-
-
 
 		public void setAddress(String address) {
-			Address = address;
+			this.address = address;
 		}
+
+		public String getStatus() {
+			return status;
+		}
+
+		public void setStatus(String status) {
+			this.status = status;
+		}
+	
 }
