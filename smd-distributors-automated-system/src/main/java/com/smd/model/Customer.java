@@ -1,7 +1,7 @@
 package com.smd.model;
 
 public class Customer {
-		private int cusID;
+		private String cusID;
 		private String fname;
 		private String lname;
 		private String hardwareName;
@@ -11,11 +11,12 @@ public class Customer {
 		private String nic;
 		private String email;
 		private String address;
+		private String status;
 		
 		/*customer Constructor*/
 		
-		public Customer(int cusID, String fname, String lname, String hardwareName, String phoneNo, String username,
-				String password, String nic, String email, String address) {
+		public Customer(String cusID, String fname, String lname, String hardwareName, String phoneNo, String username,
+				String password, String nic, String email, String address, String status) {
 			super();
 			this.cusID = cusID;
 			this.fname = fname;
@@ -27,15 +28,16 @@ public class Customer {
 			this.nic = nic;
 			this.email = email;
 			this.address = address;
+			this.status = status;
 		}
 
 		/*Getters and setters*/
 		
-		public int getCusID() {
+		public String getCusID() {
 			return cusID;
 		}
 
-		public void setCusID(int cusID) {
+		public void setCusID(String cusID) {
 			this.cusID = cusID;
 		}
 
@@ -109,6 +111,14 @@ public class Customer {
 
 		public void setAddress(String address) {
 			this.address = address;
+		}
+
+		public String getStatus() {
+			return status;
+		}
+
+		public void setStatus(String status) {
+			this.status = status;
 		}
 	
 }
