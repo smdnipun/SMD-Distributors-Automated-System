@@ -13,13 +13,13 @@ if (request.getSession().getAttribute("Logged") == null) {
 
 StockDB dbc = new StockDB();
 Stock[] newstock = (Stock[]) dbc.getStockdetails();
-request.setAttribute("data", newstock);
+request.setAttribute("stockdata", newstock);
 %>
 
 
 <div class="col-8 text-center align">
 	<table class="table table-hover">
-		<caption>List of users</caption>
+		
 		<thead>
 			<tr>
 				<th scope="col">Stock ID</th>
@@ -30,13 +30,23 @@ request.setAttribute("data", newstock);
 			</tr>
 		</thead>
 		<tbody>
-		<c:forEach items="${data}" var="Supplier">
+		<c:forEach items="${stockdata}" var="Stock">
 			<tr>
-				<th scope="row">1</th>
-				<td><c:out value="${NewStock.getStockID}"/></td>
-				<td><c:out value="${NewStock.getItemName}"/></td>
-				<td><c:out value="${NewStock.getQuntity}"/></td>
-				<td><c:out value="${NewStock.getDate}"/></td>
+			
+							<th scope="row">1</th>
+			<td><input type="text" name="name"
+						value="<c:out value="${Stock.getStockID()}"/>"></td>
+					<td><input type="text" name="name"
+						value="<c:out value="${Stock.getItemName()}"/>"></td>
+					<td><input type="text" name="name"
+						value="<c:out value="${Stock.getQuntity()}"/>"></td>
+					<td><input type="text" name="name"
+						value="<c:out value="${Stock.getDate()}"/>"></td>
+				<%-- <th scope="row">1</th>
+				<td><c:out value="${Stock.getStockID()}"/></td>
+				<td><c:out value="${Stock.getItemName()}"/></td>
+				<td><c:out value="${Stock.getQuntity()}"/></td>
+				<td><c:out value="${Stock.getDate()}"/></td> --%>
 				<td>
 				<button type="button" class="btn btn-light">UPDATE</button>
 				</td>

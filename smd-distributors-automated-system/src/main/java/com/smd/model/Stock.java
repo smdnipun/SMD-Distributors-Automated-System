@@ -2,17 +2,16 @@ package com.smd.model;
 //Create Stock Class
 public class Stock {
 	
-	private String itemID;
+	private int itemID;
 	private String itemName;
 	private int quntity;
 	private String date;
 	
 //Constructor
-	public Stock(String itemID, String itemName, int quntity, String date) {
+	public Stock(int itemID, String itemName, String date, int quntity) {
 		this.itemID=itemID;
 		this.itemName=itemName;
 		this.quntity=quntity;
-
 		this.date=date;
 	}
 	
@@ -21,7 +20,7 @@ public Stock() {
 	}
 
 	//Getters
-	public String getItemID() {
+	public int getItemID() {
 		return itemID;
 	}
 
@@ -38,7 +37,7 @@ public Stock() {
 	}
 	
 //Setters
-	public void setItemID(String itemID) {
+	public void setItemID(int itemID) {
 		this.itemID = itemID;
 	}
 
