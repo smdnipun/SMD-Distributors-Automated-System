@@ -25,5 +25,5 @@ public interface ICustomerDetails {
 //	public boolean updateUserProfile(Customer customer);
 	
 	//Delete customer Details
-	public boolean setStatus();
+	public boolean setStatus(String id);
 }

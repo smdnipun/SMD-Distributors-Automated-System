@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.smd.model.Customer;
 import com.smd.service.CusDetailsServiceImpl;
+import com.smd.service.ICustomerDetails;
 import com.smd.util.DBConnection;
 
 /**
@@ -19,33 +20,24 @@ import com.smd.util.DBConnection;
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public RegisterServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//creating database connection
-		DBConnection dbc = new DBConnection();
 		//creating customer object to set the values
 		Customer customer = new Customer();
 		
-		CusDetailsServiceImpl cusDetails = new CusDetailsServiceImpl();
+		//create an object of CusDetailsServiceImpl to check the data
+		ICustomerDetails cusDetails = new CusDetailsServiceImpl();
+		
+		//Creating customer array to get customer details from CusDetailsServiceImpl
+		Customer[] CustomerData = cusDetails.getCustomerDetails();
 		
 		//setting the values taken from the registration page
 		customer.setFname(request.getParameter("fname"));
@@ -64,8 +56,6 @@ public class RegisterServlet extends HttpServlet {
 		//checking the password is correctly enter in both fields(password and re-enter password)
 		if(request.getParameter("pwd").equals(request.getParameter("rpwd"))) {
 			
-			Customer[] CustomerData = cusDetails.getCustomerDetails();
-			
 			//checking the database whether an account with the same email exist
 			for(int i=0;i<CustomerData.length;i++) {
 				if((CustomerData[i].getEmail().equals(request.getParameter("email")))) {
@@ -75,32 +65,28 @@ public class RegisterServlet extends HttpServlet {
 					break;
 				}
 			}
-			try {
-				//calling the addCustomer function in CusDetailsServiceImpl and getting the status
-				boolean status = cusDetails.addCustomer(customer);
-				
-				if(status == true){//if the data was passed to the database successfully
-					response.sendRedirect("./login.jsp");
-				}
-				else{//if the data was not passed to the database
-					//redirect to the registration page
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("./registration.jsp");
-					
-					//display an error message
-					request.setAttribute("message", "There was an error please try again!!!");
-					dispatcher.forward(request, response);
-				}
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
 			
+			//calling the addCustomer function in CusDetailsServiceImpl and getting the status
+			boolean status = cusDetails.addCustomer(customer);
+			
+			if(status == true){//if the data was passed to the database successfully
+				response.sendRedirect("./login.jsp");
+			}
+			else{//if the data was not passed to the database
+				//redirect to the registration page
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("./registration.jsp");
+				
+				//display an error message
+				request.setAttribute("message", "There was an error please try again!!!");
+				dispatcher.forward(request, response);
+			}
 		}
 		else {
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("./registration.jsp");
 			request.setAttribute("message", "Password mismatch!!!");
 			dispatcher.forward(request, response);
 		}
-//		response.getWriter().append();
+		
 	}
 
 }

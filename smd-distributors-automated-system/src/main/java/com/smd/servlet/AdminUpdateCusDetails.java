@@ -7,17 +7,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.smd.model.Customer;
-import com.smd.service.CusDetailsServiceImpl;
-
 /**
- * Servlet implementation class inactiveCustomers
+ * Servlet implementation class AdminUpdateCusDetails
  */
-@WebServlet("/InactiveCustomers")
-public class InactiveCustomers extends HttpServlet {
+@WebServlet("/AdminUpdateCusDetails")
+public class AdminUpdateCusDetails extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public InactiveCustomers() {
+    public AdminUpdateCusDetails() {
         super();
     }
 
@@ -27,18 +24,6 @@ public class InactiveCustomers extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		try {
-			CusDetailsServiceImpl cusDetails = new CusDetailsServiceImpl();
-			Customer[] data = cusDetails.inactiveCustomers();//get inactive customers
-			
-			//creating a session
-			request.getSession().setAttribute("data", data);
-			
-			//redirecting servlet
-			response.sendRedirect("CustomerDetails.jsp");
-		} catch (Exception e) {
-			response.getWriter().append(e.toString());
-		}
 	}
 
 }

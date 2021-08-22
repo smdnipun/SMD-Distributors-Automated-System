@@ -21,6 +21,11 @@ request.setAttribute("data", cusDetails);
 	<div class="col-10 pr-3 pt-2 pb-2">
 		<jsp:include page="./cDetailsHnav.jsp"></jsp:include>
 		<div class="row pt-3 table-responsive-md">
+			<div style = "color:red;" class="d-flex justify-content-center">
+			<%if(session.getAttribute("message")!=null){ %>
+				<h5><%= session.getAttribute("message") %></h5>
+				<%} %>
+			</div>
 			<table id="table" class="display nowrap" style="width:100%">
 		        <thead>
 		            <tr>
@@ -47,9 +52,9 @@ request.setAttribute("data", cusDetails);
 				    	 	<td><c:out value="${Customer.getEmail()}" /></td>
 				    	 	<td><c:out value="${Customer.getAddress()}" /></td>
 				    	 	<td>
-				    	 		<form action="activate" method="post">
+				    	 		<form action="../../activate" method="post">
 			    	 				<button type = "submit" name="id" class="btn btn-success" 
-			    	 				value="${Customer.getCusID()}" class="btn2">Activate</button>
+			    	 				value="${Customer.getCusID()}">Activate</button>
 			    	 			</form>
 			    	 		</td>
 			    	 	</tr>
