@@ -14,7 +14,7 @@ import com.smd.service.SupplierDB;
 import com.smd.util.DBConnection;
 import com.smd.model.Supplier;
 
-@WebServlet("/AdminUI/StockManagement/SupplierAdding")
+@WebServlet("/SupplierAdding")
 public class SupplierAdding extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -30,29 +30,35 @@ public class SupplierAdding extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		SupplierDB sup = new SupplierDB();
-		Supplier Supp = new Supplier();
+		/* Supplier Supp = new Supplier(); */
 
-		
-		Supp.setName(request.getParameter("name"));
-		Supp.setAddress(request.getParameter("address"));
-		Supp.setTno(Integer.parseInt(request.getParameter("tno")));
-		
-	
+		/*
+		 * Supp.setSupplierID(request.getParameter("supplierID"));
+		 * Supp.setName(request.getParameter("name"));
+		 * Supp.setAddress(request.getParameter("address"));
+		 * Supp.setTno(request.getParameter("tno"));
+		 */
 
-		try {
-			DBConnection sdbc = new DBConnection();
-			Statement stmt = sdbc.getConnection().createStatement();
-			String command = "INSERT INTO vendor(Vendor_Name,Address,Phone)" + "" + "VALUES('"
-					+ Supp.getName() + "','" + Supp.getAddress() + "," + "," + Supp.getTno()
-			+ "')";
-			stmt.execute(command);
-
-			response.sendRedirect("Supplier.jsp");
-		} catch (Exception e) {
+	try {
+			
+			  DBConnection sdbc = new DBConnection(); 
+			  Statement stmt =
+			  sdbc.getConnection().createStatement(); 
+			  String command =
+			 "INSERT INTO vendor(Vendor_Name,Address,Phone)" + "" + "VALUES('"+request.getParameter("name") +"','"
+			 + request.getParameter("address") + "','"
+			 + request.getParameter("tno") + "')"; 
+			
+			//response.getWriter().append(command);
+			  
+			  stmt.execute(command);
+			  
+			  response.sendRedirect("admin/StockManagement/SupplierPage.jsp");
+			 
+	} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 	}
 
 }
-

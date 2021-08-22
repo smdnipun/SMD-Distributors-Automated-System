@@ -2,12 +2,12 @@ package com.smd.model;
 //Create Supplier Class
 public class Supplier {
 	
-	private String supplierID;
+	private int supplierID;
 	private String name;
 	private String address;
-	private int tno;
+	private String tno;
 //Constructor
-	public Supplier(String supplierID, String name, String address, int tno){
+	public Supplier(int supplierID, String name, String address, String tno){
 		this.supplierID=supplierID;
 		this.name=name;
 		this.address=address;
@@ -15,11 +15,11 @@ public class Supplier {
 	}
 	
 	public Supplier() {
-		// TODO Auto-generated constructor stub
+		// created constructor
 	}
 
 		//Setters
-		public void setSupplierID(String supplierID) {
+		public void setSupplierID(int supplierID) {
 			this.supplierID = supplierID;
 		}
 
@@ -31,13 +31,13 @@ public class Supplier {
 			this.address = address;
 		}
 
-		public void setTno(int tno) {
+		public void setTno(String tno) {
 			this.tno = tno;
 		}	
 
 
 //Getters
-	public String getSupplierID() {
+	public int getSupplierID() {
 		return supplierID;
 	}
 
@@ -49,7 +49,7 @@ public class Supplier {
 		return address;
 	}
 
-	public int getTno() {
+	public String getTno() {
 		return tno;
 	}
 
