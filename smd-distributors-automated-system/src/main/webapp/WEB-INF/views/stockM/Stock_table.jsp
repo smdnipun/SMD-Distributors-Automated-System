@@ -26,7 +26,6 @@ request.setAttribute("data", newstock);
 				<th scope="col">Item Name</th>
 				<th scope="col">Quntity</th>
 				<th scope="col">date</th>
-				<th scope="col">Price</th>
 				<th scope="col"></th>
 			</tr>
 		</thead>
@@ -37,11 +36,9 @@ request.setAttribute("data", newstock);
 				<td><c:out value="${NewStock.getStockID}"/></td>
 				<td><c:out value="${NewStock.getItemName}"/></td>
 				<td><c:out value="${NewStock.getQuntity}"/></td>
-				<td><c:out value="${NewStock.getPrice}"/></td>
 				<td><c:out value="${NewStock.getDate}"/></td>
 				<td>
 				<button type="button" class="btn btn-light">UPDATE</button>
-				<button type="button" class="btn btn-light">DELETE</button>
 				</td>
 			</tr>
 		</c:forEach>

@@ -1,5 +1,5 @@
 <div class="col-4">
-	<form action="SupplierAdding" method="Post">
+	<form action="../../SupplierAdding" method="Post">
 		<div class="form-group">
 			<label for="exampleInputEmail1">Name</label> <input type="text"
 				class="form-control" id="formGroupExampleInput" name="name">

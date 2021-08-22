@@ -18,7 +18,7 @@ public Stock[] getStockdetails() {
 		Statement stmt = con.getConnection().createStatement();
 		ResultSet rs = stmt.executeQuery("SELECT * FROM stock;");
 		while (rs.next()) {
-			Stock n = new Stock(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getDouble(4), rs.getString(10));
+			Stock n = new Stock(rs.getString(1), rs.getString(2), rs.getInt(3),rs.getString(10));
 			ll.add(n);
 		}
 		array = ll.toArray(new Stock[ll.size()]);
