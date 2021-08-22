@@ -4,7 +4,7 @@
 <%@ page import="com.smd.service.SupplierDB"%><!-- Import Database connection of SupplierDB -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<!-- create array to get data from database -->
+<!--create array to get data from database-->
 <%
 if (request.getSession().getAttribute("Logged") == null) {
 	request.getSession().setAttribute("Logged", "Guest");
@@ -12,7 +12,7 @@ if (request.getSession().getAttribute("Logged") == null) {
 
 SupplierDB dbc = new SupplierDB();
 Supplier[] newsupplier = (Supplier[]) dbc.getSupplierdetails();
-request.setAttribute("data", newsupplier);
+request.setAttribute("supplierdata", newsupplier);
 %>
 
 <div class="col-7 justify-content-center">
@@ -27,18 +27,31 @@ request.setAttribute("data", newsupplier);
 			</tr>
 		</thead>
 		<tbody>
-		<c:forEach items="${data}" var="Supplier">
-			<tr>
-				<th scope="row">1</th>
-				<td><c:out value="${NewSupplier.getSupplierID}"/></td>
-				<td><c:out value="${NewSupplier.getName}"/></td>
-				<td><c:out value="${NewSupplier.getAddress}"/></td>
-				<td><c:out value="${NewSupplier.getTno}"/></td>
-				<td>
+			<c:forEach items="${supplierdata}" var="Supplier">
+				<!-- <form action="updateitem" method="post"> -->
+				<tr>
+					<th scope="row">1</th>
+			<td><input type="text" name="name"
+						value="<c:out value="${Supplier.getSupplierID()}"/>"></td>
+					<td><input type="text" name="name"
+						value="<c:out value="${Supplier.getName()}"/>"></td>
+					<td><input type="text" name="name"
+						value="<c:out value="${Supplier.getAddress()}"/>"></td>
+					<td><input type="text" name="name"
+						value="<c:out value="${Supplier.getTno()}"/>"></td>
+		 <%-- 	<td><c:out value="${Supplier.getSupplierID()}"/></td> 	
+			<td><c:out value="${Supplier.getName()}"/></td>
+			<td><c:out value="${Supplier.getAddress()}"/></td>
+			<td><c:out value="${Supplier.getTno()}"/></td>  --%>
+
+					<td>
 					<button type="button" class="btn btn-light">UPDATE</button>
+				<!-- </form> -->
+					<!-- <form action="SupplierDelete" method="post"> -->
 					<button type="button" class="btn btn-light">Delete</button>
-				</td>
-			</tr>
+					<!-- </form>-->
+					</td>
+				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
