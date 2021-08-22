@@ -1,3 +1,9 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="java.util.List"%>
+<%@ page import="java.util.LinkedList"%>
+<%@ page import="com.smd.model.Product"%>
+<%@ page import="com.smd.service.ProductDB"%>
+
 <div class="row">
 	<div class="col-2" style="background-color: #E0E0E2;">
 		<div class="nav flex-column nav-tabs" id="v-tabs-tab" role="tablist"
@@ -29,54 +35,35 @@
 		</div>
 	</div>
 	<div class="col-10 my-auto">
-		<form action="">
-			<div class="row">
-				<div class="col-2">
-					<label>Product Price</label> <label>Product Price</label> <label>Product
-						Price</label> <label>Display Status</label>
-				</div>
-				<div class="col-2">
-					<input name="pname" size="20" /> <input name="pname" size="20" />
-					<input name="pname" size="20" /> <label class="switch"> <input
-						type="checkbox" checked> <span class="slider round"></span>
-					</label>
-				</div>
-				<div class="col-8">
-					<div class="px-4">
-						<div style="border: 3px solid; border-radius: 30px"
-							class="px-5 py-3">
-							<div class="h5 text-center pb-2 pt-1">Product Images</div>
-							<div class="row gy-1">
-								<div class="col-2">
-									<div class="box"></div>
-									<button class="close">x</button>
-								</div>
-								<div class="col-2">
-									<div class="box"></div>
-									<button class="close">x</button>
-								</div>
-								<div class="col-2">
-									<div class="box"></div>
-									<button class="close">x</button>
-								</div>
-								<div class="col-2">
-									<div class="box"></div>
-									<button class="close">x</button>
-								</div>
-								<div class="col-2">
-									<div class="box"></div>
-									<button class="close">x</button>
-								</div>
-								<div class="col-2">
-									<button class="buttonBox d-flex justify-content-center">
-										<h1 class="my-auto display-4">+</h1>
-									</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</form>
+		<div class="row">
+			<form action="../../searchP" method="post">
+				<input type="text" size="50" name="search" />
+				<button type="submit" class="">
+					<i class="bi bi-search"></i>
+				</button>
+			</form>
+		</div>
+		<c:choose>
+			<c:when test="${param.search==null}">
+				<%
+				ProductDB con = new ProductDB();
+				Product[] allProducts = con.getAllProducts();
+				request.setAttribute("allProducts", allProducts);
+				%>
+				<c:forEach items="${allProducts}" var="product">
+					<b><c:out value="${product.getName()}" /></b>
+				</c:forEach>
+			</c:when>
+			<c:otherwise>
+				<%
+				ProductDB con = new ProductDB();
+				Product[] searchData = con.search(request.getParameter("search"));
+				request.setAttribute("searchData", searchData);
+				%>
+				<c:forEach items="${searchData}" var="product">
+					<b>jjjjj</b>
+				</c:forEach>
+			</c:otherwise>
+		</c:choose>
 	</div>
 </div>
