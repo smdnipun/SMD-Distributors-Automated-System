@@ -6,6 +6,7 @@ public class Product {
 	private String name;
 	private int weight;
 	private int price;
+	private String image;
 	
 	public Product(String productID, String name, int weight, int price) {
 		this.productID = productID;
@@ -13,9 +14,21 @@ public class Product {
 		this.weight = weight;
 		this.price = price;
 	}
+	
+	public Product(String productID, String name,String image, int weight, int price) {
+		this.productID = productID;
+		this.name = name;
+		this.weight = weight;
+		this.price = price;
+		this.image=image;
+		}
 
 	public String getProductID() {
 		return productID;
+	}
+	
+	public String getImage() {
+		return image;
 	}
 
 	public String getName() {
