@@ -33,14 +33,13 @@ request.setAttribute("stockdata", newstock);
 		<c:forEach items="${stockdata}" var="Stock">
 			<tr>
 			
-							<th scope="row">1</th>
-			<td><input type="text" name="name"
+					<td><input type="text" name="stockID"
 						value="<c:out value="${Stock.getStockID()}"/>"></td>
-					<td><input type="text" name="name"
+					<td><input type="text" name="itemname"
 						value="<c:out value="${Stock.getItemName()}"/>"></td>
-					<td><input type="text" name="name"
+					<td><input type="text" name="quntity"
 						value="<c:out value="${Stock.getQuntity()}"/>"></td>
-					<td><input type="text" name="name"
+					<td><input type="text" name="date"
 						value="<c:out value="${Stock.getDate()}"/>"></td>
 				<%-- <th scope="row">1</th>
 				<td><c:out value="${Stock.getStockID()}"/></td>

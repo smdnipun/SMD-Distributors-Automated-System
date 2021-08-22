@@ -30,14 +30,14 @@ request.setAttribute("supplierdata", newsupplier);
 			<c:forEach items="${supplierdata}" var="Supplier">
 				<!-- <form action="updateitem" method="post"> -->
 				<tr>
-					<th scope="row">1</th>
-			<td><input type="text" name="name"
+			
+			<td><input type="text" name="supplierID"
 						value="<c:out value="${Supplier.getSupplierID()}"/>"></td>
 					<td><input type="text" name="name"
 						value="<c:out value="${Supplier.getName()}"/>"></td>
-					<td><input type="text" name="name"
+					<td><input type="text" name="address"
 						value="<c:out value="${Supplier.getAddress()}"/>"></td>
-					<td><input type="text" name="name"
+					<td><input type="text" name="tno"
 						value="<c:out value="${Supplier.getTno()}"/>"></td>
 		 <%-- 	<td><c:out value="${Supplier.getSupplierID()}"/></td> 	
 			<td><c:out value="${Supplier.getName()}"/></td>

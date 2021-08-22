@@ -42,7 +42,6 @@ public class StockAdding extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 }
