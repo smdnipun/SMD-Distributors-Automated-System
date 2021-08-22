@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import com.smd.model.NewOrdersConf;
-import com.smd.model.Payment;
+import com.smd.model.PaymentDetails;
 
 public class DBConnection {
 	private Connection con;

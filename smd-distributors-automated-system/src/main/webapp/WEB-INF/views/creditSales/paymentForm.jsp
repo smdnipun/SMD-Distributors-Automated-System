@@ -1,5 +1,9 @@
 <div class="col-4">
 		   <form action="../../pay" method="Post">
+		   <div class="mb-3">
+				<label for="formGroupExampleInput" class="form-label">Date</label> <input type="text" class="form-control" name="Date"/>
+					
+			</div>
 			<div class="mb-3">
 				<label for="formGroupExampleInput" class="form-label">Customer
 					ID</label> <input type="text" class="form-control" name="CusID"
