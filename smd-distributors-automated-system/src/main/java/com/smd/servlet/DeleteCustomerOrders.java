@@ -1,6 +1,7 @@
 package com.smd.servlet;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
@@ -37,12 +38,23 @@ public class DeleteCustomerOrders extends HttpServlet {
         	boolean isdone=OrderM.deleteeorderadmin(Orderid);
     		
     		if(isdone==true) {
-    			RequestDispatcher dis=request.getRequestDispatcher("AddOrder.jsp");
-    			dis.forward(request, response);
+    			
+    			out.println("<script type='text/javascript'>");
+                out.println("alert('successfully deleted');");
+                out.println("location='AddOrder.jsp'"); 
+                out.println("</script>");
+    			
+//    			RequestDispatcher dis=request.getRequestDispatcher("AddOrder.jsp");
+//    			dis.forward(request, response);
     		}else {
     			
-    			RequestDispatcher dis=request.getRequestDispatcher("index.jsp");
-    			dis.forward(request, response);
+    			out.println("<script type='text/javascript'>");
+                out.println("alert('something went wrong');");
+                out.println("location='AddOrder.jsp'"); 
+                out.println("</script>");
+    			
+//    			RequestDispatcher dis=request.getRequestDispatcher("index.jsp");
+//    			dis.forward(request, response);
     		}
         }
         

@@ -1,6 +1,7 @@
 package com.smd.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,6 +22,8 @@ public class DeleteOrderAdmin extends HttpServlet {
    
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		PrintWriter out = response.getWriter();
+		response.setContentType("text/html");
 		
 		String oid=request.getParameter("OID");
 		int Orderid=Integer.parseInt(oid);
@@ -28,12 +31,23 @@ public class DeleteOrderAdmin extends HttpServlet {
 		boolean isdone=OrderM.deleteeorderadmin(Orderid);
 		
 		if(isdone==true) {
-			RequestDispatcher dis=request.getRequestDispatcher("AdminUI/OrderManagement/OrderAdminHome.jsp");
-			dis.forward(request, response);
+			
+			out.println("<script type='text/javascript'>");
+            out.println("alert('order deleted successfully');");
+            out.println("location='AdminUI/OrderManagement/OrderAdminHome.jsp'"); 
+            out.println("</script>");
+			
+//			RequestDispatcher dis=request.getRequestDispatcher("AdminUI/OrderManagement/OrderAdminHome.jsp");
+//			dis.forward(request, response);
 		}else {
 			
-			RequestDispatcher dis=request.getRequestDispatcher("index.jsp");
-			dis.forward(request, response);
+			out.println("<script type='text/javascript'>");
+            out.println("alert('Something went wrong');");
+            out.println("location='AdminUI/OrderManagement/OrderAdminHome.jsp'"); 
+            out.println("</script>");
+			
+//			RequestDispatcher dis=request.getRequestDispatcher("index.jsp");
+//			dis.forward(request, response);
 		}
 		
 	}
