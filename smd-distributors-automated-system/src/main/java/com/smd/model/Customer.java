@@ -6,16 +6,20 @@ public class Customer {
 		private String lname;
 		private String hardwareName;
 		private String phoneNo;
-		private String username;
 		private String password;
 		private String nic;
 		private String email;
 		private String address;
 		private String status;
+
+		/*Default constructor*/
+		public Customer() {
+			
+		}
 		
-		/*customer Constructor*/
+		/*customer overloaded Constructor*/
 		
-		public Customer(String cusID, String fname, String lname, String hardwareName, String phoneNo, String username,
+		public Customer(String cusID, String fname, String lname, String hardwareName, String phoneNo,
 				String password, String nic, String email, String address, String status) {
 			super();
 			this.cusID = cusID;
@@ -23,7 +27,6 @@ public class Customer {
 			this.lname = lname;
 			this.hardwareName = hardwareName;
 			this.phoneNo = phoneNo;
-			this.username = username;
 			this.password = password;
 			this.nic = nic;
 			this.email = email;
@@ -73,14 +76,6 @@ public class Customer {
 			this.phoneNo = phoneNo;
 		}
 
-		public String getUsername() {
-			return username;
-		}
-
-		public void setUsername(String username) {
-			this.username = username;
-		}
-
 		public String getPassword() {
 			return password;
 		}
@@ -120,5 +115,4 @@ public class Customer {
 		public void setStatus(String status) {
 			this.status = status;
 		}
-	
 }

@@ -1,7 +1,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 String navs = request.getParameter("navs");
-String[] navArray = navs.split(" ");
+String[] navArray = navs.split("_");
 request.setAttribute("navArray", navArray);
 %>
 

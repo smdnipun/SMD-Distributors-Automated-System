@@ -366,18 +366,18 @@ VALUES ('40-1150',2,2,'2021-03-25'),
 DROP View PaymentDetails;
 
 Create View PaymentDetails As 
-Select p.Pay_ID,c.Hardware_Name,o.Order_ID,p.Date,pd.Prod_ID,o.Qty,o.Total_Price,o.Paid_Amount,o.Remaining_Amount
-from customer c,orders o,payment p,product pd
-where  c.Cus_ID=o.Cust_ID and c.Cus_ID=p.Cus_ID and o.Cust_ID=p.Cus_ID and pd.Prod_ID=o.Product_ID;
+Select p.Pay_ID,c.Hardware_Name,c.Cus_ID,o.Order_ID,o.Total_Price,o.Paid_Amount,o.Remaining_Amount
+from customer c,orders o,payment p
+where  c.Cus_ID=o.Cust_ID and o.Cust_ID=p.Cus_ID and o.Remaining_Amount>0;
 
 -- Customer Aged
 DROP View CustomerAged;
 
 
 Create View CustomerAged AS
-Select c.Hardware_Name,c.Phone,o.Order_ID,p.Date,o.Total_Price,o.Paid_Amount,o.Remaining_Amount
-from customer c,orders o,payment p
-where c.Cus_ID=o.Cust_ID and c.Cus_ID=p.Cus_ID and o.Cust_ID=p.Cus_ID; 
+Select c.Hardware_Name,o.Order_ID,p.Date,o.Total_Price,o.Paid_Amount,o.Remaining_Amount
+from customer c,orders o
+where c.Cus_ID=o.Cust_ID and o.Remaining_Amount>0; 
 
 -- NewOrders
 DROP View NewOrders;

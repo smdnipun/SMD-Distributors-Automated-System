@@ -26,7 +26,7 @@ public class AddFeedbackServlet extends HttpServlet {
 				String Message=request.getParameter("Message");
 				String Rating=request.getParameter("Rating");
 				String Status=request.getParameter("Status");
-
+				
 				IFeedback iFeedbackService = new FeedbackServiceImpl();
 				//to catch the result got from the model class method
 				boolean status=iFeedbackService.addFeedback(Feedback_ID,Cus_ID,Date,Type,Message,Rating,Status);
