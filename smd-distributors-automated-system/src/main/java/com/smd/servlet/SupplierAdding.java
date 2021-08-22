@@ -14,7 +14,7 @@ import com.smd.service.SupplierDB;
 import com.smd.util.DBConnection;
 import com.smd.model.Supplier;
 
-@WebServlet("/Supplierservlet")
+@WebServlet("/AdminUI/StockManagement/SupplierAdding")
 public class SupplierAdding extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -29,19 +29,19 @@ public class SupplierAdding extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		SupplierDB dbc = new SupplierDB();
+		SupplierDB sup = new SupplierDB();
 		Supplier Supp = new Supplier();
 
 		
-		Supp.setName(request.getParameter("Name"));
-		Supp.setAddress(request.getParameter("Address"));
-		Supp.setTno(Integer.parseInt(request.getParameter("Tno")));
+		Supp.setName(request.getParameter("name"));
+		Supp.setAddress(request.getParameter("address"));
+		Supp.setTno(Integer.parseInt(request.getParameter("tno")));
 		
 	
 
 		try {
-			DBConnection pdbc = new DBConnection();
-			Statement stmt = pdbc.getConnection().createStatement();
+			DBConnection sdbc = new DBConnection();
+			Statement stmt = sdbc.getConnection().createStatement();
 			String command = "INSERT INTO vendor(Vendor_Name,Address,Phone)" + "" + "VALUES('"
 					+ Supp.getName() + "','" + Supp.getAddress() + "," + "," + Supp.getTno()
 			+ "')";
