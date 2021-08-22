@@ -12,50 +12,17 @@ body {
 }
 
 .logo {
-    width: 75px;
+    width: 100px;
     height: 75px;
 }
 
 .image {
-    width: 60vh;
-    height: 40vh;
+    width: 80vh;
+    height: 60vh;
 }
 
 .border-line {
     border-right: 1px solid #EEEEEE
-}
-
-.facebook {
-    background-color: #3b5998;
-    color: #fff;
-    font-size: 18px;
-    padding-top: 5px;
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    cursor: pointer
-}
-
-.twitter {
-    background-color: #1DA1F2;
-    color: #fff;
-    font-size: 18px;
-    padding-top: 5px;
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    cursor: pointer
-}
-
-.linkedin {
-    background-color: #2867B2;
-    color: #fff;
-    font-size: 18px;
-    padding-top: 5px;
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    cursor: pointer
 }
 
 .line {
@@ -148,8 +115,8 @@ a {
     }
 
     .image {
-        width: 300px;
-        height: 220px
+        width: 400px;
+        height: 320px
     }
 
     .border-line {

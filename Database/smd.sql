@@ -17,7 +17,7 @@ CREATE TABLE `customer` (
   `NIC` varchar(13) NOT NULL,
   `Email` varchar(45) NOT NULL,
   `Address` varchar(45) NOT NULL,
-  `Status` varchar(20) NOT NULL,
+  `Status` varchar(20) DEFAULT 'Active',
   PRIMARY KEY (`Cus_ID`)
 );
 
@@ -356,7 +356,7 @@ VALUES ('40-1150',2,2,'2021-03-25'),
 -- Database view 
 
 -- PaymentDetails
-DROP View PaymentDetails;
+DROP View IF EXISTS PaymentDetails;
 
 Create View PaymentDetails As 
 Select p.Pay_ID,c.Hardware_Name,o.Order_ID,p.Date,pd.Prod_ID,o.Qty,o.Total_Price,o.Paid_Amount,o.Remaining_Amount
@@ -364,7 +364,7 @@ from customer c,orders o,payment p,product pd
 where  c.Cus_ID=o.Cust_ID and c.Cus_ID=p.Cus_ID and o.Cust_ID=p.Cus_ID and pd.Prod_ID=o.Product_ID;
 
 -- Customer Aged
-DROP View CustomerAged;
+DROP View IF EXISTS CustomerAged;
 
 Create View CustomerAged AS
 Select c.Hardware_Name,c.Phone,o.Order_ID,p.Date,o.Total_Price,o.Paid_Amount,o.Remaining_Amount
@@ -372,7 +372,7 @@ from customer c,orders o,payment p
 where c.Cus_ID=o.Cust_ID and c.Cus_ID=p.Cus_ID and o.Cust_ID=p.Cus_ID; 
 
 -- NewOrders
-DROP View NewOrders;
+DROP View IF EXISTS NewOrders;
 
 Create View NewOrders As
 Select o.Order_ID,o.Order_Date,c.Hardware_Name,o.Qty,o.Total_Price
