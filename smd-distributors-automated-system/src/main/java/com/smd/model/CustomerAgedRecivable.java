@@ -4,22 +4,23 @@ package com.smd.model;
 public class CustomerAgedRecivable {
 	private String Cus_ID;
 	private String HardwareName;
+	private String InvoiceID;
 	private double TotalAmount;
 	private double PaidAmount;
 	private double Balance;
 
 	// constructor
-
-	public CustomerAgedRecivable(String cus_ID, String hardwareName, double totalAmount, double paidAmount,
-			double balance) {
+	public CustomerAgedRecivable(String cus_ID, String hardwareName, String invoiceID, double totalAmount,
+			double paidAmount, double balance) {
 		super();
 		Cus_ID = cus_ID;
 		HardwareName = hardwareName;
+		InvoiceID = invoiceID;
 		TotalAmount = totalAmount;
 		PaidAmount = paidAmount;
 		Balance = balance;
 	}
-
+	
 	// setters and getters
 	public String getCus_ID() {
 		return Cus_ID;
@@ -40,7 +41,15 @@ public class CustomerAgedRecivable {
 	public double getTotalAmount() {
 		return TotalAmount;
 	}
+	public String getInvoiceID() {
+		return InvoiceID;
+	}
 
+
+	public void setInvoiceID(String invoiceID) {
+		InvoiceID = invoiceID;
+	}
+	
 	public void setTotalAmount(double totalAmount) {
 		TotalAmount = totalAmount;
 	}
