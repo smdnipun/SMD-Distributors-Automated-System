@@ -3,6 +3,7 @@
 </jsp:include>
 <link rel="stylesheet" href=<%=request.getContextPath() + "/css/login.css"%>>
 <body>
+	<script src="js/RegisterUser.js"></script>
 	<jsp:include page="WEB-INF/views/common/registerBody.jsp"></jsp:include>
 </body>
 </html>
