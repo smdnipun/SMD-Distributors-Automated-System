@@ -5,7 +5,7 @@
 				<div class="card1 my-auto w-100">
 					<div class="row justify-content-center mt-4 border-line">
 						<img src=<%=request.getContextPath() + "/img/login.jpg"%>
-							class="image mx-auto d-block">
+							class="image">
 					</div>
 				</div>
 			</div>
@@ -19,7 +19,7 @@
 							class="logo"> <label class="mb-1">
 					</div>
 					<div class="row px-3 d-flex">
-						<form action="Register1Servlet" method="Post">
+						<form action="RegisterServlet" method="Post">
 			                <fieldset>
 			                    <legend class="mb-0 justify-content-center">Welcome to SMD Distributors!</legend>
 			                    <h5>Enter Your Details</h5>
@@ -30,7 +30,7 @@
 			                        <label for="lname" class="mb-0 text-sm">Last Name :</label>
 			                        <input type="text" id="lname" name="lname" placeholder="ex:-Athukorala"Required>
 			                        
-			                        <label for="lname" class="mb-0 text-sm">Hardware Name :</label>
+			                        <label for="hname" class="mb-0 text-sm">Hardware Name :</label>
 			                        <input type="text" id="hname" name="hname" placeholder="ex:-saman Hardware, kandy hardware"Required>
 			
 			                        <label for="email" class="mb-0 text-sm">Email :</label>
@@ -40,7 +40,7 @@
 			                        <label for="pno" class="mb-0 text-sm">Telephone (Enter Phone number starting from 94):</label>
 			                        <input type ="tel" id="pno" name="pno" placeholder="ex:- 94712345678" Required pattern="[0-9]{11}">
 			                        
-			                        <label for="pno" class="mb-0 text-sm">NIC No.(Enter nic without the letter):</label>
+			                        <label for="nic" class="mb-0 text-sm">NIC No.(Enter nic without the letter):</label>
 			                        <input type ="number" id="nic" name="nic" placeholder="ex:-old-987654321 new-199876543210" Required pattern="[0-9]{9,}">
                    
 			                        <label for="address1" class="mb-0 text-sm">Address Line 1 :</label>

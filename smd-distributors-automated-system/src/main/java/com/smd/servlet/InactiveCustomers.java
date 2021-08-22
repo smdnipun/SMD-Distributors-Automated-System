@@ -14,10 +14,10 @@ import com.smd.service.CusDetailsServiceImpl;
  * Servlet implementation class inactiveCustomers
  */
 @WebServlet("/inactiveCustomers")
-public class inactiveCustomers extends HttpServlet {
+public class InactiveCustomers extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public inactiveCustomers() {
+    public InactiveCustomers() {
         super();
         // TODO Auto-generated constructor stub
     }

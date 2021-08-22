@@ -2,14 +2,16 @@ package com.smd.service;
 import com.smd.util.DBConnection;
 
 import java.sql.ResultSet;
-import java.sql.Connection;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
+
 import com.smd.model.Customer;
 
-public class CusDetailsServiceImpl {
+public class CusDetailsServiceImpl implements ICustomerDetails {
 	
 	//Get all the customer details from the Database
 	public Customer[] getCustomerDetails() {
@@ -35,12 +37,11 @@ public class CusDetailsServiceImpl {
 						rs.getString(3),	//lname
 						rs.getString(4),	//hardwareName
 						rs.getString(5),	//phoneNo
-						rs.getString(6),	//username
-						rs.getString(7),	//password
-						rs.getString(8),	//nic
-						rs.getString(9),	//email
-						rs.getString(10),	//address
-						rs.getString(11)	//status
+						rs.getString(6),	//password
+						rs.getString(7),	//nic
+						rs.getString(8),	//email
+						rs.getString(9),	//address
+						rs.getString(10)	//status
 						);
 				ll.add(c);
 			}
@@ -76,12 +77,11 @@ public class CusDetailsServiceImpl {
 						rs.getString(3),	//lname
 						rs.getString(4),	//hardwareName
 						rs.getString(5),	//phoneNo
-						rs.getString(6),	//username
-						rs.getString(7),	//password
-						rs.getString(8),	//nic
-						rs.getString(9),	//email
-						rs.getString(10),	//address
-						rs.getString(11)	//status
+						rs.getString(6),	//password
+						rs.getString(7),	//nic
+						rs.getString(8),	//email
+						rs.getString(9),	//address
+						rs.getString(10)	//status
 						);
 				ll.add(c);
 			}
@@ -117,12 +117,11 @@ public class CusDetailsServiceImpl {
 						rs.getString(3),	//lname
 						rs.getString(4),	//hardwareName
 						rs.getString(5),	//phoneNo
-						rs.getString(6),	//username
-						rs.getString(7),	//password
-						rs.getString(8),	//nic
-						rs.getString(9),	//email
-						rs.getString(10),	//address
-						rs.getString(11)	//status
+						rs.getString(6),	//password
+						rs.getString(7),	//nic
+						rs.getString(8),	//email
+						rs.getString(9),	//address
+						rs.getString(10)	//status
 						);
 				ll.add(c);
 			}
@@ -134,7 +133,37 @@ public class CusDetailsServiceImpl {
 		return array;
 	}
 	
-	public void activateCustomer() {
+	public boolean addCustomer(Customer customer) {
+		boolean Success = false;//assign this to false before execution of query
+		
+		//creating the database connection
+		DBConnection dbc = new DBConnection();
+		try {
+			Statement stmt = dbc.getConnection().createStatement();
+			
+			String command = "insert into customer(First_Name,Last_Name,Hardware_Name,Phone,Password,NIC,Email,Address,Status)"
+					+ "VALUES('" + customer.getFname() + "','" + customer.getLname() + "','" + customer.getHardwareName() + "','" + customer.getPhoneNo() + "','" + customer.getPassword() + "','" + customer.getNIC() + "','" + customer.getEmail() + "','" + customer.getAddress() + "','" + "Active" + "')";
+			
+			int result = stmt.executeUpdate(command);
+			
+			if(result>0) {
+				//insertion is successful if result is 1
+				Success=true;
+			}
+			else
+				//insertion is unsuccessful
+				Success=false;
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+		return Success;
+	}
+	
+	public void setStatus() {
 		
 	}
+
 }

@@ -10,7 +10,7 @@
 				</div>
 			</div>
 			<div class="col-lg-6 d-flex">
-					<div class="card px-4 py-4 my-auto mx-auto w-75 h-40">
+					<div class="card px-4 py-4 my-auto mx-auto w-75">
 						<!--<div class="row">
 						<img src=<%=request.getContextPath() + "/img/Logo.png"%> class="logo">
 					</div>-->

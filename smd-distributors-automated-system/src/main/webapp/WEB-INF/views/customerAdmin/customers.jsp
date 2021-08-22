@@ -72,9 +72,6 @@ request.setAttribute("data", cusDetails);
                         <label for="hname">Shop Name :</label><br>
                         <input type="text" id="hname" name="hname" size="31"><br>
                         
-                        <label for="hname">Username :</label><br>
-                        <input type="text" id="username" name="username" size="31"><br>
-                        
                         <label for="nic">NIC :</label><br>
                         <input type="number" id="nic" name="nic" size="31"><br>
                         

@@ -12,7 +12,6 @@ CREATE TABLE `customer` (
   `Last_Name` varchar(45) NOT NULL,
   `Hardware_Name` varchar(45) NOT NULL,
   `Phone` varchar(11) NOT NULL,
-  `Username` varchar(45) NOT NULL,
   `Password` varchar(45) NOT NULL,
   `NIC` varchar(13) NOT NULL,
   `Email` varchar(45) NOT NULL,
@@ -241,9 +240,9 @@ CREATE TABLE `has` (
 --
 
 INSERT INTO `customer` 
-VALUES (1,'Dilupa','Gimhan','DGHardware','0767008922','dghan','dg01','981491768V','dg@gmail.com','16,Wattegama,Kandy','Active'),
-	(2,'Poorna ','Dimal','KandyHardware','0757891242','pdrana','rana@55','981245674V','rana@gmail.com','12,King Street,Kandy','Inactive'),
-    (3,'Thameera','Perera','GampolaHardware','0722123456','thampe','tham01','981465879V','tham@gmail.com','22/A,Kandy road,Gampola.','Active');
+VALUES (1,'Dilupa','Gimhan','DGHardware','0767008922','dg01','981491768V','dg@gmail.com','16,Wattegama,Kandy','Active'),
+	(2,'Poorna ','Dimal','KandyHardware','0757891242','rana@55','981245674V','rana@gmail.com','12,King Street,Kandy','Inactive'),
+    (3,'Thameera','Perera','GampolaHardware','0722123456','tham01','981465879V','tham@gmail.com','22/A,Kandy road,Gampola.','Active');
 
 --
 -- Dumping data for table `feedback`
