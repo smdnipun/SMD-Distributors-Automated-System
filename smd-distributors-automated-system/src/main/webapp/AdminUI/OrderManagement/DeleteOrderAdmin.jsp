@@ -5,6 +5,9 @@
 <body>
 	<script src="../js/table.js"></script>
 	<jsp:include page="../../WEB-INF/views/common/adminHeader.jsp"></jsp:include>
+	<jsp:include page="../../WEB-INF/views/common/navbar.jsp">
+		<jsp:param name="navs" value="ttt,ffff ddddd,fff"  />
+	</jsp:include>
 	<jsp:include page="../../WEB-INF/views/OrderM/deleteAdmin.jsp"></jsp:include>
 	<jsp:include page="../../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
 </body>

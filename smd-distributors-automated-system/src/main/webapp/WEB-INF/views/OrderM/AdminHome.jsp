@@ -1,22 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
 <div class="col-10">
 <form action=<%=request.getContextPath() + "/viewadmin"%> method="post">
-<button type="submit">submit</button>
+<button type="submit">View Orders</button>
 </form>
 
 <form action=<%=request.getContextPath() + "/monthlyOrderreport"%> method="post">
 <button type="submit">Generate Monthly Report</button>
 </form>
 
-</div>
+<form action=<%=request.getContextPath() + "/deletedOrders"%> method="post">
+<button type="submit">Deleted Orders</button>
+</form>
 
-</body>
-</html>
+</div>

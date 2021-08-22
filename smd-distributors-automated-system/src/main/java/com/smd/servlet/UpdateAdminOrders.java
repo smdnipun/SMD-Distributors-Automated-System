@@ -44,7 +44,9 @@ public class UpdateAdminOrders extends HttpServlet {
 		if(isdone==true) {
 			RequestDispatcher dis=request.getRequestDispatcher("AdminUI/OrderManagement/OrderAdminHome.jsp");
 			dis.forward(request, response);
-		}else {
+			
+		}
+else {
 			
 			RequestDispatcher dis=request.getRequestDispatcher("index.jsp");
 			dis.forward(request, response);

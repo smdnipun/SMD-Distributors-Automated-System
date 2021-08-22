@@ -77,6 +77,15 @@
 		<servlet-name>monthlyOrderreport</servlet-name>
 		<url-pattern>/monthlyOrderreport</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>deletedOrders</servlet-name>
+		<servlet-class>com.smd.servlet.DeletedOrders</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>deletedOrders</servlet-name>
+		<url-pattern>/deletedOrders</url-pattern>
+	</servlet-mapping>
          
          
          

@@ -66,7 +66,7 @@ public class OrderM {
 		
 		try {
 			Statement stmt = con.getConnection().createStatement();
-			String Sql="insert into orders values (0,'"+cid+"',curdate(),'','"+tprice+"',0,'"+tp+"','"+qty+"','"+pid+"')";
+			String Sql="insert into orders values (0,'"+cid+"',curdate(),'pending','"+tprice+"',0,'"+tp+"','"+qty+"','"+pid+"')";
 			int rs=stmt.executeUpdate(Sql);
 			
 			if(rs>0) {
@@ -247,6 +247,52 @@ public static boolean updateordercustomer(int oid,int qty){
 	
 	
 }
+	
+public static List<Order> ViewdeletedOrder(){
+		
+		ArrayList<Order> odr=new ArrayList<>(); 
+		
+		
+		DBConnection con = new DBConnection();
+		
+		try {
+			Statement stmt = con.getConnection().createStatement();
+			String Sql="select * from deleteorders";
+			ResultSet rs= stmt.executeQuery(Sql);
+			
+			while(rs.next()) {
+				int oid=rs.getInt(1);
+				int cid=rs.getInt(2);
+				String date=rs.getString(3);
+				String states=rs.getString(4);
+				double tprice=rs.getDouble(5);
+				double pamount=rs.getDouble(6);
+				double ramount=rs.getDouble(7);
+				int qty=rs.getInt(8);
+				int pid=rs.getInt(9);
+				
+				Order o=new Order(oid,cid,date,states,tprice,pamount,ramount,qty,pid);
+				odr.add(o);
+				
+				
+			}
+			
+			
+		}catch(Exception e){
+			
+			e.printStackTrace();
+			
+		}
+		
+		
+		
+		// return list type order object 
+		return odr;
+		
+		
+		
+		
+	}
 
 
 	

@@ -30,7 +30,7 @@ public class DeleteCustomerOrders extends HttpServlet {
         
         if(request.getParameter("OSTATES").equals("delivered")) {
         	out.println("<script type='text/javascript'>");
-            out.println("alert('Login Incompleted');");
+            out.println("alert('Sorry Order is already in Delivery process');");
             out.println("location='AddOrder.jsp'"); 
             out.println("</script>");
         }else {
