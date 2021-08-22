@@ -30,7 +30,7 @@ public class SupplierAdding extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		SupplierDB dbc = new SupplierDB();
-		Supplier Supp = (Supplier) request.getSession();
+		Supplier Supp = new Supplier();
 
 		
 		Supp.setName(request.getParameter("Name"));
@@ -42,9 +42,9 @@ public class SupplierAdding extends HttpServlet {
 		try {
 			DBConnection pdbc = new DBConnection();
 			Statement stmt = pdbc.getConnection().createStatement();
-			String command = "INSERT INTO Vendor(Vendor_Name,Address,Phone)" + "" + "VALUES('"
+			String command = "INSERT INTO vendor(Vendor_Name,Address,Phone)" + "" + "VALUES('"
 					+ Supp.getName() + "','" + Supp.getAddress() + "," + "," + Supp.getTno()
-					+ "," + "')";
+			+ "')";
 			stmt.execute(command);
 
 			response.sendRedirect("Supplier.jsp");

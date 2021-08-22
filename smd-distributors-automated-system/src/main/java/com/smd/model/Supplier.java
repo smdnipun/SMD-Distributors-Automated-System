@@ -14,7 +14,11 @@ public class Supplier {
 		this.tno=tno;
 	}
 	
-	//Setters
+	public Supplier() {
+		// TODO Auto-generated constructor stub
+	}
+
+		//Setters
 		public void setSupplierID(String supplierID) {
 			this.supplierID = supplierID;
 		}
