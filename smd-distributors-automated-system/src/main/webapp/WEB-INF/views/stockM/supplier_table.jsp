@@ -17,7 +17,6 @@ request.setAttribute("data", newsupplier);
 
 <div class="col-7 justify-content-center">
 	<table class="table table-hover">
-		<caption>List of users</caption>
 		<thead>
 			<tr>
 				<th scope="col">Supplier ID</th>
@@ -37,6 +36,7 @@ request.setAttribute("data", newsupplier);
 				<td><c:out value="${NewSupplier.getTno}"/></td>
 				<td>
 					<button type="button" class="btn btn-light">UPDATE</button>
+					<button type="button" class="btn btn-light">Delete</button>
 				</td>
 			</tr>
 			</c:forEach>

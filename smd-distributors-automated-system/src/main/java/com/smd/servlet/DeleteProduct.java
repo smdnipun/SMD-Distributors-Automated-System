@@ -30,12 +30,8 @@ public class DeleteProduct extends HttpServlet {
 		
 		try {
 			Statement stmt=dbc.getConnection().createStatement();
-			String command = "delete from employee where employeeID=" + request.getParameter("id");
+			String command = "delete from products where Prod_ID=" + request.getParameter("id");
 			int rows=stmt.executeUpdate(command);
-			
-//			Staff[] data=dbc.getStaffdetails();
-//			request.getSession().setAttribute("data", data);
-//			response.sendRedirect("index.jsp");
 			
 		} catch (Exception e) {
 			response.getWriter().append(e.toString());
