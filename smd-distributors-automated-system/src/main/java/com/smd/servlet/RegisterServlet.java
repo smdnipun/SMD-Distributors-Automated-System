@@ -55,10 +55,9 @@ public class RegisterServlet extends HttpServlet {
 		customer.setPhoneNo(request.getParameter("pno"));
 		customer.setNIC(request.getParameter("nic"));
 		customer.setAddress(
-				request.getParameter("address1")+
-				request.getParameter("address2")+
-				request.getParameter("city")+
-				request.getParameter("Provice")
+				request.getParameter("address")+ ", " +
+				request.getParameter("city")+ ", " +
+				request.getParameter("State")
 				);
 		customer.setPassword(request.getParameter("pwd"));
 		

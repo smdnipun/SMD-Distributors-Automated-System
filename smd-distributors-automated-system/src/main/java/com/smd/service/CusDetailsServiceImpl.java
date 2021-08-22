@@ -134,7 +134,7 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 	}
 	
 	public boolean addCustomer(Customer customer) {
-		boolean Success = false;//assign this to false before execution of query
+		boolean Success = false;//assigning false before execution
 		
 		//creating the database connection
 		DBConnection dbc = new DBConnection();
@@ -162,8 +162,31 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 		return Success;
 	}
 	
-	public void setStatus() {
+	public boolean setStatus(Customer customer) {
+		boolean Success = false;//assign false before execution
 		
+		//creating the database connection
+		DBConnection dbc = new DBConnection();
+		try {
+			Statement stmt = dbc.getConnection().createStatement();
+			
+			String command =  "UPDATE customer SET status = '" + "Active" + "' where customerID =" + customer.getCusID();
+			int result = stmt.executeUpdate(command);
+			
+			if(result>0) {
+				//insertion is successful if result is 1
+				Success=true;
+			}
+			else
+				//insertion is unsuccessful
+				Success=false;
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+		return Success;
 	}
 
 }

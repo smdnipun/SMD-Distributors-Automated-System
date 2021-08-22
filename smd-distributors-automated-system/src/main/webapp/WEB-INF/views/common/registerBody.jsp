@@ -43,12 +43,9 @@
 			                        <label for="nic" class="mb-0 text-sm">NIC No.(Enter nic without the letter):</label>
 			                        <input type ="number" id="nic" name="nic" placeholder="ex:-old-987654321 new-199876543210" Required pattern="[0-9]{9,}">
                    
-			                        <label for="address1" class="mb-0 text-sm">Address Line 1 :</label>
-			                        <input type="text" id="address1" name="address1" placeholder="" Required>
-			
-			                        <label for="address2" class="mb-0 text-sm">Address Line 2(optional) :</label>
-			                        <input type="text" id="address2" name="address2" placeholder="">
-			
+			                        <label for="address" class="mb-0 text-sm">Address :</label>
+			                        <input type="text" id="address" name="address" placeholder="" Required>
+
 			                        <label for="city" class="mb-0 text-sm">City :</label>
 			                        <input type="text" id="city" name="city" placeholder="ex:-Kandy" Required>
 			                        

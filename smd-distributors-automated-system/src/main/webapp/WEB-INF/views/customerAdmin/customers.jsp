@@ -30,7 +30,6 @@ request.setAttribute("data", cusDetails);
 			                <th>First Name</th>
 			                <th>Last Name</th>
 			                <th>Shop Name</th>
-			                <th>Username</th>
 			                <th>NIC</th>
 			                <th>Telephone</th>
 			                <th>E-mail</th>
@@ -44,7 +43,6 @@ request.setAttribute("data", cusDetails);
 					    	 	<td><c:out value="${Customer.getFname()}" /></td>
 					    	 	<td><c:out value="${Customer.getLname()}" /></td>
 					    	 	<td><c:out value="${Customer.getHardwareName()}" /></td>
-					    	 	<td><c:out value="${Customer.getUsername()}" /></td>
 					    	 	<td><c:out value="${Customer.getNIC()}" /></td>
 					    	 	<td><c:out value="${Customer.getPhoneNo()}" /></td>
 					    	 	<td><c:out value="${Customer.getEmail()}" /></td>
@@ -73,7 +71,7 @@ request.setAttribute("data", cusDetails);
                         <input type="text" id="hname" name="hname" size="31"><br>
                         
                         <label for="nic">NIC :</label><br>
-                        <input type="number" id="nic" name="nic" size="31"><br>
+                        <input type="text" id="nic" name="nic" size="31"><br>
                         
                         <label for="pno">Telephone :</label><br>
                         <input type ="tel" id="pno" name="pno" size="31" pattern="[0-9]{11}"><br>
@@ -82,7 +80,7 @@ request.setAttribute("data", cusDetails);
                         <input type="email" id="email" name="email" size="31" pattern="[a-z 0-9 .+-_%]+@+[a-z 0-9 +-_%]+\.[a-z]{2,3}"><br>
 
 						<label for="adress">Address :</label><br>
-                        <input type="text" id="adress" name="address" size="31"><br>
+                        <input type="text" id="address" name="address" size="31"><br>
                     </div>
                     <div class="d-flex justify-content-around pt-3 pb-2">
                         <button type="submit" id="updateD" class="btn btn-primary">Update</button>

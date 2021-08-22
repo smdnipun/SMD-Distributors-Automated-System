@@ -23,7 +23,7 @@ public interface ICustomerDetails {
 //	
 //	//update user details from the customer profile
 //	public boolean updateUserProfile(Customer customer);
-//	
-//	//Delete customer Details
-//	public boolean setStatus();
+	
+	//Delete customer Details
+	public boolean setStatus();
 }
