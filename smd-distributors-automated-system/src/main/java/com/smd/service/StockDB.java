@@ -10,7 +10,7 @@ import com.smd.util.DBConnection;
 import com.smd.model.Stock;
 
 public class StockDB{
-public Stock[] geStockdetails() {
+public Stock[] getStockdetails() {
 	List<Stock> ll = new LinkedList<Stock>();
 	Stock[] array = null;
 	DBConnection con = new DBConnection();

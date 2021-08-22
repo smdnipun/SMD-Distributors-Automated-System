@@ -4,6 +4,7 @@ package com.smd.model;
 public class Payment {
 	private String PaymentID;
 	private String CusName;
+	private String CusID;
 	private String InvoiceID;
 	private String Date;
 	private String ProductCode;
@@ -11,14 +12,16 @@ public class Payment {
 	private double TotalAmount;
 	private double PaidAmount;
 	private double Balance;
+	private String EmpID;
 
 //Constructor
 
-	public Payment(String paymentID, String cusName, String invoiceID, String date, String productCode, int quantity,
-			double totalAmount, double paidAmount, double balance) {
+	public Payment(String paymentID, String cusName,String cusID, String invoiceID, String date, String productCode, int quantity,
+			double totalAmount, double paidAmount, double balance,String empID) {
 		super();
 		PaymentID = paymentID;
 		CusName = cusName;
+		CusID = cusID;
 		InvoiceID = invoiceID;
 		Date = date;
 		ProductCode = productCode;
@@ -26,6 +29,7 @@ public class Payment {
 		TotalAmount = totalAmount;
 		PaidAmount = paidAmount;
 		Balance = balance;
+		EmpID=empID;
 	}
 
 	// Setters and getters
@@ -44,7 +48,15 @@ public class Payment {
 	public void setCusName(String cusName) {
 		CusName = cusName;
 	}
+	public String getCusID() {
+		return CusID;
+	}
 
+	public void setCusID(String cusID) {
+		CusID = cusID;
+	}
+
+	
 	public String getInvoiceID() {
 		return InvoiceID;
 	}
@@ -99,6 +111,14 @@ public class Payment {
 
 	public void setBalance(double balance) {
 		Balance = balance;
+	}
+
+	public String getEmpID() {
+		return EmpID;
+	}
+
+	public void setEmpID(String empID) {
+		EmpID = empID;
 	}
 
 }

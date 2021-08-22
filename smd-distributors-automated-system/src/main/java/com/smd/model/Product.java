@@ -4,32 +4,29 @@ public class Product {
 
 	private String productID;
 	private String name;
-	private String image;
-	private int quantity;
+	private int weight;
 	private int price;
 	
-	public Product(String name, String image, int quantity, int price) {
+	public Product(String productID, String name, int weight, int price) {
+		this.productID = productID;
 		this.name = name;
-		this.image = image;
-		this.quantity = quantity;
+		this.weight = weight;
 		this.price = price;
+	}
+
+	public String getProductID() {
+		return productID;
 	}
 
 	public String getName() {
 		return name;
 	}
 
-	public String getImage() {
-		return image;
-	}
-
-	public int getQuantity() {
-		return quantity;
+	public int getWeight() {
+		return weight;
 	}
 
 	public int getPrice() {
 		return price;
 	}
-	
-	
 }
