@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.smd.util.DBConnection;
 import com.smd.model.Customer;
 import com.smd.service.CusDetailsServiceImpl;
 

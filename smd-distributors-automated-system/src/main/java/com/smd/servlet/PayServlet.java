@@ -13,16 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.smd.service.CreditSalesM;
 import com.smd.util.DBConnection;
-import com.smd.model.Order;
 import com.smd.model.PaymentDetails;
 
 @WebServlet("/pay")
 public class PayServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	public PayServlet(int OID,int CID) {
-		super();
-	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -34,7 +29,7 @@ public class PayServlet extends HttpServlet {
 			throws ServletException, IOException {
 		CreditSalesM dbc = new CreditSalesM();
 //		Order check=new Order();
-		PaymentDetails pay = (PaymentDetails) request.getSession().getAttribute("Emp_ID");
+		//PaymentDetails pay = (PaymentDetails) request.getSession().getAttribute("Emp_ID");
 		
 //		pay.setPaidAmount(Double.parseDouble(request.getParameter("PaidAmount")));
 //		pay.setDate(request.getParameter("Date"));

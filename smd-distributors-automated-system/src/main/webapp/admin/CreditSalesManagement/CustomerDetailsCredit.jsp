@@ -20,4 +20,4 @@
 	</div>
 	<jsp:include page="../../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
 </body>
-</html>>
+</html>

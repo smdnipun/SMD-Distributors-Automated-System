@@ -28,6 +28,7 @@ public class AdminUpdateCusDetails extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
+	@SuppressWarnings("unused")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//creating customer object to set the values
 		Customer customer = new Customer();
