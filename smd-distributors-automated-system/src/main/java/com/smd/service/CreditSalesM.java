@@ -8,25 +8,25 @@ import java.util.List;
 
 import com.smd.model.CustomerAgedRecivable;
 import com.smd.model.NewOrdersConf;
-import com.smd.model.Payment;
+import com.smd.model.PaymentDetails;
 
 
 public class CreditSalesM{
 //database connection of payment details
-public Payment[] getPaymentdetails() {
+public PaymentDetails[] getPaymentdetails() {
 	
-	List<Payment> ll = new LinkedList<Payment>();
-	Payment[] array = null;
+	List<PaymentDetails> ll = new LinkedList<PaymentDetails>();
+	PaymentDetails[] array = null;
 	DBConnection con = new DBConnection();
 	try {
 		Statement stmt = con.getConnection().createStatement();
 		ResultSet rs = stmt.executeQuery("select * from paymentdetails" );
 		while (rs.next()) {
-			Payment n = new Payment(rs.getString(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
+			PaymentDetails n = new PaymentDetails(rs.getString(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
 					rs.getString(6), rs.getInt(7), rs.getDouble(8), rs.getDouble(9),rs.getDouble(10),rs.getString(11));
 			ll.add(n);
 		}
-		array = ll.toArray(new Payment[ll.size()]);
+		array = ll.toArray(new PaymentDetails[ll.size()]);
 
 	} catch (Exception e) {}
 	
@@ -34,20 +34,20 @@ public Payment[] getPaymentdetails() {
 
 }
 //database connection for payments
-public Payment[] getPayments(int i) {
+public PaymentDetails[] getPayments(int i) {
 	
-	List<Payment> ll = new LinkedList<Payment>();
-	Payment[] array = null;
+	List<PaymentDetails> ll = new LinkedList<PaymentDetails>();
+	PaymentDetails[] array = null;
 	DBConnection con = new DBConnection();
 	try {
 		Statement stmt = con.getConnection().createStatement();
 		ResultSet rs = stmt.executeQuery("select * from paymentdetails where Order_ID="+i);
 		while (rs.next()) {
-			Payment n = new Payment(rs.getString(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
+			PaymentDetails n = new PaymentDetails(rs.getString(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
 					rs.getString(6), rs.getInt(7), rs.getDouble(8), rs.getDouble(9),rs.getDouble(10),rs.getString(11));
 			ll.add(n);
 		}
-		array = ll.toArray(new Payment[ll.size()]);
+		array = ll.toArray(new PaymentDetails[ll.size()]);
 
 	} catch (Exception e) {}
 	

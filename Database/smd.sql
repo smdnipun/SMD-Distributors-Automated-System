@@ -12,12 +12,11 @@ CREATE TABLE `customer` (
   `Last_Name` varchar(45) NOT NULL,
   `Hardware_Name` varchar(45) NOT NULL,
   `Phone` varchar(11) NOT NULL,
-  `Username` varchar(45) NOT NULL,
   `Password` varchar(45) NOT NULL,
   `NIC` varchar(13) NOT NULL,
   `Email` varchar(45) NOT NULL,
   `Address` varchar(45) NOT NULL,
-  `Status` varchar(20) NOT NULL,
+  `Status` varchar(20) DEFAULT 'Active',
   PRIMARY KEY (`Cus_ID`)
 );
 
@@ -241,9 +240,9 @@ CREATE TABLE `has` (
 --
 
 INSERT INTO `customer` 
-VALUES (1,'Dilupa','Gimhan','DGHardware','0767008922','dghan','dg01','981491768V','dg@gmail.com','16,Wattegama,Kandy','Active'),
-	(2,'Poorna ','Dimal','KandyHardware','0757891242','pdrana','rana@55','981245674V','rana@gmail.com','12,King Street,Kandy','Inactive'),
-    (3,'Thameera','Perera','GampolaHardware','0722123456','thampe','tham01','981465879V','tham@gmail.com','22/A,Kandy road,Gampola.','Active');
+VALUES (1,'Dilupa','Gimhan','DGHardware','0767008922','dg01','981491768V','dg@gmail.com','16,Wattegama,Kandy','Active'),
+	(2,'Poorna ','Dimal','KandyHardware','0757891242','rana@55','981245674V','rana@gmail.com','12,King Street,Kandy','Inactive'),
+    (3,'Thameera','Perera','GampolaHardware','0722123456','tham01','981465879V','tham@gmail.com','22/A,Kandy road,Gampola.','Active');
 
 --
 -- Dumping data for table `feedback`
@@ -356,7 +355,7 @@ VALUES ('40-1150',2,2,'2021-03-25'),
 -- Database view 
 
 -- PaymentDetails
-DROP View PaymentDetails;
+DROP View IF EXISTS PaymentDetails;
 
 Create View PaymentDetails As 
 Select p.Pay_ID,c.Hardware_Name,o.Order_ID,p.Date,pd.Prod_ID,o.Qty,o.Total_Price,o.Paid_Amount,o.Remaining_Amount
@@ -364,7 +363,7 @@ from customer c,orders o,payment p,product pd
 where  c.Cus_ID=o.Cust_ID and c.Cus_ID=p.Cus_ID and o.Cust_ID=p.Cus_ID and pd.Prod_ID=o.Product_ID;
 
 -- Customer Aged
-DROP View CustomerAged;
+DROP View IF EXISTS CustomerAged;
 
 Create View CustomerAged AS
 Select c.Hardware_Name,c.Phone,o.Order_ID,p.Date,o.Total_Price,o.Paid_Amount,o.Remaining_Amount
@@ -372,7 +371,7 @@ from customer c,orders o,payment p
 where c.Cus_ID=o.Cust_ID and c.Cus_ID=p.Cus_ID and o.Cust_ID=p.Cus_ID; 
 
 -- NewOrders
-DROP View NewOrders;
+DROP View IF EXISTS NewOrders;
 
 Create View NewOrders As
 Select o.Order_ID,o.Order_Date,c.Hardware_Name,o.Qty,o.Total_Price
