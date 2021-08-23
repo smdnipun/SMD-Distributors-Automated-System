@@ -21,7 +21,7 @@ public class ProductDB {
 			String command= "SELECT * from smd.product WHERE Name LIKE '%"+search+"%'";
 			ResultSet rs=stmt.executeQuery(command);
 			while(rs.next()) {
-				Product n=new Product(rs.getString(4),rs.getString(5),rs.getInt(1),rs.getInt(2));
+				Product n=new Product(rs.getString(1),rs.getInt(2),rs.getString(3),rs.getString(4),rs.getInt(5));
 				ll.add(n);
 			}
 			
@@ -41,7 +41,7 @@ public class ProductDB {
 			String command= "SELECT * from smd.product";
 			ResultSet rs=stmt.executeQuery(command);
 			while(rs.next()) {
-				Product n=new Product(rs.getString(4),rs.getString(5),rs.getInt(1),rs.getInt(2));
+				Product n=new Product(rs.getString(1),rs.getInt(2),rs.getString(3),rs.getString(4),rs.getInt(5));
 				ll.add(n);
 			}
 			
@@ -51,6 +51,24 @@ public class ProductDB {
 			System.out.println(e);
 		}
 		return array;
+	}
+	
+	public Product getProductById(int id) {
+		List<Product> ll = new LinkedList<Product>();
+		Product[] array = null;
+		try {
+			Statement stmt=con.getConnection().createStatement();
+			String command= "SELECT * from smd.product where Prod_ID ="+id;
+			ResultSet rs=stmt.executeQuery(command);
+			while(rs.next()) {
+				Product n=new Product(rs.getString(1),rs.getInt(2),rs.getString(3),rs.getString(4),rs.getInt(5));
+				return n;
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+			return null;
+		}
+		return null;
 	}
 	
 }

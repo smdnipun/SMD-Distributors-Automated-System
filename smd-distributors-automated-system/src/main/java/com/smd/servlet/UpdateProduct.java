@@ -11,28 +11,30 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.smd.util.DBConnection;
 
-@WebServlet("/deleteProduct")
-public class DeleteProduct extends HttpServlet {
+@WebServlet("/UpdateProduct")
+public class UpdateProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public DeleteProduct() {
-        super();
 
+    public UpdateProduct() {
+        super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Access denied: ").append(request.getContextPath());
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		DBConnection dbc = new DBConnection();
-		
-		
+
 		try {
 			Statement stmt=dbc.getConnection().createStatement();
-			String command = "delete from product where Prod_ID=" + request.getParameter("id");
-			int rows=stmt.executeUpdate(command);
 			
+//			String command = "UPDATE employee SET firstName = '"+request.getParameter("fname")+"',lastName = '"+request.getParameter("lname")+"',email = '"+request.getParameter("email")+"',phoneNo='"+request.getParameter("phone")+"',password ='"+ request.getParameter("password")+"',Staff ='"+ request.getParameter("staff")+"' WHERE employeeID ="+ request.getParameter("id");
+//			int rows=stmt.executeUpdate(command);
+			
+//			Staff[] data=dbc.getStaffdetails();
+//			request.getSession().setAttribute("data",data);
+//			response.sendRedirect("index.jsp");
 		} catch (Exception e) {
 			response.getWriter().append(e.toString());
 		}
