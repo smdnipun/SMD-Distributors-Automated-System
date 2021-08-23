@@ -2,17 +2,15 @@ package com.smd.service;
 import com.smd.util.DBConnection;
 
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
-
-import javax.servlet.RequestDispatcher;
 
 import com.smd.model.Customer;
 
 public class CusDetailsServiceImpl implements ICustomerDetails {
 	
+	@Override
 	//Get all the customer details from the Database
 	public Customer[] getCustomerDetails() {
 		
@@ -53,6 +51,7 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 		return array;
 	}
 	
+	@Override
 	//Get all the active customer details from the Database
 	public Customer[] activeCustomers() {
 		
@@ -93,6 +92,7 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 		return array;
 	}
 	
+	@Override
 	//Get all the inactive customer details from the Database
 	public Customer[] inactiveCustomers() {
 		
@@ -133,6 +133,7 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 		return array;
 	}
 	
+	@Override
 	//Add new customer to the database
 	public boolean addCustomer(Customer customer) {
 		boolean Success = false;//assigning false before execution
@@ -156,13 +157,14 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 				Success=false;
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} 
 		
 		return Success;
 	}
 	
+	@Override
 	//update the status of the customer
 	public boolean setActive(String id) {
 		boolean Success = false;//assign false before execution
@@ -190,6 +192,7 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 		return Success;
 	}
 	
+	@Override
 	//update the status of the customer
 	public boolean setInactive(Customer customer) {
 		boolean Success = false;// assign false before execution
@@ -217,6 +220,7 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 		return Success;
 	}
 
+	@Override
 	//update user details from admin
 	public boolean updateCustomerfromAdmin(Customer customer) {
 		boolean Success = false;//assign false before execution
@@ -244,5 +248,58 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 		
 		return Success;
 	}
+
+	@Override
+	//delete customer
+	public boolean deleteCustomer(String id) {
+		boolean Success = false;// assign false before execution
+		
+		//creating the database connection
+		DBConnection dbc = new DBConnection();
+		try {
+			Statement stmt = dbc.getConnection().createStatement();
+			
+			String command =  "delete from customer where Cus_ID = " + id ;
+			int result = stmt.executeUpdate(command);
+			
+			if(result>0) {
+				//insertion is successful if result is 1
+				Success=true;
+			}
+			else
+				//insertion is unsuccessful
+				Success=false;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+		
+		return Success;
+	}
+	
+//	public boolean checkEmail(Customer customer) {
+//		boolean Success = false;//assign false before execution
+//		DBConnection dbc = new DBConnection();
+//		try {
+//			Statement stmt = dbc.getConnection().createStatement();
+//			
+//			String command = "select count(email) form customer where email = '" + customer.getEmail() +"'";
+//			
+//			int result = stmt.executeUpdate(command);
+//			System.out.println(result);
+//			
+//			if(result < 2) {
+//				//insertion is successful if result is 1
+//				Success=true;
+//			}
+//			else
+//				//insertion is unsuccessful
+//				Success=false;
+//			
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		} 
+//		return Success;
+//	}
 
 }

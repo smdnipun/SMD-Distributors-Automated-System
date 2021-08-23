@@ -23,6 +23,9 @@ request.setAttribute("data", cusDetails);
 		<jsp:include page="./cDetailsHnav.jsp"></jsp:include>
 		<div class="row pt-2">
 			<div class="col-9 pt-3 table-responsive-md">
+				<div class="d-flex justify-content-center">
+					<h4>Customer List</h4>
+				</div>
 				<table id="table" class="display nowrap" style="width:100%">
 			        <thead>
 			            <tr>
@@ -54,7 +57,7 @@ request.setAttribute("data", cusDetails);
 			</div>
 			
 			<div class="col-3">
-			<form action="../../AdminUpdateCusDetails" method="Post" class="border border-3 p-2">
+			<form action="../../adminUpdate" method="Post" class="border border-3 p-2">
                 <fieldset>
                     <legend class="d-flex justify-content-center">Customer Details</legend>
                     <div>

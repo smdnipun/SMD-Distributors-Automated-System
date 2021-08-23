@@ -30,30 +30,53 @@ public class ActivateCusServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		//getting the id from the web page
-		String customerID = request.getParameter("id");
+		String customerID = request.getParameter("btn");
 		
 		//creating object to execute setStatus function
 		ICustomerDetails cusDetails = new CusDetailsServiceImpl();
 		
-		boolean status = cusDetails.setActive(customerID);
-		
-		//if data was passed to database correctly
-		if(status == true) {
-			//display an success message
-//			request.getSession().setAttribute("message", "Customer is succesfully Activated");
+//		if(request.getParameter("btn").equals("delete")) {
+//			boolean status = cusDetails.deleteCustomer(customerID);
+//			
+//			//if data was passed to database correctly
+//			if(status == true) {
+//				//display an success message
+////				request.getSession().setAttribute("message", "Customer is succesfully Activated");
+//				
+//				//redirecting to the same page
+//				response.sendRedirect("admin/CustomerManagement/inactiveCustomers.jsp");
+////				dispatcher.forward(request, response);
+//			}
+//			else {
+//				//redirect to the same page
+//				RequestDispatcher dispatcher = request.getRequestDispatcher("admin/CustomerManagement/inactiveCustomers.jsp");
+//				
+//				//display an error message
+//				request.setAttribute("message", "There was an error please try again!!!");
+//				dispatcher.forward(request, response);
+//			}
+//		}
+//		else {
+			boolean status = cusDetails.setActive(customerID);
 			
-			//redirecting to the same page
-			response.sendRedirect("admin/CustomerManagement/inactiveCustomers.jsp");
-//			dispatcher.forward(request, response);
-		}
-		else {
-			//redirect to the same page
-			RequestDispatcher dispatcher = request.getRequestDispatcher("admin/CustomerManagement/inactiveCustomers.jsp");
-			
-			//display an error message
-			request.setAttribute("message", "There was an error please try again!!!");
-			dispatcher.forward(request, response);
-		}
+			//if data was passed to database correctly
+			if(status == true) {
+				//display an success message
+//				request.getSession().setAttribute("message", "Customer is succesfully Activated");
+				
+				//redirecting to the same page
+				response.sendRedirect("admin/CustomerManagement/inactiveCustomers.jsp");
+//				dispatcher.forward(request, response);
+			}
+			else {
+				//redirect to the same page
+				RequestDispatcher dispatcher = request.getRequestDispatcher("admin/CustomerManagement/inactiveCustomers.jsp");
+				
+				//display an error message
+				request.setAttribute("message", "There was an error please try again!!!");
+				dispatcher.forward(request, response);
+			}
+//		}
 		
 	}
 
