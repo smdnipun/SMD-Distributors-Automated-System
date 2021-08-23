@@ -10,8 +10,8 @@ if (request.getSession().getAttribute("Logged") == null) {
 }
 
 CreditSalesM dbc = new CreditSalesM();
-PaymentDetails[] payments = (PaymentDetails[]) dbc.getPaymentdetails();
-request.setAttribute("data", payments);
+PaymentDetails[] paymentDetails = dbc.getPaymentdetails();
+request.setAttribute("data", paymentDetails);
 %>
 <jsp:include page="centerNav.jsp"></jsp:include>
 <div class="pt-2">
@@ -27,7 +27,6 @@ request.setAttribute("data", payments);
 		<tr>
 			<th scope="col">Pay_ID</th>
 			<th scope="col">Hardware Name</th>
-			<th scope="col">Customer ID</th>
 			<th scope="col">Invoice ID</th>
 			<th scope="col">Total Price</th>
 			<th scope="col">Paid Amount</th>
@@ -43,16 +42,14 @@ request.setAttribute("data", payments);
 
 				<td><c:out value="${PaymentDetails.getPaymentID()}" /></td>
 				<td><c:out value="${PaymentDetails.getCusName()}" /></td>
-				<td><c:out value="${PaymentDetails.getCusID()}" /></td>
 				<td><c:out value="${PaymentDetails.getInvoiceID()}" /></td>
 				<td><c:out value="${PaymentDetails.getTotalAmount()}" /></td>
-				<td><c:out value="${PaymentDeetails.getPaidAmount()}" /></td>
+				<td><c:out value="${PaymentDetails.getPaidAmount()}" /></td>
 				<td><c:out value="${PaymentDetails.getBalance()}" /></td>
 				
 
 
 			</tr>
 		</c:forEach>
-
 	</tbody>
 </table>

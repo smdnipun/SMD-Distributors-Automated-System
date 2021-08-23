@@ -51,7 +51,7 @@
 				request.setAttribute("allProducts", allProducts);
 				%>
 				<c:forEach items="${allProducts}" var="product">
-					<b><c:out value="${product.getName()}" /></b>
+					<a href="update.jsp?product=${product.getProductID()}"><c:out value="${product.getName()}"></c:out></a>
 				</c:forEach>
 			</c:when>
 			<c:otherwise>
@@ -61,7 +61,7 @@
 				request.setAttribute("searchData", searchData);
 				%>
 				<c:forEach items="${searchData}" var="product">
-					<b>jjjjj</b>
+					<a href="update.jsp?product=${product.getProductID()}"><c:out value="${product.getProductID()}"></c:out></a>
 				</c:forEach>
 			</c:otherwise>
 		</c:choose>

@@ -4,20 +4,20 @@ package com.smd.model;
 public class PaymentDetails {
 	private String PaymentID;
 	private String CusName;
-	private String CusID;
+//	private String CusID;
 	private String InvoiceID;
 	private double TotalAmount;
 	private double PaidAmount;
 	private double Balance;
 
 //Constructor
-
-	public PaymentDetails(String paymentID, String cusName, String cusID, String invoiceID, double totalAmount,
+	//String cusID
+	public PaymentDetails(String paymentID, String cusName, String invoiceID, double totalAmount,
 			double paidAmount, double balance) {
 		super();
 		PaymentID = paymentID;
 		CusName = cusName;
-		CusID = cusID;
+//		CusID = cusID;
 		InvoiceID = invoiceID;
 		TotalAmount = totalAmount;
 		PaidAmount = paidAmount;
@@ -41,13 +41,13 @@ public class PaymentDetails {
 		CusName = cusName;
 	}
 
-	public String getCusID() {
-		return CusID;
-	}
-
-	public void setCusID(String cusID) {
-		CusID = cusID;
-	}
+//	public String getCusID() {
+//		return CusID;
+//	}
+//
+//	public void setCusID(String cusID) {
+//		CusID = cusID;
+//	}
 
 	public String getInvoiceID() {
 		return InvoiceID;

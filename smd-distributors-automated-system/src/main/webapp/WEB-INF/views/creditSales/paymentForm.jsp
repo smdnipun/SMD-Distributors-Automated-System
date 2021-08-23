@@ -6,12 +6,12 @@
 			</div>
 			<div class="mb-3">
 				<label for="formGroupExampleInput" class="form-label">Customer
-					ID</label> <input type="text" class="form-control" name="CusID"
+					ID</label> <input type="text" class="form-control" name="CID"
 					>
 			</div>
 				<div class="mb-3">
 				<label for="formGroupExampleInput" class="form-label">Invoice
-					ID</label> <input type="text" class="form-control" name="InvoiceID">
+					ID</label> <input type="text" class="form-control" name="OID">
 			</div>
 			
 			<div class="mb-3">
