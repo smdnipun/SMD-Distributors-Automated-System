@@ -154,7 +154,6 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 				Success=false;
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
 		

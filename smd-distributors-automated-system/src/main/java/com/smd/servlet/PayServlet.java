@@ -29,7 +29,7 @@ public class PayServlet extends HttpServlet {
 			throws ServletException, IOException {
 		CreditSalesM dbc = new CreditSalesM();
 //		Order check=new Order();
-		//PaymentDetails pay = (PaymentDetails) request.getSession().getAttribute("Emp_ID");
+		PaymentDetails pay = (PaymentDetails) request.getSession().getAttribute("Emp_ID");
 		
 //		pay.setPaidAmount(Double.parseDouble(request.getParameter("PaidAmount")));
 //		pay.setDate(request.getParameter("Date"));
