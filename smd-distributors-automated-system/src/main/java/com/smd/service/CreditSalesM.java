@@ -15,8 +15,11 @@ import com.smd.model.NewOrdersConf;
 import com.smd.model.Order;
 import com.smd.model.Payment;
 import com.smd.model.PaymentDetails;
+import com.smd.model.Product;
 
 public class CreditSalesM {
+	
+	DBConnection con = new DBConnection();
 //database connection of payment	
 	public Payment[] getPayment() {
 
@@ -45,7 +48,7 @@ public class CreditSalesM {
 
 		List<PaymentDetails> ll = new LinkedList<PaymentDetails>();
 		PaymentDetails[] array = null;
-		DBConnection con = new DBConnection();
+	
 		try {
 			Statement stmt = con.getConnection().createStatement();
 			ResultSet rs = stmt.executeQuery("select * from paymentdetails");
@@ -69,7 +72,7 @@ public class CreditSalesM {
 
 		List<PaymentDetails> ll = new LinkedList<PaymentDetails>();
 		PaymentDetails[] array = null;
-		DBConnection con = new DBConnection();
+		
 		try {
 			Statement stmt = con.getConnection().createStatement();
 			ResultSet rs = stmt.executeQuery("select * from paymentdetails where Order_ID=" + i);
@@ -89,9 +92,9 @@ public class CreditSalesM {
 
 //database connection to get Remaining amount
 	public int getRemainingAmount(int id) {
-		DBConnection radbc = new DBConnection();
+		
 		try {
-
+			DBConnection radbc = new DBConnection();
 			Statement stmt = radbc.getConnection().createStatement();
 			String command = "select Remaining_Amount from orders where Order_ID=" + id;
 			ResultSet rs = stmt.executeQuery(command);
@@ -107,7 +110,7 @@ public class CreditSalesM {
 	public NewOrdersConf[] getNewOrderDetails() {
 		List<NewOrdersConf> ll = new LinkedList<NewOrdersConf>();
 		NewOrdersConf[] array = null;
-		DBConnection con = new DBConnection();
+	
 		try {
 			Statement stmt = con.getConnection().createStatement();
 			ResultSet rs = stmt.executeQuery("select * from neworders ");
@@ -128,7 +131,7 @@ public class CreditSalesM {
 	public CustomerAgedRecivable[] getCreditAgedDetails() {
 		List<CustomerAgedRecivable> ll = new LinkedList<CustomerAgedRecivable>();
 		CustomerAgedRecivable[] array = null;
-		DBConnection con = new DBConnection();
+		
 		try {
 			Statement stmt = con.getConnection().createStatement();
 			ResultSet rs = stmt.executeQuery("select * from customeraged");
@@ -189,11 +192,12 @@ public class CreditSalesM {
 		return array;
 	}
 
+	//PaymentVerification
 	public boolean getPayCredit(int CID,int OID) {
 		
 		List<Order> ll = new LinkedList<Order>();
 		Order[] array = null;
-		DBConnection con = new DBConnection();
+		
 		
 		try {
 			Statement stmt = con.getConnection().createStatement();
@@ -218,6 +222,30 @@ public class CreditSalesM {
 		}
 
 	}
+	
+	
+	//Search
+	public PaymentDetails[] search(String search) {
+		List<PaymentDetails> ll = new LinkedList<PaymentDetails>();
+		PaymentDetails[] array = null;
+		try {
+			Statement stmt=con.getConnection().createStatement();
+			String command= "SELECT * from smd.paymentdetails WHERE Hardware_Name LIKE '%"+search+"%'";
+			ResultSet rs=stmt.executeQuery(command);
+			while(rs.next()) {
+				PaymentDetails n = new PaymentDetails(rs.getString(1), rs.getNString(3), rs.getString(4),
+						rs.getDouble(5), rs.getDouble(6), rs.getDouble(7));
+				ll.add(n);
+			}
+			
+			array = ll.toArray(new PaymentDetails[ll.size()]);
+			 
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return array;
+	}
+	
 	
 	
 }
