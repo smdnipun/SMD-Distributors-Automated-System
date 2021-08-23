@@ -1,7 +1,6 @@
 package com.smd.servlet;
 
 import java.io.IOException;
-import java.sql.ResultSet;
 import java.sql.Statement;
 
 import javax.servlet.ServletException;
@@ -22,6 +21,7 @@ public class AcceptOrderServlet extends HttpServlet {
 		super();
 	}
 
+	@SuppressWarnings("unused")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		DBConnection dbc = new DBConnection();

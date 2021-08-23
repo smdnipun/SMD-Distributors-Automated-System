@@ -6,7 +6,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.smd.model.Feedback;
-import com.smd.util.DBConnection;
 
 
 public class FeedbackServiceImpl implements IFeedback {

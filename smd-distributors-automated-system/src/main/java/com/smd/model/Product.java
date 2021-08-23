@@ -4,6 +4,7 @@ public class Product {
 
 	private String productID;
 	private String name;
+	@SuppressWarnings("unused")
 	private String date;
 	private int weight;
 	private int price;

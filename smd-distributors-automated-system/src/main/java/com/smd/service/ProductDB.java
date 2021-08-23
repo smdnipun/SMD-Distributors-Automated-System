@@ -55,6 +55,7 @@ public class ProductDB {
 		return array;
 	}
 
+	@SuppressWarnings("unused")
 	public Product getProductById(int id) {
 		List<Product> ll = new LinkedList<Product>();
 		Product[] array = null;

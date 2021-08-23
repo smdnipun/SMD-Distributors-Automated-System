@@ -36,6 +36,7 @@ public class UpdateProduct extends HttpServlet {
 			
 			String command = "UPDATE product SET Name = '"+request.getParameter("pname")+"',Product_Weight = '"+request.getParameter("pweight")+"',Unit_Price = '"+request.getParameter("pprice")+"',Availability='"+availability+"' WHERE Prod_ID ="+ request.getParameter("pid");
 //			response.getWriter().append(command);
+			@SuppressWarnings("unused")
 			int rows=stmt.executeUpdate(command);
 			
 //			Staff[] data=dbc.getStaffdetails();
