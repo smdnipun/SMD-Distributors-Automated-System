@@ -4,9 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
 import java.sql.SQLException;
-import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -14,7 +12,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 
 import com.smd.util.DBConnection;
 
@@ -30,9 +27,16 @@ public class AddProduct extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
+	@SuppressWarnings("unused")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		DBConnection con=new DBConnection(); 
-		String command = "insert into product(Product_Weight,Added_Date,Name,Unit_Price) VALUES('"+request.getParameter("pweight")+"','2030-10-01','"+request.getParameter("pname")+"','"+request.getParameter("pprice")+"')";
+		int availability=1;
+		if(request.getParameter("availablity")==null) {
+			availability=0;
+		}else {
+			availability=1;
+		}
+		String command = "insert into product(Product_Weight,Added_Date,Name,Unit_Price,Availability) VALUES('"+request.getParameter("pweight")+"','2030-10-01','"+request.getParameter("pname")+"','"+request.getParameter("pprice")+"','"+availability+"')";
 //		response.getWriter().append(command);
 		try {
 			int rows=con.getConnection().createStatement().executeUpdate(command);
