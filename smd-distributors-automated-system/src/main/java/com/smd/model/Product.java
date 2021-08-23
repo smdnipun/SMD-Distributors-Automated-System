@@ -4,13 +4,15 @@ public class Product {
 
 	private String productID;
 	private String name;
+	private String date;
 	private int weight;
 	private int price;
 	private String image;
 	
-	public Product(String productID, String name, int weight, int price) {
+	public Product(String productID,int weight,String date, String name,int price) {
 		this.productID = productID;
 		this.name = name;
+		this.date=date;
 		this.weight = weight;
 		this.price = price;
 	}

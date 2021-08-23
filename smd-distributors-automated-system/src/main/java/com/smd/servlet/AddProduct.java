@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -12,6 +15,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+
+import com.smd.util.DBConnection;
 
 @WebServlet("/addProduct")
 @MultipartConfig
@@ -26,21 +31,19 @@ public class AddProduct extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Part part = request.getPart("image");
-		String filename=part.getSubmittedFileName();
-//		String path=getServletContext().getRealPath(request.getContextPath()+"/img/"+filename);
-		String path=request.getRealPath("/WEB-INF/")+ "files"+ File.separator+ filename;
-		
-//		response.getWriter().append(path.replace("e\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\", ""));
-		
-		InputStream is = part.getInputStream();
-		boolean uploaded=uploadFile(is,path);
-		
-		if(uploaded) {
-			response.getWriter().append(path.replace("e\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\", ""));
-		}else {
-			response.getWriter().append("dd");
+		DBConnection con=new DBConnection(); 
+		String command = "insert into product(Product_Weight,Added_Date,Name,Unit_Price) VALUES('"+request.getParameter("pweight")+"','2030-10-01','"+request.getParameter("pname")+"','"+request.getParameter("pprice")+"')";
+//		response.getWriter().append(command);
+		try {
+			int rows=con.getConnection().createStatement().executeUpdate(command);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
+//		Staff[] data=dbc.getStaffdetails();
+//		request.getSession().setAttribute("data", data);
+//		response.sendRedirect("index.jsp");
 		
 	}
 
@@ -63,3 +66,19 @@ public class AddProduct extends HttpServlet {
 	}
 }
 
+//Part part = request.getPart("image");
+//String filename=part.getSubmittedFileName();
+//String path=getServletContext().getRealPath(request.getContextPath()+"/img/"+filename);
+//String path=request.getRealPath("/"+ "img"+ File.separator+ filename);
+//Set<String> path=getServletContext().getResourcePaths("/img");
+//
+//response.getWriter().append(path.toString());
+
+//InputStream is = part.getInputStream();
+//boolean uploaded=uploadFile(is,path.toString());
+//
+//if(uploaded) {
+//	response.getWriter().append(path.toString());
+//}else {
+//	response.getWriter().append("dd");
+//}
