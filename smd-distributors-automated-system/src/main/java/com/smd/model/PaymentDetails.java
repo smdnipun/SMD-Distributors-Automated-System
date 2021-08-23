@@ -1,55 +1,66 @@
 package com.smd.model;
 
-//create CustomerAgedRecivable class
-public class CustomerAgedRecivable {
-	private String Cus_ID;
-	private String HardwareName;
+//Create Payment details class
+public class PaymentDetails {
+	private String PaymentID;
+	private String CusName;
+	private String CusID;
 	private String InvoiceID;
 	private double TotalAmount;
 	private double PaidAmount;
 	private double Balance;
 
-	// constructor
-	public CustomerAgedRecivable(String cus_ID, String hardwareName, String invoiceID, double totalAmount,
+//Constructor
+
+	public PaymentDetails(String paymentID, String cusName, String cusID, String invoiceID, double totalAmount,
 			double paidAmount, double balance) {
 		super();
-		Cus_ID = cus_ID;
-		HardwareName = hardwareName;
+		PaymentID = paymentID;
+		CusName = cusName;
+		CusID = cusID;
 		InvoiceID = invoiceID;
 		TotalAmount = totalAmount;
 		PaidAmount = paidAmount;
 		Balance = balance;
 	}
-	
-	// setters and getters
-	public String getCus_ID() {
-		return Cus_ID;
+
+	// Setters and getters
+	public String getPaymentID() {
+		return PaymentID;
 	}
 
-	public void setCus_ID(String cus_ID) {
-		Cus_ID = cus_ID;
+	public void setPaymentID(String paymentID) {
+		PaymentID = paymentID;
 	}
 
-	public String getHardwareName() {
-		return HardwareName;
+	public String getCusName() {
+		return CusName;
 	}
 
-	public void setHardwareName(String hardwareName) {
-		HardwareName = hardwareName;
+	public void setCusName(String cusName) {
+		CusName = cusName;
+	}
+
+	public String getCusID() {
+		return CusID;
+	}
+
+	public void setCusID(String cusID) {
+		CusID = cusID;
+	}
+
+	public String getInvoiceID() {
+		return InvoiceID;
+	}
+
+	public void setInvoiceID(String invoiceID) {
+		InvoiceID = invoiceID;
 	}
 
 	public double getTotalAmount() {
 		return TotalAmount;
 	}
-	public String getInvoiceID() {
-		return InvoiceID;
-	}
 
-
-	public void setInvoiceID(String invoiceID) {
-		InvoiceID = invoiceID;
-	}
-	
 	public void setTotalAmount(double totalAmount) {
 		TotalAmount = totalAmount;
 	}
