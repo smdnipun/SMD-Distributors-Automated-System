@@ -13,17 +13,15 @@ import com.smd.service.CusDetailsServiceImpl;
 /**
  * Servlet implementation class inactiveCustomers
  */
-@WebServlet("/inactiveCustomers")
+@WebServlet("/InactiveCustomers")
 public class InactiveCustomers extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     public InactiveCustomers() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 

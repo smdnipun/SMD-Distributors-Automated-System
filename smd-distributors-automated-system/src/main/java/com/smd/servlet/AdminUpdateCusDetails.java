@@ -12,16 +12,15 @@ import javax.servlet.http.HttpServletResponse;
 import com.smd.model.Customer;
 import com.smd.service.CusDetailsServiceImpl;
 import com.smd.service.ICustomerDetails;
-import com.smd.util.DBConnection;
 
 /**
- * Servlet implementation class RegisterServlet
+ * Servlet implementation class AdminUpdateCusDetails
  */
-@WebServlet("/RegisterServlet")
-public class RegisterServlet extends HttpServlet {
+@WebServlet("/AdminUpdateCusDetails")
+public class AdminUpdateCusDetails extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public RegisterServlet() {
+    public AdminUpdateCusDetails() {
         super();
     }
 
@@ -40,51 +39,48 @@ public class RegisterServlet extends HttpServlet {
 		Customer[] CustomerData = cusDetails.getCustomerDetails();
 		
 		//setting the values taken from the registration page
+		customer.setCusID(request.getParameter("cus_id"));
 		customer.setFname(request.getParameter("fname"));
 		customer.setLname(request.getParameter("lname"));
 		customer.setHardwareName(request.getParameter("hname"));
 		customer.setEmail(request.getParameter("email"));
 		customer.setPhoneNo(request.getParameter("pno"));
 		customer.setNIC(request.getParameter("nic"));
-		customer.setAddress(
-				request.getParameter("address")+ ", " +
-				request.getParameter("city")+ ", " +
-				request.getParameter("State")
-				);
-		customer.setPassword(request.getParameter("pwd"));
+		customer.setAddress(request.getParameter("address"));
 		
-		//checking the password is correctly enter in both fields(password and re-enter password)
-		if(request.getParameter("pwd").equals(request.getParameter("rpwd"))) {
-			
-			//checking the database whether an account with the same email exist
-			for(int i=0;i<CustomerData.length;i++) {
-				if((CustomerData[i].getEmail().equals(request.getParameter("email")))) {
-					RequestDispatcher redirect = getServletContext().getRequestDispatcher("./registration.jsp");
-					request.setAttribute("message", "User Already exists!!!");
-					redirect.forward(request, response);
-					break;
-				}
-			}
+		if(request.getParameter("btn").equals("update")) {
 			
 			//calling the addCustomer function in CusDetailsServiceImpl and getting the status
-			boolean status = cusDetails.addCustomer(customer);
+			boolean status = cusDetails.updateCustomerfromAdmin(customer);
 			
 			if(status == true){//if the data was passed to the database successfully
-				response.sendRedirect("./login.jsp");
+				response.sendRedirect("admin/CustomerManagement/CustomerDetails.jsp");
 			}
 			else{//if the data was not passed to the database
 				//redirect to the registration page
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("./registration.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("admin/CustomerManagement/CustomerDetails.jsp");
 				
 				//display an error message
 				request.setAttribute("message", "There was an error please try again!!!");
 				dispatcher.forward(request, response);
 			}
-		}
-		else {
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("./registration.jsp");
-			request.setAttribute("message", "Password mismatch!!!");
-			dispatcher.forward(request, response);
+		} 
+		else if(request.getParameter("btn").equals("delete")) {
+			//calling the setInactive function in deactivate account
+			boolean status = cusDetails.setInactive(customer);
+			
+			if(status == true){//if the data was updated successfully
+				response.sendRedirect("admin/CustomerManagement/CustomerDetails.jsp");
+			}
+			else{//if the data was not passed to the database
+				//redirect to the registration page
+				RequestDispatcher dispatcher = request.getRequestDispatcher("admin/CustomerManagement/CustomerDetails.jsp");
+				
+				//display an error message
+				request.setAttribute("message", "There was an error please try again!!!");
+				dispatcher.forward(request, response);
+			}
+			
 		}
 		
 	}
