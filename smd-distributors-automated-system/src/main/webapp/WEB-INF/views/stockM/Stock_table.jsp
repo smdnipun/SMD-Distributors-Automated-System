@@ -17,7 +17,7 @@ request.setAttribute("stockdata", newstock);
 %>
 
 
-<div style="width:100px" class="col-5 text-center align">
+<div  class="col-5 text-center align">
 	<table class="table table-hover">
 		
 		<thead>
@@ -25,30 +25,25 @@ request.setAttribute("stockdata", newstock);
 				<th style="width:10%" scope="col">Stock ID</th>
 				<th style="width:10%" scope="col">Item Name</th>
 				<th style="width:10%" scope="col">Quntity</th>
-				<th style="width:10%" scope="col">date</th>
-				<th style="width:10%"scope="col"></th>
+				<th style="width:10%" scope="col">Date</th>
+				<th style="width:10%"scope="col">Status</th>
 			</tr>
 		</thead>
 		<tbody>
 		<c:forEach items="${stockdata}" var="Stock">
 			<tr>
 			
-					<td><input type="text" name="stockID"
-						value="<c:out value="${Stock.getStockID()}"/>"></td>
+					<td><c:out value="${Stock.getStockID()}"/>"</td>
+				<%-- 	<td><input type="text" name="stockID"
+						value="<c:out value="${Stock.getStockID()}"/>"></td> --%>
 					<td><input type="text" name="itemname"
 						value="<c:out value="${Stock.getItemName()}"/>"></td>
 					<td><input type="text" name="quntity"
 						value="<c:out value="${Stock.getQuntity()}"/>"></td>
-					<td><input type="text" name="date"
-						value="<c:out value="${Stock.getDate()}"/>"></td>
-				<%-- <th scope="row">1</th>
-				<td><c:out value="${Stock.getStockID()}"/></td>
-				<td><c:out value="${Stock.getItemName()}"/></td>
-				<td><c:out value="${Stock.getQuntity()}"/></td>
-				<td><c:out value="${Stock.getDate()}"/></td> --%>
-				<td>
-				<button type="button" class="btn btn-light">UPDATE</button>
-				</td>
+					<td><c:out value="${Stock.getDate()}"/>"</td>
+					<td><input type="text" name="status"
+						value="<c:out value="${Stock.getStatus()}"/>"></td>
+				
 			</tr>
 		</c:forEach>
 		</tbody>
