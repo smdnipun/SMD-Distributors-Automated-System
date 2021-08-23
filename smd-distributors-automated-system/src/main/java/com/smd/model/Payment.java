@@ -8,6 +8,7 @@ public class Payment {
 	private double PaidAmount;
 	private String EmpID;
 	
+	
 	//Constructor
 	public Payment(String paymentID, String cusID, String invoiceID, String date, double paidAmount, String empID) {
 		super();

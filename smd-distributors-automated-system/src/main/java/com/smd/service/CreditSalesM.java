@@ -7,9 +7,12 @@ import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
 
+
+
 import com.smd.model.Customer;
 import com.smd.model.CustomerAgedRecivable;
 import com.smd.model.NewOrdersConf;
+import com.smd.model.Order;
 import com.smd.model.Payment;
 import com.smd.model.PaymentDetails;
 
@@ -47,8 +50,9 @@ public class CreditSalesM {
 			Statement stmt = con.getConnection().createStatement();
 			ResultSet rs = stmt.executeQuery("select * from paymentdetails");
 			while (rs.next()) {
-				PaymentDetails n = new PaymentDetails(rs.getString(1), rs.getNString(2), rs.getNString(3),
-						rs.getString(4), rs.getDouble(5), rs.getDouble(6), rs.getDouble(7));
+				// rs.getNString(2)
+				PaymentDetails n = new PaymentDetails(rs.getString(1), rs.getNString(2), rs.getString(3),
+						rs.getDouble(4), rs.getDouble(5), rs.getDouble(6));
 				ll.add(n);
 			}
 			array = ll.toArray(new PaymentDetails[ll.size()]);
@@ -70,8 +74,8 @@ public class CreditSalesM {
 			Statement stmt = con.getConnection().createStatement();
 			ResultSet rs = stmt.executeQuery("select * from paymentdetails where Order_ID=" + i);
 			while (rs.next()) {
-				PaymentDetails n = new PaymentDetails(rs.getString(1), rs.getNString(2), rs.getNString(3),
-						rs.getString(4), rs.getDouble(5), rs.getDouble(6), rs.getDouble(7));
+				PaymentDetails n = new PaymentDetails(rs.getString(1), rs.getNString(3), rs.getString(4),
+						rs.getDouble(5), rs.getDouble(6), rs.getDouble(7));
 				ll.add(n);
 			}
 			array = ll.toArray(new PaymentDetails[ll.size()]);
@@ -163,7 +167,7 @@ public class CreditSalesM {
 //}
 
 //customers Details
-	public Customer[] getCustomrDetailstocredi() {
+	public Customer[] getCustomrDetailstocredit() {
 		List<Customer> ll = new LinkedList<Customer>();
 		Customer[] array = null;
 		DBConnection con = new DBConnection();
@@ -174,7 +178,7 @@ public class CreditSalesM {
 			while (rs.next()) {
 				Customer n = new Customer(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
 						rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9),
-						rs.getString(10), rs.getString(11));
+						rs.getString(10));
 				ll.add(n);
 			}
 
@@ -184,4 +188,36 @@ public class CreditSalesM {
 		}
 		return array;
 	}
+
+	public boolean getPayCredit(int CID,int OID) {
+		
+		List<Order> ll = new LinkedList<Order>();
+		Order[] array = null;
+		DBConnection con = new DBConnection();
+		
+		try {
+			Statement stmt = con.getConnection().createStatement();
+			ResultSet rs = stmt.executeQuery(
+					"select * from orders"+ "where order_ID ="+OID+"and"+"Cust_ID"+"="+CID+";");
+			while (rs.next()) {
+				Order n = new Order(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getDouble(5),
+						rs.getDouble(6), rs.getDouble(7), rs.getInt(8), rs.getInt(9));
+				ll.add(n);
+			}
+
+			array = ll.toArray(new Order[ll.size()]);
+			
+		} catch (Exception e) {
+		}
+		
+		if(array.length>0) {
+			return false;
+		}
+		else {
+			return true;
+		}
+
+	}
+	
+	
 }
