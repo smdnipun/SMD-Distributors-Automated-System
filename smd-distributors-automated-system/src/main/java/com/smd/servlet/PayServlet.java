@@ -27,9 +27,9 @@ public class PayServlet extends HttpServlet {
 	@SuppressWarnings("unused")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		CreditSalesM dbc = new CreditSalesM();
+		CreditSalesM check = new CreditSalesM();
 //		Order check=new Order();
-		PaymentDetails pay = (PaymentDetails) request.getSession().getAttribute("Emp_ID");
+//		PaymentDetails pay = (PaymentDetails) request.getSession().getAttribute("Emp_ID");
 		
 //		pay.setPaidAmount(Double.parseDouble(request.getParameter("PaidAmount")));
 //		pay.setDate(request.getParameter("Date"));
@@ -40,7 +40,7 @@ public class PayServlet extends HttpServlet {
 		int OID=(Integer.parseInt(request.getParameter("OID")));
 
 		
-		boolean status = dbc.getPayCredit(1,1);
+		boolean status = check.getPayCredit(1,1);
 		
 		if(status==false) {
 			
