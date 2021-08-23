@@ -22,7 +22,9 @@ request.setAttribute("data", cusDetails);
 		<jsp:include page="./cDetailsHnav.jsp"></jsp:include>
 		<div class="row pt-3 table-responsive-md">
 			<div style = "color:red;" class="d-flex justify-content-center">
-			<%if(session.getAttribute("message")!=null){ %>
+			<%if(session ==null){ 
+				session.invalidate();
+				}else{%>
 				<h5><%= session.getAttribute("message") %></h5>
 				<%} %>
 			</div>

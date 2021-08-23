@@ -1,7 +1,6 @@
 package com.smd.servlet;
 
 import java.io.IOException;
-import java.sql.Statement;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -36,12 +35,12 @@ public class ActivateCusServlet extends HttpServlet {
 		//creating object to execute setStatus function
 		ICustomerDetails cusDetails = new CusDetailsServiceImpl();
 		
-		boolean status = cusDetails.setStatus(customerID);
+		boolean status = cusDetails.setActive(customerID);
 		
 		//if data was passed to database correctly
 		if(status == true) {
 			//display an success message
-			request.getSession().setAttribute("message", "Customer is succesfully Activated");
+//			request.getSession().setAttribute("message", "Customer is succesfully Activated");
 			
 			//redirecting to the same page
 			response.sendRedirect("admin/CustomerManagement/inactiveCustomers.jsp");

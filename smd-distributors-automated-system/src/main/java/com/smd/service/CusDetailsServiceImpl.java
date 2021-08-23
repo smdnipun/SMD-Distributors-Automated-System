@@ -12,7 +12,7 @@ import javax.servlet.RequestDispatcher;
 import com.smd.model.Customer;
 
 public class CusDetailsServiceImpl implements ICustomerDetails {
-	@Override
+	
 	//Get all the customer details from the Database
 	public Customer[] getCustomerDetails() {
 		
@@ -53,7 +53,6 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 		return array;
 	}
 	
-	@Override
 	//Get all the active customer details from the Database
 	public Customer[] activeCustomers() {
 		
@@ -94,7 +93,6 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 		return array;
 	}
 	
-	@Override
 	//Get all the inactive customer details from the Database
 	public Customer[] inactiveCustomers() {
 		
@@ -135,7 +133,6 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 		return array;
 	}
 	
-	@Override
 	//Add new customer to the database
 	public boolean addCustomer(Customer customer) {
 		boolean Success = false;//assigning false before execution
@@ -166,9 +163,8 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 		return Success;
 	}
 	
-	@Override
 	//update the status of the customer
-	public boolean setStatus(String id) {
+	public boolean setActive(String id) {
 		boolean Success = false;//assign false before execution
 		
 		//creating the database connection
@@ -176,7 +172,62 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 		try {
 			Statement stmt = dbc.getConnection().createStatement();
 			
-			String command =  "UPDATE customer SET status = '" + "Active" + "' where Cus_ID =" + id;
+			String command =  "UPDATE customer SET status = 'Active' where Cus_ID =" + id;
+			int result = stmt.executeUpdate(command);
+			
+			if(result>0) {
+				//insertion is successful if result is 1
+				Success=true;
+			}
+			else
+				//insertion is unsuccessful
+				Success=false;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+		
+		return Success;
+	}
+	
+	//update the status of the customer
+	public boolean setInactive(Customer customer) {
+		boolean Success = false;// assign false before execution
+		
+		//creating the database connection
+		DBConnection dbc = new DBConnection();
+		try {
+			Statement stmt = dbc.getConnection().createStatement();
+			
+			String command =  "UPDATE customer SET status = 'Inactive' where Cus_ID =" + customer.getCusID();
+			int result = stmt.executeUpdate(command);
+			
+			if(result>0) {
+				//insertion is successful if result is 1
+				Success=true;
+			}
+			else
+				//insertion is unsuccessful
+				Success=false;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+		
+		return Success;
+	}
+
+	//update user details from admin
+	public boolean updateCustomerfromAdmin(Customer customer) {
+		boolean Success = false;//assign false before execution
+		
+		//creating the database connection
+		DBConnection dbc = new DBConnection();
+		try {
+			Statement stmt = dbc.getConnection().createStatement();
+			
+			String command = "UPDATE customer SET First_name= '" + customer.getFname() + "', Last_Name= '" + customer.getLname() + "', Hardware_Name= '"+ customer.getHardwareName() +"', Phone= '"+ customer.getPhoneNo() +"', NIC= '" + customer.getNIC() + "', Email= '"+ customer.getEmail() + "', Address= '" + customer.getAddress() + "' where Cus_ID = " + customer.getCusID();      
+			
 			int result = stmt.executeUpdate(command);
 			
 			if(result>0) {
