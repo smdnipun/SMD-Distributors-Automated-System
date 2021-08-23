@@ -28,10 +28,10 @@ request.setAttribute("supplierdata", newsupplier);
 		</thead>
 		<tbody>
 			<c:forEach items="${supplierdata}" var="Supplier">
-				<!-- <form action="updateitem" method="post"> -->
-				<tr>
-			
-			<td><input type="text" name="supplierID"
+				<<form action="../../SupplierUpdate" method="post">
+					<tr>
+
+					<td><input type="text" name="supplierID"
 						value="<c:out value="${Supplier.getSupplierID()}"/>"></td>
 					<td><input type="text" name="name"
 						value="<c:out value="${Supplier.getName()}"/>"></td>
@@ -39,19 +39,18 @@ request.setAttribute("supplierdata", newsupplier);
 						value="<c:out value="${Supplier.getAddress()}"/>"></td>
 					<td><input type="text" name="tno"
 						value="<c:out value="${Supplier.getTno()}"/>"></td>
-		 <%-- 	<td><c:out value="${Supplier.getSupplierID()}"/></td> 	
-			<td><c:out value="${Supplier.getName()}"/></td>
-			<td><c:out value="${Supplier.getAddress()}"/></td>
-			<td><c:out value="${Supplier.getTno()}"/></td>  --%>
 
+				
 					<td>
-					<button type="button" class="btn btn-light">UPDATE</button>
-				<!-- </form> -->
-					<!-- <form action="SupplierDelete" method="post"> -->
-					<button type="button" class="btn btn-light">Delete</button>
-					<!-- </form>-->
+						<button name ="button" value="update" type="submit" name="id" class="btn btn-light"
+							value="<c:out value= "${Supplier.getSupplierID()}"/>">UPDATE</button>
+						
+						<button name="button" value="delete" type="button"  class="btn btn-light" value="<c:out value= "${Supplier.getSupplierID()}"/>">Delete</button> 
+				
 					</td>
+					
 				</tr>
+				</form>
 			</c:forEach>
 		</tbody>
 	</table>
