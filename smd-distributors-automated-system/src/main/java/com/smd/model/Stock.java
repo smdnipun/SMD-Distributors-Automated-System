@@ -6,17 +6,20 @@ public class Stock {
 	private String itemName;
 	private int quntity;
 	private String date;
+	private String status;
 	
 //Constructor
-	public Stock(int stockID, String itemName, String date, int quntity) {
+	public Stock(int stockID, String itemName, String date, int quntity, String status) {
 		this.stockID=stockID;
 		this.itemName=itemName;
 		this.quntity=quntity;
 		this.date=date;
+		this.status=status;
 	}
 	
+	//Created constructor 
 public Stock() {
-		//Created constructor 
+		
 	}
 
 	//Getters
@@ -35,6 +38,9 @@ public Stock() {
 	public String getDate() {
 		return date;
 	}
+	public String getStatus() {
+		return status;
+	}
 	
 //Setters
 	public void setStockID(int stockID) {
@@ -51,6 +57,9 @@ public Stock() {
 
 	public void setDate(String date) {
 		this.date = date;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 }
