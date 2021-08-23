@@ -12,12 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.smd.model.MonthlyOrder;
-import com.smd.model.Order;
 import com.smd.service.OrderM;
 
-/**
- * Servlet implementation class MonthlyOrderReport
- */
 @WebServlet("/MonthlyOrderReport")
 public class MonthlyOrderReport extends HttpServlet {
 	private static final long serialVersionUID = 1L;

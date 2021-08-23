@@ -2,12 +2,10 @@ package com.smd.service;
 import com.smd.util.DBConnection;
 
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 
 import com.smd.model.Customer;
 
@@ -156,7 +154,6 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 				Success=false;
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
 		

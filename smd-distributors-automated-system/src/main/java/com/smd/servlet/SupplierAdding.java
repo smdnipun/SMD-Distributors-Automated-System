@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.smd.service.SupplierDB;
 import com.smd.util.DBConnection;
-import com.smd.model.Supplier;
+
 
 @WebServlet("/SupplierAdding")
 public class SupplierAdding extends HttpServlet {
@@ -27,6 +27,7 @@ public class SupplierAdding extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
+	@SuppressWarnings("unused")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		SupplierDB sup = new SupplierDB();

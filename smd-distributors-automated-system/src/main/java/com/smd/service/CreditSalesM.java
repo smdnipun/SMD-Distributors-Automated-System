@@ -19,6 +19,7 @@ import com.smd.model.Product;
 
 public class CreditSalesM {
 	
+	public CreditSalesM() {}
 	DBConnection con = new DBConnection();
 //database connection of payment	
 	public Payment[] getPayment() {

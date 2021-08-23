@@ -12,9 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.smd.service.CusDetailsServiceImpl;
 import com.smd.service.ICustomerDetails;
 
-/**
- * Servlet implementation class ActivateCusServlet
- */
 @WebServlet("/activate")
 public class ActivateCusServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
