@@ -17,16 +17,16 @@ request.setAttribute("stockdata", newstock);
 %>
 
 
-<div class="col-8 text-center align">
+<div style="width:100px" class="col-5 text-center align">
 	<table class="table table-hover">
 		
 		<thead>
 			<tr>
-				<th scope="col">Stock ID</th>
-				<th scope="col">Item Name</th>
-				<th scope="col">Quntity</th>
-				<th scope="col">date</th>
-				<th scope="col"></th>
+				<th style="width:10%" scope="col">Stock ID</th>
+				<th style="width:10%" scope="col">Item Name</th>
+				<th style="width:10%" scope="col">Quntity</th>
+				<th style="width:10%" scope="col">date</th>
+				<th style="width:10%"scope="col"></th>
 			</tr>
 		</thead>
 		<tbody>
