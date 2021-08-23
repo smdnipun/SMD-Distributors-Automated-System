@@ -143,7 +143,7 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 			
 			String command = "insert into customer(First_Name,Last_Name,Hardware_Name,Phone,Password,NIC,Email,Address,Status)"
 					+ "VALUES('" + customer.getFname() + "','" + customer.getLname() + "','" + customer.getHardwareName() + "','" + customer.getPhoneNo() + "','" + customer.getPassword() + "','" + customer.getNIC() + "','" + customer.getEmail() + "','" + customer.getAddress() + "','" + "Active" + "')";
-			
+	
 			int result = stmt.executeUpdate(command);
 			
 			if(result>0) {
