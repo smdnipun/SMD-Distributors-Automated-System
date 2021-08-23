@@ -15,15 +15,20 @@ public interface ICustomerDetails {
 	//add customer detail to the database
 	public boolean addCustomer(Customer customer);
 	
-//	//update customer Details to the system
-//	public boolean updateCustomerfromAdmin(Customer customer);
-//	
+	//update customer Details to the system
+	public boolean updateCustomerfromAdmin(Customer customer);
+	
+	//activate customer Details
+	public boolean setActive(String id);
+	
+	//deactivate customer
+	public boolean setInactive(Customer customer);
+		
+	
 //	//update password from forget password
 //	public boolean updateForgetPassword(Customer customer);
 //	
 //	//update user details from the customer profile
 //	public boolean updateUserProfile(Customer customer);
-//	
-//	//Delete customer Details
-//	public boolean setStatus();
+		
 }

@@ -1,8 +1,6 @@
 package com.smd.servlet;
 
 import java.io.IOException;
-import java.sql.ResultSet;
-import java.sql.Statement;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

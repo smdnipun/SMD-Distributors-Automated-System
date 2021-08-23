@@ -30,17 +30,9 @@ public class SupplierAdding extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		SupplierDB sup = new SupplierDB();
-		/* Supplier Supp = new Supplier(); */
-
-		/*
-		 * Supp.setSupplierID(request.getParameter("supplierID"));
-		 * Supp.setName(request.getParameter("name"));
-		 * Supp.setAddress(request.getParameter("address"));
-		 * Supp.setTno(request.getParameter("tno"));
-		 */
+	
 
 	try {
-			
 			  DBConnection sdbc = new DBConnection(); 
 			  Statement stmt =
 			  sdbc.getConnection().createStatement(); 

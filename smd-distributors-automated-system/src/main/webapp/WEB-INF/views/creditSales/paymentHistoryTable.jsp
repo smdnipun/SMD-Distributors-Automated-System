@@ -1,4 +1,4 @@
-<%@ page import="com.smd.model.PaymentDetails"%><!--Import NewOrderCOnf.class-->
+<%@ page import="com.smd.model.Payment"%><!--Import NewOrderCOnf.class-->
 <%@ page import="com.smd.service.CreditSalesM"%><!-- Import Database connection of creditSales -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="stylesheet"
@@ -12,7 +12,7 @@ if (request.getSession().getAttribute("Logged") == null) {
 }
 
 CreditSalesM dbc = new CreditSalesM();
-PaymentDetails[] payments = (PaymentDetails[]) dbc.getPaymentdetails();
+Payment[] payments = (Payment[]) dbc.getPayment();
 request.setAttribute("payments", payments);
 %>
 
@@ -29,12 +29,11 @@ request.setAttribute("payments", payments);
 			<tr>
 
 				<th scope="col">Payment ID</th>
-				<th scope="col">Customer</th>
-				<th scope="col">Invoice No</th>
-				<th scope="col">Product Code</th>
-				<th scope="col">Total Amount</th>
-				<th scope="col">Paid Amount</th>
-				<th scope="col">Balance</th>
+				<th scope="col">Amount</th>
+				<th scope="col">Date</th>
+				<th scope="col">Customer ID</th>
+				<th scope="col">Invoice ID</th>
+				<th scope="col">Employee ID</th>
 
 			</tr>
 		</thead>
@@ -43,12 +42,11 @@ request.setAttribute("payments", payments);
 				<tr>
 
 					<td><c:out value="${Payment.getPaymentID()}" /></td>
-					<td><c:out value="${Payment.getCusName()}" /></td>
+					<td><c:out value="${Payment.getCusID()}" /></td>
 					<td><c:out value="${Payment.getInvoiceID()}" /></td>
-					<td><c:out value="${Payment.getProductCode()}" /></td>
+					<td><c:out value="${Payment.getDate()}" /></td>
 					<td><c:out value="${Payment.getPaidAmount()}" /></td>
-					<td><c:out value="${Payment.getTotalAmount()}" /></td>
-					<td><c:out value="${Payment.getBalance()}" /></td>
+					<td><c:out value="${Payment.getEmpID()}" /></td>
 				</tr>
 			</c:forEach>
 		</tbody>

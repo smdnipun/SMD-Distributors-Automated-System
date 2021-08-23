@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import java.sql.Statement;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,13 +13,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.smd.service.CreditSalesM;
 import com.smd.util.DBConnection;
+import com.smd.model.Order;
 import com.smd.model.PaymentDetails;
 
 @WebServlet("/pay")
-public class PaymentServlet extends HttpServlet {
+public class PayServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public PaymentServlet() {
+	public PayServlet(int OID,int CID) {
 		super();
 	}
 
@@ -31,29 +33,45 @@ public class PaymentServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		CreditSalesM dbc = new CreditSalesM();
+//		Order check=new Order();
 		PaymentDetails pay = (PaymentDetails) request.getSession().getAttribute("Emp_ID");
-
+		
 //		pay.setPaidAmount(Double.parseDouble(request.getParameter("PaidAmount")));
 //		pay.setDate(request.getParameter("Date"));
-//		pay.setInvoiceID(request.getParameter("InvoiceID"));
-//		pay.setCusID(request.getParameter("CusID"));
+//		check.setOID(Integer.parseInt(request.getParameter("OID")));
+//		check.setCID(Integer.parseInt(request.getParameter("CID")));
 //		pay.setEmpID(request.getParameter("EmpID"));
+		int CID=(Integer.parseInt(request.getParameter("CID")));
+		int OID=(Integer.parseInt(request.getParameter("OID")));
 
+		
+		boolean status = dbc.getPayCredit(1,1);
+		
+		if(status==false) {
+			
 		try {
 			DBConnection pdbc = new DBConnection();
 			Statement stmt = pdbc.getConnection().createStatement();
 			String command = "INSERT INTO payment(Amount,Date,Order_ID,Cus_ID,Emp_ID)" + "VALUES('"
 					+ request.getParameter("PaidAmount") + "'" + "," + "'" + request.getParameter("Date") + "'" + ","
-					+ "'" + request.getParameter("InvoiceID") + "'" + "," + "'" + request.getParameter("CusID") + "'"
+					+ "'" + OID + "'" + "," + "'" + CID+ "'"
 					+ "," + "'1'" + ")";
-			stmt.execute(command);
-//			response.getWriter().append(command);
+//			stmt.execute(command);
+			response.getWriter().append(command);
 
 			//response.sendRedirect("CreditPayment.jsp");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		}
 
+		else{
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("../../CreditPayment.jsp");
+			request.setAttribute("message", "There was an error please try again!!!");
+			dispatcher.forward(request, response);
+			
+		}
+		
 	}
 
 }
