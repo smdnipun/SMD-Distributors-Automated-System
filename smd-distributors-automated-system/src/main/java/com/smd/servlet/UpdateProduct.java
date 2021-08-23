@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.smd.util.DBConnection;
 
-@WebServlet("/UpdateProduct")
+@WebServlet("/updateproduct")
 public class UpdateProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -25,12 +25,18 @@ public class UpdateProduct extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		DBConnection dbc = new DBConnection();
-
+		int availability=1;
+		if(request.getParameter("availablity")==null) {
+			availability=0;
+		}else {
+			availability=1;
+		}
 		try {
 			Statement stmt=dbc.getConnection().createStatement();
 			
-//			String command = "UPDATE employee SET firstName = '"+request.getParameter("fname")+"',lastName = '"+request.getParameter("lname")+"',email = '"+request.getParameter("email")+"',phoneNo='"+request.getParameter("phone")+"',password ='"+ request.getParameter("password")+"',Staff ='"+ request.getParameter("staff")+"' WHERE employeeID ="+ request.getParameter("id");
-//			int rows=stmt.executeUpdate(command);
+			String command = "UPDATE product SET Name = '"+request.getParameter("pname")+"',Product_Weight = '"+request.getParameter("pweight")+"',Unit_Price = '"+request.getParameter("pprice")+"',Availability='"+availability+"' WHERE Prod_ID ="+ request.getParameter("pid");
+//			response.getWriter().append(command);
+			int rows=stmt.executeUpdate(command);
 			
 //			Staff[] data=dbc.getStaffdetails();
 //			request.getSession().setAttribute("data",data);

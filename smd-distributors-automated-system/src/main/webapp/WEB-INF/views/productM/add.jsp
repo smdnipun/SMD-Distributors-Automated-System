@@ -17,12 +17,12 @@
 						<label>Product Price</label> <input name="pprice" size="10"
 							type="number" />
 					</div>
-					<!--<div class="form-inline">
+					<div class="form-inline">
 						<label>Product Availability</label> <label class="switch">
-							<input type="checkbox" checked> <span
+							<input type="checkbox" name="availablity" checked> <span
 							class="slider round"></span>
 						</label>
-					</div>-->
+					</div>
 				</div>
 				<div class="col-8">
 					<div class="px-4">

@@ -32,7 +32,13 @@ public class AddProduct extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		DBConnection con=new DBConnection(); 
-		String command = "insert into product(Product_Weight,Added_Date,Name,Unit_Price) VALUES('"+request.getParameter("pweight")+"','2030-10-01','"+request.getParameter("pname")+"','"+request.getParameter("pprice")+"')";
+		int availability=1;
+		if(request.getParameter("availablity")==null) {
+			availability=0;
+		}else {
+			availability=1;
+		}
+		String command = "insert into product(Product_Weight,Added_Date,Name,Unit_Price,Availability) VALUES('"+request.getParameter("pweight")+"','2030-10-01','"+request.getParameter("pname")+"','"+request.getParameter("pprice")+"','"+availability+"')";
 //		response.getWriter().append(command);
 		try {
 			int rows=con.getConnection().createStatement().executeUpdate(command);
