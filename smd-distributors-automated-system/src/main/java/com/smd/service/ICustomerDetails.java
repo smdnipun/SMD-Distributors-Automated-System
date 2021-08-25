@@ -23,6 +23,12 @@ public interface ICustomerDetails {
 	
 	//deactivate customer
 	public boolean setInactive(Customer customer);
+	
+	//delete customer
+	public boolean deleteCustomer(String id);
+	
+//	//check if email exist in the system
+//	public boolean checkEmail(Customer customer);
 		
 	
 //	//update password from forget password
