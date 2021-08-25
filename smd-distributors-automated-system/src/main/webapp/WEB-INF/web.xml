@@ -1,12 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
   <display-name>smd-distributors-automated-system</display-name>
-  <welcome-file-list>
+  <!-- <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>
     <welcome-file>default.html</welcome-file>
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
+  </welcome-file-list> -->
+
+  <!--  insert feedback -->
+		<servlet>
+			<servlet-name>AddFeedback</servlet-name>
+			<servlet-class>com.smd.servlet.AddFeedbackServlet</servlet-class> <!-- match the servlet -->
+		</servlet>
+		
+		<servlet-mapping> <!-- path to the servlet -->
+		 	<servlet-name>AddFeedback</servlet-name>
+		 	<url-pattern>/addfeedback</url-pattern> <!-- action to the feedback insert form -->
+		 </servlet-mapping>
+		  
+		  <!-- view feedback -->
+		 <servlet>
+			<servlet-name>ViewFeedback</servlet-name>
+			<servlet-class>com.smd.servlet.ViewFeedbackServlet</servlet-class> <!-- match the servlet -->
+		</servlet>
+		
+		<servlet-mapping> <!-- path to the servlet -->
+		 	<servlet-name>ViewFeedback</servlet-name>
+		 	<url-pattern>/view</url-pattern> <!-- action to the view form -->
+		 </servlet-mapping>
+		 
+		 <!-- update feedback -->
+		 <servlet>
+			<servlet-name>UpdateFeedback</servlet-name>
+			<servlet-class>com.smd.servlet.UpdateFeedbackServlet</servlet-class> <!-- match the servlet -->
+		</servlet>
+
+		<servlet-mapping> <!-- path to the servlet -->
+			<servlet-name>UpdateFeedback</servlet-name>
+			<url-pattern>/update</url-pattern> <!-- action to the update form -->
+		</servlet-mapping>
+		
+		<!-- delete feedback -->
+		 <servlet>
+			<servlet-name>DeleteFeedback</servlet-name>
+			<servlet-class>com.smd.servlet.DeleteFeedbackServlet</servlet-class> <!-- match the servlet -->
+		</servlet>
+
+		<servlet-mapping> <!-- path to the servlet -->
+			<servlet-name>DeleteFeedback</servlet-name>
+			<url-pattern>/delete</url-pattern> <!-- action to the delete form -->
+		</servlet-mapping>
+     
 </web-app>
