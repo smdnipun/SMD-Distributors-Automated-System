@@ -7,8 +7,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import com.mysql.jdbc.PreparedStatement;
 import com.smd.model.Feedback;
+import com.smd.util.DBConnection;
 
 
 public class FeedbackServiceImpl implements IFeedback {
@@ -18,7 +18,14 @@ public class FeedbackServiceImpl implements IFeedback {
 		private static Statement state=null;
 		
 		public FeedbackServiceImpl() {
-			con=DBConnection.getConnection();
+			DBConnection db = new DBConnection();
+			try {
+				con=db.getConnection();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		
 	@Override
