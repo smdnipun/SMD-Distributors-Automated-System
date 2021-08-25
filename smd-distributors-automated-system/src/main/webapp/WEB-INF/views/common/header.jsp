@@ -4,6 +4,9 @@
       padding-top: 1rem;
       background-color:#000000;
       padding-bottom: 0.5rem;
+      position:sticky;
+      top:0;
+      z-index:100;
     "
   >
    <div class="row">
@@ -23,6 +26,7 @@
        </div>
      </div>
      <div class="col-sm">
+     <% if(request.getServletPath().equals("/index.jsp")){ %>
        <div class="input-group mb-3">
          <input
            type="text"
@@ -36,6 +40,7 @@
            ></span>
          </div>
        </div>
+       <%} %>
      </div>
      <div class="col-sm d-flex justify-content-end">
        <i

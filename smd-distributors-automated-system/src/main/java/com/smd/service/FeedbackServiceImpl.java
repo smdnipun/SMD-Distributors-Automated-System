@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 import com.mysql.jdbc.PreparedStatement;
 import com.smd.model.Feedback;
-import com.smd.util.DBConnection;
 
 
 public class FeedbackServiceImpl implements IFeedback {

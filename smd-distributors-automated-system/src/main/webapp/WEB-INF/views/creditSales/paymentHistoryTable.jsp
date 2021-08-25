@@ -1,52 +1,54 @@
+<%@ page import="com.smd.model.Payment"%><!--Import NewOrderCOnf.class-->
+<%@ page import="com.smd.service.CreditSalesM"%><!-- Import Database connection of creditSales -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<link rel="stylesheet"
+	href=<%=request.getContextPath() + "/css/table.css"%>>
+<script src=<%=request.getContextPath() + "/js/table.js"%>></script>
+<!--checking user logged or not -->
+<!-- creating array to get data from database -->
+<%
+if (request.getSession().getAttribute("Logged") == null) {
+	request.getSession().setAttribute("Logged", "Guest");
+}
+
+CreditSalesM dbc = new CreditSalesM();
+Payment[] payments = (Payment[]) dbc.getPayment();
+request.setAttribute("payments", payments);
+%>
+
+
 <div class="col-9">
 	<jsp:include page="centerNav.jsp"></jsp:include>
 	<center>
 		<h5>Customer Payments</h5>
 	</center>
 
-	<table class="table table-hover">
+	<table id="customerDetails" class="display nowrap" style="width: 100%">
 
 		<thead>
 			<tr>
 
 				<th scope="col">Payment ID</th>
-				<th scope="col">Customer</th>
-				<th scope="col">Invoice No</th>
+				<th scope="col">Amount</th>
 				<th scope="col">Date</th>
-				<th scope="col">Total Amount</th>
-				<th scope="col">Paid Amount</th>
-				<th scope="col">Balance</th>
+				<th scope="col">Customer ID</th>
+				<th scope="col">Invoice ID</th>
+				<th scope="col">Employee ID</th>
 
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<th scope="row">1</th>
-				<td>Mark</td>
-				<td>Otto</td>
-				<td>@mdo</td>
-				<td>@mdo</td>
-				<td>@mdo</td>
-				<td>@mdo</td>
-			</tr>
-			<tr>
-				<th scope="row">2</th>
-				<td>Jacob</td>
-				<td>Thornton</td>
-				<td>@fat</td>
-				<td>@mdo</td>
-				<td>@mdo</td>
-				<td>@mdo</td>
-			</tr>
-			<tr>
-				<th scope="row">3</th>
-				<td>Larry</td>
-				<td>the Bird</td>
-				<td>@twitter</td>
-				<td>@mdo</td>
-				<td>@mdo</td>
-				<td>@mdo</td>
-			</tr>
+			<c:forEach items="${payments}" var="Payment">
+				<tr>
+
+					<td><c:out value="${Payment.getPaymentID()}" /></td>
+					<td><c:out value="${Payment.getCusID()}" /></td>
+					<td><c:out value="${Payment.getInvoiceID()}" /></td>
+					<td><c:out value="${Payment.getDate()}" /></td>
+					<td><c:out value="${Payment.getPaidAmount()}" /></td>
+					<td><c:out value="${Payment.getEmpID()}" /></td>
+				</tr>
+			</c:forEach>
 		</tbody>
 	</table>
 	<p align="right">
