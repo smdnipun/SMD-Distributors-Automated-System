@@ -15,7 +15,6 @@ import com.smd.model.NewOrdersConf;
 import com.smd.model.Order;
 import com.smd.model.Payment;
 import com.smd.model.PaymentDetails;
-import com.smd.model.Product;
 
 public class CreditSalesM {
 	

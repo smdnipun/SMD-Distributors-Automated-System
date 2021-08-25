@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.smd.service.CreditSalesM;
 import com.smd.util.DBConnection;
-import com.smd.model.PaymentDetails;
 
 @WebServlet("/pay")
 public class PayServlet extends HttpServlet {
