@@ -7,28 +7,12 @@
 	<title>Delete Feedback</title>
 	<jsp:include page="../WEB-INF/views/common/head.jsp">
 	<jsp:param name="Title" value="SMD Distributors" /></jsp:include>
-<style>
-body {
-  background-image: url('images/delete.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-		background-size: cover;
-}
-.idper{
-box-sizing: border-box;
-  border: 2px black;
-  border-radius: 4px;
-  background-color:#75a3a3;
-  color: black;
-}
-h1{color:black;}
-
-</style>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/requesthome.css">
 </head>
-<body>
+<body class="dbody">
 	<jsp:include page="../WEB-INF/views/common/adminHeader.jsp"></jsp:include>
 	<br>
-	<h5>Delete the record</h5> <br>
+	<h5 class="capitalize" align="center">Delete the record</h5> <br>
 		
 		<!-- get the details passed from parameter from the url of the requesthandlingAdminHome.jsp page -->
 		<%
@@ -40,18 +24,18 @@ h1{color:black;}
 			String Rating = request.getParameter("Rating");
 			String Status = request.getParameter("Status");
 		%>
-		
-		<form action="delete" method="post">
-			<input type="text" name="Feedback_ID" value="<%= Feedback_ID %>" readonly>
-			<input type="text" name="Cus_ID" value="<%= Cus_ID %>" readonly>
-			<input type="text" name="Date" value="<%= Date %>" readonly>
-			<input type="text" name="Type" value="<%= Type %>" readonly>
-			<input type="text" name="Message" value="<%= Message %>" readonly>
-			<input type="text" name="Rating" value="<%= Rating %>" readonly>
-			<input type="text" name="Status" value="<%= Status %>">
+		<div class="formcontent">
+		<form action="../delete" method="post" class="form">
+			Feedback ID: <input type="text" name="Feedback_ID" value="<%= Feedback_ID %>" readonly> <br><br>
+			Customer ID: <input type="text" name="Cus_ID" value="<%= Cus_ID %>" readonly> <br><br>
+			Date:  <input type="text" name="Date" value="<%= Date %>" readonly> <br><br>
+			Type of the message: <input type="text" name="Type" value="<%= Type %>" readonly> <br><br>
+			Message:  <input type="text" name="Message" value="<%= Message %>" readonly> <br><br>
+			Rating:  <input type="text" name="Rating" value="<%= Rating %>" readonly> <br><br>
+			Status:  <input type="text" name="Status" value="<%= Status %>"> <br><br>
 			<input type="submit" name="submit" value="Delete The Data">
 		</form>
-		
+		</div><br><br><br><br>
 	<jsp:include page="../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
 </body>
 </html>
