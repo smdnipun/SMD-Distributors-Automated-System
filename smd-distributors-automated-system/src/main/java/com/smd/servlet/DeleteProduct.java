@@ -24,6 +24,7 @@ public class DeleteProduct extends HttpServlet {
 		response.getWriter().append("Access denied: ").append(request.getContextPath());
 	}
 
+	@SuppressWarnings("unused")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		DBConnection dbc = new DBConnection();
 		

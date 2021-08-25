@@ -13,9 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.smd.model.Order;
 import com.smd.service.OrderM;
 
-/**
- * Servlet implementation class ViewCustomerOrders
- */
 @WebServlet("/ViewCustomerOrders")
 public class ViewCustomerOrders extends HttpServlet {
 	

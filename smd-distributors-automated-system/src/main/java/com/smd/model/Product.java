@@ -4,10 +4,12 @@ public class Product {
 
 	private String productID;
 	private String name;
+	@SuppressWarnings("unused")
 	private String date;
 	private int weight;
 	private int price;
 	private String image;
+	private boolean availablity;
 	
 	public Product(String productID,int weight,String date, String name,int price) {
 		this.productID = productID;
@@ -15,6 +17,15 @@ public class Product {
 		this.date=date;
 		this.weight = weight;
 		this.price = price;
+	}
+	
+	public Product(String productID,int weight,String date, String name,int price,boolean availablity) {
+		this.productID = productID;
+		this.name = name;
+		this.date=date;
+		this.weight = weight;
+		this.price = price;
+		this.availablity=availablity;
 	}
 	
 	public Product(String productID, String name,String image, int weight, int price) {
@@ -43,5 +54,9 @@ public class Product {
 
 	public int getPrice() {
 		return price;
+	}
+	
+	public boolean getAvailablity() {
+		return availablity;
 	}
 }

@@ -12,11 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.smd.model.Customer;
 import com.smd.service.CusDetailsServiceImpl;
 import com.smd.service.ICustomerDetails;
-import com.smd.util.DBConnection;
 
-/**
- * Servlet implementation class RegisterServlet
- */
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
