@@ -23,6 +23,7 @@
 			                <fieldset>
 			                    <legend class="mb-0 justify-content-center">Welcome to SMD Distributors!</legend>
 			                    <h5>Enter Your Details</h5>
+			                    <div style = "color:red;" class="mb-0 text-sm row"><p>${message}</p></div>
 			                    <div class="row px-3">
 			                        <label for="fname" class="mb-0 text-sm">First Name :</label>
 			                        <input type="text" id="fname" name="fname" placeholder="ex:-Saman"Required>
@@ -67,7 +68,6 @@
 			                        </label>
 			                    </div>
 			                    <div class="d-flex justify-content-center">
-			                    	<div style = "color:red;"><p>${message}</p></div>
 			                        <button type="submit" id="submitc" class="btn btn-blue text-center" name="action" value="customer" disabled>Register</button>
 			                    </div>
 			                </fieldset>

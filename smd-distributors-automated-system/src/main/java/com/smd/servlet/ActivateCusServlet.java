@@ -63,7 +63,6 @@ public class ActivateCusServlet extends HttpServlet {
 				
 				//redirecting to the same page
 				response.sendRedirect("admin/CustomerManagement/inactiveCustomers.jsp");
-//				dispatcher.forward(request, response);
 			}
 			else {
 				//redirect to the same page

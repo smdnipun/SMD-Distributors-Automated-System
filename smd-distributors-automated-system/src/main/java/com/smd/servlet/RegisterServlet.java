@@ -35,6 +35,8 @@ public class RegisterServlet extends HttpServlet {
 		//Creating customer array to get customer details from CusDetailsServiceImpl
 		Customer[] CustomerData = cusDetails.getCustomerDetails();
 		
+		boolean cFound = false;
+		
 		//setting the values taken from the registration page
 		customer.setFname(request.getParameter("fname"));
 		customer.setLname(request.getParameter("lname"));
@@ -54,31 +56,36 @@ public class RegisterServlet extends HttpServlet {
 			
 			//checking the database whether an account with the same email exist
 			for(int i=0;i<CustomerData.length;i++) {
-				if((CustomerData[i].getEmail().equals(request.getParameter("email")))) {
-					RequestDispatcher redirect = getServletContext().getRequestDispatcher("./registration.jsp");
-					request.setAttribute("message", "User Already exists!!!");
-					redirect.forward(request, response);
+				if((CustomerData[i].getEmail().equals(request.getParameter("email"))) || (CustomerData[i].getNIC().equals(request.getParameter("nic")))) {
+					cFound = true;
 					break;
 				}
 			}
-			
-			//calling the addCustomer function in CusDetailsServiceImpl and getting the status
-			boolean status = cusDetails.addCustomer(customer);
-			
-			if(status == true){//if the data was passed to the database successfully
-				response.sendRedirect("./login.jsp");
-			}
-			else{//if the data was not passed to the database
-				//redirect to the registration page
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("./registration.jsp");
+			//check whether the customer is found
+			if(cFound == false) {
+				//calling the addCustomer function in CusDetailsServiceImpl and getting the status
+				boolean status = cusDetails.addCustomer(customer);
 				
-				//display an error message
-				request.setAttribute("message", "There was an error please try again!!!");
-				dispatcher.forward(request, response);
+				if(status == true){//if the data was passed to the database successfully
+					response.sendRedirect("/login.jsp");
+				}
+				else{//if the data was not passed to the database
+					//redirect to the registration page
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/registration.jsp");
+					
+					//display an error message
+					request.setAttribute("message", "There was an error please try again!!!");
+					dispatcher.forward(request, response);
+				}
+			}
+			else { //customer with same credentials found
+				RequestDispatcher redirect = getServletContext().getRequestDispatcher("/registration.jsp");
+				request.setAttribute("message", "User Already exists!!!");
+				redirect.forward(request, response);
 			}
 		}
 		else {
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("./registration.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/registration.jsp");
 			request.setAttribute("message", "Password mismatch!!!");
 			dispatcher.forward(request, response);
 		}

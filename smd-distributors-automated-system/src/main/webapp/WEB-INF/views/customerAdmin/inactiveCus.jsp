@@ -16,18 +16,13 @@ request.setAttribute("data", cusDetails);
 
 <div class="row">
 	<div class="col-2">
-		<jsp:include page="./customerAdminNavBar.jsp"></jsp:include>
+		<jsp:include page="./VerticalNavBar.jsp"></jsp:include>
 	</div>
 	<div class="col-10 pr-3 pt-2 pb-2">
 		<jsp:include page="./cDetailsHnav.jsp"></jsp:include>
 		<div class="row pt-3 table-responsive-md">
 			<div style = "color:red;" class="d-flex justify-content-center">
 				<h4>Inactive Customer List</h4>
-			<!-- <%if(session ==null){ 
-				session.invalidate();
-				}else{%>
-				<h5><%= session.getAttribute("message") %></h5>
-				<%} %>-->
 			</div>
 			<table id="table" class="display nowrap" style="width:100%">
 		        <thead>
