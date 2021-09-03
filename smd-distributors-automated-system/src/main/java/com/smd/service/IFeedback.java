@@ -1,12 +1,16 @@
 package com.smd.service;
 
-import java.util.ArrayList;
+import java.sql.SQLException;
+import java.util.List;
+
 import com.smd.model.Feedback;
 
 
 public interface IFeedback {
 		//get all feedbacks
-		public ArrayList<Feedback> getFeedback();
+		public List<Feedback> getFeedback() throws SQLException;
+		
+		//public Feedback selectFeedback(String Feedback_ID);
 			
 		//add feedback for feedback table
 		boolean addFeedback(String Feedback_ID, String Cus_ID, String Date, String Type, String Message, String Rating,

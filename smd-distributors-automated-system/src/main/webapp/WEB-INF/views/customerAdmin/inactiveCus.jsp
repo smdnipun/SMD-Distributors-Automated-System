@@ -22,11 +22,12 @@ request.setAttribute("data", cusDetails);
 		<jsp:include page="./cDetailsHnav.jsp"></jsp:include>
 		<div class="row pt-3 table-responsive-md">
 			<div style = "color:red;" class="d-flex justify-content-center">
-			<%if(session ==null){ 
+				<h4>Inactive Customer List</h4>
+			<!-- <%if(session ==null){ 
 				session.invalidate();
 				}else{%>
 				<h5><%= session.getAttribute("message") %></h5>
-				<%} %>
+				<%} %>-->
 			</div>
 			<table id="table" class="display nowrap" style="width:100%">
 		        <thead>
@@ -55,8 +56,10 @@ request.setAttribute("data", cusDetails);
 				    	 	<td><c:out value="${Customer.getAddress()}" /></td>
 				    	 	<td>
 				    	 		<form action="../../activate" method="post">
-			    	 				<button type = "submit" name="id" class="btn btn-success" 
+			    	 				<button type = "submit" name="btn" class="btn btn-success" 
 			    	 				value="${Customer.getCusID()}">Activate</button>
+			    	 				<!--  <button type = "submit" name="btn" class="btn btn-danger" 
+			    	 				value="delete">Delete</button>-->
 			    	 			</form>
 			    	 		</td>
 			    	 	</tr>

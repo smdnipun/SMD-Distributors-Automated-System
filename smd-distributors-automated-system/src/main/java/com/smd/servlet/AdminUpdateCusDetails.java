@@ -16,7 +16,7 @@ import com.smd.service.ICustomerDetails;
 /**
  * Servlet implementation class AdminUpdateCusDetails
  */
-@WebServlet("/AdminUpdateCusDetails")
+@WebServlet("/adminUpdate")
 public class AdminUpdateCusDetails extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -50,7 +50,7 @@ public class AdminUpdateCusDetails extends HttpServlet {
 		customer.setAddress(request.getParameter("address"));
 		
 		if(request.getParameter("btn").equals("update")) {
-			
+
 			//calling the addCustomer function in CusDetailsServiceImpl and getting the status
 			boolean status = cusDetails.updateCustomerfromAdmin(customer);
 			
@@ -65,6 +65,7 @@ public class AdminUpdateCusDetails extends HttpServlet {
 				request.setAttribute("message", "There was an error please try again!!!");
 				dispatcher.forward(request, response);
 			}
+			
 		} 
 		else if(request.getParameter("btn").equals("delete")) {
 			//calling the setInactive function in deactivate account

@@ -1,84 +1,83 @@
 package com.smd.model;
 /*This is the feedback model class*/ 
 public class Feedback {
-	private int Feedback_ID; //feedbackid is unique auto-incremented
-	private int Cus_ID; //passing the customer id from the entered username
-	private String Date;
-	private String Type;
-	private String Message;
-	private String Rating;
-	private String Status;
+	private int feedback_ID; //feedbackid is unique auto-incremented
+	private int cus_ID; //passing the customer id from the entered username
+	private String date;
+	private String type;
+	private String message;
+	private String rating;
+	private String status;
 	
 	public Feedback() {}
 
 	//overloaded constructor to set values
 	public Feedback(int Feedback_ID, int Cus_ID, String Date, String Type, String Message, String Rating,
 			String Status) {
-		this.Feedback_ID = Feedback_ID;
-		this.Cus_ID = Cus_ID;
-		this.Date = Date;
-		this.Type = Type;
-		this.Message = Message;
-		this.Rating = Rating;
-		this.Status = Status;
+		this.feedback_ID = Feedback_ID;
+		this.cus_ID = Cus_ID;
+		this.date = Date;
+		this.type = Type;
+		this.message = Message;
+		this.rating = Rating;
+		this.status = Status;
 	}
 
-	//getters for each property to return the values
+	//getters and setters for each property to return the values
 	public int getFeedback_ID() {
-		return Feedback_ID;
+		return feedback_ID;
 	}
 
 	public int getCus_ID() {
-		return Cus_ID;
+		return cus_ID;
 	}
 
 	public String getDate() {
-		return Date;
+		return date;
 	}
 
 	public String getType() {
-		return Type;
+		return type;
 	}
 
 	public String getMessage() {
-		return Message;
+		return message;
 	}
 
 	public String getRating() {
-		return Rating;
+		return rating;
 	}
 
 	public String getStatus() {
-		return Status;
+		return status;
 	}
 
-	//setters for each property
 	public void setFeedback_ID(int feedback_ID) {
-		Feedback_ID = feedback_ID;
+		this.feedback_ID = feedback_ID;
 	}
 
 	public void setCus_ID(int cus_ID) {
-		Cus_ID = cus_ID;
+		this.cus_ID = cus_ID;
 	}
 
 	public void setDate(String date) {
-		Date = date;
+		this.date = date;
 	}
 
 	public void setType(String type) {
-		Type = type;
+		this.type = type;
 	}
 
 	public void setMessage(String message) {
-		Message = message;
+		this.message = message;
 	}
 
 	public void setRating(String rating) {
-		Rating = rating;
+		this.rating = rating;
 	}
 
 	public void setStatus(String status) {
-		Status = status;
+		this.status = status;
 	}
 	
 }
