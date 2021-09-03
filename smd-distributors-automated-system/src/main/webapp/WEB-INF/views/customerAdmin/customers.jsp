@@ -16,7 +16,7 @@ request.setAttribute("data", cusDetails);
 
 <div class="row">
 	<div class="col-2">
-		<jsp:include page="./customerAdminNavBar.jsp"></jsp:include>
+		<jsp:include page="./VerticalNavBar.jsp"></jsp:include>
 	</div>
 	
 	<div class="col-10 pr-3 pt-2 pb-2">
@@ -65,31 +65,32 @@ request.setAttribute("data", cusDetails);
                         <input type="text" id="cus_id" name="cus_id" size="31" readonly><br>
                     	
                         <label for="fname">First Name :</label><br>
-                        <input type="text" id="fname" name="fname" size="31"><br>
+                        <input type="text" id="fname" name="fname" size="31" Required><br>
 						
                         <label for="lname">Last Name :</label><br>
-                        <input type="text" id="lname" name="lname" size="31"><br>
+                        <input type="text" id="lname" name="lname" size="31" Required><br>
                         
                         <label for="hname">Shop Name :</label><br>
-                        <input type="text" id="hname" name="hname" size="31"><br>
+                        <input type="text" id="hname" name="hname" size="31" Required><br>
                         
                         <label for="nic">NIC :</label><br>
-                        <input type="text" id="nic" name="nic" size="31"><br>
+                        <input type="text" id="nic" name="nic" size="31" Required><br>
                         
                         <label for="pno">Telephone :</label><br>
-                        <input type ="tel" id="pno" name="pno" size="31" pattern="[0-9]{11}"><br>
+                        <input type ="tel" id="pno" name="pno" size="31" pattern="[0-9]{11}" Required><br>
 						
                         <label for="email">Email :</label><br>
-                        <input type="email" id="email" name="email" size="31" pattern="[a-z 0-9 .+-_%]+@+[a-z 0-9 +-_%]+\.[a-z]{2,3}"><br>
+                        <input type="email" id="email" name="email" size="31" 
+                        pattern="[a-z 0-9 .+-_%]+@+[a-z 0-9 +-_%]+\.[a-z]{2,3}" Required><br>
 						
 						<label for="adress">Address :</label><br>
-                        <input type="text" id="address" name="address" size="31"><br>
+                        <input type="text" id="address" name="address" size="31" Required><br>
                     </div>
                     <div class="d-flex justify-content-around pt-3 pb-2">
                     	<div style = "color:red;"><p>${message}</p></div><br>
-                        <button type="submit" id="btn" class="btn btn-primary" name="btn" 
+                        <button type="submit" class="btn btn-primary" name="btn" 
                         	value="update">Update</button>
-                        <button type="submit" id="btn" name="btn" class="btn btn-danger" 
+                        <button type="submit" name="btn" class="btn btn-danger" 
                         	value="delete">Delete</button>
                     </div>
                 </fieldset>

@@ -1,6 +1,7 @@
 package com.smd.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -55,6 +56,18 @@ public class AdminUpdateCusDetails extends HttpServlet {
 			boolean status = cusDetails.updateCustomerfromAdmin(customer);
 			
 			if(status == true){//if the data was passed to the database successfully
+				PrintWriter out = response.getWriter();
+//				out.println("<script>"
+//						+ "$(document).ready(function(){"
+//						+ "Swal.fire("
+//						+ "  'Updates successfully!',"
+//						+ "  'Customer details are updated!',"
+//						+ "  'success'"
+//						+ ")}");
+//				out.println("</script>");
+				out.println("<script type=\"text/javascript\">");
+			    out.println("alert('Updated Successfully!');");
+			    out.println("</script>");
 				response.sendRedirect("admin/CustomerManagement/CustomerDetails.jsp");
 			}
 			else{//if the data was not passed to the database

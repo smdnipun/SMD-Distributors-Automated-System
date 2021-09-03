@@ -14,7 +14,7 @@
 					<li class="nav-item"><a class="nav-link"
 						href="customerDue.jsp">Customer Due</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="NewOrdersconfirmation.jsp">Customer Sales</a></li>
+						href="customerDue.jsp">Customer Sales</a></li>
 				</ul>
 				
 				<form class="d-flex">
