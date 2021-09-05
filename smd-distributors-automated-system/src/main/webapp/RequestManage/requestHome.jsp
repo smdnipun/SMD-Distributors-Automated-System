@@ -12,8 +12,14 @@
 </head>
 <body class="hbody">
 	<jsp:include page="../WEB-INF/views/common/adminHeader.jsp"></jsp:include> 
-	
-	<h5 align="center" class="capitalize" >Request Management</h5>
+	<br>
+	<!-- <h5 align="center" class="capitalize" >Request Management</h5> -->
+	<div>
+		<form action="searchfeedback" method="post" class="searchbar">
+			<input type="text" class="form-control" 
+			name="search" placeholder="search feedbacks.."/>
+		</form>
+	</div><br>
 			<!--table to display data -->
 			<table class="feedback">
 				<tr>

@@ -1,7 +1,7 @@
 @charset "ISO-8859-1";
 
 form{
-	background-color:#ffffff;
+	background-color:#ccd6df;
 	width: 40%;
 	border: 7px black;
 	margin: 20px;
@@ -10,7 +10,7 @@ form{
 	outline-color: black;
 	outline-style: groove;
 	float:center;
-	opacity:0.8;
+	opacity:0.9;
 }
 div.stars {
   width: 270px;
@@ -54,4 +54,10 @@ body {
   min-height:100vh;
   position:relative;
 		
+}
+.addbtn{
+	border: 1px solid #000040;
+	float: center;
+	width: 30%;
+	height: 40%;
 }
