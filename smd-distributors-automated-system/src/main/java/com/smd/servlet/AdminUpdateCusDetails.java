@@ -40,6 +40,8 @@ public class AdminUpdateCusDetails extends HttpServlet {
 		//Creating customer array to get customer details from CusDetailsServiceImpl
 		Customer[] CustomerData = cusDetails.getCustomerDetails();
 		
+		boolean cFound = false;
+		
 		//setting the values taken from the registration page
 		customer.setCusID(request.getParameter("cus_id"));
 		customer.setFname(request.getParameter("fname"));
@@ -51,34 +53,47 @@ public class AdminUpdateCusDetails extends HttpServlet {
 		customer.setAddress(request.getParameter("address"));
 		
 		if(request.getParameter("btn").equals("update")) {
-
-			//calling the addCustomer function in CusDetailsServiceImpl and getting the status
-			boolean status = cusDetails.updateCustomerfromAdmin(customer);
 			
-			if(status == true){//if the data was passed to the database successfully
-				PrintWriter out = response.getWriter();
-//				out.println("<script>"
-//						+ "$(document).ready(function(){"
-//						+ "Swal.fire("
-//						+ "  'Updates successfully!',"
-//						+ "  'Customer details are updated!',"
-//						+ "  'success'"
-//						+ ")}");
-//				out.println("</script>");
-				out.println("<script type=\"text/javascript\">");
-			    out.println("alert('Updated Successfully!');");
-			    out.println("</script>");
-				response.sendRedirect("admin/CustomerManagement/CustomerDetails.jsp");
+			for(int i=0;i<CustomerData.length;i++) {
+				if((CustomerData[i].getEmail().equals(request.getParameter("email"))) || (CustomerData[i].getNIC().equals(request.getParameter("nic")))) {
+					cFound = true;
+					break;
+				}
 			}
-			else{//if the data was not passed to the database
-				//redirect to the registration page
-				RequestDispatcher dispatcher = request.getRequestDispatcher("admin/CustomerManagement/CustomerDetails.jsp");
+			
+			if(cFound == false) {
+				//calling the addCustomer function in CusDetailsServiceImpl and getting the status
+				boolean status = cusDetails.updateCustomerfromAdmin(customer);
 				
-				//display an error message
-				request.setAttribute("message", "There was an error please try again!!!");
-				dispatcher.forward(request, response);
+				if(status == true){//if the data was passed to the database successfully
+					PrintWriter out = response.getWriter();
+//					out.println("<script>"
+//							+ "$(document).ready(function(){"
+//							+ "Swal.fire("
+//							+ "  'Updates successfully!',"
+//							+ "  'Customer details are updated!',"
+//							+ "  'success'"
+//							+ ")}");
+//					out.println("</script>");
+					out.println("<script type=\"text/javascript\">");
+				    out.println("alert('Updated Successfully!');");
+				    out.println("</script>");
+					response.sendRedirect("admin/CustomerManagement/CustomerDetails.jsp");
+				}
+				else{//if the data was not passed to the database
+					//redirect to the registration page
+					RequestDispatcher dispatcher = request.getRequestDispatcher("admin/CustomerManagement/CustomerDetails.jsp");
+					
+					//display an error message
+					request.setAttribute("message", "There was an error please try again!!!");
+					dispatcher.forward(request, response);
+				}
+			}	
+			else { //customer with same email or NIC found found
+				RequestDispatcher redirect = getServletContext().getRequestDispatcher("admin/CustomerManagement/CustomerDetails.jsp");
+				request.setAttribute("message", "A user wwith same email or NIC exist.");
+				redirect.forward(request, response);
 			}
-			
 		} 
 		else if(request.getParameter("btn").equals("delete")) {
 			//calling the setInactive function in deactivate account

@@ -87,6 +87,7 @@ public class RegisterServlet extends HttpServlet {
 		else {
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/registration.jsp");
 			request.setAttribute("message", "Password mismatch!!!");
+			request.getSession().setAttribute("CustomerObj",customer);
 			dispatcher.forward(request, response);
 		}
 		
