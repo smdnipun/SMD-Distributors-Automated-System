@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import com.smd.model.Feedback;
 import com.smd.util.DBConnection;
@@ -142,40 +143,29 @@ public class FeedbackServiceImpl implements IFeedback {
 	}
 
 	@Override
-	//5.method to search feedback by customerid
-	public Feedback searchComplaint(String Cus_ID) {
-		Feedback fed= new Feedback();
+	//5.method to search feedback by date
+	public Feedback[] searchFeedback(String DATE) throws Exception {
+		List<Feedback> f1= new LinkedList<Feedback>();
+		Feedback[] feedarray= null;
 		
-		try {
-			String sql="select * from feedback where Cus_ID='"+Cus_ID+"'";
-			java.sql.Statement state=con.createStatement();//executing a query
-			ResultSet result= state.executeQuery(sql);
+		state=con.createStatement();
+		String sql="select * from feedback where Date LIKE '%"+DATE+"%'";
+		ResultSet result= state.executeQuery(sql);
 			
-			while(result.next()) {
-				fed.setFeedback_ID(result.getInt(1));
-				fed.setCus_ID(result.getInt(2));
-				fed.setDate(result.getString(3));
-				fed.setType(result.getString(4));
-				fed.setMessage(result.getString(5));
-				fed.setRating(result.getString(6));
-				fed.setStatus(result.getString(7));
-			}
-			
-		}catch (Exception e) {
-			e.printStackTrace();
+		while(result.next()) {
+			Feedback fed= new Feedback(
+					result.getInt(1),
+					result.getInt(2),
+					result.getString(3),
+					result.getString(4),
+					result.getString(5),
+					result.getString(6),
+					result.getString(7)
+			);	
+			f1.add(fed);
 		}
-		return fed;
+		feedarray=f1.toArray(new Feedback[f1.size()]);
+		return feedarray;
 	}
-
-	/*
-	 * @Override public Feedback selectFeedback(String Feedback_ID) { Feedback
-	 * f1=null; try { java.sql.PreparedStatement
-	 * ps=con.prepareStatement("select * from feedback where Feedback_ID=?");
-	 * ps.setString(1, Feedback_ID); System.out.println(ps); ResultSet rs=
-	 * ps.executeQuery();
-	 * 
-	 * while(rs.next()) {
-	 * 
-	 * } }catch (Exception e) { e.printStackTrace(); } return f1; }
-	 */
+	
 }

@@ -17,6 +17,10 @@ import com.smd.service.IFeedback;
 public class DeleteFeedbackServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String feedbackid= request.getParameter("Feedback_ID");
@@ -37,9 +41,13 @@ public class DeleteFeedbackServlet extends HttpServlet {
 						out.println("swal ( 'Deleted Successfully' ,  '' ,  'success' );");
 						out.println("});");
 						out.println("</script>"); 
+						
 						//redirecting from the servlet to
-						RequestDispatcher dis1= request.getRequestDispatcher("/RequestManage/requestHome.jsp");
-						dis1.forward(request, response);
+						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/RequestManage/viewFeedback.jsp");
+						dispatcher.include(request, response);
+						
+						//RequestDispatcher dis1= request.getRequestDispatcher("/RequestManage/requestHome.jsp");
+						//dis1.forward(request, response);
 					}
 					//if the data wasn't passed to the database successfully 
 					else 
@@ -52,9 +60,13 @@ public class DeleteFeedbackServlet extends HttpServlet {
 						out.println("swal ( 'Unsuccessfully' ,  '' ,  'unsuccess' );");
 						out.println("});");
 						out.println("</script>"); 
+						
 						//redirecting from the servlet to
-						RequestDispatcher dis2= request.getRequestDispatcher("/RequestManage/requestHome.jsp");
-						dis2.forward(request, response);
+						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/RequestManage/viewFeedback.jsp");
+						dispatcher.include(request, response);
+					
+						//RequestDispatcher dis2= request.getRequestDispatcher("/RequestManage/requestHome.jsp");
+						//dis2.forward(request, response);
 					}
 				}catch (Exception e) {
 					e.printStackTrace();

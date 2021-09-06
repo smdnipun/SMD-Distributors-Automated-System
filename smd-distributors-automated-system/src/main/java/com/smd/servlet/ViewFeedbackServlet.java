@@ -31,9 +31,12 @@ public class ViewFeedbackServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		//redirecting from the servlet to
-		RequestDispatcher dispatcher= request.getRequestDispatcher("/RequestManage/requestHome.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/RequestManage/requestHome.jsp");
+		
+		//RequestDispatcher dispatcher= request.getRequestDispatcher("/RequestManage/requestHome.jsp");
 		if(dispatcher!=null)
-			dispatcher.forward(request, response);
+			dispatcher.include(request, response);
+			//dispatcher.forward(request, response);
 		else
 			System.out.println("error");
 	}

@@ -19,8 +19,12 @@ font-family: arial, sans-serif;
     margin-left: 10px;
     opacity:0.9;
  }
+ p{
+ color: black;
+ font-family: arial, sans-serif;
+ }
 .vcontt{
-	background-color:#f0f5f5;
+	background-color:#C0C0C0;
 		width: 700px;
 		border: 15px black;
 		font: 16px;
@@ -34,7 +38,7 @@ font-family: arial, sans-serif;
 	
 }
 .vbody {
-  background-image: url('../img/service4.jpg');
+  background-image: url('../img/admin.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -69,7 +73,7 @@ font-family: arial, sans-serif;
 	}
 
 .ubody {
-  background-image: url('../img/service6.jpg');
+  background-image: url('../img/update.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -79,11 +83,19 @@ font-family: arial, sans-serif;
 }
 
 .dbody {
-  background-image: url('../img/service1.jpg');
+  background-image: url('../img/delete.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   min-height:100vh;
   position:relative;
 		
+}
+
+.form-control{
+	width: 60%;
+	background-color:#f0f5f5;
+	border: 1px;
+    margin-left: 10px;
+    opacity:0.9;
 }

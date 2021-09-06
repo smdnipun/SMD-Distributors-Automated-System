@@ -11,17 +11,18 @@
 </head>
 <body class="vbody">
 	<jsp:include page="../WEB-INF/views/common/adminHeader.jsp"></jsp:include>
-	<br>
+	<br><br><br><br>
 	
 	<div class ="vcontt">
-	<form action="../view" method="post">
-		<h4 align="center" class="capitalize" >Request Management</h4> <br>
-		<p>When a customer submit a feedback all the details are saved in Feedback table.</p>
-		<p>Request Management Admin can Search feedbacks.</p>
-		<p>Request Management Admin can Update/Delete these details.</p>
-		<p>Request Management Admin can Genarate Reports.</p>
-		<input type="submit" name="viewbtn" value="View Feedback Details">
-	</form>
+	
+		<form action="${pageContext.request.contextPath}/view" method="post">
+			<h4 align="center" class="capitalize" >Request Management</h4> <br>
+			<p>When a customer submit a feedback all the details are saved in Feedback table.</p>
+			<p>Request Management Admin can Search feedbacks according to the date.</p>
+			<p>Request Management Admin can Update/Delete these details.</p>
+			<p>Request Management Admin can Genarate Reports for ratings.</p>
+			<input type="submit" name="viewbtn" value="View Feedback Details">
+		</form>
 	</div>
 	<jsp:include page="../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
 </body>
