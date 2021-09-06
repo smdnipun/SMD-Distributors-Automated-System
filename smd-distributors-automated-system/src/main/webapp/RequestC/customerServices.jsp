@@ -8,12 +8,12 @@
 	<jsp:param name="Title" value="SMD Distributors" /></jsp:include>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/requestcustomer.css"/>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-	<script>
+	<!-- <script>
 	function validsubmit(){
 		alert("Thank you for your feedback!");
 		return true;
 	}
-	</script>
+	</script> -->
 </head>
 <body>
     <jsp:include page="../WEB-INF/views/common/header.jsp"></jsp:include>
@@ -21,7 +21,7 @@
     <div class="mydiv">
     
             <center>
-			<form name="feedback" method="post" action="../addfeedback" style="text-align: left;" onsubmit="return validsubmit()">
+			<form name="feedback" method="post" action="../addfeedback" style="text-align: left;">
                 <h2 style="text-align: center;">Send Us A Feedback</h2><br>
                 <h6 class="fw-light" style="text-align: center;">We would love to hear your thoughts. <br>
                          Get connected with us!</h6><br><br>
@@ -36,7 +36,7 @@
         	 <br><br><br>
 						
                 <label for="message">Type your message</label><br>
-                    <textarea id="Message" name="Message" style="height: 180px; width: 500px;" required></textarea><br><br><br>
+                    <textarea id="Message" name="Message" style="height: 150px; width: 500px;" required></textarea><br><br><br>
 
 				<h6>How Did You Like Us?</h6>
                 <div class="stars">
@@ -51,9 +51,9 @@
 				    <input class="star star-1" id="star-1" type="radio" name="Rating" value="1"/>
 				    <label class="star star-1" for="star-1"></label>
 				</div>
-                <br><br><br>
+                <br><br>
 
-                <center></center><input type="submit" value="Submit Your Feedback"></button></center>
+                <center></center><input type="submit" value="Submit Your Feedback" class="addbtn"></button></center>
                     
             </form> <br>
         </center>

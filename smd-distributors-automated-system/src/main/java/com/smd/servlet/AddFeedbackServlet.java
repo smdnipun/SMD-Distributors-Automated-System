@@ -16,6 +16,10 @@ import com.smd.service.IFeedback;
 @WebServlet("/AddFeedbackServlet")
 public class AddFeedbackServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -34,7 +38,7 @@ public class AddFeedbackServlet extends HttpServlet {
 					boolean status=iFeedbackService.addFeedback(Feedback_ID,Cus_ID,Date,Type,Message,Rating,Status);
 					
 					if(status==true) {//if the data was passed to the database successfully 
-						System.out.println("Successfully Added a book !");
+						System.out.println("Successfully Added a feedback !");
 						
 						PrintWriter out = response.getWriter();
 						out.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js'></script>");
@@ -45,8 +49,12 @@ public class AddFeedbackServlet extends HttpServlet {
 						out.println("});");
 						out.println("</script>"); 
 						
-						RequestDispatcher dispatcher = request.getRequestDispatcher("/RequestC/customerServices.jsp");
-						dispatcher.forward(request, response);//redirecting from the servlet to
+						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/RequestC/customerServices.jsp");
+						dispatcher.include(request, response);
+						
+						//RequestDispatcher dispatcher = request.getRequestDispatcher("/RequestC/customerServices.jsp");
+						//dispatcher.forward(request, response);//redirecting from the servlet to
+						
 					}else {//if the data wasn't passed to the database successfully 
 						PrintWriter out = response.getWriter();
 						out.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js'></script>");
@@ -56,8 +64,12 @@ public class AddFeedbackServlet extends HttpServlet {
 						out.println("swal ( 'Wrong Entry !' ,  '' ,  'error' );");
 						out.println("});");
 						out.println("</script>"); 
-						RequestDispatcher dispatcher = request.getRequestDispatcher("/RequestC/customerServices.jsp");
-						dispatcher.forward(request, response);//redirecting from the servlet to
+						
+						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/RequestC/customerServices.jsp");
+						dispatcher.include(request, response);
+						
+						//RequestDispatcher dispatcher = request.getRequestDispatcher("/RequestC/customerServices.jsp");
+						//dispatcher.forward(request, response);//redirecting from the servlet to
 					}
 				}catch (Exception e) {
 					e.printStackTrace();
