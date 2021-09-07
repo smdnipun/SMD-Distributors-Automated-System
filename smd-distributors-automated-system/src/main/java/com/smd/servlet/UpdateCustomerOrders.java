@@ -35,7 +35,7 @@ public class UpdateCustomerOrders extends HttpServlet {
 		
 		if(request.getParameter("OSTATES").equals("delivered")) {
         	out.println("<script type='text/javascript'>");
-            out.println("alert('Login Incompleted');");
+            out.println("alert('Sorry Order is already in Delivery process');");
             out.println("location='AddOrder.jsp'"); 
             out.println("</script>");
         }else {
@@ -45,12 +45,23 @@ public class UpdateCustomerOrders extends HttpServlet {
     		
     		
     		if(isdone==true) {
-    			RequestDispatcher dis=request.getRequestDispatcher("AddOrder.jsp");
-    			dis.forward(request, response);
+    			
+    			out.println("<script type='text/javascript'>");
+                out.println("alert('update successfully');");
+                out.println("location='AddOrder.jsp'"); 
+                out.println("</script>");
+    			
+//    			RequestDispatcher dis=request.getRequestDispatcher("AddOrder.jsp");
+//    			dis.forward(request, response);
     		}else {
     			
-    			RequestDispatcher dis=request.getRequestDispatcher("index.jsp");
-    			dis.forward(request, response);
+    			out.println("<script type='text/javascript'>");
+                out.println("alert('something went wrong');");
+                out.println("location='AddOrder.jsp'"); 
+                out.println("</script>");
+    			
+//    			RequestDispatcher dis=request.getRequestDispatcher("index.jsp");
+//    			dis.forward(request, response);
     		}
         }
 		

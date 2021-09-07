@@ -1,4 +1,18 @@
-
+<script>
+            
+            function isInputNumber(evt){
+                
+                var ch = String.fromCharCode(evt.which);
+                
+                if(!(/[0-9]/.test(ch))){
+                    evt.preventDefault();
+                }
+                
+            }
+            
+            
+            
+        </script>
 <div class="col-10">
 <%
 	String oid=request.getParameter("oid");
@@ -44,7 +58,7 @@
 </div>
 <div class="mb-3">
   <label for="formGroupExampleInput2" class="form-label">Quantity</label>
-  <input type="text" class="form-control" id="formGroupExampleInput2" value="<%=qty %>" name="QTY" >
+  <input type="text" class="form-control" id="formGroupExampleInput2" value="<%=qty %>" name="QTY" onkeypress="isInputNumber(event)" >
 </div>
 <div class="mb-3">
   <label for="formGroupExampleInput2" class="form-label">Product ID</label>

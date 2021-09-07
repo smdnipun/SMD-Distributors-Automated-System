@@ -20,21 +20,21 @@
 	
 <div class="mb-3">
   <label for="formGroupExampleInput2" class="form-label">Customer ID</label>
-  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter Customer ID" name="CID">
+  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter Customer ID" name="CID" required="true">
 </div>
 
 <div class="mb-3">
   <label for="formGroupExampleInput" class="form-label">Total price</label>
-  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Total price" name="TPRICE" onkeypress="isInputNumber(event)">
+  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Total price" name="TPRICE" onkeypress="isInputNumber(event)" required="true">
 </div>
 
 <div class="mb-3">
   <label for="formGroupExampleInput2" class="form-label">Quantity</label>
-  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter Quantity" name="QTY" onkeypress="isInputNumber(event)">
+  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter Quantity" name="QTY" onkeypress="isInputNumber(event)" required="true">
 </div>
 <div class="mb-3">
   <label for="formGroupExampleInput2" class="form-label">Product ID</label>
-  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter " name="PID">
+  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter " name="PID" required="true">
 </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
