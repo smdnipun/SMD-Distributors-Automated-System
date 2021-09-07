@@ -7,22 +7,15 @@ public class Stock {
 	private int quntity;
 	private String date;
 	private String status;
-	private int oID;
-	private int qty;
-	private String odate;
-	private String pName;
 	
 //Constructor
-	public Stock(int stockID, String itemName, String date, int quntity, String status, int oID, int qty, String odate, String pName) {
+	public Stock(int stockID, String itemName, String date, int quntity, String status) {
 		this.stockID=stockID;
 		this.itemName=itemName;
 		this.quntity=quntity;
 		this.date=date;
 		this.status=status;
-		this.oID=oID;
-		this.qty=qty;
-		this.odate=odate;
-		this.pName=pName;
+	
 	}
 	
 	//Created constructor 
@@ -30,22 +23,6 @@ public Stock() {
 		
 	}
 //Getters
-
-	public int getoID() {
-	return oID;
-}
-
-public int getQty() {
-	return qty;
-}
-
-public String getOdate() {
-	return odate;
-}
-
-public String getpName() {
-	return pName;
-}
 
 
 	public int getStockID() {
@@ -72,23 +49,6 @@ public String getpName() {
 	public void setStockID(int stockID) {
 		this.stockID = stockID;
 	}
-
-	public void setoID(int oID) {
-		this.oID = oID;
-	}
-
-	public void setQty(int qty) {
-		this.qty = qty;
-	}
-
-	public void setOdate(String odate) {
-		this.odate = odate;
-	}
-
-	public void setpName(String pName) {
-		this.pName = pName;
-	}
-
 	public void setItemName(String itemName) {
 		this.itemName = itemName;
 	}
