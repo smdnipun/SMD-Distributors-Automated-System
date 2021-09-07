@@ -1,6 +1,7 @@
 package com.smd.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,6 +16,10 @@ import com.smd.service.IFeedback;
 @WebServlet("/AddFeedbackServlet")
 public class AddFeedbackServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -27,17 +32,49 @@ public class AddFeedbackServlet extends HttpServlet {
 				String Rating=request.getParameter("Rating");
 				String Status=request.getParameter("Status");
 
-				IFeedback iFeedbackService = new FeedbackServiceImpl();
-				//to catch the result got from the model class method
-				boolean status=iFeedbackService.addFeedback(Feedback_ID,Cus_ID,Date,Type,Message,Rating,Status);
-				
-				if(status==true) {//if the data was passed to the database successfully 
-					RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
-					dispatcher.forward(request, response);//redirecting from the servlet to
-				}else {//if the data wasn't passed to the database successfully 
-					RequestDispatcher dispatcher = request.getRequestDispatcher("unsuccess.jsp");
-					dispatcher.forward(request, response);//redirecting from the servlet to
+				try{
+					IFeedback iFeedbackService = new FeedbackServiceImpl();
+					//to catch the result got from the model class method
+					boolean status=iFeedbackService.addFeedback(Feedback_ID,Cus_ID,Date,Type,Message,Rating,Status);
+					
+					if(status==true) {//if the data was passed to the database successfully 
+						System.out.println("Successfully Added a feedback !");
+						
+						PrintWriter out = response.getWriter();
+						out.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js'></script>");
+						out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>");
+						out.println("<script>");
+						out.println("$(document).ready(function(){");
+						out.println("swal ( 'Added Successfully' ,  '' ,  'success' );");
+						out.println("});");
+						out.println("</script>"); 
+						
+						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/RequestC/customerServices.jsp");
+						dispatcher.include(request, response);
+						
+						//RequestDispatcher dispatcher = request.getRequestDispatcher("/RequestC/customerServices.jsp");
+						//dispatcher.forward(request, response);//redirecting from the servlet to
+						
+					}else {//if the data wasn't passed to the database successfully 
+						PrintWriter out = response.getWriter();
+						out.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js'></script>");
+						out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>");
+						out.println("<script>");
+						out.println("$(document).ready(function(){");
+						out.println("swal ( 'Wrong Entry !' ,  '' ,  'error' );");
+						out.println("});");
+						out.println("</script>"); 
+						
+						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/RequestC/customerServices.jsp");
+						dispatcher.include(request, response);
+						
+						//RequestDispatcher dispatcher = request.getRequestDispatcher("/RequestC/customerServices.jsp");
+						//dispatcher.forward(request, response);//redirecting from the servlet to
+					}
+				}catch (Exception e) {
+					e.printStackTrace();
 				}
+				
 	}
 
 }

@@ -2,24 +2,29 @@ package com.smd.model;
 //Create Stock Class
 public class Stock {
 	
-	private String itemID;
+	private int stockID;
 	private String itemName;
 	private int quntity;
-	private double price;
 	private String date;
+	private String status;
 	
 //Constructor
-	public Stock(String itemID, String itemName, int quntity, double price, String date) {
-		this.itemID=itemID;
+	public Stock(int stockID, String itemName, String date, int quntity, String status) {
+		this.stockID=stockID;
 		this.itemName=itemName;
 		this.quntity=quntity;
-		this.price=price;
 		this.date=date;
+		this.status=status;
 	}
 	
-//Getters
-	public String getItemID() {
-		return itemID;
+	//Created constructor 
+public Stock() {
+		
+	}
+
+	//Getters
+	public int getStockID() {
+		return stockID;
 	}
 
 	public String getItemName() {
@@ -30,17 +35,16 @@ public class Stock {
 		return quntity;
 	}
 
-	public double getPrice() {
-		return price;
-	}
-
 	public String getDate() {
 		return date;
 	}
+	public String getStatus() {
+		return status;
+	}
 	
 //Setters
-	public void setItemID(String itemID) {
-		this.itemID = itemID;
+	public void setStockID(int stockID) {
+		this.stockID = stockID;
 	}
 
 	public void setItemName(String itemName) {
@@ -51,12 +55,11 @@ public class Stock {
 		this.quntity = quntity;
 	}
 
-	public void setPrice(double price) {
-		this.price = price;
-	}
-
 	public void setDate(String date) {
 		this.date = date;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 }

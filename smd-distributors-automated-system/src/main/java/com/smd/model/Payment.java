@@ -1,34 +1,25 @@
 package com.smd.model;
-
-//Create Payment class
+//create payment class
 public class Payment {
 	private String PaymentID;
-	private String CusName;
+	private String CusID;
 	private String InvoiceID;
 	private String Date;
-	private String ProductCode;
-	private int Quantity;
-	private double TotalAmount;
 	private double PaidAmount;
-	private double Balance;
-
-//Constructor
-
-	public Payment(String paymentID, String cusName, String invoiceID, String date, String productCode, int quantity,
-			double totalAmount, double paidAmount, double balance) {
+	private String EmpID;
+	
+	
+	//Constructor
+	public Payment(String paymentID, String cusID, String invoiceID, String date, double paidAmount, String empID) {
 		super();
 		PaymentID = paymentID;
-		CusName = cusName;
+		CusID = cusID;
 		InvoiceID = invoiceID;
 		Date = date;
-		ProductCode = productCode;
-		Quantity = quantity;
-		TotalAmount = totalAmount;
 		PaidAmount = paidAmount;
-		Balance = balance;
+		EmpID = empID;
 	}
 
-	// Setters and getters
 	public String getPaymentID() {
 		return PaymentID;
 	}
@@ -37,12 +28,12 @@ public class Payment {
 		PaymentID = paymentID;
 	}
 
-	public String getCusName() {
-		return CusName;
+	public String getCusID() {
+		return CusID;
 	}
 
-	public void setCusName(String cusName) {
-		CusName = cusName;
+	public void setCusID(String cusID) {
+		CusID = cusID;
 	}
 
 	public String getInvoiceID() {
@@ -61,30 +52,6 @@ public class Payment {
 		Date = date;
 	}
 
-	public String getProductCode() {
-		return ProductCode;
-	}
-
-	public void setProductCode(String productCode) {
-		ProductCode = productCode;
-	}
-
-	public int getQuantity() {
-		return Quantity;
-	}
-
-	public void setQuantity(int quantity) {
-		Quantity = quantity;
-	}
-
-	public double getTotalAmount() {
-		return TotalAmount;
-	}
-
-	public void setTotalAmount(double totalAmount) {
-		TotalAmount = totalAmount;
-	}
-
 	public double getPaidAmount() {
 		return PaidAmount;
 	}
@@ -93,12 +60,13 @@ public class Payment {
 		PaidAmount = paidAmount;
 	}
 
-	public double getBalance() {
-		return Balance;
+	public String getEmpID() {
+		return EmpID;
 	}
 
-	public void setBalance(double balance) {
-		Balance = balance;
+	public void setEmpID(String empID) {
+		EmpID = empID;
 	}
+
 
 }

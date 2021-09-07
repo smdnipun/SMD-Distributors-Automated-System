@@ -12,6 +12,12 @@ public class Order {
 	private double RAMOUNT;
 	private int QTY;
 	private int PID;
+	
+	
+	public Order() {
+		
+	}
+	
 	public Order(int oID, int cID, String oDATE, String oSTATE, double tPRICE, double pAMOUNT, double rAMOUNT, int qTY,
 			int pID) {
 		super();

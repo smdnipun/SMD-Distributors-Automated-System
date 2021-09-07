@@ -4,7 +4,7 @@
 <%@ page import="com.smd.service.SupplierDB"%><!-- Import Database connection of SupplierDB -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<!-- create array to get data from database -->
+<!--create array to get data from database-->
 <%
 if (request.getSession().getAttribute("Logged") == null) {
 	request.getSession().setAttribute("Logged", "Guest");
@@ -12,12 +12,11 @@ if (request.getSession().getAttribute("Logged") == null) {
 
 SupplierDB dbc = new SupplierDB();
 Supplier[] newsupplier = (Supplier[]) dbc.getSupplierdetails();
-request.setAttribute("data", newsupplier);
+request.setAttribute("supplierdata", newsupplier);
 %>
 
 <div class="col-7 justify-content-center">
 	<table class="table table-hover">
-		<caption>List of users</caption>
 		<thead>
 			<tr>
 				<th scope="col">Supplier ID</th>
@@ -28,17 +27,30 @@ request.setAttribute("data", newsupplier);
 			</tr>
 		</thead>
 		<tbody>
-		<c:forEach items="${data}" var="Supplier">
-			<tr>
-				<th scope="row">1</th>
-				<td><c:out value="${NewSupplier.getSupplierID}"/></td>
-				<td><c:out value="${NewSupplier.getName}"/></td>
-				<td><c:out value="${NewSupplier.getAddress}"/></td>
-				<td><c:out value="${NewSupplier.getTno}"/></td>
-				<td>
-					<button type="button" class="btn btn-light">UPDATE</button>
-				</td>
-			</tr>
+			<c:forEach items="${supplierdata}" var="Supplier">
+				<<form action="../../SupplierUpdate" method="post">
+					<tr>
+
+					<td><input type="text" name="supplierID"
+						value="<c:out value="${Supplier.getSupplierID()}"/>"></td>
+					<td><input type="text" name="name"
+						value="<c:out value="${Supplier.getName()}"/>"></td>
+					<td><input type="text" name="address"
+						value="<c:out value="${Supplier.getAddress()}"/>"></td>
+					<td><input type="text" name="tno"
+						value="<c:out value="${Supplier.getTno()}"/>"></td>
+
+				
+					<td>
+						<button name ="button" value="update" type="submit" name="id" class="btn btn-light"
+							value="<c:out value= "${Supplier.getSupplierID()}"/>">UPDATE</button>
+						
+						<button name="button" value="delete" type="button"  class="btn btn-light" value="<c:out value= "${Supplier.getSupplierID()}"/>">Delete</button> 
+				
+					</td>
+					
+				</tr>
+				</form>
 			</c:forEach>
 		</tbody>
 	</table>

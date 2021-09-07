@@ -1,6 +1,7 @@
-<%@ page import="com.smd.model.Payment"%><!--Import NewOrderCOnf.class-->
+<%@ page import="com.smd.model.PaymentDetails"%><!--Import NewOrderCOnf.class-->
 <%@ page import="com.smd.service.CreditSalesM"%><!-- Import Database connection of creditSales -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!--checking user logged or not -->
 <!-- creating array to get data from database -->
 <%
@@ -9,46 +10,46 @@ if (request.getSession().getAttribute("Logged") == null) {
 }
 
 CreditSalesM dbc = new CreditSalesM();
-Payment[] payments = (Payment[]) dbc.getPaymentdetails();
-request.setAttribute("payments", payments);
+PaymentDetails[] paymentDetails = dbc.getPaymentdetails();
+request.setAttribute("data", paymentDetails);
 %>
 <jsp:include page="centerNav.jsp"></jsp:include>
 <div class="pt-2">
+
 	<center>
 		<h5>Customer Balance</h5>
 	</center>
 </div>
-<table class="table table-hover">
+<table id="customerDetails" class="display nowrap" style="width:100%">
+
 
 	<thead>
 		<tr>
-
-			<th scope="col">Customer</th>
+			<th scope="col">Pay_ID</th>
+			<th scope="col">Hardware Name</th>
 			<th scope="col">Invoice ID</th>
-			<th scope="col">Date</th>
-			<th scope="col">Product Code</th>
-			<th scope="col">Quantity</th>
-			<th scope="col">Total Amount</th>
-			<th scope="col">Balance</th>
+			<th scope="col">Total Price</th>
+			<th scope="col">Paid Amount</th>
+			<th scope="col">Remaining Amount</th>
+			
 
 		</tr>
 	</thead>
 	<tbody>
-		<c:forEach items="${payments}" var="Payment">
+		<c:forEach items="${data}" var="PaymentDetails">
 			<tr>
 
 
-				<td><c:out value="${Payment.getCusName()}" /></td>
-				<td><c:out value="${Payment.getInvoiceID()}" /></td>
-				<td><c:out value="${Payment.getDate()}" /></td>
-				<td><c:out value="${Payment.getProductCode()}" /></td>
-				<td><c:out value="${Payment.getQuantity()}" /></td>
-				<td><c:out value="${Payment.getTotalAmount()}" /></td>
-				<td><c:out value="${Payment.getBalance()}" /></td>
+				<td><c:out value="${PaymentDetails.getPaymentID()}" /></td>
+				<td><c:out value="${PaymentDetails.getCusName()}" /></td>
+				<td><c:out value="${PaymentDetails.getInvoiceID()}" /></td>
+				<td><c:out value="${PaymentDetails.getTotalAmount()}" /></td>
+				<td><c:out value="${PaymentDetails.getPaidAmount()}" /></td>
+				<td><c:out value="${PaymentDetails.getBalance()}" /></td>
+				
 
 
 			</tr>
 		</c:forEach>
-
 	</tbody>
 </table>

@@ -11,6 +11,10 @@
 <link rel="stylesheet"
 	href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" />
 
+<!-- Alert 
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="sweetalert2.all.min.js"></script>-->
+
 <!--fonts-->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -51,7 +55,6 @@
 }
 
 *::-webkit-scrollbar {
-	/*display: none;*/
 	width: 5px;
 	height: 7px;
 }
@@ -79,6 +82,8 @@ body {
 
 footer {
 	width: 100%;
+	position:sticky;
+	bottom:0;
 }
 </style>
 
