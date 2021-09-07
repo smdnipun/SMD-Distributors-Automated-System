@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.smd.model.Employee;
 import com.smd.service.EmployeeDBUtill;
 
-//@WebServlet("/EmpViewServlet")
+@WebServlet("/EmpViewServlet")
 public class EmpViewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

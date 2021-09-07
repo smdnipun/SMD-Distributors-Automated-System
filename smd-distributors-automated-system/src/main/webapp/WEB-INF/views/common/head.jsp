@@ -40,20 +40,23 @@
 <script type="text/javascript"
 	src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
 <style>
-/* Hide scrollbar for Chrome, Safari and Opera */
-.example::-webkit-scrollbar {
-	display: none;
+* {
+	overflow: -moz-scrollbars-none;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
-.example {
-	-ms-overflow-style: none; /* IE and Edge */
-	scrollbar-width: none; /* Firefox */
+*::-webkit-scrollbar {
+	display: none;
+	width: 0px;
+}
+
+body {
+	min-height: 100vh;
+	overflow-x: hidden;
 }
 
 footer {
-	position: fixed;
-	bottom: 0;
 	width: 100%;
 }
 </style>

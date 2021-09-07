@@ -6,12 +6,14 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.Types;
 
+import java.sql.ResultSet;
+import java.sql.Statement;
+
 import com.smd.model.Employee;
 import com.smd.util.DBConnection;
 
 public class EmployeeDBUtill {
 	
-	private static boolean isSuccess;
 	private static Statement stmt=null;
 	private static ResultSet rs = null;
 	
