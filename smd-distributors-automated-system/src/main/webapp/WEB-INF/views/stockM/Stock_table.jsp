@@ -34,7 +34,7 @@ request.setAttribute("stockdata", newstock);
 			<tr>
 			
 					<td><c:out value="${Stock.getStockID()}"/>"</td>
-				<%-- 	<td><input type="text" name="stockID"
+					<%-- <td><input type="text" name="stockID"
 						value="<c:out value="${Stock.getStockID()}"/>"></td> --%>
 					<td><input type="text" name="itemname"
 						value="<c:out value="${Stock.getItemName()}"/>"></td>

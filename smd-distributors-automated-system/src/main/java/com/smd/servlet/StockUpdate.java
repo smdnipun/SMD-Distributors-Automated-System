@@ -36,10 +36,11 @@ public class StockUpdate extends HttpServlet {
 				DBConnection sdbc = new DBConnection();
 				Statement stmt = sdbc.getConnection().createStatement();
 				String command = "INSERT INTO stock(Item_name,Date,Quantity,Status)" + "" + "VALUES('" +request.getParameter("itemname")
-						+ "','" + request.getParameter("Date") + "','" + request.getParameter("quntity") +"', 'add')";
+						+ "','" + request.getParameter("date") + "','" + request.getParameter("quntity") +"', 'add')";
 				stmt.execute(command);
+				//response.getWriter().append(command);
 				
-//response.getWriter().append(command.toString());
+				//response.getWriter().append(command.toString());
 				response.sendRedirect("admin/StockManagement/StockPage.jsp");
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -50,9 +51,10 @@ public class StockUpdate extends HttpServlet {
 			try {
 				DBConnection sdbc = new DBConnection();
 				Statement stmt = sdbc.getConnection().createStatement();
-				String command = "INSERT INTO stock(Item_name,Date,Quantity,Status)" + "" + "VALUES('" +request.getParameter("itemname")
-						+ "','" + request.getParameter("Date") + "','" + request.getParameter("quntity") + "','delete')";
-				stmt.execute(command);
+				String command1 = "INSERT INTO stock(Item_name,Date,Quantity,Status)" + "" + "VALUES('" +request.getParameter("itemname")
+						+ "','" + request.getParameter("date") + "','" + request.getParameter("quntity") + "','delete')";
+				stmt.execute(command1);
+			//response.getWriter().append(command1);
 
 				response.sendRedirect("admin/StockManagement/StockPage.jsp");
 			} catch (Exception e) {
