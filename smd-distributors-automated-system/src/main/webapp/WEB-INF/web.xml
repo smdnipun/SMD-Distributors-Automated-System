@@ -61,6 +61,16 @@ version="3.1">
   			<url-pattern>/attend</url-pattern>
   </servlet-mapping>
   
+   <servlet>
+  			<servlet-name>EmployeeCalSal</servlet-name>
+  			<servlet-class>com.smd.servlet.CalcSalEmployeeServlet</servlet-class> 
+   </servlet>
+  
+  <servlet-mapping>
+      		<servlet-name>EmployeeCalSal</servlet-name>
+  			<url-pattern>/calc</url-pattern>
+  </servlet-mapping>
+  
   
   
   

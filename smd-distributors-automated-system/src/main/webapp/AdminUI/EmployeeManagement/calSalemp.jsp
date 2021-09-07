@@ -12,34 +12,39 @@
 	
       <%
          String id = request.getParameter("id");
-         String type = request.getParameter("emp_Type");
         
       
       %> 
       
 	
-	<form action=<%=request.getContextPath() +"/attend" %> method="post">
+	<form action=<%=request.getContextPath() +"/calc" %> method="post">
 	
 	<div class="form-group">
     <label for="fname">EmployeeID</label>
     <input type="text" class="form-control" id="fname" name="id" aria-describedby="" readonly value="<%=id%>">
   </div>
 	
-	
-	<div class="form-group">
-    <label for="fname">EmployeeType</label>
-    <input type="text" class="form-control" id="etype" name="etype" aria-describedby="" readonly value="<%=type%>">
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelect01">Employee Type</label>
   </div>
-	
-	
-	
+  <select class="custom-select"  name="option" id="option">
+    <option selected>Select.</option>
+    <option value="driver">Driver</option>
+    <option value="cashCollector">Cash Collector</option>
+    <option value="labor">Labor</option>
+  </select>
+</div>
+
+
+
+
 
 
  <div class="form-group">
-    <label for="worked">Enter Hours Worked</label>
-    <input type="text" class="form-control"  name="worked" id="worked" aria-describedby="" >
+    <label for="empot">Enter OTRate</label>
+    <input type="text" class="form-control"  name="empot" id="empot" aria-describedby="" >
   </div>
-  
 
 
  <div class="form-group">

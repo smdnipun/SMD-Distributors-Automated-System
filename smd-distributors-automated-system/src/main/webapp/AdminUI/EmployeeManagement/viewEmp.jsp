@@ -16,6 +16,7 @@
     <thead>
     <tr>
       <th scope="col">EmpID</th>
+      <th scope="col">Type</th>
       <th scope="col">Fname</th>
       <th scope="col">Lname</th>
       <th scope="col">Phone</th>
@@ -28,15 +29,16 @@
   <tbody>
   <c:forEach var="employee" items="${employeeDetails}">
   
-  <c:set var="id"      value="${employee.emp_ID}"/>
-  <c:set var="fname"   value="${employee.first_Name}"/>
-  <c:set var="lname"   value="${employee.last_Name}"/>
-  <c:set var="phone"   value="${employee.phone} "/>
-  <c:set var="uname"   value="${employee.username}"/>
-  <c:set var="pwd"     value="${employee.password}"/>
-  <c:set var="nic"     value="${employee.getNIC()}"/>
-  <c:set var="email"   value="${employee.email} "/>
-  <c:set var="address" value="${employee.address}"/>
+  <c:set var="id"        value="${employee.emp_ID}"/>
+  <c:set var="emp_Type"  value="${employee.emp_Type}"/>
+  <c:set var="fname"     value="${employee.first_Name}"/>
+  <c:set var="lname"     value="${employee.last_Name}"/>
+  <c:set var="phone"     value="${employee.phone} "/>
+  <c:set var="uname"     value="${employee.username}"/>
+  <c:set var="pwd"       value="${employee.password}"/>
+  <c:set var="nic"       value="${employee.getNIC()}"/>
+  <c:set var="email"     value="${employee.email} "/>
+  <c:set var="address"   value="${employee.address}"/>
   
   
   
@@ -44,6 +46,7 @@
   
     <tr>
       <th scope="row">${employee.emp_ID}   </th>
+       <td>${employee.emp_Type} </td>
       <td>${employee.first_Name} </td>
       <td>${employee.last_Name}</td>
       <td>${employee.phone}   </td>
@@ -56,6 +59,7 @@
  	<td>
  	<c:url value="AdminUI/EmployeeManagement/updateEmp.jsp" var="empupdate">
  		<c:param name="id" value="${id}"/>
+ 		<c:param name="emp_Type" value="${emp_Type}"/>
  		<c:param name="fname" value="${fname}"/>
  		<c:param name="lname" value="${lname}"/>
  		<c:param name="phone" value="${phone}"/>
@@ -100,6 +104,7 @@
      
      <c:url value="AdminUI/EmployeeManagement/attendanceEmployee.jsp" var="empattend">
  		<c:param name="id" value="${id}"/>
+ 		<c:param name="emp_Type" value="${emp_Type}"/>
  		<c:param name="fname" value="${fname}"/>
  		<c:param name="lname" value="${lname}"/>
  		<c:param name="phone" value="${phone}"/>
@@ -109,6 +114,25 @@
       
    <a href="${empattend}"> 
  	  <input type="button" name="ManageAttendance" value="ManageAttendance">
+ 	  </a>
+ 
+ 
+ </td>
+ 
+ 
+  <td>
+     
+     <c:url value="AdminUI/EmployeeManagement/calSalemp.jsp" var="empsal">
+ 		<c:param name="id" value="${id}"/>
+ 		<c:param name="fname" value="${fname}"/>
+ 		<c:param name="lname" value="${lname}"/>
+ 		<c:param name="phone" value="${phone}"/>
+ 		<c:param name="nic" value="${nic}"/>
+ 	
+ 	</c:url>
+      
+   <a href="${empsal}"> 
+ 	  <input type="button" name="CalulateSalary" value="CalulateSalary">
  	  </a>
  
  

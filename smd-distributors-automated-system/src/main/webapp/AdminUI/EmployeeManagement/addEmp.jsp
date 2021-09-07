@@ -74,7 +74,7 @@
   <select class="custom-select"  name="option" id="option">
     <option selected>Select.</option>
     <option value="driver">Driver</option>
-    <option value="CcashCollector</">Cash Collector</option>
+    <option value="cashCollector">Cash Collector</option>
     <option value="labor">Labor</option>
   </select>
 </div>

@@ -1,9 +1,6 @@
 package com.smd.servlet;
 
 import java.io.IOException;
-import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,27 +12,22 @@ import javax.servlet.http.HttpServletResponse;
 import com.smd.service.EmployeeDBUtill;
 
 
-@WebServlet("/AttendanceEmployeeServlet")
-public class AttendanceEmployeeServlet extends HttpServlet {
+@WebServlet("/CalcSalEmployeeServlet")
+public class CalcSalEmployeeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String id =request.getParameter("id");
-		String worked =request.getParameter("worked");
-	    String date =request.getParameter("date");
-		
-		
-	
-		
-		
-		
-		
+		String ot =request.getParameter("empot");
+		String date =request.getParameter("date");
+		String option = request.getParameter("option");
 		
 		int ID = Integer.parseInt(id);
-		int Worked = Integer.parseInt(worked);
+		double empotH =  Double.parseDouble(ot);
 		boolean isTrue;
 		
-		isTrue=EmployeeDBUtill.addAttendEmployee(ID,Worked,date);
+		isTrue=EmployeeDBUtill.calempSal(ID, option, empotH,date);
 
 		if(isTrue==true) {
 			RequestDispatcher dis = request.getRequestDispatcher("AdminUI/EmployeeManagement/addEmp.jsp");
