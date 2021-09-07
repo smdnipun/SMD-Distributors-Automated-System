@@ -19,6 +19,8 @@ public class EmployeeDBUtill {
 	
 	DBConnection con = new DBConnection();
 	
+	boolean isSuccess = false;
+	
 	
 	public static List<Employee> viewEmployee(){
 		ArrayList<Employee> emp = new ArrayList<>();
@@ -90,7 +92,6 @@ public class EmployeeDBUtill {
 	
 	public static boolean updateEmployee(int ID,String fname,String lname,String phone,String uname,
 			String password,String nic,String email,String add) {
-		
 		
 		try {
 			DBConnection con = new DBConnection();

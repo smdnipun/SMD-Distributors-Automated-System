@@ -142,37 +142,7 @@
 
 					</c:forEach>
 				</tbody>
-				</thead>
 			</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			<<<<<<< HEAD=======</c:forEach>
-				>>>>>>> d92496f1dc5b643fb6c225a80198dfe8095f3a8a
 
 		</div>
 
