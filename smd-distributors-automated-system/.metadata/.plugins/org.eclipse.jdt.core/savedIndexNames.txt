@@ -1,3 +1,1 @@
-INDEX VERSION 1.131+C:\Users\GeethmakaDissanayake\Desktop\SMD-Distributors-Automated-System\smd-distributors-automated-system\.metadata\.plugins\org.eclipse.jdt.core
-3271193799.index
-4155074085.index
+INDEX VERSION 1.131+C:\ITP\SMD-Distributors-Automated-System\smd-distributors-automated-system\.metadata\.plugins\org.eclipse.jdt.core
