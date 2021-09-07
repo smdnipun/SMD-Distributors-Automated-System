@@ -24,16 +24,29 @@ public class DeleteProduct extends HttpServlet {
 		response.getWriter().append("Access denied: ").append(request.getContextPath());
 	}
 
+<<<<<<< HEAD
+=======
 	@SuppressWarnings("unused")
+>>>>>>> origin/master
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		DBConnection dbc = new DBConnection();
 		
 		
 		try {
 			Statement stmt=dbc.getConnection().createStatement();
+<<<<<<< HEAD
+			String command = "delete from employee where employeeID=" + request.getParameter("id");
+			int rows=stmt.executeUpdate(command);
+			
+//			Staff[] data=dbc.getStaffdetails();
+//			request.getSession().setAttribute("data", data);
+//			response.sendRedirect("index.jsp");
+			
+=======
 			String command = "delete from product where Prod_ID=" + request.getParameter("id");
 			int rows=stmt.executeUpdate(command);
 			
+>>>>>>> origin/master
 		} catch (Exception e) {
 			response.getWriter().append(e.toString());
 		}
