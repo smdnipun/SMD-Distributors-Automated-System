@@ -4,7 +4,7 @@
 		<caption>List of users</caption>
 		<thead>
 			<tr>
-				<th scope="col">Credit ID</th>
+				<th scope="col">Order ID</th>
 				<th scope="col">Product Name</th>
 				<th scope="col">Quntity</th>
 				<th scope="col">Date</th>
