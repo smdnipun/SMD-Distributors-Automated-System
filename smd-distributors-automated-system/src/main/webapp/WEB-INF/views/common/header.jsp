@@ -53,3 +53,14 @@
      </div>
    </div>
  </div>
+ <button
+	 type="button"
+	 class="btn btn-secondary btn-floating btn-lg"
+	 id="btn-back-to-top"
+	 style="
+	 	position: fixed;
+	 	bottom: 20px;
+	 	right: 20px;
+	 	display: none;">
+	  <i class="fas fa-arrow-up"></i>
+</button>

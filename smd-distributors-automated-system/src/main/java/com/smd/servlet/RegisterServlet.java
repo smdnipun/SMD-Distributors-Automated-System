@@ -79,14 +79,20 @@ public class RegisterServlet extends HttpServlet {
 				}
 			}
 			else { //customer with same credentials found
-				RequestDispatcher redirect = getServletContext().getRequestDispatcher("/registration.jsp");
-				request.setAttribute("message", "User Already exists!!!");
-				redirect.forward(request, response);
+				RequestDispatcher redirect = getServletContext().getRequestDispatcher("/registration.jsp");//redirecting 
+				request.setAttribute("message", "User Already exists!!!");//error message
+				redirect.forward(request, response);//redirect to 
 			}
 		}
 		else {
+			//set redirecting page
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/registration.jsp");
+			//display error message
 			request.setAttribute("message", "Password mismatch!!!");
+			
+//			request.getSession().setAttribute("CustomerObj",customer);
+			
+			//redirect page
 			dispatcher.forward(request, response);
 		}
 		
