@@ -70,7 +70,7 @@ footer {
 	<jsp:include page="./WEB-INF/views/common/header.jsp"></jsp:include>
 	<div class="row" style="min-height: 100vh">
 		<jsp:include page="./WEB-INF/views/common/navbar.jsp">
-			<jsp:param name="navs" value="ttt,jjj ddddd,fff ddddd,fff" />
+			<jsp:param name="navs" value="ttt,jjj_ddddd,fff_ddddd,fff" />
 		</jsp:include>
 		
 	</div>

@@ -4,32 +4,59 @@ public class Product {
 
 	private String productID;
 	private String name;
-	private String image;
-	private int quantity;
+	@SuppressWarnings("unused")
+	private String date;
+	private int weight;
 	private int price;
+	private String image;
+	private boolean availablity;
 	
-	public Product(String name, String image, int quantity, int price) {
+	public Product(String productID,int weight,String date, String name,int price) {
+		this.productID = productID;
 		this.name = name;
-		this.image = image;
-		this.quantity = quantity;
+		this.date=date;
+		this.weight = weight;
 		this.price = price;
+	}
+	
+	public Product(String productID,int weight,String date, String name,int price,boolean availablity) {
+		this.productID = productID;
+		this.name = name;
+		this.date=date;
+		this.weight = weight;
+		this.price = price;
+		this.availablity=availablity;
+	}
+	
+	public Product(String productID, String name,String image, int weight, int price) {
+		this.productID = productID;
+		this.name = name;
+		this.weight = weight;
+		this.price = price;
+		this.image=image;
+		}
+
+	public String getProductID() {
+		return productID;
+	}
+	
+	public String getImage() {
+		return image;
 	}
 
 	public String getName() {
 		return name;
 	}
 
-	public String getImage() {
-		return image;
-	}
-
-	public int getQuantity() {
-		return quantity;
+	public int getWeight() {
+		return weight;
 	}
 
 	public int getPrice() {
 		return price;
 	}
 	
-	
+	public boolean getAvailablity() {
+		return availablity;
+	}
 }

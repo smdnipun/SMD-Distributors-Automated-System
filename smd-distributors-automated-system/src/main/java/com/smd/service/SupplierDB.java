@@ -18,8 +18,8 @@ public Supplier[] getSupplierdetails() {
 		Statement stmt = con.getConnection().createStatement();
 		ResultSet rs = stmt.executeQuery("SELECT * FROM vendor;");
 		while (rs.next()) {
-			//Supplier n = new Supplier(rs.getString(1), rs.getString(3), rs.getString(4), rs.getInt(10));
-			//ll.add(n);
+			Supplier n = new Supplier(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
+			ll.add(n);
 		}
 		array = ll.toArray(new Supplier[ll.size()]);
 

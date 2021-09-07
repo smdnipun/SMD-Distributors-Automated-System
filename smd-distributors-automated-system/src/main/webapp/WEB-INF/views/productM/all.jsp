@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+=======
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="java.util.List"%>
+<%@ page import="java.util.LinkedList"%>
+<%@ page import="com.smd.model.Product"%>
+<%@ page import="com.smd.service.ProductDB"%>
+
+>>>>>>> origin/master
 <div class="row">
 	<div class="col-2" style="background-color: #E0E0E2;">
 		<div class="nav flex-column nav-tabs" id="v-tabs-tab" role="tablist"
@@ -29,6 +38,7 @@
 		</div>
 	</div>
 	<div class="col-10 my-auto">
+<<<<<<< HEAD
 		<form action="">
 			<div class="row">
 				<div class="col-2">
@@ -78,5 +88,37 @@
 				</div>
 			</div>
 		</form>
+=======
+		<div class="row">
+			<form action="../../searchP" method="post">
+				<input type="text" size="50" name="search" />
+				<button type="submit" class="">
+					<i class="bi bi-search"></i>
+				</button>
+			</form>
+		</div>
+		<c:choose>
+			<c:when test="${param.search==null}">
+				<%
+				ProductDB con = new ProductDB();
+				Product[] allProducts = con.getAllProducts();
+				request.setAttribute("allProducts", allProducts);
+				%>
+				<c:forEach items="${allProducts}" var="product">
+					<a href="update.jsp?product=${product.getProductID()}"><c:out value="${product.getName()}"></c:out></a>
+				</c:forEach>
+			</c:when>
+			<c:otherwise>
+				<%
+				ProductDB con = new ProductDB();
+				Product[] searchData = con.search(request.getParameter("search"));
+				request.setAttribute("searchData", searchData);
+				%>
+				<c:forEach items="${searchData}" var="product">
+					<a href="update.jsp?product=${product.getProductID()}"><c:out value="${product.getProductID()}"></c:out></a>
+				</c:forEach>
+			</c:otherwise>
+		</c:choose>
+>>>>>>> origin/master
 	</div>
 </div>

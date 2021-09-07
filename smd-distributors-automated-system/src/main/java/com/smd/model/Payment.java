@@ -1,31 +1,24 @@
 package com.smd.model;
-
-//Create Payment class
+//create payment class
 public class Payment {
 	private String PaymentID;
-	private String CusName;
+	private String CusID;
 	private String InvoiceID;
 	private String Date;
-	private String ProductCode;
-	private int Quantity;
-	private double TotalAmount;
-	private double Balance;
-
-//Constructor
-	public Payment(String paymentID, String cusName, String invoiceID, String date, String productCode, int quantity,
-			double totalAmount, double balance) {
+	private double PaidAmount;
+	private String EmpID;
+	
+	
+	//Constructor
+	public Payment(String paymentID, String cusID, String invoiceID, String date, double paidAmount, String empID) {
 		super();
 		PaymentID = paymentID;
-		CusName = cusName;
+		CusID = cusID;
 		InvoiceID = invoiceID;
 		Date = date;
-		ProductCode = productCode;
-		Quantity = quantity;
-		TotalAmount = totalAmount;
-		Balance = balance;
+		PaidAmount = paidAmount;
+		EmpID = empID;
 	}
-
-	// Setters and getters
 
 	public String getPaymentID() {
 		return PaymentID;
@@ -35,12 +28,12 @@ public class Payment {
 		PaymentID = paymentID;
 	}
 
-	public String getCusName() {
-		return CusName;
+	public String getCusID() {
+		return CusID;
 	}
 
-	public void setCusName(String cusName) {
-		CusName = cusName;
+	public void setCusID(String cusID) {
+		CusID = cusID;
 	}
 
 	public String getInvoiceID() {
@@ -59,36 +52,21 @@ public class Payment {
 		Date = date;
 	}
 
-	public String getProductCode() {
-		return ProductCode;
+	public double getPaidAmount() {
+		return PaidAmount;
 	}
 
-	public void setProductCode(String productCode) {
-		ProductCode = productCode;
+	public void setPaidAmount(double paidAmount) {
+		PaidAmount = paidAmount;
 	}
 
-	public int getQuantity() {
-		return Quantity;
+	public String getEmpID() {
+		return EmpID;
 	}
 
-	public void setQuantity(int quantity) {
-		Quantity = quantity;
+	public void setEmpID(String empID) {
+		EmpID = empID;
 	}
 
-	public double getTotalAmount() {
-		return TotalAmount;
-	}
-
-	public void setTotalAmount(double totalAmount) {
-		TotalAmount = totalAmount;
-	}
-
-	public double getBalance() {
-		return Balance;
-	}
-
-	public void setBalance(double balance) {
-		Balance = balance;
-	}
 
 }

@@ -1,24 +1,28 @@
 package com.smd.service;
 
-import java.util.ArrayList;
+import java.sql.SQLException;
+import java.util.List;
+
 import com.smd.model.Feedback;
 
 
 public interface IFeedback {
 		//get all feedbacks
-		public ArrayList<Feedback> getFeedback();
+		public List<Feedback> getFeedback() throws SQLException;
+		
+		//public Feedback selectFeedback(String Feedback_ID);
 			
 		//add feedback for feedback table
-		boolean addFeedback(String Feedback_ID, String Cus_ID, String Date, String Type, String Message, String Rating,
+		public boolean addFeedback(String Feedback_ID, String Cus_ID, String Date, String Type, String Message, String Rating,
 				String Status);
 		
 		//update a feedback
-		boolean updateFeedback(String Feedback_ID, String Cus_ID, String Date, String Type, String Message, String Rating,
+		public boolean updateFeedback(String Feedback_ID, String Cus_ID, String Date, String Type, String Message, String Rating,
 				String Status);
 
 		//remove a feedback
-		boolean removeFeedback(String Feedback_ID);
+		public boolean removeFeedback(String Feedback_ID);
 		
 		//search a feedback
-		Feedback searchComplaint(String Cus_ID);
+		public Feedback[] searchFeedback(String Date) throws Exception;
 }

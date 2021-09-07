@@ -10,13 +10,13 @@
 				</div>
 			</div>
 			<div class="col-lg-6 d-flex">
-					<div class="card px-4 py-4 my-auto mx-auto w-100">
+					<div class="card px-4 py-4 my-auto mx-auto w-75">
 						<!--<div class="row">
 						<img src=<%=request.getContextPath() + "/img/Logo.png"%> class="logo">
 					</div>-->
 						<div class="row justify-content-center">
 							<img src=<%=request.getContextPath() + "/img/Logo.png"%>
-								class="logo"> <label class="mb-1">
+								class="logo"><h3 class="ml-3">Login</h3>
 						</div>
 						<div class="row px-3 pt-4">
 								<h6 class="mb-0 text-sm">Email Address</h6>
@@ -30,13 +30,13 @@
 								placeholder="Enter password">
 						</div>
 						<div class="row px-3 mb-4">
-							<a href="#" class="ml-auto mb-0 text-sm">Forgot Password?</a>
+							<a href=<%=request.getContextPath() + "/forgetpassword1.jsp"%> class="ml-auto mb-0 text-sm">Forgot Password?</a>
 						</div>
 						<div class="row mb-3 px-3">
-							<button type="submit" class="btn btn-blue text-center">Login</button>
+							<button type="submit" value="login" class="btn btn-blue text-center">Login</button>
 						</div>
 						<div class="row mb-4 px-3">
-							<small class="font-weight-bold">Don't have an account? <a
+							<small class="font-weight-bold">Don't have an account? <a href=<%=request.getContextPath() + "/registration.jsp"%>
 								class="text-danger ">Register</a></small>
 						</div>
 					</div>
