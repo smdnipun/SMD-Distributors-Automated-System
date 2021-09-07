@@ -1,4 +1,4 @@
-<%@ page import="com.smd.model.CustomerAgedRecivable"%><!--Import NewOrderCOnf.class-->
+<%@ page import="com.smd.model.PaymentDetails"%><!--Import NewOrderCOnf.class-->
 <%@ page import="com.smd.service.CreditSalesM"%><!-- Import Database connection of creditSales -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
@@ -10,7 +10,7 @@ if (request.getSession().getAttribute("Logged") == null) {
 }
 
 CreditSalesM cdbc = new CreditSalesM();
-CustomerAgedRecivable[] customerAged = (CustomerAgedRecivable[]) cdbc.getCreditAgedDetails();
+PaymentDetails[] customerAged = (PaymentDetails[]) cdbc.getPaymentdetails();
 request.setAttribute("data", customerAged);
 %>
 
@@ -20,36 +20,39 @@ request.setAttribute("data", customerAged);
 		<h5>Customer Aged Recivable</h5>
 	</center>
 
-	<table id="customerDetails" class="display nowrap" style="width: 100%">
+	<table id="customerDetails" class="display nowrap" style="width:100%">
 
-		<thead>
 
+	<thead>
+		<tr>
+			<th scope="col">Pay_ID</th>
+			<th scope="col">Hardware Name</th>
+			<th scope="col">Invoice ID</th>
+			<th scope="col">Total Price</th>
+			<th scope="col">Paid Amount</th>
+			<th scope="col">Remaining Amount</th>
+			
+
+		</tr>
+	</thead>
+	<tbody>
+		<c:forEach items="${data}" var="PaymentDetails">
 			<tr>
-				<th scope="col">CustomerID</th>
-				<th scope="col">Hardware Name</th>
-				<th scope="col">Invoice ID</th>
-				<th scope="col">Total Amount</th>
-				<th scope="col">Paid Amount</th>
-				<th scope="col">Remaining Amount</th>
+
+
+				<td><c:out value="${PaymentDetails.getPaymentID()}" /></td>
+				<td><c:out value="${PaymentDetails.getCusName()}" /></td>
+				<td><c:out value="${PaymentDetails.getInvoiceID()}" /></td>
+				<td><c:out value="${PaymentDetails.getTotalAmount()}" /></td>
+				<td><c:out value="${PaymentDetails.getPaidAmount()}" /></td>
+				<td><c:out value="${PaymentDetails.getBalance()}" /></td>
+				
+
 
 			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${data}" var="CustomerAgedRecivable">
-				<tr>
-					<td><c:out value="${CustomerAgedRecivable.getCus_ID()}" /></td>
-					<td><c:out value="${CustomerAgedRecivable.getHardwareName()}" /></td>
-					<td><c:out value="${CustomerAgedREcivable.getInvoiceID()}"/></td>
-					<td><c:out value="${CustomerAgedRecivable.getTotalAmount()}" /></td>
-					<td><c:out value="${CustomerAgedRecivable.getPaidAmount()}" /></td>
-					<td><c:out value="${CustomerAgedRecivable.getBalance()}" /></td>
-
-				</tr>
-
-			</c:forEach>
-			<tr>
-		</tbody>
-	</table>
+		</c:forEach>
+	</tbody>
+</table>
 	<p align="right">
 		<button type="button" class="btn btn-secondary"
 			style="background-color: #b8b8b8">Generate Report</button>

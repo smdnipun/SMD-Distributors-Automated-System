@@ -10,6 +10,7 @@ public class CustomerAgedRecivable {
 	private double Balance;
 
 	// constructor
+
 	public CustomerAgedRecivable(String cus_ID, String hardwareName, String invoiceID, double totalAmount,
 			double paidAmount, double balance) {
 		super();
@@ -38,18 +39,18 @@ public class CustomerAgedRecivable {
 		HardwareName = hardwareName;
 	}
 
-	public double getTotalAmount() {
-		return TotalAmount;
-	}
 	public String getInvoiceID() {
 		return InvoiceID;
 	}
 
-
 	public void setInvoiceID(String invoiceID) {
 		InvoiceID = invoiceID;
 	}
-	
+
+	public double getTotalAmount() {
+		return TotalAmount;
+	}
+
 	public void setTotalAmount(double totalAmount) {
 		TotalAmount = totalAmount;
 	}
@@ -69,5 +70,7 @@ public class CustomerAgedRecivable {
 	public void setBalance(double balance) {
 		Balance = balance;
 	}
+
+
 
 }
