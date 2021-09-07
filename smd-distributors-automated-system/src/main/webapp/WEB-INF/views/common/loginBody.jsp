@@ -15,10 +15,10 @@
 							<img src=<%=request.getContextPath() + "/img/Logo.png"%> class="logo">
 							<h3 class="ml-3">Login</h3>
 						</div>
-						<form action="" method="post">
+						<form action="login" method="post">
 							<div style = "color:red;" class="mb-0 text-sm row">
 		                    	<p class = "login_err">
-		                    		<%=request.getAttribute("err") == null ? "" : request.getAttribute("err") %>
+		                    		<%=request.getAttribute("login_err") == null ? "" : request.getAttribute("login_err") %>
 		                    	</p>
 		                    </div>
 							<div class="row px-3 pt-4">
