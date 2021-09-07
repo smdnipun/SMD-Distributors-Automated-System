@@ -1,6 +1,1 @@
-INDEX VERSION 1.4+C:\Users\GeethmakaDissanayake\Desktop\SMD-Distributors-Automated-System\smd-distributors-automated-system\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-1515158500.index
-3271193799.index
-2343647467.index
-458732734.index
-2289253594.index
+INDEX VERSION 1.4+C:\ITP\SMD-Distributors-Automated-System\smd-distributors-automated-system\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
