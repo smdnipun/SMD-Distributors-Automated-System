@@ -1,3 +1,4 @@
+
 <jsp:include page="./WEB-INF/views/common/head.jsp">
 	<jsp:param name="Title" value="SMD Distributors" /></jsp:include>
 <body>

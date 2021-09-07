@@ -4,16 +4,23 @@ import java.sql.Connection;
 
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.LinkedList;
+import java.util.List;
+
+
+import com.smd.model.Payment;
 
 public class DBConnection {
-	private Connection con;
+	
+	private static Connection con;
 
 	// This works according to singleton pattern
 	public DBConnection() {
 
 	}
 
-	public Connection getConnection() throws ClassNotFoundException, SQLException {
+	public static Connection getConnection() throws ClassNotFoundException, SQLException {
 		/*
 		 * This create new connection objects
 		 */
