@@ -23,7 +23,12 @@
 			                <fieldset>
 			                    <legend class="mb-0 justify-content-center">Welcome to SMD Distributors!</legend>
 			                    <h5>Enter Your Details</h5>
-			                    <div style = "color:red;" class="mb-0 text-sm row"><p>${message}</p></div>
+			                    <div style = "color:red;" class="mb-0 text-sm row">
+			                    	<!-- <p>${message}</p> -->
+			                    	<p class = "register_err">
+			                    		<%=request.getAttribute("reg_err") == null ? "" : request.getAttribute("reg_err") %>
+			                    	</p>
+			                    </div>
 			                    <div class="row px-3">
 			                        <label for="fname" class="mb-0 text-sm">First Name :</label>
 			                        <input type="text" id="fname" name="fname" placeholder="ex:-Saman"

@@ -109,6 +109,7 @@ public class AdminUpdateCusDetails extends HttpServlet {
 				//display an error message
 				request.setAttribute("message", "There was an error please try again!!!");
 				dispatcher.forward(request, response);
+				dispatcher.include(request, response);
 			}
 			
 		}
