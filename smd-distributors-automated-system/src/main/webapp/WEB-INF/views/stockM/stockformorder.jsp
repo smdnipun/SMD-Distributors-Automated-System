@@ -1,6 +1,6 @@
 <div class="col-4">
 		
-	<form action="../../StockUpdate" method="Post">
+	<form action="../../StockAdding" method="Post">
 				<!-- 	<div class="form-group">
 					<div class="dropdown show">
 						<a
@@ -28,7 +28,7 @@
 					class="form-control" id="exampleInputPassword1" name="quntity">
 			</div>
 			<div>
-			<button name ="button" value="add" type="submit" name="id" class="btn btn-light">Add Stock</button>
+			<button name ="button" value="delete" type="submit" name="id" class="btn btn-light">Delete Stock</button>
 			</div>
 		</form>
 </div>

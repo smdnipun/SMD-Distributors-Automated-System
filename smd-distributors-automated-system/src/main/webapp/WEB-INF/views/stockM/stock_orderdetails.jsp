@@ -15,7 +15,9 @@ Stockorder[] newstock = (Stockorder[]) dbc.getStockorder();
 request.setAttribute("stockorderdata", newstock);
 %>
 
-
+<div>
+<jsp:include page="./stockupnav.jsp"></jsp:include>
+</div>
 <div class="col-8 text-center align">
 	<table class="table table-hover">
 	

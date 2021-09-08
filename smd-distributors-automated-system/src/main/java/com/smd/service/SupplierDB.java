@@ -16,9 +16,28 @@ public Supplier[] getSupplierdetails() {
 	DBConnection con = new DBConnection();
 	try {
 		Statement stmt = con.getConnection().createStatement();
-		ResultSet rs = stmt.executeQuery("SELECT * FROM vendor;");
+		ResultSet rs = stmt.executeQuery("SELECT * FROM vendor where Status = 'Active';");
 		while (rs.next()) {
-			Supplier n = new Supplier(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
+			Supplier n = new Supplier(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5));
+			ll.add(n);
+		}
+		array = ll.toArray(new Supplier[ll.size()]);
+
+	} catch (Exception e) {
+	}
+	return array;
+
+}
+
+public Supplier[] getSupplierInactivedetails() {
+	List<Supplier> ll = new LinkedList<Supplier>();
+	Supplier[] array = null;
+	DBConnection con = new DBConnection();
+	try {
+		Statement stmt = con.getConnection().createStatement();
+		ResultSet rs = stmt.executeQuery("SELECT * FROM vendor where Status = 'Inactive';");
+		while (rs.next()) {
+			Supplier n = new Supplier(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5));
 			ll.add(n);
 		}
 		array = ll.toArray(new Supplier[ll.size()]);
