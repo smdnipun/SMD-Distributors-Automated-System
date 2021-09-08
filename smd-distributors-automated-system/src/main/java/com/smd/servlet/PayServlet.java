@@ -57,24 +57,27 @@ public class PayServlet extends HttpServlet {
 				double TotalPaid = pamount + paidAmount;
 				double TotalRemain = ramount - paidAmount;
 
-				String command1 = "update orders SET Paid_Amount =" + TotalPaid + " Remaining_Amount=" + TotalRemain
-						+ " WHERE Cust_ID =" + CID + "and Order_ID=" + OID;
+				String command1 = "update orders SET Paid_Amount =" + TotalPaid +","+ " Remaining_Amount=" + TotalRemain
+						+ " WHERE Cust_ID =" + CID + " and Order_ID=" + OID;
 
-//	
-//			stmt.execute(command);
-//			stmt.execute(command1);
-				response.getWriter().append(command);
-				response.getWriter().append(command1);
 
-//			response.sendRedirect("CreditPayment.jsp");
+			stmt.execute(command);
+			stmt.executeUpdate(command1);
+//				response.getWriter().append(command);
+//				response.getWriter().append(command1);
+
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/CreditSalesManagement/CreditPayment.jsp");
+			request.setAttribute("message", "You have successfully paid");
+			dispatcher.forward(request, response);
+			
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
 
 		else {
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("CreditPayment.jsp");
-			request.setAttribute("message", "There was an error please try again!!!");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/CreditSalesManagement/CreditPayment.jsp");
+			request.setAttribute("message", "You entered the Order ID or Customer ID incorrectly, please try again !!");
 			dispatcher.forward(request, response);
 
 		}

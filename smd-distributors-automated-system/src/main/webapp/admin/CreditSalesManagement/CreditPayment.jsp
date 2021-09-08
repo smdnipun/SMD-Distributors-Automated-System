@@ -15,7 +15,16 @@
 		<div class="col-9">
 			<jsp:include
 				page="../../WEB-INF/views/creditSales/customerBalanceTableandForm.jsp"></jsp:include>
+			<div class="row">
 			<jsp:include page="../../WEB-INF/views/creditSales/paymentForm.jsp"></jsp:include>
+			<div class="col-1"></div>
+			<div class="col-4">
+				<br><br><br><br><br><br><br>
+				<div style="color: red;">	
+			<p>${message}</p>
+		</div>
+			</div>
+			</div>	
 		</div>
 	</div>
 	<jsp:include page="../../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
