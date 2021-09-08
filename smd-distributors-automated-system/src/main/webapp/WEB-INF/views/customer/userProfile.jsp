@@ -7,10 +7,9 @@
 	        <div class="covermain">
 	            <img src="./img/avatar.png" height="100" width="100" class="propic">
 	            <div>
-	            	<p id="username">${Customer.getHardwareName()}</p>
+	            	<p id="username"><%=request.getSession().getAttribute("Hname")%></p>
 	            </div>
 	        </div>
-	        
 		</div>
 	</div>
 </div>
