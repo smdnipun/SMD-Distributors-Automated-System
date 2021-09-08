@@ -242,20 +242,20 @@ public class CreditSalesM {
 	}
 
 	// Search
-	public PaymentDetails[] search(String search) {
-		List<PaymentDetails> ll = new LinkedList<PaymentDetails>();
-		PaymentDetails[] array = null;
+	public CustomerAgedRecivable[] search(String search) {
+		List<CustomerAgedRecivable> ll = new LinkedList<CustomerAgedRecivable>();
+		CustomerAgedRecivable[] array = null;
 		try {
 			Statement stmt = con.getConnection().createStatement();
-			String command = "SELECT * from smd.paymentdetails WHERE Hardware_Name LIKE '%" + search + "%'";
+			String command = "SELECT * from smd.customeraged WHERE Hardware_Name LIKE '%" + search + "%'";
 			ResultSet rs = stmt.executeQuery(command);
 			while (rs.next()) {
-				PaymentDetails n = new PaymentDetails(rs.getString(1), rs.getNString(3), rs.getString(4),
-						rs.getDouble(5), rs.getDouble(6), rs.getDouble(7));
+				CustomerAgedRecivable n = new CustomerAgedRecivable(rs.getString(1), rs.getString(2), rs.getString(3),
+						rs.getDouble(4), rs.getDouble(5), rs.getDouble(6));
 				ll.add(n);
 			}
 
-			array = ll.toArray(new PaymentDetails[ll.size()]);
+			array = ll.toArray(new CustomerAgedRecivable[ll.size()]);
 
 		} catch (Exception e) {
 			System.out.println(e);
