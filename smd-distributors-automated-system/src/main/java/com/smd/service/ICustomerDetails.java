@@ -12,6 +12,9 @@ public interface ICustomerDetails {
 	//get all inactive customers in the system
 	public Customer[] inactiveCustomers();
 	
+	//get customer by customer ID
+	public Customer getCustomerById(int id);
+	
 	//add customer detail to the database
 	public boolean addCustomer(Customer customer);
 	
