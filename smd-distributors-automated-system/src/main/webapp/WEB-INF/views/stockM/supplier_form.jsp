@@ -1,4 +1,4 @@
-<div class="col-4">
+<div class="col-3">
 	<form action="../../SupplierAdding" method="Post">
 		<div class="form-group">
 			<label for="exampleInputEmail1">Name</label> <input type="text"
