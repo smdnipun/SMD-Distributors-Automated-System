@@ -50,9 +50,16 @@
 				Product[] allProducts = con.getAllProducts();
 				request.setAttribute("allProducts", allProducts);
 				%>
-				<c:forEach items="${allProducts}" var="product">
-					<a href="update.jsp?product=${product.getProductID()}"><c:out value="${product.getName()}"></c:out></a>
-				</c:forEach>
+				<table class="table table-striped">
+					<tbody>
+						<c:forEach items="${allProducts}" var="product">
+							<tr>
+								<td><a href="update.jsp?product=${product.getProductID()}"><c:out
+											value="${product.getName()}"></c:out></a></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
 			</c:when>
 			<c:otherwise>
 				<%
@@ -60,9 +67,16 @@
 				Product[] searchData = con.search(request.getParameter("search"));
 				request.setAttribute("searchData", searchData);
 				%>
-				<c:forEach items="${searchData}" var="product">
-					<a href="update.jsp?product=${product.getProductID()}"><c:out value="${product.getProductID()}"></c:out></a>
-				</c:forEach>
+				<table class="table table-striped">
+					<tbody>
+						<c:forEach items="${searchData}" var="product">
+							<tr>
+								<td><a href="update.jsp?product=${product.getProductID()}"><c:out
+											value="${product.getName()}"></c:out></a></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
 			</c:otherwise>
 		</c:choose>
 	</div>
