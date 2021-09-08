@@ -6,12 +6,8 @@
 		<div class="main">
 	        <div class="covermain">
 	            <img src="./img/avatar.png" height="100" width="100" class="propic">
-	            <div class="right">
-	                <button class="button mt-2"><a href="edit_cAccount.jsp">Edit account</a></button>
-	            </div>
 	            <div>
-	            	<p id="username">${Customer.getFirstName()}</p>
-		            <p>${Customer.getEmail()}</p>
+	            	<p id="username">${Customer.getHardwareName()}</p>
 	            </div>
 	        </div>
 	        
