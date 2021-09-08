@@ -13,6 +13,7 @@
 				<jsp:include page="../../WEB-INF/views/stockM/Stock_table.jsp"></jsp:include>
 				<jsp:include page="../../WEB-INF/views/stockM/stock_orderdetails.jsp"></jsp:include>
 				<jsp:include page="../../WEB-INF/views/stockM/stock_form.jsp"></jsp:include>
+				<jsp:include page="../../WEB-INF/views/stockM/Stocksummary.jsp"></jsp:include>
 			</div>
 		</div>
 		<div>
