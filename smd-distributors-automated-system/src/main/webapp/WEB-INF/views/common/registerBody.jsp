@@ -19,7 +19,7 @@
 							class="logo"> <label class="mb-1">
 					</div>
 					<div class="row px-3 d-flex">
-						<form action="RegisterServlet" method="Post">
+						<form action="RegisterServlet" method="Post" onsubmit="return checkPw()">
 			                <fieldset>
 			                    <legend class="mb-0 justify-content-center">Welcome to SMD Distributors!</legend>
 			                    <h5>Enter Your Details</h5>

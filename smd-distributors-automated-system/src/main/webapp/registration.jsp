@@ -5,5 +5,17 @@
 <body>
 	<script src="js/RegisterUser.js"></script>
 	<jsp:include page="WEB-INF/views/common/registerBody.jsp"></jsp:include>
+	<script>
+	function checkPw(){
+		if(document.getElementById("pwd").value==document.getElementById("rpwd").value){
+			return true;
+		}
+		else{
+			alert("password missmatch");
+			return false;
+		}
+		
+	}
+	</script>
 </body>
 </html>
