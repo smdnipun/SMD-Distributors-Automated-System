@@ -47,41 +47,6 @@
 						</label>
 					</div>
 				</div>
-				<!--<div class="col-8">
-					<div class="px-4">
-						<div style="border: 3px solid; border-radius: 30px"
-							class="px-5 py-3">
-							<div class="h5 text-center pb-2 pt-1">Product Images</div>
-							<div class="row gy-1">
-								<div class="col-2">
-									<div class="box"></div>
-									<button class="close">x</button>
-								</div>
-								<div class="col-2">
-									<div class="box"></div>
-									<button class="close">x</button>
-								</div>
-								<div class="col-2">
-									<div class="box"></div>
-									<button class="close">x</button>
-								</div>
-								<div class="col-2">
-									<div class="box"></div>
-									<button class="close">x</button>
-								</div>
-								<div class="col-2">
-									<div class="box"></div>
-									<button class="close">x</button>
-								</div>
-								<div class="col-2">
-									<button class="buttonBox d-flex justify-content-center">
-										<h1 class="my-auto display-4">+</h1>
-									</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>-->
 			</div>
 			<div>
 				<button type="submit" name="update">Update</button>
