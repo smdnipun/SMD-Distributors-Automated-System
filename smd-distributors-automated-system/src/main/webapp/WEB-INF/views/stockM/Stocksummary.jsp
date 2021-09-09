@@ -30,8 +30,8 @@ request.setAttribute("stocksum", newstock);
 		<c:forEach items="${stocksum}" var="Stocksummary">
 			<tr>
 			
-					<td><c:out value="${Stocksummary.getName()}"/>"</td>
-					<td><c:out value="${Stocksummary.getSum()}"/>"</td>
+					<td><c:out value="${Stocksummary.getName()}"/></td>
+					<td><c:out value="${Stocksummary.getSum()}"/></td>
 				
 					
 			</tr>

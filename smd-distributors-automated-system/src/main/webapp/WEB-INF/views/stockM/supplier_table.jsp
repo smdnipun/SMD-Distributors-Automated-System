@@ -22,7 +22,6 @@ request.setAttribute("supplierdata", newsupplier);
 		<h4>Supplier Details</h4>
 	</div>
 	<div class="col-7 justify-content-center">
-		<!-- 	<table class="table table-hover"> -->
 		<table id="table" class="display nowrap" style="width: 100%">
 			<thead>
 				<tr>
@@ -36,7 +35,7 @@ request.setAttribute("supplierdata", newsupplier);
 			</thead>
 			<tbody>
 				<c:forEach items="${supplierdata}" var="Supplier">
-				<<form action="../../SupplierUpdate" method="post">
+				<form action="../../SupplierUpdate" method="post">
 						<tr>
 
 							<%-- <td>"<c:out value="${Supplier.getSupplierID()}" /></td> --%>
