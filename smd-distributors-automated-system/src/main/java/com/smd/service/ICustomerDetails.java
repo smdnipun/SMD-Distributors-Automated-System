@@ -30,6 +30,9 @@ public interface ICustomerDetails {
 	//delete customer
 	public boolean deleteCustomer(String id);
 	
+	//search hardware
+	public Customer[] search(String search);
+	
 //	//check if email exist in the system
 //	public boolean checkEmail(Customer customer);
 		

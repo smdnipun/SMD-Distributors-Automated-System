@@ -29,7 +29,6 @@ public class AdminUpdateCusDetails extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-	@SuppressWarnings("unused")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//creating customer object to set the values
 		Customer customer = new Customer();
@@ -55,7 +54,8 @@ public class AdminUpdateCusDetails extends HttpServlet {
 		if(request.getParameter("btn").equals("update")) {
 			
 			for(int i=0;i<CustomerData.length;i++) {
-				if((CustomerData[i].getEmail().equals(request.getParameter("email"))) || (CustomerData[i].getNIC().equals(request.getParameter("nic")))) {
+				if( ((CustomerData[i].getEmail().equals(request.getParameter("email"))) || (CustomerData[i].getNIC().equals(request.getParameter("nic")))) 
+						&& (!CustomerData[i].getCusID().equals(request.getParameter("cus_id"))) ) {
 					cFound = true;
 					break;
 				}
@@ -82,7 +82,7 @@ public class AdminUpdateCusDetails extends HttpServlet {
 				}
 				else{//if the data was not passed to the database
 					//redirect to the registration page
-					RequestDispatcher dispatcher = request.getRequestDispatcher("admin/CustomerManagement/CustomerDetails.jsp");
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/CustomerManagement/CustomerDetails.jsp");
 					
 					//display an error message
 					request.setAttribute("message", "There was an error please try again!!!");
@@ -90,8 +90,8 @@ public class AdminUpdateCusDetails extends HttpServlet {
 				}
 			}	
 			else { //customer with same email or NIC found found
-				RequestDispatcher redirect = getServletContext().getRequestDispatcher("admin/CustomerManagement/CustomerDetails.jsp");
-				request.setAttribute("message", "A user wwith same email or NIC exist.");
+				RequestDispatcher redirect = getServletContext().getRequestDispatcher("/admin/CustomerManagement/CustomerDetails.jsp");
+				request.setAttribute("message", "A user with same email or NIC exist.");
 				redirect.forward(request, response);
 			}
 		} 
