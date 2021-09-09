@@ -14,9 +14,6 @@ import com.smd.model.Customer;
 import com.smd.service.CusDetailsServiceImpl;
 import com.smd.service.ICustomerDetails;
 
-/**
- * Servlet implementation class AdminUpdateCusDetails
- */
 @WebServlet("/adminUpdate")
 public class AdminUpdateCusDetails extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -38,6 +35,8 @@ public class AdminUpdateCusDetails extends HttpServlet {
 		
 		//Creating customer array to get customer details from CusDetailsServiceImpl
 		Customer[] CustomerData = cusDetails.getCustomerDetails();
+		
+		PrintWriter out = response.getWriter();
 		
 		boolean cFound = false;
 		
@@ -66,33 +65,26 @@ public class AdminUpdateCusDetails extends HttpServlet {
 				boolean status = cusDetails.updateCustomerfromAdmin(customer);
 				
 				if(status == true){//if the data was passed to the database successfully
-					PrintWriter out = response.getWriter();
-//					out.println("<script>"
-//							+ "$(document).ready(function(){"
-//							+ "Swal.fire("
-//							+ "  'Updates successfully!',"
-//							+ "  'Customer details are updated!',"
-//							+ "  'success'"
-//							+ ")}");
-//					out.println("</script>");
 					out.println("<script type=\"text/javascript\">");
 				    out.println("alert('Updated Successfully!');");
+				    out.println("location='admin/CustomerManagement/CustomerDetails.jsp'");
 				    out.println("</script>");
-					response.sendRedirect("admin/CustomerManagement/CustomerDetails.jsp");
+//					response.sendRedirect("admin/CustomerManagement/CustomerDetails.jsp");
 				}
 				else{//if the data was not passed to the database
-					//redirect to the registration page
-					RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/CustomerManagement/CustomerDetails.jsp");
-					
 					//display an error message
-					request.setAttribute("message", "There was an error please try again!!!");
-					dispatcher.forward(request, response);
+					out.println("<script type=\"text/javascript\">");
+				    out.println("alert('There was an error please try again!!!');");
+				    out.println("location='admin/CustomerManagement/CustomerDetails.jsp'"); //redirect to the registration page
+				    out.println("</script>");	
 				}
 			}	
 			else { //customer with same email or NIC found found
-				RequestDispatcher redirect = getServletContext().getRequestDispatcher("/admin/CustomerManagement/CustomerDetails.jsp");
-				request.setAttribute("message", "A user with same email or NIC exist.");
-				redirect.forward(request, response);
+				//display an error message
+				out.println("<script type=\"text/javascript\">");
+			    out.println("alert('A user with same email or NIC exist.');");
+			    out.println("location='admin/CustomerManagement/CustomerDetails.jsp'"); //redirect to the registration page
+			    out.println("</script>");
 			}
 		} 
 		else if(request.getParameter("btn").equals("delete")) {
@@ -100,18 +92,21 @@ public class AdminUpdateCusDetails extends HttpServlet {
 			boolean status = cusDetails.setInactive(customer);
 			
 			if(status == true){//if the data was updated successfully
-				response.sendRedirect("admin/CustomerManagement/CustomerDetails.jsp");
+				//display an error message
+				out.println("<script type=\"text/javascript\">");
+			    out.println("alert('Deleted Successfully!');");
+			    out.println("location='admin/CustomerManagement/CustomerDetails.jsp'"); //redirect to the registration page
+			    out.println("</script>");
+//				response.sendRedirect("admin/CustomerManagement/CustomerDetails.jsp");
 			}
 			else{//if the data was not passed to the database
-				//redirect to the registration page
-				RequestDispatcher dispatcher = request.getRequestDispatcher("admin/CustomerManagement/CustomerDetails.jsp");
-				
 				//display an error message
-				request.setAttribute("message", "There was an error please try again!!!");
-				dispatcher.forward(request, response);
-				dispatcher.include(request, response);
+				out.println("<script type=\"text/javascript\">");
+			    out.println("alert('Deleted Successfully!');");
+			    out.println("location='admin/CustomerManagement/CustomerDetails.jsp'"); //redirect to the registration page
+			    out.println("</script>");
 			}
-			
+		
 		}
 		
 	}

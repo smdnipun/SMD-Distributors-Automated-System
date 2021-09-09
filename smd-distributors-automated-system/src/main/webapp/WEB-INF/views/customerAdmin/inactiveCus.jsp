@@ -13,6 +13,10 @@ if (request.getSession().getAttribute("Logged") == null) {
 CusDetailsServiceImpl dbc = new CusDetailsServiceImpl();
 Customer[] cusDetails = dbc.inactiveCustomers();
 request.setAttribute("data", cusDetails);
+
+int inactive = 0;
+inactive = dbc.getInactiveCustomerCount();
+request.setAttribute("inactive", inactive);
 %>
 
 <div class="row">
@@ -32,6 +36,9 @@ request.setAttribute("data", cusDetails);
 						<i class="bi bi-search"></i>
 					</button>
 			</form>
+			<div class="d-flex justify-content-start">
+					<p>No.of Inactive Customers : <c:out value="${inactive}" /> </p>
+			</div>
 			<table id="table" class="table display nowrap" style="width:100%">
 				<c:choose>
 					<c:when test="${param.search==null}">

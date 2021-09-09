@@ -68,7 +68,7 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 		
 		try {
 			Statement stmt = con.getConnection().createStatement();
-			ResultSet rs = stmt.executeQuery("select * from smd.customer where status='active'");//execute the statement
+			ResultSet rs = stmt.executeQuery("select * from smd.customer where status='Active'");//execute the statement
 			
 			//Adding the data retrieved from the database to the LinkList
 			while (rs.next()) {
@@ -93,6 +93,26 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 			e.printStackTrace();
 		}
 		return array;
+	}
+	
+	//getting the total active customers
+	public int getActiveCustomerCount() {
+		int total=0;
+		//creating the database connection
+		DBConnection dbc = new DBConnection();
+		
+		try {
+			Statement stmt = dbc.getConnection().createStatement();
+			
+			String command = "SELECT COUNT(*) FROM smd.customer WHERE status='Active'";
+			ResultSet rs = stmt.executeQuery(command);//execute the statement	
+			while(rs.next()) {
+				total = rs.getInt(1);//get the total rows
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return total;
 	}
 	
 	@Override
@@ -138,6 +158,26 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 		return array;
 	}
 	
+	//getting the total inactive customers
+	public int getInactiveCustomerCount() {
+		int total=0;
+		//creating the database connection
+		DBConnection dbc = new DBConnection();
+		
+		try {
+			Statement stmt = dbc.getConnection().createStatement();
+			
+			String command = "SELECT COUNT(*) FROM smd.customer WHERE status='Inactive'";
+			ResultSet rs = stmt.executeQuery(command);//execute the statement	
+			while(rs.next()) {
+				total = rs.getInt(1);//get the total rows
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return total;
+	}
+	
 	@Override
 	public Customer getCustomerById(int id) {
 		//create linked list to take the data from the database.
@@ -172,7 +212,6 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 			e.printStackTrace();
 			return null;
 		}
-		
 	}
 	
 	@Override
@@ -194,14 +233,13 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 				//insertion is successful if result is 1
 				Success=true;
 			}
-			else
+			else {
 				//insertion is unsuccessful
 				Success=false;
-			
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		} 
-		
+		}
 		return Success;
 	}
 	
@@ -222,10 +260,10 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 				//insertion is successful if result is 1
 				Success=true;
 			}
-			else
+			else {
 				//insertion is unsuccessful
 				Success=false;
-			
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
@@ -250,10 +288,10 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 				//insertion is successful if result is 1
 				Success=true;
 			}
-			else
+			else {
 				//insertion is unsuccessful
 				Success=false;
-			
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
@@ -271,7 +309,7 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 		try {
 			Statement stmt = dbc.getConnection().createStatement();
 			
-			String command = "UPDATE smd.customer SET First_name= '" + customer.getFname() + "', Last_Name= '" + customer.getLname() + "', Hardware_Name= '"+ customer.getHardwareName() +"', Phone= '"+ customer.getPhoneNo() +"', NIC= '" + customer.getNIC() + "', Email= '"+ customer.getEmail() + "', Address= '" + customer.getAddress() + "' where Cus_ID = " + customer.getCusID();      
+			String command = "UPDATE smd.customer SET First_name= '" + customer.getFname() + "', Last_Name= '" + customer.getLname() + "', Hardware_Name= '"+ customer.getHardwareName() +"', Phone= '"+ customer.getPhoneNo() +"', NIC= '" + customer.getNIC() + "', Email= '"+ customer.getEmail() + "', Address= '" + customer.getAddress() + "' WHERE Cus_ID = " + customer.getCusID();      
 			
 			int result = stmt.executeUpdate(command);//execute the statement
 			
@@ -279,10 +317,10 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 				//insertion is successful if result is 1
 				Success=true;
 			}
-			else
+			else {
 				//insertion is unsuccessful
 				Success=false;
-			
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
@@ -307,14 +345,13 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 				//insertion is successful if result is 1
 				Success=true;
 			}
-			else
+			else {
 				//insertion is unsuccessful
 				Success=false;
-			
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
-		
 		return Success;
 	}
 	
@@ -359,6 +396,33 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 		}
 		
 		return array;
+	}
+	
+	public boolean updateForgetPassword(int id, String pwd) {
+		boolean Success = false;//assign false before execution
+		
+		//creating the database connection
+		DBConnection dbc = new DBConnection();
+		try {
+			Statement stmt = dbc.getConnection().createStatement();
+			
+			String command = "UPDATE smd.customer SET password = '" + pwd + "' WHERE Cus_ID =" + id;      
+			
+			int result = stmt.executeUpdate(command);//execute the statement
+			
+			if(result>0) {
+				//insertion is successful if result is 1
+				Success=true;
+			}
+			else {
+				//insertion is unsuccessful
+				Success=false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+		
+		return Success;
 	}
 	
 //	public boolean checkEmail(Customer customer) {
