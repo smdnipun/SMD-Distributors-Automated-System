@@ -1,19 +1,19 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<jsp:include page="../../WEB-INF/views/common/head.jsp">
 		<jsp:param name="Title" value="SMD Distributors" />
+
 	</jsp:include>
 
 	<body>
+	
 		<jsp:include page="../../WEB-INF/views/common/header.jsp"></jsp:include>
-		<jsp:include page="../../WEB-INF/views/common/navbar.jsp">
-			<jsp:param name="navs" value="ttt,ffff ddddd,fff" />
-		</jsp:include>
+		
 
 		<div class="(col-10)">
 
 
 
-			<table class="table table-dark">
+			<table class="table table-dark "  style="width:100%">
 				<thead>
 					<tr>
 						<th scope="col">EmpID</th>
@@ -58,7 +58,7 @@
 							<td> ${employee.address} </td>
 
 							<td>
-								<c:url value="AdminUI/EmployeeManagement/updateEmp.jsp" var="empupdate">
+								<c:url value="admin/EmployeeManagement/updateEmp.jsp" var="empupdate">
 									<c:param name="id" value="${id}" />
 									<c:param name="emp_Type" value="${emp_Type}" />
 									<c:param name="fname" value="${fname}" />
@@ -81,7 +81,7 @@
 
 							<td>
 
-								<c:url value="AdminUI/EmployeeManagement/deleteEmployee.jsp" var="empdelete">
+								<c:url value="admin/EmployeeManagement/deleteEmployee.jsp" var="empdelete">
 									<c:param name="id" value="${id}" />
 									<c:param name="fname" value="${fname}" />
 									<c:param name="lname" value="${lname}" />
@@ -103,7 +103,7 @@
 
 							<td>
 
-								<c:url value="AdminUI/EmployeeManagement/attendanceEmployee.jsp" var="empattend">
+								<c:url value="admin/EmployeeManagement/attendanceEmployee.jsp" var="empattend">
 									<c:param name="id" value="${id}" />
 									<c:param name="emp_Type" value="${emp_Type}" />
 									<c:param name="fname" value="${fname}" />
@@ -114,7 +114,7 @@
 								</c:url>
 
 								<a href="${empattend}">
-									<input type="button" name="ManageAttendance" value="ManageAttendance">
+									<input type="button" name="ManageAttendance" value="Manage sal & leave">
 								</a>
 
 
@@ -123,7 +123,7 @@
 
 							<td>
 
-								<c:url value="AdminUI/EmployeeManagement/calSalemp.jsp" var="empsal">
+								<c:url value="admin/EmployeeManagement/calSalemp.jsp" var="empsal">
 									<c:param name="id" value="${id}" />
 									<c:param name="fname" value="${fname}" />
 									<c:param name="lname" value="${lname}" />
@@ -132,10 +132,7 @@
 
 								</c:url>
 
-								<a href="${empsal}">
-									<input type="button" name="CalulateSalary" value="CalulateSalary">
-								</a>
-
+							
 
 							</td>
 
