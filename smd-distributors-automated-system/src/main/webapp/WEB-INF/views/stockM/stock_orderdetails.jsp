@@ -16,31 +16,38 @@ request.setAttribute("stockorderdata", newstock);
 %>
 <!-- upper navigation bar -->
 <div>
-<jsp:include page="./stockupnav.jsp"></jsp:include>
+	<jsp:include page="./stockupnav.jsp"></jsp:include>
 </div>
 <!-- stockorder Table -->
 <div class="col-8 text-center align">
 	<table class="table table-hover">
-	
+
 		<thead>
-			<tr><!-- Table headers -->
+			<tr>
+				<!-- Table headers -->
 				<th scope="col">Order ID</th>
 				<th scope="col">Quantity</th>
 				<th scope="col">Date</th>
 				<th scope="col">Product Name</th>
+
 			</tr>
 		</thead>
 		<tbody>
-		<!-- Pass the data from DB -->
-		<c:forEach items="${stockorderdata}" var="Stockorder">
-			<tr>
-			
-					<td><c:out value="${Stockorder.getoID()}"/></td>
-					<td><c:out value="${Stockorder.getQty()}"/></td>
-					<td><c:out value="${Stockorder.getOdate()}"/></td>
-					<td><c:out value="${Stockorder.getpName()}"/></td>
-				
-			</tr>
+			<!-- Pass the data from DB -->
+			<c:forEach items="${stockorderdata}" var="Stockorder">
+				<form action="../../ReleasOrders" method="post">
+				<tr>
+				    <td><input readonly type="text" name="oID"
+								value="<c:out value="${Stockorder.getoID()}"/>"></td>
+					<%-- <td><c:out value="${Stockorder.getoID()}" /></td> --%>
+					<td><c:out value="${Stockorder.getQty()}" /></td>
+					<td><c:out value="${Stockorder.getOdate()}" /></td>
+					<td><c:out value="${Stockorder.getpName()}" /></td>
+					<td><button type="submit" class="btn btn-secondary"
+					style="background-color: #c28f48" name="button" value="accept" />Accept</button>
+						</form></td>
+				</tr>
+
 			</c:forEach>
 		</tbody>
 	</table>
