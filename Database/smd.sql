@@ -382,7 +382,6 @@ where c.Cus_ID=o.Cust_ID and Order_Status="pending";
 -- Database functions & procedures
 
 
-
 -- select queries
 
 -- select tables
@@ -404,3 +403,7 @@ select * from smd.vendor;
 select * from smd.PaymentDetails;
 select * from smd.CustomerAged;
 select * from smd.NewOrders;
+
+select count(email) from customer where email = 'nipunsenarath2@gmail.com';
+
+DELETE from customer where Cus_ID = 9;
