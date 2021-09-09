@@ -13,8 +13,16 @@
             
             
         </script>
+	
+<div class="col-9">
+<br>
+<center>
+<h1>Add Order</h1>
+</center>
+<br>
+<div class="content">
+  
 
-<div class="col-10">
 	<form action="insert" method="post">
 	
 	
@@ -22,26 +30,25 @@
   <label for="formGroupExampleInput2" class="form-label">Customer ID</label>
   <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter Customer ID" name="CID" required="true">
 </div>
+<div class="mb-3">
+  <label for="formGroupExampleInput2" class="form-label">Product ID</label>
+  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter " name="PID" required="true">
+</div>
+<div class="mb-3">
+  <label for="formGroupExampleInput2" class="form-label">Quantity</label>
+  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter Quantity" name="QTY" onkeypress="isInputNumber(event)" required="true">
+</div>
 
 <div class="mb-3">
   <label for="formGroupExampleInput" class="form-label">Total price</label>
   <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Total price" name="TPRICE" onkeypress="isInputNumber(event)" required="true">
 </div>
 
-<div class="mb-3">
-  <label for="formGroupExampleInput2" class="form-label">Quantity</label>
-  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter Quantity" name="QTY" onkeypress="isInputNumber(event)" required="true">
-</div>
-<div class="mb-3">
-  <label for="formGroupExampleInput2" class="form-label">Product ID</label>
-  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter " name="PID" required="true">
-</div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+
+
+  <button type="submit" class="btn btn-primary">Add Order</button>
 </form>
 
-<form action="viewOrderCustomer" method="post">
-<button type="submit" class="btn btn-primary">My Orders</button>
-</form>
-
+</div>
 	</div>
 	<br><br><br><br>

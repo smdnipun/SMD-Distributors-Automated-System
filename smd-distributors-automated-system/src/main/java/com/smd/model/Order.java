@@ -1,6 +1,6 @@
 package com.smd.model;
 
-
+/*This is the Order model class*/ 
 public class Order {
 
 	private int OID;
@@ -17,7 +17,7 @@ public class Order {
 	public Order() {
 		
 	}
-	
+	//overloaded constructor to set values
 	public Order(int oID, int cID, String oDATE, String oSTATE, double tPRICE, double pAMOUNT, double rAMOUNT, int qTY,
 			int pID) {
 		super();
@@ -31,6 +31,7 @@ public class Order {
 		QTY = qTY;
 		PID = pID;
 	}
+	//getters and setters
 	public int getOID() {
 		return OID;
 	}

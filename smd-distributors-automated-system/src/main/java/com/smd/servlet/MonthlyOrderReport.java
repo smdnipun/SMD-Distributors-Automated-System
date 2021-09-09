@@ -24,7 +24,7 @@ public class MonthlyOrderReport extends HttpServlet {
 		List<MonthlyOrder> monthlyorder=	OrderM.ViewMonthlyOrderReport();
 		request.setAttribute("monthlyorder", monthlyorder);
 		
-		RequestDispatcher dis=request.getRequestDispatcher("AdminUI/OrderManagement/MonthlyOrderReport.jsp");
+		RequestDispatcher dis=request.getRequestDispatcher("admin/OrderManagement/MonthlyOrderReport.jsp");
 		dis.forward(request, response);
 		
 		}
