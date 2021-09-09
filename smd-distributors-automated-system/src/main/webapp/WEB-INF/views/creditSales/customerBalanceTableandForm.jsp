@@ -56,6 +56,7 @@ request.setAttribute("data", customerAgedRecivable);
 
 						</tr>
 					</c:forEach>
+					</tbody>
 			</c:when>
 			<c:otherwise>
 				<%
@@ -79,8 +80,7 @@ request.setAttribute("data", customerAgedRecivable);
 					<tbody>
 						<tr>
 							<td><c:out value="${CustomerAgedRecivable.getCus_ID()}" /></td>
-							<td><c:out
-									value="${CustomerAgedRecivable.getHardwareName()}" /></td>
+							<td><c:out value="${CustomerAgedRecivable.getHardwareName()}" /></td>
 							<td><c:out value="${CustomerAgedRecivable.getInvoiceID()}" /></td>
 							<td><c:out value="${CustomerAgedRecivable.getTotalAmount()}" /></td>
 							<td><c:out value="${CustomerAgedRecivable.getPaidAmount()}" /></td>
@@ -88,6 +88,7 @@ request.setAttribute("data", customerAgedRecivable);
 
 						</tr>
 				</c:forEach>
+				</tbody>
 			</c:otherwise>
 		</c:choose>
 	</table>
