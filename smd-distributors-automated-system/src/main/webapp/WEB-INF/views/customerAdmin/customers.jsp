@@ -26,8 +26,8 @@ request.setAttribute("data", cusDetails);
 				<div class="d-flex justify-content-center">
 					<h4>Customer List</h4>
 				</div>
-				<table id="table" class="display nowrap" style="width:100%">
-			        <thead>
+				<table id="table" class="table display nowrap table-bordered" style="width:100%">
+			        <thead class="thead-dark">
 			            <tr>
 			            	<th>Cus ID</th>
 			                <th>First Name</th>

@@ -318,6 +318,49 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 		return Success;
 	}
 	
+	@Override
+	//search hardware
+	public Customer[] search(String search) {
+		//create linked list to take the data from the database.
+		List<Customer> ll = new LinkedList<Customer>();
+		
+		//Created an array to store all the customer details.
+		Customer[] array = null;
+		
+		//creating the database connection
+		DBConnection dbc = new DBConnection();
+		
+		try {
+			Statement stmt = dbc.getConnection().createStatement();
+			String command = "SELECT * from smd.customer WHERE Hardware_Name LIKE '%" + search + "%'";
+			ResultSet rs = stmt.executeQuery(command);//execute the statement
+			
+			//Adding the data retrieved from the database to the LinkList
+			while (rs.next()) {
+				Customer c = new Customer(
+						rs.getString(1),	//cusID
+						rs.getString(2), 	//fname
+						rs.getString(3),	//lname
+						rs.getString(4),	//hardwareName
+						rs.getString(5),	//phoneNo
+						rs.getString(6),	//password
+						rs.getString(7),	//nic
+						rs.getString(8),	//email
+						rs.getString(9),	//address
+						rs.getString(10)	//status
+						);
+				ll.add(c);
+			}
+			//Inserting the value in the LinkList to the array
+			array = ll.toArray(new Customer[ll.size()]);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return array;
+	}
+	
 //	public boolean checkEmail(Customer customer) {
 //		boolean Success = false;//assign false before execution
 //		DBConnection dbc = new DBConnection();
