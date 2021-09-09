@@ -41,9 +41,10 @@ request.setAttribute("data", newOrders);
 					<td><c:out value="${NewOrdersConf.getQuantity()}" /></td>
 					<td><c:out value="${NewOrdersConf.getTotalPrice()}" /></td>
 					
-					<button onclick="window.location.href='/page2'">Continue</button>
-					<td><button type="button" class="btn btn-secondary"
-							style="background-color: #b8c248">Customer Details</button> <br>
+					
+					<td>
+					<a class="btn btn-secondary" href="CustomerDetailsCredit.jsp" role="button"
+					style="background-color: #b8c248">Customer Details</a><br>
 						<button type="submit" class="btn btn-secondary" style="background-color: #c28f48" name="button" value="accept" />Accept</button>
 						 <br>
 
