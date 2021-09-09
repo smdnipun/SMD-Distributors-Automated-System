@@ -47,9 +47,11 @@
          class="bi bi-person-circle"
          style="font-size: 2.5rem; padding-right: 1.5rem"
        ></i>
-       <div>
-         <button type="button" class="btn btn-outline-danger">LogOut</button>
-       </div>
+       	<div>
+       		<form action="logout" method="post">
+	      		<button type="button" class="btn btn-outline-danger">LogOut</button>
+	      	</form>
+       	</div>
      </div>
    </div>
  </div>
