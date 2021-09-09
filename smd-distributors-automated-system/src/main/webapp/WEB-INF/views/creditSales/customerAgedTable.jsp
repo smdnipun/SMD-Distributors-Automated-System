@@ -1,4 +1,4 @@
-<%@ page import="com.smd.model."%><!--Import NewOrderCOnf.class-->
+<%@ page import="com.smd.model.PaymentDetails"%><!--Import NewOrderCOnf.class-->
 <%@ page import="com.smd.service.CreditSalesM"%><!-- Import Database connection of creditSales -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
