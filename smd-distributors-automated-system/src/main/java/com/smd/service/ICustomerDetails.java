@@ -45,10 +45,6 @@ public interface ICustomerDetails {
 //	//check if email exist in the system
 //	public boolean checkEmail(Customer customer);
 		
-	
-
-//	
 //	//update user details from the customer profile
-//	public boolean updateUserProfile(Customer customer);
-		
+//	public boolean updateUserProfile(Customer customer);		
 }
