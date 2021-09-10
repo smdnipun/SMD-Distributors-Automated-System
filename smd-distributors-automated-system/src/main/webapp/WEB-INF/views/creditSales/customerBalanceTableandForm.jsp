@@ -21,7 +21,7 @@ request.setAttribute("data", customerAgedRecivable);
 	</center>
 </div>
 <div>
-	<table id="customerDetails" class="display nowrap" style="width: 100%">
+	<table id="payTable" class="display nowrap" style="width: 100%">
 		<c:choose>
 			<c:when test="${param.search==null}">
 				<%

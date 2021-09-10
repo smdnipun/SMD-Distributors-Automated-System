@@ -1,13 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>CustomerDuePayment</title>
-</head>
+<jsp:include page="../../WEB-INF/views/common/head.jsp">
+	<jsp:param name="Title" value="SMD Distributors | Payment" /></jsp:include>
+<link rel="stylesheet"
+	href=<%=request.getContextPath() + "/css/table.css"%>>
 <body>
-	<jsp:include page="../../WEB-INF/views/common/head.jsp"></jsp:include>
+	<script src=<%=request.getContextPath() + "/js/payTable.js"%>></script>
 	<jsp:include page="../../WEB-INF/views/common/adminHeader.jsp"></jsp:include>
 	<div class="row">
 		<jsp:include
