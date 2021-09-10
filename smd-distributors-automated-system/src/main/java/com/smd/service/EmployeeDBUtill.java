@@ -158,7 +158,6 @@ public class EmployeeDBUtill {
 	
 	
 	public static boolean deleteEmployee(int ID) {
-		
 		boolean isSuccess = false;
 		try {
 			DBConnection con = new DBConnection();
@@ -259,9 +258,41 @@ public class EmployeeDBUtill {
 	
 
 
-	
-	
-	
+/*	public static boolean calempSal(int ID,String option,double empotH,String date) {
+		
+		
+		try {
+			DBConnection con = new DBConnection();
+		   // stmt = con.getConnection().createStatement();
+		    
+		   String sql = ("{CALL calcSal(?,?,?,?,?,?)}") ;
+		    
+		   CallableStatement stmt = con.getConnection().prepareCall(sql);  
+
+		   stmt.setInt(1, ID);
+		   stmt.setString(2, option);
+		   stmt.setDouble(3, empotH);
+		   stmt.setString(4, date);
+		   
+		   stmt.registerOutParameter(5, Types.INTEGER);
+		   stmt.registerOutParameter(6, Types.DOUBLE);
+		   
+		   stmt.execute();
+		   stmt.close();
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		return isSuccess;
+		
+		
+	}
+	*/
 	
 	
 	

@@ -23,7 +23,7 @@
       %> 
       
 	
-	<form action=<%=request.getContextPath() +"/delete" %> method="post">
+	<form action=<%=request.getContextPath() +"/deleteemp" %> method="post">
 	
 	<div class="form-group">
     <label for="fname">EmployeeID</label>
@@ -75,7 +75,7 @@
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
   </div>
-  <button type="submit" class="btn btn-primary">Update Employee</button>
+  <button type="submit" class="btn btn-primary">Delete Employee</button>
 </form>
 
 
