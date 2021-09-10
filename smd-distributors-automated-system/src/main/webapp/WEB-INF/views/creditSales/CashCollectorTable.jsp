@@ -1,48 +1,50 @@
-<%@ page import="com.smd.model.CustomerAgedRecivable"%><!--Import NewOrderCOnf.class-->
+<%@ page import="com.smd.model.Employee"%><!--Import NewOrderCOnf.class-->
 <%@ page import="com.smd.service.CreditSalesM"%><!-- Import Database connection of creditSales -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<!--checking user logged or not -->
+<!--checking user logged or not -->/
 <!-- creating array to get data from database -->
 <%
 if (request.getSession().getAttribute("Logged") == null) {
 	request.getSession().setAttribute("Logged", "Guest");
 }
 
-CreditSalesM cdbc = new CreditSalesM();
-CustomerAgedRecivable[] customerAged = (CustomerAgedRecivable[]) cdbc.getCreditAgedDetails();
-request.setAttribute("data", customerAged);
+CreditSalesM dbc = new CreditSalesM();
+Employee[] cashCal = (Employee[]) dbc.getCashCalactorsDetails();
+request.setAttribute("data", cashCal);
 %>
 
-<div class="col-9">
+<div >
 	<jsp:include page="centerNav.jsp"></jsp:include>
 	<center>
 		<h5>Customer Aged Recivable</h5>
 	</center>
 
-	<table id="customerDetails" class="display nowrap" style="width: 100%">
+	<!-- <table id="customerDetails" class="display nowrap" style="width: 100%"> -->
+	<table id="table" class="display nowrap" style="width: 90%">
+	
 
 		<thead>
 
 			<tr>
-				<th scope="col">CustomerID</th>
-				<th scope="col">Hardware Name</th>
-				<th scope="col">Invoice ID</th>
-				<th scope="col">Total Amount</th>
-				<th scope="col">Paid Amount</th>
-				<th scope="col">Remaining Amount</th>
+				<th scope="col">EmployeeID</th>
+				<th scope="col">Name</th>
+				<th scope="col">Phone No</th>
+				<th scope="col">NIC No</th>
+				<th scope="col">Email address</th>
+				<th scope="col">Address</th>
 
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${data}" var="CustomerAgedRecivable">
+			<c:forEach items="${data}" var="Employee">
 				<tr>
-					<td><c:out value="${CustomerAgedRecivable.getCus_ID()}" /></td>
-					<td><c:out value="${CustomerAgedRecivable.getHardwareName()}" /></td>
-					<td><c:out value="${CustomerAgedREcivable.getInvoiceID()}"/></td>
-					<td><c:out value="${CustomerAgedRecivable.getTotalAmount()}" /></td>
-					<td><c:out value="${CustomerAgedRecivable.getPaidAmount()}" /></td>
-					<td><c:out value="${CustomerAgedRecivable.getBalance()}" /></td>
+					<td><c:out value="${Employee.getEmp_ID()}" /></td>
+					<td><c:out value="${Employee.getFirst_Name()} ${Employee.getLast_Name()}" /></td>
+					<td><c:out value="${Employee.getPhone()}"/></td>
+					<td><c:out value="${Employee.getNIC()}" /></td>
+					<td><c:out value="${Employee.getEmail()}" /></td>
+					<td><c:out value="${Employee.getAddress()}" /></td>
 
 				</tr>
 
@@ -50,8 +52,4 @@ request.setAttribute("data", customerAged);
 			<tr>
 		</tbody>
 	</table>
-	<p align="right">
-		<button type="button" class="btn btn-secondary"
-			style="background-color: #b8b8b8">Generate Report</button>
-	</p>
 </div>

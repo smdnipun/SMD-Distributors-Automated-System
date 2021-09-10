@@ -23,7 +23,7 @@ public class EmpViewServlet extends HttpServlet {
 		List<Employee> employeeDetails = EmployeeDBUtill.viewEmployee();
 		request.setAttribute("employeeDetails",employeeDetails);
 		
-		RequestDispatcher dis = request.getRequestDispatcher("AdminUI/EmployeeManagement/viewEmp.jsp");
+		RequestDispatcher dis = request.getRequestDispatcher("admin/EmployeeManagement/viewEmp.jsp");
 		dis.forward(request, response);
 	}
 

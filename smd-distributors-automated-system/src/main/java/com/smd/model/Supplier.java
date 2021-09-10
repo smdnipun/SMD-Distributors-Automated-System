@@ -6,12 +6,14 @@ public class Supplier {
 	private String name;
 	private String address;
 	private String tno;
+	private String status;
 //Constructor
-	public Supplier(int supplierID, String name, String address, String tno){
+	public Supplier(int supplierID, String name, String address, String tno,String status){
 		this.supplierID=supplierID;
 		this.name=name;
 		this.address=address;
 		this.tno=tno;
+		this.status=status;
 	}
 	
 	public Supplier() {
@@ -34,9 +36,11 @@ public class Supplier {
 		public void setTno(String tno) {
 			this.tno = tno;
 		}	
+		public void setStatus(String status) {
+			this.status = status;
+		}
 
-
-//Getters
+	//Getters
 	public int getSupplierID() {
 		return supplierID;
 	}
@@ -52,5 +56,10 @@ public class Supplier {
 	public String getTno() {
 		return tno;
 	}
+
+	public String getStatus() {
+		return status;
+	}
+	
 
 }

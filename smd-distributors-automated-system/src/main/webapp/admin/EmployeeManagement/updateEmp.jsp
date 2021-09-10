@@ -23,7 +23,7 @@
       %> 
       
 	
-	<form action=<%=request.getContextPath() +"/update" %> method="post">
+	<form action=<%=request.getContextPath() +"/updateemp" %> method="post">
 	
 	<div class="form-group">
     <label for="fname">EmployeeID</label>

@@ -1,7 +1,7 @@
 package com.smd.servlet;
 
 import java.io.IOException;
-
+import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.servlet.RequestDispatcher;
@@ -41,13 +41,16 @@ public class PayServlet extends HttpServlet {
 //		check.setCID(Integer.parseInt(request.getParameter("CID")));
 //		pay.setEmpID(request.getParameter("EmpID"));
 
+		// Check customer ID and order ID
 		boolean status = check.getPayCredit(CID, OID);
 
 		if (status == false) {
 
 			try {
+
 				DBConnection pdbc = new DBConnection();
 				Statement stmt = pdbc.getConnection().createStatement();
+				// insert data into payment table
 				String command = "INSERT INTO payment(Amount,Date,Order_ID,Cus_ID,Emp_ID)" + "VALUES('"
 						+ request.getParameter("PaidAmount") + "'" + "," + "'" + request.getParameter("Date") + "'"
 						+ "," + "'" + OID + "'" + "," + "'" + CID + "'" + "," + "'1'" + ")";
@@ -57,24 +60,35 @@ public class PayServlet extends HttpServlet {
 				double TotalPaid = pamount + paidAmount;
 				double TotalRemain = ramount - paidAmount;
 
-				String command1 = "update orders SET Paid_Amount =" + TotalPaid + " Remaining_Amount=" + TotalRemain
-						+ " WHERE Cust_ID =" + CID + "and Order_ID=" + OID;
+				// update the order table
+				String command1 = "update orders SET Paid_Amount =" + TotalPaid + "," + " Remaining_Amount="
+						+ TotalRemain + " WHERE Cust_ID =" + CID + " and Order_ID=" + OID;
 
-//	
-//			stmt.execute(command);
-//			stmt.execute(command1);
-				response.getWriter().append(command);
-				response.getWriter().append(command1);
+				// update order status into paid
+				String command2 = "update orders SET Order_Status ='Paid'  WHERE Remaining_Amount=0 and Cust_ID =" + CID
+						+ " and Order_ID=" + OID;
 
-//			response.sendRedirect("CreditPayment.jsp");
+				stmt.execute(command);
+				stmt.executeUpdate(command1);
+				stmt.executeUpdate(command2);
+
+//				response.getWriter().append(command);
+//				response.getWriter().append(command1);
+
+				RequestDispatcher dispatcher = getServletContext()
+						.getRequestDispatcher("/admin/CreditSalesManagement/CreditPayment.jsp");
+				request.setAttribute("message", "You have successfully paid");
+				dispatcher.forward(request, response);
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
 
 		else {
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("CreditPayment.jsp");
-			request.setAttribute("message", "There was an error please try again!!!");
+			RequestDispatcher dispatcher = getServletContext()
+					.getRequestDispatcher("/admin/CreditSalesManagement/CreditPayment.jsp");
+			request.setAttribute("message", "You entered the Order ID or Customer ID incorrectly, please try again !!");
 			dispatcher.forward(request, response);
 
 		}

@@ -27,11 +27,11 @@ public class DeleteEmployeeServlet extends HttpServlet {
 		isTrue=EmployeeDBUtill.deleteEmployee(ID);
 		
 		if(isTrue==true) {
-			RequestDispatcher dis = request.getRequestDispatcher("AdminUI/EmployeeManagement/addEmp.jsp");
+			RequestDispatcher dis = request.getRequestDispatcher("admin/EmployeeManagement/addEmp.jsp");
 			dis.forward(request, response);
 			
 		}else {
-			RequestDispatcher dis = request.getRequestDispatcher("AdminUI/EmployeeManagement/insertUnsuccess.jsp");
+			RequestDispatcher dis = request.getRequestDispatcher("admin/EmployeeManagement/insertUnsuccess.jsp");
 			dis.forward(request, response);
 			
 		}

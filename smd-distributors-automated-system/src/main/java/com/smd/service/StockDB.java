@@ -75,4 +75,22 @@ public Stocksummary[] getStocksummary() {
 
 }
 
+/*
+ * //Stocksummary public Stocksummary[] getQuantity() {
+ * 
+ * List<Stocksummary> ll = new LinkedList<Stocksummary>(); Stocksummary[] array
+ * = null; DBConnection con = new DBConnection(); try { Statement stmt =
+ * con.getConnection().createStatement(); ResultSet rs = stmt.
+ * executeQuery("select (sa.AddQuantity-sd.DelQuantity) from stockssummary where Item_Name ="
+ * + request.getParameter("itemname")+";"); while (rs.next()) { Stocksummary n =
+ * new Stocksummary(rs.getString(1),rs.getInt(2)); ll.add(n); } array =
+ * ll.toArray(new Stocksummary[ll.size()]);
+ * 
+ * } catch (Exception e) { }
+ * 
+ * return array;
+ * 
+ * }
+ */
+
 }

@@ -67,15 +67,8 @@ footer {
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-	<jsp:include page="./WEB-INF/views/common/header.jsp"></jsp:include>
-	<div class="row" style="min-height: 100vh">
-		<jsp:include page="./WEB-INF/views/common/navbar.jsp">
-			<jsp:param name="navs" value="ttt,jjj_ddddd,fff_ddddd,fff" />
-		</jsp:include>
-		
-	</div>
-	<div class="row"><jsp:include
-			page="./WEB-INF/views/common/adminFooter.jsp"></jsp:include></div>
+<%request.getSession().setAttribute("id",6); %>
+<p><%=request.getSession().getAttribute("id") %></p>
 </body>
 </html>
 

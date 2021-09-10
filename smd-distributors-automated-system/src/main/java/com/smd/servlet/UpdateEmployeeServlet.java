@@ -34,11 +34,11 @@ public class UpdateEmployeeServlet extends HttpServlet {
 		isTrue=EmployeeDBUtill.updateEmployee(ID, fname, lname, phone, uname, password, nic, email, add);
 
 		if(isTrue==true) {
-			RequestDispatcher dis = request.getRequestDispatcher("AdminUI/EmployeeManagement/addEmp.jsp");
+			RequestDispatcher dis = request.getRequestDispatcher("admin/EmployeeManagement/addEmp.jsp");
 			dis.forward(request, response);
 			
 		}else {
-			RequestDispatcher dis = request.getRequestDispatcher("AdminUI/EmployeeManagement/insertUnsuccess.jsp");
+			RequestDispatcher dis = request.getRequestDispatcher("admin/EmployeeManagement/insertUnsuccess.jsp");
 			dis.forward(request, response);
 			
 		}

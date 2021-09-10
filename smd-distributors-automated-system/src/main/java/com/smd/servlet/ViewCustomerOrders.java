@@ -18,10 +18,11 @@ public class ViewCustomerOrders extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		//call view order method
 		List<Order> order=OrderM.ViewOrderCustomer();
 		
 		request.setAttribute("orderdetails", order);
-		
+		//redirect to myorders page
 		RequestDispatcher dis=request.getRequestDispatcher("MyOrders.jsp");
 		dis.forward(request, response);
 	}

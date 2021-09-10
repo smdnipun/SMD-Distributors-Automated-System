@@ -1,13 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>CustomerDuePayment</title>
-</head>
+<jsp:include page="../../WEB-INF/views/common/head.jsp">
+	<jsp:param name="Title" value="SMD Distributors | Payment" /></jsp:include>
+<link rel="stylesheet"
+	href=<%=request.getContextPath() + "/css/table.css"%>>
 <body>
-	<jsp:include page="../../WEB-INF/views/common/head.jsp"></jsp:include>
+	<script src=<%=request.getContextPath() + "/js/payTable.js"%>></script>
 	<jsp:include page="../../WEB-INF/views/common/adminHeader.jsp"></jsp:include>
 	<div class="row">
 		<jsp:include
@@ -15,7 +11,16 @@
 		<div class="col-9">
 			<jsp:include
 				page="../../WEB-INF/views/creditSales/customerBalanceTableandForm.jsp"></jsp:include>
+			<div class="row">
 			<jsp:include page="../../WEB-INF/views/creditSales/paymentForm.jsp"></jsp:include>
+			<div class="col-1"></div>
+			<div class="col-4">
+				<br><br><br><br><br><br><br>
+				<div style="color: red;">	
+			<p>${message}</p>
+		</div>
+			</div>
+			</div>	
 		</div>
 	</div>
 	<jsp:include page="../../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
