@@ -18,7 +18,7 @@ if (request.getSession().getAttribute("CustomerID") != null) {
 		</div>
 		<div class="card px-4 py-4 my-auto mx-auto w-50 d-flex">
 			<div class="row px-3 d-flex">
-				<form action="RegisterServlet" method="Post">
+				<form action="CustomerInfoUpdate" method="Post">
                     <div class="row px-3">
                         <label for="fname" class="mt-2 mb-0 text-sm">First Name :</label>
                         <input type="text" id="fname" name="fname" value="${customer.getFname()}" Required>
@@ -28,10 +28,6 @@ if (request.getSession().getAttribute("CustomerID") != null) {
 
                         <label for="hname" class="mt-2 mb-0 text-sm">Hardware Name :</label>
                         <input type="text" id="hname" name="hname" value="${customer.getHardwareName()}" Required>
-
-                        <label for="email" class="mt-2 mb-0 text-sm">Email :</label>
-                        <input type="email" id="email" name="email" value="${customer.getEmail()}"
-                        Required pattern="[a-z 0-9 .+-_%]+@+[a-z 0-9 +-_%]+\.[a-z]{2,3}">
 
                         <label for="pno" class="mt-2 mb-0 text-sm">Telephone (Enter Phone number starting from 94):</label>
                         <input type ="tel" id="pno" name="pno" pattern="[0-9]{11}" value="${customer.getPhoneNo()}" Required>

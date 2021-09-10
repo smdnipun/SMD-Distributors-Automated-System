@@ -61,21 +61,20 @@ public class AdminUpdateCusDetails extends HttpServlet {
 			}
 			
 			if(cFound == false) {
-				//calling the addCustomer function in CusDetailsServiceImpl and getting the status
+				//calling the updateCustomerfromAdmin function in CusDetailsServiceImpl and getting the status
 				boolean status = cusDetails.updateCustomerfromAdmin(customer);
 				
 				if(status == true){//if the data was passed to the database successfully
 					out.println("<script type=\"text/javascript\">");
 				    out.println("alert('Updated Successfully!');");
-				    out.println("location='admin/CustomerManagement/CustomerDetails.jsp'");
+				    out.println("location='admin/CustomerManagement/CustomerDetails.jsp'");  //redirect to the same page
 				    out.println("</script>");
-//					response.sendRedirect("admin/CustomerManagement/CustomerDetails.jsp");
 				}
 				else{//if the data was not passed to the database
 					//display an error message
 					out.println("<script type=\"text/javascript\">");
 				    out.println("alert('There was an error please try again!!!');");
-				    out.println("location='admin/CustomerManagement/CustomerDetails.jsp'"); //redirect to the registration page
+				    out.println("location='admin/CustomerManagement/CustomerDetails.jsp'"); //redirect to the same page
 				    out.println("</script>");	
 				}
 			}	
@@ -97,7 +96,6 @@ public class AdminUpdateCusDetails extends HttpServlet {
 			    out.println("alert('Deleted Successfully!');");
 			    out.println("location='admin/CustomerManagement/CustomerDetails.jsp'"); //redirect to the registration page
 			    out.println("</script>");
-//				response.sendRedirect("admin/CustomerManagement/CustomerDetails.jsp");
 			}
 			else{//if the data was not passed to the database
 				//display an error message
