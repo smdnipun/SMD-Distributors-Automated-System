@@ -18,7 +18,7 @@
       %> 
       
 	
-	<form action=<%=request.getContextPath() +"/attend" %> method="post">
+	<form action=<%=request.getContextPath() +"/attendemp" %> method="post">
 	
 	<div class="form-group">
     <label for="fname">EmployeeID</label>

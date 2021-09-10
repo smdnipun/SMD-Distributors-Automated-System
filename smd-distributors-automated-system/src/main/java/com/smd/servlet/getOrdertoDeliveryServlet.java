@@ -29,7 +29,7 @@ public class getOrdertoDeliveryServlet extends HttpServlet {
 					e.printStackTrace();
 		
 			}	
-				RequestDispatcher dis3=request.getRequestDispatcher("AdminUI/DeliveryManage/AddDelivery.jsp");
+				RequestDispatcher dis3=request.getRequestDispatcher("admin/DeliveryManage/AddDelivery.jsp");
 				dis3.forward(request, response);
 	}
 }

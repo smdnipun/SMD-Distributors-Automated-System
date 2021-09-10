@@ -41,7 +41,7 @@ public class addDeliveryServlet extends HttpServlet {
 				e.printStackTrace();
 	
 		}	
-			RequestDispatcher dis3=request.getRequestDispatcher("AdminUI/DeliveryManage/AddDelivery.jsp");
+			RequestDispatcher dis3=request.getRequestDispatcher("admin/DeliveryManage/AddDelivery.jsp");
 			dis3.forward(request, response);
 		
 		
@@ -51,12 +51,12 @@ public class addDeliveryServlet extends HttpServlet {
 		
 		if(isTrue==true) {
 			
-			RequestDispatcher dis = request.getRequestDispatcher("AdminUI/DeliveryManage/AddDelivery.jsp");
+			RequestDispatcher dis = request.getRequestDispatcher("admin/DeliveryManage/AddDelivery.jsp");
 			dis.forward(request, response);
 			
 		}
 		else {
-			RequestDispatcher dis2 = request.getRequestDispatcher("AdminUI/DeliveryManage/Unsuccess.jsp");
+			RequestDispatcher dis2 = request.getRequestDispatcher("admin/DeliveryManage/Unsuccess.jsp");
 			dis2.forward(request, response);
 		}
 		

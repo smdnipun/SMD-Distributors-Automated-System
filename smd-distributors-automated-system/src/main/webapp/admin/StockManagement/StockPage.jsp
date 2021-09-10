@@ -12,9 +12,13 @@
 				<jsp:include page="../../WEB-INF/views/stockM/stock_navi.jsp"></jsp:include>
 			</div>
 			<div class="col-10">
-				<jsp:include page="../../WEB-INF/views/stockM/Stock_table.jsp"></jsp:include>
+			<div class ="row">
+			<jsp:include page="../../WEB-INF/views/stockM/Stock_table.jsp"></jsp:include>
+			</div>
+			<div class ="row">
 				<jsp:include page="../../WEB-INF/views/stockM/stock_form.jsp"></jsp:include>
 				<jsp:include page="../../WEB-INF/views/stockM/Stocksummary.jsp"></jsp:include>
+			</div>
 				
 			</div>
 		</div>

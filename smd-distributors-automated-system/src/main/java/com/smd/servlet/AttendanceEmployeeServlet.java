@@ -38,11 +38,11 @@ public class AttendanceEmployeeServlet extends HttpServlet {
 		isTrue=EmployeeDBUtill.addAttendEmployee(ID,Worked,date);
 
 		if(isTrue==true) {
-			RequestDispatcher dis = request.getRequestDispatcher("AdminUI/EmployeeManagement/addEmp.jsp");
+			RequestDispatcher dis = request.getRequestDispatcher("admin/EmployeeManagement/addEmp.jsp");
 			dis.forward(request, response);
 			
 		}else {
-			RequestDispatcher dis = request.getRequestDispatcher("AdminUI/EmployeeManagement/insertUnsuccess.jsp");
+			RequestDispatcher dis = request.getRequestDispatcher("admin/EmployeeManagement/insertUnsuccess.jsp");
 			dis.forward(request, response);
 			
 		}

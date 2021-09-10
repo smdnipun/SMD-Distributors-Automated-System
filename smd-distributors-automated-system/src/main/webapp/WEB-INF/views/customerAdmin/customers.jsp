@@ -12,6 +12,10 @@ if (request.getSession().getAttribute("Logged") == null) {
 CusDetailsServiceImpl dbc = new CusDetailsServiceImpl();
 Customer[] cusDetails = dbc.activeCustomers();
 request.setAttribute("data", cusDetails);
+
+int active = 0;
+active = dbc.getActiveCustomerCount();
+request.setAttribute("active", active);
 %>
 
 <div class="row">
@@ -26,8 +30,11 @@ request.setAttribute("data", cusDetails);
 				<div class="d-flex justify-content-center">
 					<h4>Customer List</h4>
 				</div>
-				<table id="table" class="display nowrap" style="width:100%">
-			        <thead>
+				<div class="d-flex justify-content-start">
+					<p>No.of Customers : <c:out value="${active}" /> </p>
+				</div>
+				<table id="table" class="table display nowrap table-bordered" style="width:100%">
+			        <thead class="thead-dark">
 			            <tr>
 			            	<th>Cus ID</th>
 			                <th>First Name</th>
@@ -57,44 +64,44 @@ request.setAttribute("data", cusDetails);
 			</div>
 			
 			<div class="col-3">
-			<form action="../../adminUpdate" method="Post" class="border border-3 p-2">
-                <fieldset>
-                    <legend class="d-flex justify-content-center">Customer Details</legend>
-                    <div>
-                    	<label for="Customer_ID">Cus_No :</label><br>
-                        <input type="text" id="cus_id" name="cus_id" size="31" readonly><br>
-                    	
-                        <label for="fname">First Name :</label><br>
-                        <input type="text" id="fname" name="fname" size="31" Required><br>
-						
-                        <label for="lname">Last Name :</label><br>
-                        <input type="text" id="lname" name="lname" size="31" Required><br>
-                        
-                        <label for="hname">Shop Name :</label><br>
-                        <input type="text" id="hname" name="hname" size="31" Required><br>
-                        
-                        <label for="nic">NIC :</label><br>
-                        <input type="text" id="nic" name="nic" size="31" Required><br>
-                        
-                        <label for="pno">Telephone :</label><br>
-                        <input type ="tel" id="pno" name="pno" size="31" pattern="[0-9]{11}" Required><br>
-						
-                        <label for="email">Email :</label><br>
-                        <input type="email" id="email" name="email" size="31" 
-                        pattern="[a-z 0-9 .+-_%]+@+[a-z 0-9 +-_%]+\.[a-z]{2,3}" Required><br>
-						
-						<label for="adress">Address :</label><br>
-                        <input type="text" id="address" name="address" size="31" Required><br>
-                    </div>
-                    <div class="d-flex justify-content-around pt-3 pb-2">
-                    	<div style = "color:red;"><p>${message}</p></div><br>
-                        <button type="submit" class="btn btn-primary" name="btn" 
-                        	value="update">Update</button>
-                        <button type="submit" name="btn" class="btn btn-danger" 
-                        	value="delete">Delete</button>
-                    </div>
-                </fieldset>
-            </form>
+				<form action="../../adminUpdate" method="Post" class="border border-3 p-2">
+	                <fieldset>
+	                    <legend class="d-flex justify-content-center">Customer Details</legend>
+	                    <div>
+	                    	<label for="Customer_ID">Cus_No :</label><br>
+	                        <input type="text" id="cus_id" name="cus_id" size="31" readonly><br>
+	                    	
+	                        <label for="fname">First Name :</label><br>
+	                        <input type="text" id="fname" name="fname" size="31" Required><br>
+							
+	                        <label for="lname">Last Name :</label><br>
+	                        <input type="text" id="lname" name="lname" size="31" Required><br>
+	                        
+	                        <label for="hname">Shop Name :</label><br>
+	                        <input type="text" id="hname" name="hname" size="31" Required><br>
+	                        
+	                        <label for="nic">NIC :</label><br>
+	                        <input type="text" id="nic" name="nic" size="31" Required><br>
+	                        
+	                        <label for="pno">Telephone :</label><br>
+	                        <input type ="tel" id="pno" name="pno" size="31" pattern="[0-9]{11}" Required><br>
+							
+	                        <label for="email">Email :</label><br>
+	                        <input type="email" id="email" name="email" size="31" 
+	                        pattern="[a-z 0-9 .+-_%]+@+[a-z 0-9 +-_%]+\.[a-z]{2,3}" Required><br>
+							
+							<label for="adress">Address :</label><br>
+	                        <input type="text" id="address" name="address" size="31" Required><br>
+	                    </div>
+	                    <div class="d-flex justify-content-around pt-3 pb-2">
+	                    	<div style = "color:red;"><p>${message}</p></div><br>
+	                        <button type="submit" class="btn btn-primary" name="btn" 
+	                        	value="update">Update</button>
+	                        <button type="submit" name="btn" class="btn btn-danger" 
+	                        	value="delete">Delete</button>
+	                    </div>
+	                </fieldset>
+	            </form>
 			</div>	
 		</div>
 	</div>

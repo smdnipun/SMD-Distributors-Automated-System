@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+      <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +13,7 @@
 <body class="dbody">
 	<jsp:include page="../WEB-INF/views/common/adminHeader.jsp"></jsp:include>
 	<br>
-	<h5 class="capitalize" align="center">Delete the record</h5> <br>
+	
 		
 		<!-- get the details passed from parameter from the url of the requesthandlingAdminHome.jsp page -->
 		<%
@@ -25,14 +26,59 @@
 			String Status = request.getParameter("Status");
 		%>
 		<div class="formcontent">
-		<form action="../delete" method="post" class="form">
-			Feedback ID: <input type="text" name="Feedback_ID" value="<%= Feedback_ID %>" readonly> <br><br>
+		<h5 class="capitalize" align="center">Delete the record</h5>
+		<form action="../deletefeedback" method="post" class="form">
+			<%-- Feedback ID: <input type="text" name="Feedback_ID" value="<%= Feedback_ID %>" readonly> <br><br>
 			Customer ID: <input type="text" name="Cus_ID" value="<%= Cus_ID %>" readonly> <br><br>
 			Date:  <input type="text" name="Date" value="<%= Date %>" readonly> <br><br>
 			Type of the message: <input type="text" name="Type" value="<%= Type %>" readonly> <br><br>
 			Message:  <input type="text" name="Message" value="<%= Message %>" readonly> <br><br>
 			Rating:  <input type="text" name="Rating" value="<%= Rating %>" readonly> <br><br>
-			Status:  <input type="text" name="Status" value="<%= Status %>"> <br><br>
+			Status:  <input type="text" name="Status" value="<%= Status %>" readonly> <br><br> --%>
+			<div class="form-group row">
+    			<label for="feedbackid" class="col-sm-5 col-form-label">Feedback ID: </label>
+    			<div class="col-sm-5">
+      			<input type="text" readonly class="form-control-plaintext" name="Feedback_ID" value="<%= Feedback_ID %>">
+			    </div>
+			  </div>
+			  <div class="form-group row">
+    			<label for="feedbackid" class="col-sm-5 col-form-label">Customer ID: </label>
+    			<div class="col-sm-5">
+      			<input type="text" readonly class="form-control-plaintext" name="Cus_ID" value="<%= Cus_ID %>">
+			    </div>
+			  </div>
+			  <div class="form-group row">
+    			<label for="feedbackid" class="col-sm-5 col-form-label">Date: </label>
+    			<div class="col-sm-5">
+      			<input type="text" readonly class="form-control-plaintext" name="Date" value="<%= Date %>">
+			    </div>
+			  </div>
+			  <div class="form-group row">
+			  
+    			<label for="feedbackid" class="col-sm-5 col-form-label">Type of the message: </label>
+    			<div class="col-sm-5">
+      			<input type="text" readonly class="form-control-plaintext" name="Type" value="<%= Type %>">
+			    </div>
+			  </div>
+			  <div class="form-group row">
+    			<label for="feedbackid" class="col-sm-5 col-form-label">Message: </label>
+    			<div class="col-sm-5">
+      			<input type="text" readonly class="form-control-plaintext" name="Message" value="<%= Message %>">
+			    </div>
+			  </div>
+			  <div class="form-group row">
+    			<label for="feedbackid" class="col-sm-5 col-form-label">Rating: </label>
+    			<div class="col-sm-5">
+      			<input type="text" readonly class="form-control-plaintext" name="Rating" value="<%= Rating %>">
+			    </div>
+			  </div>
+			  <label for="Status" class="col-sm-6 col-form-label">Status:</label>
+ 	 				<select name="Status" id="Status">
+					    <option name="Status" value="<%= Status %>">Completed</option>
+					    <option name="Status" value="<%= Status %>">Pending</option>
+					    <option name="Status" value="<%= Status %>">Searching</option>
+					    <option name="Status" value="<%= Status %>">Thankyou</option>
+  					</select><br><br>
 			<input type="submit" name="submit" value="Delete The Data">
 		</form>
 		</div><br><br><br><br>

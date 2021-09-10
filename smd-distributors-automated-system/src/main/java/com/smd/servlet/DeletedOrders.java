@@ -22,10 +22,11 @@ public class DeletedOrders extends HttpServlet {
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		//call view deleted orders method
 		List<Order> deletedorders=	OrderM.ViewdeletedOrder();
 		request.setAttribute("deletedorders", deletedorders);
-		
-		RequestDispatcher dis=request.getRequestDispatcher("AdminUI/OrderManagement/DeletedOrders.jsp");
+		//redirect to the deletedOrders.jsp page 
+		RequestDispatcher dis=request.getRequestDispatcher("admin/OrderManagement/DeletedOrders.jsp");
 		dis.forward(request, response);
 	}
 

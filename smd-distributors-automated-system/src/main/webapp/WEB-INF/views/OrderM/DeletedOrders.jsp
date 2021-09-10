@@ -2,7 +2,13 @@
     	 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
    
 
-<div class="col-10">
+<div class="col-9">
+<br>
+<center>
+<h1>Deleted Orders</h1>
+</center>
+<br>
+
 <table class="table">
   <thead>
     <tr>
@@ -11,7 +17,7 @@
        <th scope="col">Order Date</th>
        <th scope="col">Order States</th>
        <th scope="col">Total Price</th>
-       <th scope="col">Paid Amount}</th>
+       <th scope="col">Paid Amount</th>
        <th scope="col">Remain Amount</th>
        <th scope="col">Quantity</th>
        <th scope="col">Product ID</th>

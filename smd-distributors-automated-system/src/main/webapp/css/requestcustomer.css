@@ -1,7 +1,7 @@
 @charset "ISO-8859-1";
 
 form{
-	background-color:#ccd6df;
+	background-color:rgb(231, 235, 239);
 	width: 40%;
 	border: 7px black;
 	margin: 20px;
@@ -55,9 +55,14 @@ body {
   position:relative;
 		
 }
-.addbtn{
-	border: 1px solid #000040;
-	float: center;
+input[type=button]{
 	width: 30%;
 	height: 40%;
+	border-radius: 5px;
+  	padding: 20px;
+ 	text-align: center;
+  	display: inline-block;
+  	font-size: 16px;
+  	margin: 4px 2px;
+  	cursor: pointer;
 }
