@@ -6,21 +6,21 @@
 	version="3.1">
 
 	<display-name>smd-distributors-automated-system</display-name>
-	<!--<servlet>
-		<servlet-name>view</servlet-name>
+	<servlet>
+		<servlet-name>viewd</servlet-name>
 		<servlet-class>com.smd.servlet.viewDeliveryServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>view</servlet-name>
-		<url-pattern>/view</url-pattern>
-	</servlet-mapping>-->
+		<servlet-name>viewd</servlet-name>
+		<url-pattern>/viewd</url-pattern>
+	</servlet-mapping>
 	<servlet>
-		<servlet-name>add</servlet-name>
+		<servlet-name>addd</servlet-name>
 		<servlet-class>com.smd.servlet.addDeliveryServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>add</servlet-name>
-		<url-pattern>/add</url-pattern>
+		<servlet-name>addd</servlet-name>
+		<url-pattern>/addd</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>
@@ -34,25 +34,25 @@
 
 
 
-	<!--<servlet>
-		<servlet-name>update</servlet-name>
+	<servlet>
+		<servlet-name>updated</servlet-name>
 		<servlet-class>com.smd.servlet.updateDeliveryServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>update</servlet-name>
-		<url-pattern>/update</url-pattern>
-	</servlet-mapping>-->
+		<servlet-name>updated</servlet-name>
+		<url-pattern>/updated</url-pattern>
+	</servlet-mapping>
 
 
 
-	<!--<servlet>
-		<servlet-name>delete</servlet-name>
+	<servlet>
+		<servlet-name>deleted</servlet-name>
 		<servlet-class>com.smd.servlet.deleteDeliveryServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>delete</servlet-name>
-		<url-pattern>/delete</url-pattern>
-	</servlet-mapping>-->
+		<servlet-name>deleted</servlet-name>
+		<url-pattern>/deleted</url-pattern>
+	</servlet-mapping>
 
 	<!-- <welcome-file-list> <welcome-file>index.html</welcome-file> <welcome-file>index.htm</welcome-file> 
 		<welcome-file>index.jsp</welcome-file> <welcome-file>default.html</welcome-file> 

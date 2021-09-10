@@ -127,6 +127,8 @@ public class EmployeeDBUtill {
 	public static boolean updateEmployee(int ID,String fname,String lname,String phone,String uname,
 			String password,String nic,String email,String add) {
 		
+		boolean isSuccess = false;
+		
 		try {
 			DBConnection con = new DBConnection();
 			stmt = con.getConnection().createStatement();
@@ -157,6 +159,8 @@ public class EmployeeDBUtill {
 	
 	
 	public static boolean deleteEmployee(int ID) {
+		
+		boolean isSuccess = false;
 		
 
 		try {
@@ -260,6 +264,7 @@ public class EmployeeDBUtill {
 
 	public static boolean calempSal(int ID,String option,double empotH,String date) {
 		
+		boolean isSuccess = false;
 		
 		try {
 			DBConnection con = new DBConnection();

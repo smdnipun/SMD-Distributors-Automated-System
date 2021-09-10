@@ -62,7 +62,7 @@
 				<td><c:out value="${odr.PID}" /></td>
 				<td>
 				
-				<c:url value="AdminUI/DeliveryManage/AddDelivery.jsp" var="getOrd">
+				<c:url value="admin/DeliveryManage/AddDelivery.jsp" var="getOrd">
 	
 					<c:param name="oid" value="${odr.OID}"/>
 					<c:param name="cid" value="${odr.CID}"/>
