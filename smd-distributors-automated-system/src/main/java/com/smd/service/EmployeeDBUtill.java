@@ -158,6 +158,7 @@ public class EmployeeDBUtill {
 	
 	
 	public static boolean deleteEmployee(int ID) {
+		
 		boolean isSuccess = false;
 		try {
 			DBConnection con = new DBConnection();
@@ -260,6 +261,7 @@ public class EmployeeDBUtill {
 
 /*	public static boolean calempSal(int ID,String option,double empotH,String date) {
 		
+		boolean isSuccess = false;
 		
 		try {
 			DBConnection con = new DBConnection();
