@@ -20,8 +20,9 @@ public class CustomerAgedRecivable {
 		TotalAmount = totalAmount;
 		PaidAmount = paidAmount;
 		Balance = balance;
+
 	}
-	
+
 	// setters and getters
 	public String getCus_ID() {
 		return Cus_ID;
@@ -70,7 +71,5 @@ public class CustomerAgedRecivable {
 	public void setBalance(double balance) {
 		Balance = balance;
 	}
-
-
 
 }

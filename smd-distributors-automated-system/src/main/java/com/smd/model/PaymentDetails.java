@@ -9,12 +9,13 @@ public class PaymentDetails {
 	private double TotalAmount;
 	private double PaidAmount;
 	private double Balance;
+	private String Status;
 
 //Constructor
-	//String cusID
-	public PaymentDetails(String paymentID, String cusName, String invoiceID, double totalAmount,
-			double paidAmount, double balance) {
-		super();
+	// String cusID
+	public PaymentDetails(String paymentID, String cusName, String invoiceID, double totalAmount, double paidAmount,
+			double balance,String status) {
+		
 		PaymentID = paymentID;
 		CusName = cusName;
 //		CusID = cusID;
@@ -22,6 +23,7 @@ public class PaymentDetails {
 		TotalAmount = totalAmount;
 		PaidAmount = paidAmount;
 		Balance = balance;
+		Status = status;
 	}
 
 	// Setters and getters
@@ -79,6 +81,14 @@ public class PaymentDetails {
 
 	public void setBalance(double balance) {
 		Balance = balance;
+	}
+
+	public String getStatus() {
+		return Status;
+	}
+
+	public void setStatus(String status) {
+		Status = status;
 	}
 
 }
