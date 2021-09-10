@@ -16,8 +16,8 @@ import com.smd.service.FeedbackServiceImpl;
 import com.smd.service.IFeedback;
 
 //@WebServlet("/SearchFeedbackServlet")
-//public class SearchFeedbackServlet extends HttpServlet {
-//	private static final long serialVersionUID = 1L;
+public class SearchFeedbackServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
@@ -40,7 +40,7 @@ import com.smd.service.IFeedback;
 		else
 			System.out.println("Error");
 		
-	}
+	}}
 //	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		String search=request.getParameter("search");
 //		System.out.println("search"+search);

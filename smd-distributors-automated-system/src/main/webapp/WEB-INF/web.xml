@@ -6,15 +6,15 @@
 	version="3.1">
 
   <!--  insert feedback -->
-		<servlet>
+		<!-- <servlet>
 			<servlet-name>AddFeedback</servlet-name>
-			<servlet-class>com.smd.servlet.AddFeedbackServlet</servlet-class> <!-- match the servlet -->
-		</servlet>
+			<servlet-class>com.smd.servlet.AddFeedbackServlet</servlet-class>--> <!-- match the servlet -->
+		<!-- </servlet>-->
 		
-		<servlet-mapping> <!-- path to the servlet -->
-		 	<servlet-name>AddFeedback</servlet-name>
-		 	<url-pattern>/addfeedback</url-pattern> <!-- action to the feedback insert form -->
-		 </servlet-mapping>
+		<!-- <servlet-mapping>--> <!-- path to the servlet -->
+		 	<!-- <servlet-name>AddFeedback</servlet-name>
+		 	<url-pattern>/addfeedback</url-pattern>--> <!-- action to the feedback insert form -->
+		 <!-- </servlet-mapping>-->
 		  
 		  <!-- view feedback -->
 		 <servlet>
@@ -70,13 +70,15 @@
 		<url-pattern>/insert</url-pattern>
 	</servlet-mapping>
          
-         <servlet>
+         <!--<servlet>
 		<servlet-name>viewadminorder</servlet-name>
 		<servlet-class>com.smd.servlet.viewAdminOrders</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>viewadminorder</servlet-name>
 		<url-pattern>/viewadmin</url-pattern>
+	</servlet-mapping>-->
+	
 	<display-name>smd-distributors-automated-system</display-name>
 	<servlet>
 		<servlet-name>viewd</servlet-name>
@@ -132,10 +134,10 @@
 		</welcome-file-list> -->
 
 	<!-- insert feedback -->
-	<servlet>
+	 <servlet>
 		<servlet-name>AddFeedback</servlet-name>
 		<servlet-class>com.smd.servlet.AddFeedbackServlet</servlet-class> <!-- match the servlet -->
-	</servlet>
+	 </servlet>
 
 	<servlet-mapping> <!-- path to the servlet -->
 		<servlet-name>AddFeedback</servlet-name>
@@ -143,10 +145,10 @@
 	</servlet-mapping>
 
 	<!-- view feedback -->
-	<servlet>
+	<!-- <servlet>
 		<servlet-name>ViewFeedback</servlet-name>
-		<servlet-class>com.smd.servlet.ViewFeedbackServlet</servlet-class> <!-- match the servlet -->
-	</servlet>
+		<servlet-class>com.smd.servlet.ViewFeedbackServlet</servlet-class> --> <!-- match the servlet -->
+	<!-- </servlet> -->
 
 	<servlet-mapping> <!-- path to the servlet -->
 		<servlet-name>ViewFeedback</servlet-name>
@@ -154,10 +156,10 @@
 	</servlet-mapping>
 
 	<!-- update feedback -->
-	<servlet>
+	<!-- <servlet>
 		<servlet-name>UpdateFeedback</servlet-name>
-		<servlet-class>com.smd.servlet.UpdateFeedbackServlet</servlet-class> <!-- match the servlet -->
-	</servlet>
+		<servlet-class>com.smd.servlet.UpdateFeedbackServlet</servlet-class> --> <!-- match the servlet -->
+	<!-- </servlet>-->
 
 	<servlet-mapping> <!-- path to the servlet -->
 		<servlet-name>UpdateFeedback</servlet-name>
@@ -165,25 +167,25 @@
 	</servlet-mapping>
 
 	<!-- delete feedback -->
-	<servlet>
+	<!-- <servlet>
 		<servlet-name>DeleteFeedback</servlet-name>
-		<servlet-class>com.smd.servlet.DeleteFeedbackServlet</servlet-class> <!-- match the servlet -->
-	</servlet>
+		<servlet-class>com.smd.servlet.DeleteFeedbackServlet</servlet-class> match the servlet -->
+	<!--</servlet>-->
 
-	<servlet-mapping> <!-- path to the servlet -->
-		<servlet-name>DeleteFeedback</servlet-name>
-		<url-pattern>/delete</url-pattern> <!-- action to the delete form -->
-	</servlet-mapping>
+	<!-- <servlet-mapping>--> <!-- path to the servlet -->
+		<!-- <servlet-name>DeleteFeedback</servlet-name>
+		<url-pattern>/delete</url-pattern> --> <!-- action to the delete form -->
+	<!-- </servlet-mapping> -->
 
 
-	<servlet>
+	 <!-- <servlet>
 		<servlet-name>insertorder</servlet-name>
 		<servlet-class>com.smd.servlet.AddOrder</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>insertorder</servlet-name>
 		<url-pattern>/insert</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping>-->
 
 	<servlet>
 		<servlet-name>viewadminorder</servlet-name>
@@ -321,6 +323,6 @@
       		<servlet-name>EmployeeCalSal</servlet-name>
   			<url-pattern>/calc</url-pattern>
   </servlet-mapping>
-
+  
 </web-app>
 
