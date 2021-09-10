@@ -35,7 +35,7 @@ public class UpdateFeedbackServlet extends HttpServlet {
 		
 		IFeedback iFeedbackService = new FeedbackServiceImpl();
 		//to catch the result got from the model class method
-		istrue=iFeedbackService.updateFeedback(Feedback_ID, Cus_ID, Date, Type, Message, Rating, Status);
+		istrue=iFeedbackService.updateFeedback(Feedback_ID, Cus_ID, Date,Type, Message, Rating, Status);
 		
 		//if the data was passed to the database successfully 
 				try{

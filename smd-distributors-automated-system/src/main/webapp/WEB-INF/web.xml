@@ -33,7 +33,7 @@
 		
 		<servlet-mapping> <!-- path to the servlet -->
 		 	<servlet-name>ViewFeedback</servlet-name>
-		 	<url-pattern>/view</url-pattern> <!-- action to the view form -->
+		 	<url-pattern>/viewfeedback</url-pattern> <!-- action to the view form -->
 		 </servlet-mapping>
 		 
 		 <!-- update feedback -->
@@ -44,7 +44,7 @@
 
 		<servlet-mapping> <!-- path to the servlet -->
 			<servlet-name>UpdateFeedback</servlet-name>
-			<url-pattern>/update</url-pattern> <!-- action to the update form -->
+			<url-pattern>/updatefeedback</url-pattern> <!-- action to the update form -->
 		</servlet-mapping>
 		
 		<!-- delete feedback -->
@@ -55,7 +55,18 @@
 
 		<servlet-mapping> <!-- path to the servlet -->
 			<servlet-name>DeleteFeedback</servlet-name>
-			<url-pattern>/delete</url-pattern> <!-- action to the delete form -->
+			<url-pattern>/deletefeedback</url-pattern> <!-- action to the delete form -->
+		</servlet-mapping>
+		
+		<!-- search feedback -->
+		 <servlet>
+			<servlet-name>SearchFeedback</servlet-name>
+			<servlet-class>com.smd.servlet.SearchFeedbackServlet</servlet-class> <!-- match the servlet -->
+		</servlet>
+
+		<servlet-mapping> <!-- path to the servlet -->
+			<servlet-name>SearchFeedback</servlet-name>
+			<url-pattern>/searchfeedback</url-pattern> <!-- action to the seach -->
 		</servlet-mapping>
 
          
