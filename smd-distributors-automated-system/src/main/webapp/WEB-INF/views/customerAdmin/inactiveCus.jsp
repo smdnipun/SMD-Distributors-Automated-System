@@ -25,19 +25,21 @@ request.setAttribute("inactive", inactive);
 	</div>
 	<div class="col-10 pr-3 pt-2 pb-2">
 		<jsp:include page="./cDetailsHnav.jsp"></jsp:include>
-		<div class="row pt-3 table-responsive-md pr-2 pl-3 pb-2">
+		<div class="row pt-2 table-responsive-md pl-3 pb-2 mr-1">
 			<div style = "color:red;" class="d-flex justify-content-center">
 				<h4>Inactive Customer List</h4>
 			</div>
-			<form action="../../SearchInactiveCustomers" class="d-flex mb-3 mt-3 pr-5 justify-content-end" method="post">
+			<div class="row">
+				<div class="d-flex justify-content-start">
+					<p>No.of Inactive Customers : <c:out value="${inactive}" /> </p>
+				</div>
+				<form action="../../SearchInactiveCustomers" class="d-flex mb-2 mt-1 pr-0 justify-content-end" method="post">
 					<h6 class="ml-3 pt-1"> Search Hardware :</h6>
 					<input type="text" size="20" name="search" placeholder="Enter Hardware Name" class="ml-3" />
 					<button type="submit" class="">
 						<i class="bi bi-search"></i>
 					</button>
-			</form>
-			<div class="d-flex justify-content-start">
-					<p>No.of Inactive Customers : <c:out value="${inactive}" /> </p>
+				</form>
 			</div>
 			<table id="table" class="table display nowrap" style="width:100%">
 				<c:choose>
