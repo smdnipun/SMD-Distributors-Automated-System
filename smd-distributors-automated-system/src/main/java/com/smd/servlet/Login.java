@@ -18,7 +18,7 @@ import com.smd.service.CusDetailsServiceImpl;
 import com.smd.service.EmployeeDBUtill;
 import com.smd.service.ICustomerDetails;
 
-@WebServlet("/Login")
+@WebServlet("/login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -36,6 +36,8 @@ public class Login extends HttpServlet {
 		
 		boolean Found = false;
 		
+		System.out.println(customerData[0].getEmail());
+		System.out.println(request.getParameter("password"));
 		try {
 			for(int i=0;i<customerData.length;i++) {
 				if((customerData[i].getEmail().equals(request.getParameter("email")))&&(customerData[i].getPassword().equals(request.getParameter("password")))) {
@@ -55,7 +57,9 @@ public class Login extends HttpServlet {
 					break;
 				}
 			}
-		}catch (Exception e) {}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		try {
 			for(int i=0;i<employeeData.length;i++) {
@@ -73,7 +77,7 @@ public class Login extends HttpServlet {
 						request.getSession().setAttribute("Logged","Stock");
 						response.sendRedirect("admin/StockManagement/SupplierPage.jsp");
 					}
-					else if(employeeData[i].getEmp_Type().equals("creditsales")) {
+					else if(employeeData[i].getEmp_Type().equals("cashCollector")) {
 						request.getSession().setAttribute("Logged","Stock");
 						response.sendRedirect("admin/CreditSalesManagement/CreditPayment.jsp");
 					}
