@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.smd.model.Order;
+import com.smd.model.Stocksummary;
+import com.smd.service.CreditSalesM;
 import com.smd.service.StockDB;
 import com.smd.util.DBConnection;
 
@@ -29,7 +32,10 @@ public class StockUpdate extends HttpServlet {
 	@SuppressWarnings("unused")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 		StockDB stockdb = new StockDB();
-		
+		/*
+		 * Stocksummary add = check.getStocksummary(); String Name =
+		 * request.getParameter("itemname");
+		 */
 		if(request.getParameter("button").equals("add")) {
 			
 			try {

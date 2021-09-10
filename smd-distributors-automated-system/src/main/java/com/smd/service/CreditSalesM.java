@@ -9,6 +9,7 @@ import java.util.List;
 
 import com.smd.model.Customer;
 import com.smd.model.CustomerAgedRecivable;
+import com.smd.model.Employee;
 import com.smd.model.NewOrdersConf;
 import com.smd.model.Order;
 import com.smd.model.Payment;
@@ -31,8 +32,8 @@ public class CreditSalesM {
 			Statement stmt = con.getConnection().createStatement();
 			ResultSet rs = stmt.executeQuery("select * from payment");
 			while (rs.next()) {
-				Payment n = new Payment(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
-						rs.getDouble(5), rs.getString(6));
+				Payment n = new Payment(rs.getString(1), rs.getDouble(2), rs.getString(3), rs.getString(4),
+						rs.getString(5), rs.getString(6));
 				ll.add(n);
 			}
 			array = ll.toArray(new Payment[ll.size()]);
@@ -149,26 +150,28 @@ public class CreditSalesM {
 		return array;
 	}
 
-////Cash Calcactors details
-//public Employee[] getCashCalactorsDetails() {
-//	List<Employee> ll = new LinkedList<Employee>();
-//	Employee[] array = null;
-//	DBConnection con = new DBConnection();
-//	try {
-//		Statement stmt = con.getConnection().createStatement();
-//		ResultSet rs = stmt.executeQuery("select * from employee where Emp_Type='cashCollector'");
-//		while (rs.next()) {
-//			Employee n = new CustomerAgedRecivable(rs.getString(1), rs.getString(2), rs.getString(3),
-//					rs.getDouble(4), rs.getDouble(5), rs.getDouble(6));
-//			ll.add(n);
-//		}
-//
-//		array = ll.toArray(new Employee[ll.size()]);
-//
-//	} catch (Exception e) {
-//	}
-//	return array;
-//}
+//Cash Calcactors details
+	public Employee[] getCashCalactorsDetails() {
+		List<Employee> ll = new LinkedList<Employee>();
+		Employee[] array = null;
+		DBConnection con = new DBConnection();
+		try {
+			Statement stmt = con.getConnection().createStatement();
+			ResultSet rs = stmt.executeQuery("select * from employee where Emp_Type='cashCollector'");
+			while (rs.next()) {
+				Employee n = new Employee(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
+						rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9),
+						rs.getDouble(10), rs.getInt(11), rs.getString(12));
+
+				ll.add(n);
+			}
+
+			array = ll.toArray(new Employee[ll.size()]);
+
+		} catch (Exception e) {
+		}
+		return array;
+	}
 
 //customers Details
 	public Customer[] getCustomrDetailstocredit() {
@@ -178,7 +181,7 @@ public class CreditSalesM {
 		try {
 			Statement stmt = con.getConnection().createStatement();
 			ResultSet rs = stmt.executeQuery(
-					"select Cus_ID,Hardware_Name,Phone,Email,Address from customer where Status='Active'");
+					"select * from customer where Status='Active'");
 			while (rs.next()) {
 				Customer n = new Customer(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
 						rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9),
@@ -242,20 +245,20 @@ public class CreditSalesM {
 	}
 
 	// Search
-	public PaymentDetails[] search(String search) {
-		List<PaymentDetails> ll = new LinkedList<PaymentDetails>();
-		PaymentDetails[] array = null;
+	public CustomerAgedRecivable[] search(String search) {
+		List<CustomerAgedRecivable> ll = new LinkedList<CustomerAgedRecivable>();
+		CustomerAgedRecivable[] array = null;
 		try {
 			Statement stmt = con.getConnection().createStatement();
-			String command = "SELECT * from smd.paymentdetails WHERE Hardware_Name LIKE '%" + search + "%'";
+			String command = "SELECT * from smd.customeraged WHERE Hardware_Name LIKE '%" + search + "%'";
 			ResultSet rs = stmt.executeQuery(command);
 			while (rs.next()) {
-				PaymentDetails n = new PaymentDetails(rs.getString(1), rs.getNString(3), rs.getString(4),
-						rs.getDouble(5), rs.getDouble(6), rs.getDouble(7));
+				CustomerAgedRecivable n = new CustomerAgedRecivable(rs.getString(1), rs.getString(2), rs.getString(3),
+						rs.getDouble(4), rs.getDouble(5), rs.getDouble(6));
 				ll.add(n);
 			}
 
-			array = ll.toArray(new PaymentDetails[ll.size()]);
+			array = ll.toArray(new CustomerAgedRecivable[ll.size()]);
 
 		} catch (Exception e) {
 			System.out.println(e);

@@ -128,8 +128,6 @@ public class EmployeeDBUtill {
 			String password,String nic,String email,String add) {
 		
 		boolean isSuccess = false;
-		
-		
 		try {
 			DBConnection con = new DBConnection();
 			stmt = con.getConnection().createStatement();
@@ -161,7 +159,6 @@ public class EmployeeDBUtill {
 	
 	public static boolean deleteEmployee(int ID) {
 		boolean isSuccess = false;
-
 		try {
 			DBConnection con = new DBConnection();
 			stmt = con.getConnection().createStatement();
@@ -296,7 +293,6 @@ public class EmployeeDBUtill {
 		
 	}
 	*/
-	
 	
 	
 	

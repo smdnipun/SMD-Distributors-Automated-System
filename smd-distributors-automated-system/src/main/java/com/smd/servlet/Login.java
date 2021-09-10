@@ -42,6 +42,7 @@ public class Login extends HttpServlet {
 					Found=true;
 					if(customerData[i].getStatus().equals("Active")) {
 						request.getSession().setAttribute("CustomerID",customerData[i].getCusID());
+						request.getSession().setAttribute("Hname",customerData[i].getHardwareName());
 						request.getSession().setAttribute("Customer",customerData[i]);
 						request.getSession().setAttribute("Logged","User");
 						response.sendRedirect("index.jsp");

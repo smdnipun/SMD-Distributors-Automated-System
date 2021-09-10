@@ -11,15 +11,15 @@ if (request.getSession().getAttribute("Logged") == null) {
 }
 
 SupplierDB dbc = new SupplierDB();
-Supplier[] newsupplier = (Supplier[]) dbc.getSupplierdetails();
+Supplier[] newsupplier = (Supplier[]) dbc.getSupplierInactivedetails();
 request.setAttribute("supplierdata", newsupplier);
 %>
 <div>
 	<jsp:include page="./supplierupnav.jsp"></jsp:include>
 </div>
-<div >
+<div>
 	<div class="d-flex justify-content-center">
-		<h4>Supplier Details</h4>
+		<h4>Inactive Supplier Details</h4>
 	</div>
 	<div class="col-7 justify-content-center">
 		<table id="table" class="display nowrap" style="width: 100%">
@@ -35,10 +35,10 @@ request.setAttribute("supplierdata", newsupplier);
 			</thead>
 			<tbody>
 				<c:forEach items="${supplierdata}" var="Supplier">
-				<form action="../../SupplierUpdate" method="post">
+				<form action="../../SupplierInactiveUpdate" method="post">
 						<tr>
 
-							<%-- <td>"<c:out value="${Supplier.getSupplierID()}" /></td> --%>
+							
 							<td><input readonly type="text" name="supplierID"
 								value="<c:out value="${Supplier.getSupplierID()}"/>"></td>
 							<td><input type="text" name="name"
@@ -52,19 +52,13 @@ request.setAttribute("supplierdata", newsupplier);
 
 
 							<td>
-								<button name="button" value="update" type="submit" name="id"
+								<button name="button" value="active" type="submit" name="id"
 									class="btn btn-light"
-									value="<c:out value= "${Supplier.getSupplierID()}"/>">UPDATE</button>
+									value="<c:out value= "${Supplier.getSupplierID()}"/>">Active</button>
+							</td>
 
-								<button name="button" value="delete" type="submit"
-									class="btn btn-light"
-									value="<c:out value= "${Supplier.getSupplierID()}"/>">Delete</button>
+						</tr>
 					</form>
-
-					</td>
-
-					</tr>
-
 				</c:forEach>
 			</tbody>
 		</table>
