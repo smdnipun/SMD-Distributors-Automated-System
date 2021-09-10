@@ -1,3 +1,9 @@
+<%
+if (request.getSession().getAttribute("Logged") == null) {
+	request.getSession().setAttribute("Logged", "Guest");
+}
+%>
+
 <div class="row">
 	<div class="col-2">
 		<jsp:include page="./customerUInavBar.jsp"></jsp:include>

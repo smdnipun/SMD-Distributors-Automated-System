@@ -3,6 +3,10 @@
 <%@ page import="com.smd.service.ICustomerDetails"%>
 <%@ page import="com.smd.service.CusDetailsServiceImpl"%>
 <%
+if (request.getSession().getAttribute("Logged") == null) {
+	request.getSession().setAttribute("Logged", "Guest");
+}
+
 if (request.getSession().getAttribute("CustomerID") != null) {
 	CusDetailsServiceImpl con = new CusDetailsServiceImpl();
 	Customer customer = con.getCustomerById(Integer.parseInt(request.getSession().getAttribute("CustomerID").toString()));

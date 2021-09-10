@@ -18,7 +18,7 @@ import com.smd.service.CusDetailsServiceImpl;
 import com.smd.service.EmployeeDBUtill;
 import com.smd.service.ICustomerDetails;
 
-@WebServlet("/Login")
+@WebServlet("/login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -41,11 +41,12 @@ public class Login extends HttpServlet {
 				if((customerData[i].getEmail().equals(request.getParameter("email")))&&(customerData[i].getPassword().equals(request.getParameter("password")))) {
 					Found=true;
 					if(customerData[i].getStatus().equals("Active")) {
+						//setting the sessions when login
 						request.getSession().setAttribute("CustomerID",customerData[i].getCusID());
 						request.getSession().setAttribute("Hname",customerData[i].getHardwareName());
 						request.getSession().setAttribute("Customer",customerData[i]);
 						request.getSession().setAttribute("Logged","User");
-						response.sendRedirect("./index.jsp");
+						response.sendRedirect("./index.jsp");//redirect to login page
 					}
 					else {
 						RequestDispatcher r=request.getRequestDispatcher("ErrorDeactivatedAccount.jsp"); 
