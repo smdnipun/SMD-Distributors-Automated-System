@@ -46,7 +46,7 @@ public class FeedbackServiceImpl implements IFeedback {
 					String Date=result.getString(3);
 					String Type=result.getString(4);
 					String Message=result.getString(5);
-					String Rating=result.getString(6);
+					int Rating=result.getInt(6);
 					String Status=result.getString(7);
 					
 					Feedback f1 = new Feedback(Feedback_ID,Cus_ID,Date, Type,Message, Rating, Status);
@@ -69,8 +69,10 @@ public class FeedbackServiceImpl implements IFeedback {
 			//executing a query
 			state=con.createStatement();
 			String sql="Insert into feedback "
-					+ "values(0,2,'"+Date+"','"+Type+"','"+Message+"','"+Rating+"',null)";
+					+ "values(0,2,NOW(),'"+Type+"','"+Message+"','"+Rating+"',null)";
 			
+			//PreparedStatement stmt = (PreparedStatement) con.prepareStatement(sql);
+				
 			int result= state.executeUpdate(sql);
 			
 			if(result>0) {
@@ -95,8 +97,7 @@ public class FeedbackServiceImpl implements IFeedback {
 		
 		try {
 			state=con.createStatement();//executing a query
-			String sql="update feedback set Date='"+Date+"',"
-					+ "Type='"+Type+"',Message='"+Message+"',Rating='"+Rating+"',Status='"+Status+"'"
+			String sql="update feedback set Date='"+Date+"', Type='"+Type+"',Message='"+Message+"',Rating='"+Rating+"',Status='"+Status+"'"
 							+ "where Feedback_ID='"+Feedback_ID+"'";
 			//feedbackid is unique auto-incremented
 			
@@ -144,12 +145,12 @@ public class FeedbackServiceImpl implements IFeedback {
 
 	@Override
 	//5.method to search feedback by date
-	public Feedback[] searchFeedback(String DATE) throws Exception {
+	public Feedback[] searchFeedback(String serach) throws Exception {
 		List<Feedback> f1= new LinkedList<Feedback>();
 		Feedback[] feedarray= null;
 		
 		state=con.createStatement();
-		String sql="select * from feedback where Date LIKE '%"+DATE+"%'";
+		String sql="select * from feedback where Date LIKE '%"+ serach +"%'";
 		ResultSet result= state.executeQuery(sql);
 			
 		while(result.next()) {
@@ -159,13 +160,36 @@ public class FeedbackServiceImpl implements IFeedback {
 					result.getString(3),
 					result.getString(4),
 					result.getString(5),
-					result.getString(6),
+					result.getInt(6),
 					result.getString(7)
 			);	
 			f1.add(fed);
 		}
 		feedarray=f1.toArray(new Feedback[f1.size()]);
 		return feedarray;
+	}
+	
+	//generating monthly feedback reports
+	public static List<Feedback> viewMonthlyFeedbackReport(){
+		ArrayList<Feedback> feed= new ArrayList<Feedback>();
+		try {
+			state=con.createStatement();
+			String sql="select * from feedback";
+			ResultSet rs= state.executeQuery(sql);
+			
+			while(rs.next()) {
+				int Feedback_ID=rs.getInt(1);
+				String Date= rs.getString(3);
+				String Message=rs.getString(5);
+				
+				//Feedback f1= new Feedback(Feedback_ID,Date,Message);
+				//feed.add(f1);
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return feed;
 	}
 	
 }

@@ -9,30 +9,32 @@
 	<meta charset="ISO-8859-1">
 	 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/requesthome.css">
 	<title>Admin Home Page</title>
+
 </head>
 <body class="hbody">
 	<jsp:include page="../WEB-INF/views/common/adminHeader.jsp"></jsp:include> 
 	<br>
-	<!-- <h5 align="center" class="capitalize" >Request Management</h5> -->
-	<div>
-		<form action="searchfeedback" method="post" class="searchbar">
-			<input type="text" class="form-control" 
-			name="search" placeholder="search feedbacks.."/>
-		</form>
-	</div><br>
+	<h5 align="center" class="capitalize" >Request Management</h5>
+<br>
+
 			<!--table to display data -->
-			<table class="feedback">
+			<div class="col-10">
+			<table class="table table-hover ">
+			<!-- <table class="feedback"> -->
+			<thead class="thead-dark">
 				<tr>
-					<th>Feedback ID</th>
-					<th>Customer ID</th> <!-- paymentid is unique auto-incremented -->
-					<th>Date</th>
-					<th>Type</th>
-					<th>Message</th>
-					<th>Rating</th>
-					<th>Status</th>
-					<th colspan="2" style="text-align: center;">Action</th>
+					<th scope="col">Feedback ID</th>
+					<th scope="col">Customer ID</th> <!-- paymentid is unique auto-incremented -->
+					<th scope="col">Date</th>
+					<th scope="col">Type</th>
+					<th scope="col">Message</th>
+					<th scope="col">Rating</th>
+					<th scope="col">Status</th>
+					<th scope="col" colspan="2" style="text-align: center;">Action</th>
+					<th scope="col">Confirmation Email</th>
 				</tr>	
-			
+			</thead>
+			<tbody>
 					<!-- create a loop to display data in the table -->
 					<!-- items name should be the name you gave in the setattribute in the servlet -->
 					<c:forEach var="feedback" items="${feedbackdetails}">
@@ -72,7 +74,8 @@
 								</c:url>
 						
 								<a href="${feedbackupdate}"> <!-- pass the variable name -->
-									<input type="button" name="update" value="Update">
+									<!-- <input type="button" name="update" value="Update"> -->
+									<button type="button" class="btn btn-outline-dark">Update</button>
 								</a>
 							</td>
 								
@@ -92,12 +95,19 @@
 								</c:url>
 						
 								<a href="${feedbackdelete}"> <!-- pass the variable name -->
-									<input type="button" name="delete" value="Delete">
+									<!-- <input type="button" name="delete" value="Delete"> -->
+									<button type="button" class="btn btn-outline-dark">Delete</button>
 								</a>
+							</td>
+							<td>
+							<button type="button" class="btn btn-outline-dark">Send</button>
 							</td>
 					</tr>	
 				</c:forEach>
+				</tbody>
 			</table>
+		</div>
+			<br><br><br><br><br><br>
 	<jsp:include page="../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
 </body>
 </html>
