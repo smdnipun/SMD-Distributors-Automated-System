@@ -56,8 +56,8 @@ public class CreditSalesM {
 			ResultSet rs = stmt.executeQuery("select * from paymentdetails");
 			while (rs.next()) {
 				// rs.getNString(2)
-				PaymentDetails n = new PaymentDetails(rs.getString(1), rs.getString(2), rs.getString(3),
-						rs.getDouble(4), rs.getDouble(5), rs.getDouble(6));
+				PaymentDetails n = new PaymentDetails(rs.getString(1), rs.getNString(2), rs.getString(3),
+						rs.getDouble(4), rs.getDouble(5), rs.getDouble(6),rs.getString(7));
 				ll.add(n);
 			}
 			array = ll.toArray(new PaymentDetails[ll.size()]);
@@ -79,8 +79,8 @@ public class CreditSalesM {
 			Statement stmt = con.getConnection().createStatement();
 			ResultSet rs = stmt.executeQuery("select * from paymentdetails where Order_ID=" + i);
 			while (rs.next()) {
-				PaymentDetails n = new PaymentDetails(rs.getString(1), rs.getNString(3), rs.getString(4),
-						rs.getDouble(5), rs.getDouble(6), rs.getDouble(7));
+				PaymentDetails n = new PaymentDetails(rs.getString(1), rs.getNString(2), rs.getString(3),
+						rs.getDouble(4), rs.getDouble(5), rs.getDouble(6),rs.getString(7));
 				ll.add(n);
 			}
 			array = ll.toArray(new PaymentDetails[ll.size()]);

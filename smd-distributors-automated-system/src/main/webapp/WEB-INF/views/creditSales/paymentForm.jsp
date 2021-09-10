@@ -3,7 +3,7 @@
 		
 		<div class="mb-3">
 			<label for="formGroupExampleInput" class="form-label">Date</label> <input
-				type="date" class="form-control" id="DATE" name="Date" />
+				type="date" class="form-control" id="DATE" name="Date" required />
 
 		</div>
 		<div class="mb-3">
