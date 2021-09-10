@@ -5,7 +5,7 @@
 		aria-orientation="vertical">
 		<a class="nav-link" id="Supplier_detaials" data-mdb-toggle="tab"
 			href="SupplierPage.jsp" role="tab" aria-controls="v-tabs-home"
-			aria-selected="true">Add Suppliers</a> 
+			aria-selected="true">Suppliers</a> 
 			
 		<a class="nav-link" id="Stock_details" data-mdb-toggle="tab" href="StockPage.jsp"
 			role="tab" aria-controls="v-tabs-profile" aria-selected="false">Stock</a>

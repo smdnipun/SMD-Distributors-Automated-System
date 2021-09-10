@@ -20,7 +20,7 @@
 					class="form-control" id="exampleInputPassword1" name="itemname">
 			</div>
 			<div class="form-group">
-				<label for="exampleInputPassword1">Date</label> <input type="text"
+				<label for="exampleInputPassword1">Date</label> <input type="date"
 					class="form-control" id="exampleInputPassword1" name="date">
 			</div>
 			<div class="form-group">
@@ -28,7 +28,7 @@
 					class="form-control" id="exampleInputPassword1" name="quntity">
 			</div>
 			<div>
-			<button name ="button" value="delete" type="submit" name="id" class="btn btn-light">Delete Stock</button>
+			<button name ="button" value="delete" type="submit" name="id" class="btn btn-light">Release Stock</button>
 			</div>
 		</form>
 </div>

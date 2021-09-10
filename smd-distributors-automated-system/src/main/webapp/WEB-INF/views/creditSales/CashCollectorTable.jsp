@@ -20,7 +20,9 @@ request.setAttribute("data", cashCal);
 		<h5>Customer Aged Recivable</h5>
 	</center>
 
-	<table id="customerDetails" class="display nowrap" style="width: 100%">
+	<!-- <table id="customerDetails" class="display nowrap" style="width: 100%"> -->
+	<table id="table" class="display nowrap" style="width: 90%">
+	
 
 		<thead>
 
