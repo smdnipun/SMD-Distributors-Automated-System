@@ -24,8 +24,11 @@ public interface ICustomerDetails {
 	//add customer detail to the database
 	public boolean addCustomer(Customer customer);
 	
-	//update customer Details to the system
+	//admin update customer Details to the database
 	public boolean updateCustomerfromAdmin(Customer customer);
+	
+	//customer update customer Details
+	public boolean updatedCustomer(Customer customer);
 	
 	//activate customer Details
 	public boolean setActive(String id);

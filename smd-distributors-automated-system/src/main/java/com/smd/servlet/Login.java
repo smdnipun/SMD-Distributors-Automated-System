@@ -45,7 +45,7 @@ public class Login extends HttpServlet {
 						request.getSession().setAttribute("Hname",customerData[i].getHardwareName());
 						request.getSession().setAttribute("Customer",customerData[i]);
 						request.getSession().setAttribute("Logged","User");
-						response.sendRedirect("index.jsp");
+						response.sendRedirect("./index.jsp");
 					}
 					else {
 						RequestDispatcher r=request.getRequestDispatcher("ErrorDeactivatedAccount.jsp"); 

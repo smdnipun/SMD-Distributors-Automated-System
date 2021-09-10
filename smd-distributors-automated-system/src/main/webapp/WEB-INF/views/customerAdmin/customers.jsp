@@ -23,10 +23,10 @@ request.setAttribute("active", active);
 		<jsp:include page="./VerticalNavBar.jsp"></jsp:include>
 	</div>
 	
-	<div class="col-10 pr-3 pt-2 pb-2">
+	<div class="col-10 pr-3 pt-2 pb-5">
 		<jsp:include page="./cDetailsHnav.jsp"></jsp:include>
 		<div class="row pt-2">
-			<div class="col-9 pt-3 table-responsive-md">
+			<div class="col-9 pt-2 table-responsive-md">
 				<div class="d-flex justify-content-center">
 					<h4>Customer List</h4>
 				</div>

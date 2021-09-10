@@ -327,6 +327,34 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 		
 		return Success;
 	}
+	
+	//customer update customer Details
+	public boolean updatedCustomer(Customer customer) {
+boolean Success = false;//assign false before execution
+		
+		//creating the database connection
+		DBConnection dbc = new DBConnection();
+		try {
+			Statement stmt = dbc.getConnection().createStatement();
+			
+			String command = "UPDATE smd.customer SET First_name= '" + customer.getFname() + "', Last_Name= '" + customer.getLname() + "', Hardware_Name= '"+ customer.getHardwareName() +"', Phone= '"+ customer.getPhoneNo() + "', Address= '" + customer.getAddress() + "' WHERE Cus_ID = " + customer.getCusID();      
+			
+			int result = stmt.executeUpdate(command);//execute the statement
+			
+			if(result>0) {
+				//insertion is successful if result is 1
+				Success=true;
+			}
+			else {
+				//insertion is unsuccessful
+				Success=false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+		
+		return Success;
+	}
 
 	@Override
 	//delete customer
