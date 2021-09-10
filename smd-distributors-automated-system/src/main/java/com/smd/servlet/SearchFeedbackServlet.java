@@ -2,7 +2,9 @@ package com.smd.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,6 +19,28 @@ import com.smd.service.IFeedback;
 //public class SearchFeedbackServlet extends HttpServlet {
 //	private static final long serialVersionUID = 1L;
 
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String search=request.getParameter("search");
+		
+		
+		try {
+			IFeedback ifedservice= new FeedbackServiceImpl();
+			Feedback[] feeddetails= ifedservice.searchFeedback(search);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		RequestDispatcher dis= getServletContext().getRequestDispatcher("/RequestManage/requestHome.jsp");
+		
+		if(dis!=null)
+			dis.include(request, response);
+		else
+			System.out.println("Error");
+		
+	}
 //	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		String search=request.getParameter("search");
 //		System.out.println("search"+search);
