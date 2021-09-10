@@ -22,7 +22,7 @@ public class UpdateCustomerOrders extends HttpServlet {
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-
+		//get orderid and quantity
 		String OID=request.getParameter("OID");
 		String QTY=request.getParameter("QTY");
 	
@@ -32,36 +32,34 @@ public class UpdateCustomerOrders extends HttpServlet {
 		
 		PrintWriter out = response.getWriter();
         response.setContentType("text/html");
-		
+		//check whether the order state is delivered or not
 		if(request.getParameter("OSTATES").equals("delivered")) {
         	out.println("<script type='text/javascript'>");
             out.println("alert('Sorry Order is already in Delivery process');");
             out.println("location='AddOrder.jsp'"); 
             out.println("</script>");
         }else {
-        	
+        	//call the update order method 
         	boolean isdone=OrderM.updateordercustomer(oid, quantity);
     		
     		
     		
     		if(isdone==true) {
-    			
+    			// if successful then show the alert and redirect to AddOrder
     			out.println("<script type='text/javascript'>");
                 out.println("alert('update successfully');");
                 out.println("location='AddOrder.jsp'"); 
                 out.println("</script>");
     			
-//    			RequestDispatcher dis=request.getRequestDispatcher("AddOrder.jsp");
-//    			dis.forward(request, response);
+
     		}else {
-    			
+    			// if successful then show the alert and redirect to AddOrder
     			out.println("<script type='text/javascript'>");
                 out.println("alert('something went wrong');");
                 out.println("location='AddOrder.jsp'"); 
                 out.println("</script>");
     			
-//    			RequestDispatcher dis=request.getRequestDispatcher("index.jsp");
-//    			dis.forward(request, response);
+
     		}
         }
 		
