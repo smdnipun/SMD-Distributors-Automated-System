@@ -19,7 +19,7 @@ request.setAttribute("stockorderdata", newstock);
 	<jsp:include page="./stockupnav.jsp"></jsp:include>
 </div>
 <!-- stockorder Table -->
-<div class="col-8 text-center align">
+<div class="col-7 text-center align">
 	<table class="table table-hover">
 
 		<thead>

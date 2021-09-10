@@ -18,6 +18,9 @@ request.setAttribute("stocksum", newstock);
 
 
 <div  class="col-5 text-center align">
+<div>
+		<h4>Stock</h4>
+	</div>
 	<table class="table table-hover">
 		
 		<thead>
