@@ -33,11 +33,11 @@ public class deleteDeliveryServlet extends HttpServlet {
 			List<Delivery> deliveryDetails = DeliveryDBUtill.getDelivary();
 			request.setAttribute("deliveryDetails", deliveryDetails);
 			
-			RequestDispatcher dis = request.getRequestDispatcher("AdminUI/DeliveryManage/DeliveryDetails.jsp");
+			RequestDispatcher dis = request.getRequestDispatcher("admin/DeliveryManage/DeliveryDetails.jsp");
 			dis.forward(request, response);
 		}
 		else {
-			RequestDispatcher dis2 = request.getRequestDispatcher("AdminUI/DeliveryManage/Unsuccess.jsp");
+			RequestDispatcher dis2 = request.getRequestDispatcher("admin/DeliveryManage/Unsuccess.jsp");
 			dis2.forward(request, response);	
 		}
 		
