@@ -32,6 +32,15 @@
 							value="${product.getPrice()}" type="number" />
 					</div>
 					<div class="form-inline">
+					<% Product n=(Product) request.getAttribute("product"); %>
+						<select name="image">
+							<option value="sanstha" <%=n.getImage().equals("sanstha") ? "selected":"" %>>Sanstha</option>
+							<option value="tokyo" <%=n.getImage().equals("tokyo") ?"selected":"" %>>tokyo</option>
+							<option value="powertech" <%=n.getImage().equals("powertech") ?"selected":"" %>>powertech</option>
+							<option value="nippon" <%=n.getImage().equals("nippon") ?"selected":"" %>>nippon</option>
+						</select>
+					</div>
+					<div class="form-inline">
 						<label>Product Availability</label> <label class="switch">
 							<c:choose>
 								<c:when test="${product.getAvailablity()}">
@@ -49,8 +58,8 @@
 				</div>
 			</div>
 			<div>
-				<button type="submit" name="update">Update</button>
-				<button type="submit" name="delete">Delete</button>
+				<button type="submit" name="button" value="update">Update</button>
+				<button type="submit" name="button" value="delete">Delete</button>
 			</div>
 		</form>
 	</div>
