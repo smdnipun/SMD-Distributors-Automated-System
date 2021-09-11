@@ -8,8 +8,8 @@
 <h1>Orders</h1>
 </center>
 <br>
-<table class="table">
-  <thead>
+<table id="example" class="table  display nowrap"  style="width:100%">
+                <thead class="thead-dark">
     <tr>
        <th scope="col">Order ID</th>
        <th scope="col">Customer ID</th>
