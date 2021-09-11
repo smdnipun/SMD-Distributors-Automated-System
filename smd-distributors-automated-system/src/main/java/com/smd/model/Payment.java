@@ -20,6 +20,10 @@ public class Payment {
 		EmpID = empID;
 	}
 
+	public Payment() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getPaymentID() {
 		return PaymentID;
 	}

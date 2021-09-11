@@ -8,6 +8,8 @@ import java.util.List;
 
 import com.smd.model.Customer;
 import com.smd.model.OrderSummary;
+import com.smd.model.PaySummary;
+import com.smd.model.Payment;
 
 public class CusDetailsServiceImpl implements ICustomerDetails {
 	
@@ -455,6 +457,7 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 		return Success;
 	}
 	
+	//get customer order Summary
 	public OrderSummary[] getOrderDetails(int id) {
 		//create linked list to take the data from the database.
 		List<OrderSummary> ll = new LinkedList<OrderSummary>();
@@ -487,6 +490,42 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 			}
 			//Inserting the value in the LinkList to the array
 			array = ll.toArray(new OrderSummary[ll.size()]);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}	
+		return array;
+	}
+	
+	//get customer payment summary
+	public PaySummary[] getPaymentDetails(int id) {
+		//create linked list to take the data from the database.
+		List<PaySummary> ll = new LinkedList<PaySummary>();
+		
+		//Created an array to store all the customer details.
+		PaySummary[] array = null;
+		
+		//Make the connection with Database
+		DBConnection con = new DBConnection();
+		
+		try {
+			Statement stmt = con.getConnection().createStatement();
+			String command = "select * from PaySummary where Cus_ID = " + id;
+			ResultSet rs = stmt.executeQuery(command);//execute the statement
+			
+			//Adding the data retrieved from the database to the LinkList
+			while (rs.next()) {
+				PaySummary p = new PaySummary(
+						rs.getInt(1),		//customer ID
+						rs.getInt(2),		//Receipt ID
+						rs.getInt(3), 		//invoice ID
+						rs.getString(4),	//order date
+						rs.getDouble(5)	//product name
+						);
+				ll.add(p);
+			}
+			//Inserting the value in the LinkList to the array
+			array = ll.toArray(new PaySummary[ll.size()]);
 
 		} catch (Exception e) {
 			e.printStackTrace();
