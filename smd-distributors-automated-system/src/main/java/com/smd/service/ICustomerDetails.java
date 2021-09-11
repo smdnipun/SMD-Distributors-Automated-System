@@ -1,6 +1,7 @@
 package com.smd.service;
 
 import com.smd.model.Customer;
+import com.smd.model.OrderSummary;
 
 public interface ICustomerDetails {
 	//get all customer details
@@ -45,9 +46,6 @@ public interface ICustomerDetails {
 	//update password from forget password
 	public boolean updatePassword(int id, String pwd);
 	
-//	//check if email exist in the system
-//	public boolean checkEmail(Customer customer);
-		
-//	//update user details from the customer profile
-//	public boolean updateUserProfile(Customer customer);		
+	//get order Summary
+	public OrderSummary[] getOrderDetails(int id);
 }

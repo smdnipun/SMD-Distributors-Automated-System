@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import com.smd.model.Customer;
+import com.smd.model.OrderSummary;
 
 public class CusDetailsServiceImpl implements ICustomerDetails {
 	
@@ -452,6 +453,45 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 			e.printStackTrace();
 		} 
 		return Success;
+	}
+	
+	public OrderSummary[] getOrderDetails(int id) {
+		//create linked list to take the data from the database.
+		List<OrderSummary> ll = new LinkedList<OrderSummary>();
+		
+		//Created an array to store all the customer details.
+		OrderSummary[] array = null;
+		
+		//Make the connection with Database
+		DBConnection con = new DBConnection();
+		
+		try {
+			Statement stmt = con.getConnection().createStatement();
+			String command = "select * from smd.OrderSummary where Cust_ID = " + id;
+			ResultSet rs = stmt.executeQuery(command);//execute the statement
+			
+			//Adding the data retrieved from the database to the LinkList
+			while (rs.next()) {
+				OrderSummary c = new OrderSummary(
+						rs.getInt(1),		//customer ID
+						rs.getInt(2), 		//invoice ID
+						rs.getString(3),	//order date
+						rs.getString(4),	//product name
+						rs.getInt(5),		//Quantity
+						rs.getString(6),	//order Status
+						rs.getDouble(7),	//Order Total
+						rs.getDouble(8),	//Paid Amount
+						rs.getDouble(9)		//Remaining Balance
+						);
+				ll.add(c);
+			}
+			//Inserting the value in the LinkList to the array
+			array = ll.toArray(new OrderSummary[ll.size()]);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}	
+		return array;
 	}
 	
 //	public boolean checkEmail(Customer customer) {

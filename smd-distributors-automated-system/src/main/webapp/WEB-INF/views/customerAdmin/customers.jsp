@@ -2,13 +2,8 @@
 <%@ page import="com.smd.service.CusDetailsServiceImpl"%><!-- Import Database connection of CusDetailsServiceImpl -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<!--checking user logged or not -->
 <!-- creating array to get data from database -->
 <%
-if (request.getSession().getAttribute("Logged") == null) {
-	request.getSession().setAttribute("Logged", "Guest");
-}
-
 CusDetailsServiceImpl dbc = new CusDetailsServiceImpl();
 Customer[] cusDetails = dbc.activeCustomers();
 request.setAttribute("data", cusDetails);

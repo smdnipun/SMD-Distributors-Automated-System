@@ -38,7 +38,7 @@ request.setAttribute("inactive", inactive);
 				</form>
 			</div>
 			<table id="table" class="table display nowrap table-bordered" style="width:100%">
-				<!-- When search input is null -->
+				<!-- getting data for the table -->
 				<c:choose>
 					<c:when test="${param.search==null}">
 						<%
@@ -82,7 +82,6 @@ request.setAttribute("inactive", inactive);
 				   			</c:forEach>
 				   		</tbody>
 			   		</c:when>
-			   		<!-- display the search name -->
 			   		<c:otherwise>
 			   			<%
 							ICustomerDetails con = new CusDetailsServiceImpl();
