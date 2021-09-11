@@ -310,6 +310,20 @@
   
   
   
+   
+  <servlet>
+  			<servlet-name>EmployeeAttend</servlet-name>
+  			<servlet-class>com.smd.servlet.AttendanceEmployeeServlet</servlet-class> 
+   </servlet>
+  
+  <servlet-mapping>
+      		<servlet-name>EmployeeAttend</servlet-name>
+  			<url-pattern>/empsalattnd</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
    <servlet>
   			<servlet-name>EmployeeCalSal</servlet-name>
   			<servlet-class>com.smd.servlet.CalcSalEmployeeServlet</servlet-class> 
