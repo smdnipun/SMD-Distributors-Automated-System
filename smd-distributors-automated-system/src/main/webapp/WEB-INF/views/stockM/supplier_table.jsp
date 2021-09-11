@@ -27,6 +27,7 @@ request.setAttribute("supplierdata", newsupplier);
 				<tr>
 					<th scope="col">Supplier ID</th>
 					<th scope="col">Supplier Name</th>
+					<th scope="col">Product Name</th>
 					<th scope="col">Address</th>
 					<th scope="col">Telephone Number</th>
 					<th scope="col">Status</th>
@@ -41,8 +42,10 @@ request.setAttribute("supplierdata", newsupplier);
 							<%-- <td>"<c:out value="${Supplier.getSupplierID()}" /></td> --%>
 							<td><input readonly type="text" name="supplierID"
 								value="<c:out value="${Supplier.getSupplierID()}"/>"></td>
-							<td><input type="text" name="name"
-								value="<c:out value="${Supplier.getName()}"/>"></td>
+							<td><input type="text" name="sname"
+								value="<c:out value="${Supplier.getSName()}"/>"></td>
+								<td><input type="text" name="pname"
+								value="<c:out value="${Supplier.getPName()}"/>"></td>
 							<td><input type="text" name="address"
 								value="<c:out value="${Supplier.getAddress()}"/>"></td>
 							<td><input type="text" name="tno"
