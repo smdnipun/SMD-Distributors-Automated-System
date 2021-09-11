@@ -2,6 +2,7 @@ package com.smd.service;
 
 import com.smd.model.Customer;
 import com.smd.model.OrderSummary;
+import com.smd.model.PaySummary;
 
 public interface ICustomerDetails {
 	//get all customer details
@@ -48,4 +49,7 @@ public interface ICustomerDetails {
 	
 	//get order Summary
 	public OrderSummary[] getOrderDetails(int id);
+	
+	//get customer payment summary
+	public PaySummary[] getPaymentDetails(int id);
 }
