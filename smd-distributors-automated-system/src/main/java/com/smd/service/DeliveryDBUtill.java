@@ -6,6 +6,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mysql.jdbc.CallableStatement;
 import com.smd.model.Delivery;
 import com.smd.util.DBConnection;
 
@@ -126,5 +127,37 @@ public class DeliveryDBUtill {
 		
 		return isSuccess;
 	}
+	
+public static List<Delivery> deliveryReport(String date){
+		
+		ArrayList<Delivery> report = new ArrayList<>();
+		
+		try{
+			
+			con = DBConnection.getConnection();
+			stmt = con.createStatement();
+			String sql = "select * from Delivery where month(Date)=extract(month from '"+date+"') and year(Date)=extract(year from '"+date+"')";
+			rs = stmt.executeQuery(sql);
+			
+			while(rs.next()) {
+				
+				int Delivery_ID = rs.getInt(1);
+				String Route = rs.getString(2);
+				String Date = rs.getString(3);
+				String Status = rs.getString(4);
+				int Order_ID = rs.getInt(5);
+				int Cus_ID = rs.getInt(6);
+				String vehicle = rs.getString(7);
+				
+				Delivery d = new Delivery(Delivery_ID,Route,Date,Status,Order_ID,Cus_ID,vehicle);
+				report.add(d);
+			}	
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return report;
+	}	
 	
 }
