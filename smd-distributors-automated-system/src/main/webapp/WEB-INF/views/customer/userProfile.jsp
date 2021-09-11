@@ -1,15 +1,22 @@
 <%@ page import="com.smd.model.OrderSummary"%><!--Import orderSummary class-->
+<%@ page import="com.smd.model.PaySummary"%><!-- Import PaySummary class -->
 <%@ page import="com.smd.service.CusDetailsServiceImpl"%><!-- Import Database connection of CusDetailsServiceImpl -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!-- creating array to get data from database -->
 <%
+//getting the id from the session
 int id = Integer.parseInt(request.getSession().getAttribute("CustomerID").toString());
-System.out.println(id);
+//creating an object from the CusDetailsServiceImpl class
 CusDetailsServiceImpl dbc = new CusDetailsServiceImpl();
+
+//retrieve order Summary
 OrderSummary[] orderDetails = dbc.getOrderDetails(id);
 request.setAttribute("orderDeatils", orderDetails);
 
+//retrieve payment summary
+PaySummary[] payDetails = dbc.getPaymentDetails(id);
+request.setAttribute("payDetails",payDetails);
 %>
 
 <div class="row">
@@ -26,7 +33,7 @@ request.setAttribute("orderDeatils", orderDetails);
 	            	</h5>
 	            </div>
 	        </div>
-	        <h3>Order summary</h3>
+	        <h4>Order summary</h4>
 	        <div class="row mt-1">
 	        	<table id="Order_table" class="table display nowrap table-bordered" style="width:100%">
 			        <thead class="thead-dark">
@@ -58,21 +65,23 @@ request.setAttribute("orderDeatils", orderDetails);
 			    </table>
 	        </div>
 	        <div class = "row mt-2">
-	        	<h3>Payment Summary</h3>
+	        	<h4>Payment Summary</h4>
 	        	<table id="Payment_table" class="table display nowrap table-bordered" style="width:100%">
 			        <thead class="thead-dark">
 			            <tr>
 			            	<th>Receipt ID</th>
+			            	<th>Invoice No.</th>
 			                <th>Date</th>
 			                <th>Amount</th>
 			            </tr>
 			        </thead>
 			        <tbody>
-			          	<c:forEach items="${data}" var="Customer"> 
+			          	<c:forEach items="${payDetails}" var="PaySummary"> 
 			           		<tr>
-					    	 	<td><c:out value="${Customer.getCusID()}" /></td>
-					    	 	<td><c:out value="${Customer.getFname()}" /></td>
-					    	 	<td><c:out value="${Customer.getLname()}" /></td>
+					    	 	<td><c:out value="${PaySummary.getRecieptID()}" /></td>
+					    	 	<td><c:out value="${PaySummary.getInvoiceID()}" /></td>
+					    	 	<td><c:out value="${PaySummary.getDate()}" /></td>
+					    	 	<td><c:out value="${PaySummary.getPaidAmount()}" /></td>
 				    	 	</tr>
 			   			</c:forEach>
 			        </tbody>
