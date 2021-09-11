@@ -366,9 +366,9 @@ VALUES ('40-1150',2,2,'2021-03-25'),
 DROP View PaymentDetails;
 
 Create View PaymentDetails As 
-Select p.Pay_ID,c.Hardware_Name,c.Cus_ID,o.Order_ID,o.Total_Price,o.Paid_Amount,o.Remaining_Amount
+Select c.Hardware_Name,o.Order_ID,o.Total_Price,o.Paid_Amount,o.Remaining_Amount,o.Order_Status
 from customer c,orders o,payment p
-where  c.Cus_ID=o.Cust_ID and o.Cust_ID=p.Cus_ID and o.Remaining_Amount>0;
+where  c.Cus_ID=o.Cust_ID and o.Cust_ID=p.Cus_ID and o.Order_ID=p.Order_ID and o.Paid_Amount<=o.Total_Price;
 
 -- Customer Aged
 DROP View CustomerAged;
@@ -382,10 +382,24 @@ where c.Cus_ID=o.Cust_ID and o.Remaining_Amount>0;
 -- NewOrders
 DROP View NewOrders;
 
-Create View NewOrders As
-Select o.Order_ID,o.Order_Date,c.Hardware_Name,o.Qty,o.Total_Price
-from customer c,orders o
-where c.Cus_ID=o.Cust_ID and Order_Status="pending";
+CREATE 
+    ALGORITHM = UNDEFINED 
+    DEFINER = `root`@`localhost` 
+    SQL SECURITY DEFINER
+VIEW `neworders` AS
+    SELECT 
+        `o`.`Order_ID` AS `Order_ID`,
+        `o`.`Order_Date` AS `Order_Date`,
+        `c`.`Cus_ID` AS `Cus_ID`,
+        `c`.`Hardware_Name` AS `Hardware_Name`,
+        `o`.`Qty` AS `Qty`,
+        `o`.`Total_Price` AS `Total_Price`
+    FROM
+        (`customer` `c`
+        JOIN `orders` `o`)
+    WHERE
+        ((`c`.`Cus_ID` = `o`.`Cust_ID`)
+            AND (`o`.`Order_Status` = 'pending'))
 
 
 -- Database functions & procedures
