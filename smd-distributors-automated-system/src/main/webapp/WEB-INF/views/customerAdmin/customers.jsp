@@ -94,7 +94,6 @@ request.setAttribute("active", active);
 	                        <input type="text" id="address" name="address" size="31" Required><br>
 	                    </div>
 	                    <div class="d-flex justify-content-around pt-3 pb-2">
-	                    	<div style = "color:red;"><p>${message}</p></div><br>
 	                        <button type="submit" class="btn btn-primary" name="btn" 
 	                        	value="update">Update</button>
 	                        <button type="submit" name="btn" class="btn btn-danger" 

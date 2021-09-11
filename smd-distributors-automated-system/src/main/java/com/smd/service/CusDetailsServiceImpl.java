@@ -154,7 +154,6 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 		return array;
 	}
 	
@@ -333,7 +332,7 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 	
 	//customer update customer Details
 	public boolean updatedCustomer(Customer customer) {
-boolean Success = false;//assign false before execution
+		boolean Success = false;//assign false before execution
 		
 		//creating the database connection
 		DBConnection dbc = new DBConnection();
@@ -429,7 +428,7 @@ boolean Success = false;//assign false before execution
 		return array;
 	}
 	
-	public boolean updateForgetPassword(int id, String pwd) {
+	public boolean updatePassword(int id, String pwd) {
 		boolean Success = false;//assign false before execution
 		
 		//creating the database connection
@@ -452,7 +451,6 @@ boolean Success = false;//assign false before execution
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
-		
 		return Success;
 	}
 	

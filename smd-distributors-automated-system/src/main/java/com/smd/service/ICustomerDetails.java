@@ -43,7 +43,7 @@ public interface ICustomerDetails {
 	public Customer[] search(String search);
 	
 	//update password from forget password
-	public boolean updateForgetPassword(int id, String pwd);
+	public boolean updatePassword(int id, String pwd);
 	
 //	//check if email exist in the system
 //	public boolean checkEmail(Customer customer);

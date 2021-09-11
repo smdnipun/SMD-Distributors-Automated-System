@@ -27,17 +27,18 @@ public class CustomerPwdUpdate extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int customerID = (int) request.getSession().getAttribute("CustomerID");
-		String pwd = null;
-		ICustomerDetails cusDetails = new CusDetailsServiceImpl();
-		Customer customer = new Customer();
-		customer = cusDetails.getCustomerById(customerID);
-		pwd = customer.getPassword();
-//		pwd = cusDetails.getCustomerById(customerID).getPassword();
+		//getting data from the front end
+		int customerID = Integer.parseInt(request.getSession().getAttribute("CustomerID").toString());
+		String newpwd = request.getParameter("pwd");
 		
-		if(request.getParameter("currentpwd").equals(pwd)) {
+		//creating a object from CusDetailsServiceImpl
+		ICustomerDetails cusDetails = new CusDetailsServiceImpl();
+
+		String currentPwd = cusDetails.getCustomerById(customerID).getPassword();
+		
+		if(request.getParameter("currentpwd").equals(currentPwd)) {
 			//updating the password and getting the status
-			Boolean status = cusDetails.updateForgetPassword(customerID, pwd);
+			Boolean status = cusDetails.updatePassword(customerID, newpwd);
 			
 			if(status == true) {
 				request.getSession().removeAttribute("Logged");
@@ -48,20 +49,20 @@ public class CustomerPwdUpdate extends HttpServlet {
 				PrintWriter out = response.getWriter();
 				//display an error message
 				out.println("<script type=\"text/javascript\">");
-			    out.println("alert('There was an error please try again!!!');");
+			    out.println("alert('Updated Successfully!!!');");
 			    out.println("location='./login.jsp'"); //redirect to the registration page
 			    out.println("</script>");
 				
 //				response.sendRedirect("./login.jsp");
 			}
 			else {
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/User/edit_cAccount.jsp");
-				request.setAttribute("message1", "Error!!!");
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Security.jsp");
+				request.setAttribute("error-updatePwd", "Error!!!");
 				dispatcher.forward(request, response);
 			}
 		}else {
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/User/edit_cAccount.jsp");
-			request.setAttribute("message2", "The password does not match with the old");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Security.jsp");
+			request.setAttribute("currentpwd_mismatch", "The password does not match with the old");
 			dispatcher.forward(request, response);
 		}
 

@@ -36,8 +36,6 @@ public class Login extends HttpServlet {
 		
 		boolean Found = false;
 		
-		System.out.println(customerData[0].getEmail());
-		System.out.println(request.getParameter("password"));
 		try {
 			for(int i=0;i<customerData.length;i++) {
 				if((customerData[i].getEmail().equals(request.getParameter("email")))&&(customerData[i].getPassword().equals(request.getParameter("password")))) {

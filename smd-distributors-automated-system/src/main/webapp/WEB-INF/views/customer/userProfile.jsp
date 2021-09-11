@@ -6,7 +6,7 @@
 		<div class="main">
 	        <div class="covermain">
 	            <img src="./img/avatar.png" height="100" width="100" class="propic">
-	            <div>
+	            <div class="pt-2">
 	            	<p id="username"><%=request.getSession().getAttribute("Hname")%></p>
 	            </div>
 	        </div>

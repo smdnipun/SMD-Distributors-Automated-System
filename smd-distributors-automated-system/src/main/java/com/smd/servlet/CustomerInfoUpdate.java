@@ -34,6 +34,7 @@ public class CustomerInfoUpdate extends HttpServlet {
 		
 		PrintWriter out = response.getWriter();
 		
+		//get input values from jsp
 		customer.setCusID((String) request.getSession().getAttribute("CustomerID"));
 		customer.setFname(request.getParameter("fname"));
 		customer.setLname(request.getParameter("lname"));
