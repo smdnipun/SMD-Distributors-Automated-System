@@ -1,13 +1,17 @@
 <jsp:include page="../../WEB-INF/views/common/head.jsp">
 	<jsp:param name="Title" value="SMD Distributors" /></jsp:include>
+	<link rel="stylesheet" href=<%=request.getContextPath() + "/css/Employe.css"%>>
 <body>
 	<jsp:include page="../../WEB-INF/views/common/header.jsp"></jsp:include>
-	<jsp:include page="../../WEB-INF/views/common/navbar.jsp">
-		<jsp:param name="navs" value="ttt,ffff ddddd,fff"  />
-	</jsp:include> 
 
-<div class="(col-10)">
-	
+<div class="row">
+<jsp:include
+page="EmployeeNav.jsp"></jsp:include>
+<div class="col-9">
+
+<center>
+ <h2>Employee Salary and Attendance Calculation</h2>
+</center>
 	
 	
       <%
@@ -18,7 +22,7 @@
       %> 
       
 	
-	<form action=<%=request.getContextPath() +"/attendemp" %> method="post">
+	<form action=<%=request.getContextPath() +"/attendemp" %> class="content" method="post">
 	
 	<div class="form-group">
     <label for="fname">EmployeeID</label>
@@ -37,22 +41,22 @@
 
  <div class="form-group">
     <label for="worked">Enter Hours Worked</label>
-    <input type="text" class="form-control"  name="worked" id="worked" aria-describedby="" >
+    <input type="text" class="form-control"  name="worked" id="worked" aria-describedby=""  pattern="[0-9]{1,}" required>
   </div>
   
 
 
  <div class="form-group">
     <label for="date">Enter Month</label>
-    <input type="date" class="form-control"  name="date" id="date" aria-describedby="" >
+    <input type="date" class="form-control"  name="date" id="date" aria-describedby="" required>
   </div>
 
  
 
 
   <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+    <label class="form-check-label" for="exampleCheck1">Checked</label>
   </div>
   <button type="submit" class="btn btn-primary">Add Worked Hours</button>
 </form>
@@ -61,7 +65,7 @@
 
 
 	</div>
-
+    </div>
 
 		<br>
 		<br>	

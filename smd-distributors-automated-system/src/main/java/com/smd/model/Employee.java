@@ -10,13 +10,13 @@ public class Employee {
 	private String NIC;
 	private String Email;
 	private String Address;
-	private double Total_Salary; 
-	private int Hours_Worked;
 	private String Emp_Type;
 	
 	
+	//get employee details from EmployeeDBUtil class list array method 
+	
 	public Employee(int emp_ID, String first_Name, String last_Name, String phone, String username, String password,
-			String nIC, String email, String address, double total_Salary, int hours_Worked, String emp_Type) {
+			String nIC, String email, String address,String emp_Type) {
 
 		Emp_ID = emp_ID;
 		First_Name = first_Name;
@@ -27,12 +27,12 @@ public class Employee {
 		NIC = nIC;
 		Email = email;
 		Address = address;
-		Total_Salary = total_Salary;
-		Hours_Worked = hours_Worked;
 		Emp_Type = emp_Type;
 	}
 
 
+	//getters
+	
 	public int getEmp_ID() {
 		return Emp_ID;
 	}
@@ -95,22 +95,7 @@ public class Employee {
 	}
 
 
-
-
-	public double getTotal_Salary() {
-		return Total_Salary;
-	}
-
-
-
-
-	public int getHours_Worked() {
-		return Hours_Worked;
-	}
-
-
-
-
+	
 	public String getEmp_Type() {
 		return Emp_Type;
 	}
