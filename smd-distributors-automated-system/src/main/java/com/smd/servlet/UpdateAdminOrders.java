@@ -25,7 +25,7 @@ public class UpdateAdminOrders extends HttpServlet {
 		
 		PrintWriter out = response.getWriter();
 		response.setContentType("text/html");
-		
+		//get the details 
 		String OID=request.getParameter("OID");
 		String CID=request.getParameter("CID");
 		String ODATE=request.getParameter("ODATE");
@@ -43,29 +43,27 @@ public class UpdateAdminOrders extends HttpServlet {
 		int quantity=Integer.parseInt(QTY); 
 		int proId=Integer.parseInt(PID); 
 		int oid=Integer.parseInt(OID); 
-		
+		//call the update method 
 		boolean isdone=OrderM.updateorderadmin(oid, cusId, ODATE, OSTATES, totalprice, paidamount, remainamount, quantity, proId);
 		
 		if(isdone==true) {
-			
+			// if successful then show the alert and redirect to OrderAdminHome
 			out.println("<script type='text/javascript'>");
             out.println("alert('Order Update Successfully');");
-            out.println("location='AdminUI/OrderManagement/OrderAdminHome.jsp'"); 
+            out.println("location='admin/OrderManagement/OrderAdminHome.jsp'"); 
             out.println("</script>");
 			
-//			RequestDispatcher dis=request.getRequestDispatcher("AdminUI/OrderManagement/OrderAdminHome.jsp");
-//			dis.forward(request, response);
+
 			
 		}
 else {
-			
+	// if successful then show the alert and redirect to OrderAdminHome	
 	out.println("<script type='text/javascript'>");
     out.println("alert('Something went wrong');");
-    out.println("location='AdminUI/OrderManagement/OrderAdminHome.jsp'"); 
+    out.println("location='admin/OrderManagement/OrderAdminHome.jsp'"); 
     out.println("</script>");
 	
-//			RequestDispatcher dis=request.getRequestDispatcher("index.jsp");
-//			dis.forward(request, response);
+
 		}
 		
 	}

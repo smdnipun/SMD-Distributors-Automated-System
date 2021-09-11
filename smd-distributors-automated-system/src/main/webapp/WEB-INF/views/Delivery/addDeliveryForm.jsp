@@ -2,35 +2,40 @@
 
 		
 		<%
-				
-			String oid = request.getParameter("oid");
-			String cid = request.getParameter("cid");
-			String ostate = request.getParameter("ostate");
+		
+		String oid = " ";
+		String cid = " ";
+		String ostate = " ";
+		
+			oid = request.getParameter("oid");
+			cid = request.getParameter("cid");
+			ostate = request.getParameter("ostate");
 			
 		
 		%>
 		
-		<form action="../../add" method="post">
+		
+		<form autocomplete="off" action="../../addd" method="post">
 			
 			<div class="mb-3">
 				<label for="formGroupExampleInput" class="form-label">Route</label>
-				<input type="text" name="route"  class="form-control" id="formGroupExampleInput">
+				<input type="text" name="route"  aria-describedby="" class="form-control" id="formGroupExampleInput">
 			</div>
 			<div class="mb-3">
 				<label for="formGroupExampleInput" class="form-label">Date</label>
-				<input type="date" name="date" class="form-control" id="formGroupExampleInput">
+				<input type="date" name="date" aria-describedby="" class="form-control" id="formGroupExampleInput">
 			</div>
 			<div class="mb-3">
 				<label for="formGroupExampleInput" class="form-label">Status</label>
-				<input type="text" name="status" value="<%=ostate%>" class="form-control" id="formGroupExampleInput">
+				<input type="text" name="status" aria-describedby="" value="<%=ostate%>" class="form-control" id="formGroupExampleInput">
 			</div>
 			<div class="mb-3">
 				<label for="formGroupExampleInput" class="form-label" >Order ID</label>
-				<input type="text" name="oid" value="<%=oid%>" class="form-control" id="formGroupExampleInput" readonly>
+				<input type="text" name="oid" aria-describedby="" value="<%=oid%>" class="form-control" id="formGroupExampleInput" readonly>
 			</div>
 			<div class="mb-3">
 				<label for="formGroupExampleInput" class="form-label">Customer ID</label>
-				<input type="text" name="cid" value="<%=cid%>" class="form-control" id="formGroupExampleInput" readonly>
+				<input type="text" name="cid" aria-describedby="" value="<%=cid%>" class="form-control" id="formGroupExampleInput" readonly>
 			</div>
 			<div class="mb-3">
 				<label for="formGroupExampleInput" class="form-label">Vehicle</label>

@@ -42,10 +42,10 @@ request.setAttribute("payments", payments);
 				<tr>
 
 					<td><c:out value="${Payment.getPaymentID()}" /></td>
+					<td><c:out value="${Payment.getPaidAmount()}" /></td>
+					<td><c:out value="${Payment.getDate()}" /></td>
 					<td><c:out value="${Payment.getCusID()}" /></td>
 					<td><c:out value="${Payment.getInvoiceID()}" /></td>
-					<td><c:out value="${Payment.getDate()}" /></td>
-					<td><c:out value="${Payment.getPaidAmount()}" /></td>
 					<td><c:out value="${Payment.getEmpID()}" /></td>
 				</tr>
 			</c:forEach>

@@ -31,6 +31,7 @@ request.setAttribute("data", customerAged);
 			<th scope="col">Total Price</th>
 			<th scope="col">Paid Amount</th>
 			<th scope="col">Remaining Amount</th>
+			<th scope="col">Status</th>
 			
 
 		</tr>
@@ -46,6 +47,7 @@ request.setAttribute("data", customerAged);
 				<td><c:out value="${PaymentDetails.getTotalAmount()}" /></td>
 				<td><c:out value="${PaymentDetails.getPaidAmount()}" /></td>
 				<td><c:out value="${PaymentDetails.getBalance()}" /></td>
+				<td><c:out value="${PaymentDetails.getStatus()}" /></td>
 				
 
 

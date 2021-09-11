@@ -11,6 +11,13 @@
 	String pid=request.getParameter("pty");
 
 %>
+<br>
+<center>
+<h1>Delete Order</h1>
+</center>
+<br>
+<div class="content">
+
 	<form action=<%=request.getContextPath() + "/deleteadmin"%> method="post">
 	
 <div class="mb-3">
@@ -49,8 +56,9 @@
   <label for="formGroupExampleInput2" class="form-label">Product ID</label>
   <input type="text" class="form-control" id="formGroupExampleInput2" value="<%=pid %>" name="PID" readonly>
 </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">Delete Order</button>
 </form>
+	</div>
 	</div>
 	<br><br><br><br>
 

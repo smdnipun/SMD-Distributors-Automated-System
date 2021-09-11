@@ -7,7 +7,6 @@ $(document).ready(function() {
      
     $('#table tbody').on('click', 'tr', function () {
         var data = table.row( this ).data();
-console.log(data)
 		$('#cus_id').val(data[0]);
 		$('#fname').val(data[1]);
 		$('#lname').val(data[2]);

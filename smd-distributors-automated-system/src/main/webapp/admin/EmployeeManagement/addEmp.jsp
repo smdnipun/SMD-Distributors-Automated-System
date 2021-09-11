@@ -1,28 +1,20 @@
 <jsp:include page="../../WEB-INF/views/common/head.jsp">
   <jsp:param name="Title" value="SMD Distributors" />
 </jsp:include>
-
+<link rel="stylesheet" href=<%=request.getContextPath() + "/css/Employe.css"%>>
 <body>
   <jsp:include page="../../WEB-INF/views/common/header.jsp"></jsp:include>
-  <jsp:include page="../../WEB-INF/views/common/navbar.jsp">
-    <jsp:param name="navs" value="ttt,ffff ddddd,fff" />
-  </jsp:include>
 
-  <div>
-    <form action=<%=request.getContextPath() +"/view"%> method="post">
+  
+<div class="row">
+<jsp:include
+page="EmployeeNav.jsp"></jsp:include>
+<div class="col-9">
 
-      <button type="submit">submit</button>
-
-    </form>
-
-  </div>
+ 
 
 
-
-  <div class="(col-10)">
-
-
-    <form action=<%=request.getContextPath() +"/add"%> method="post">
+    <form action=<%=request.getContextPath() +"/addemp"%> method="post" class="content">
       <div class="form-group">
         <label for="fname">First Name</label>
         <input type="text" class="form-control" id="fname" name="fname" aria-describedby=""
@@ -95,15 +87,10 @@
 
 
   </div>
+  </div>
 
-
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-
-
+ 
+<jsp:include page="../../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
 
 </body>
 

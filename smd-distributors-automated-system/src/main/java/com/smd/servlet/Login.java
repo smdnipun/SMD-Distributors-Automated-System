@@ -18,7 +18,7 @@ import com.smd.service.CusDetailsServiceImpl;
 import com.smd.service.EmployeeDBUtill;
 import com.smd.service.ICustomerDetails;
 
-@WebServlet("/Login")
+@WebServlet("/login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -36,15 +36,19 @@ public class Login extends HttpServlet {
 		
 		boolean Found = false;
 		
+		System.out.println(customerData[0].getEmail());
+		System.out.println(request.getParameter("password"));
 		try {
 			for(int i=0;i<customerData.length;i++) {
 				if((customerData[i].getEmail().equals(request.getParameter("email")))&&(customerData[i].getPassword().equals(request.getParameter("password")))) {
 					Found=true;
 					if(customerData[i].getStatus().equals("Active")) {
+						//setting the sessions when login
 						request.getSession().setAttribute("CustomerID",customerData[i].getCusID());
+						request.getSession().setAttribute("Hname",customerData[i].getHardwareName());
 						request.getSession().setAttribute("Customer",customerData[i]);
 						request.getSession().setAttribute("Logged","User");
-						response.sendRedirect("index.jsp");
+						response.sendRedirect("./index.jsp");//redirect to login page
 					}
 					else {
 						RequestDispatcher r=request.getRequestDispatcher("ErrorDeactivatedAccount.jsp"); 
@@ -54,7 +58,9 @@ public class Login extends HttpServlet {
 					break;
 				}
 			}
-		}catch (Exception e) {}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		try {
 			for(int i=0;i<employeeData.length;i++) {
@@ -72,7 +78,7 @@ public class Login extends HttpServlet {
 						request.getSession().setAttribute("Logged","Stock");
 						response.sendRedirect("admin/StockManagement/SupplierPage.jsp");
 					}
-					else if(employeeData[i].getEmp_Type().equals("creditsales")) {
+					else if(employeeData[i].getEmp_Type().equals("cashCollector")) {
 						request.getSession().setAttribute("Logged","Stock");
 						response.sendRedirect("admin/CreditSalesManagement/CreditPayment.jsp");
 					}

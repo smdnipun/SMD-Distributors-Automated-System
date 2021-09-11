@@ -23,11 +23,11 @@ public class viewAdminOrders extends HttpServlet {
        
    
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		//call view order method	
 	List<Order> orderdetails=	OrderM.ViewOrder();
 	request.setAttribute("orderdetails", orderdetails);
-	
-	RequestDispatcher dis=request.getRequestDispatcher("AdminUI/OrderManagement/OrderAdmin.jsp");
+	//redirect to orderadmin page
+	RequestDispatcher dis=request.getRequestDispatcher("admin/OrderManagement/OrderAdmin.jsp");
 	dis.forward(request, response);
 	
 	}

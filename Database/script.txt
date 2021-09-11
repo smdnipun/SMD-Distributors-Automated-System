@@ -30,10 +30,10 @@ DROP TABLE IF EXISTS `feedback`;
 CREATE TABLE `feedback` (
   `Feedback_ID` int NOT NULL AUTO_INCREMENT,
   `Cus_ID` int NOT NULL,
-  `Date` varchar(11) DEFAULT NULL,
+  `Date` datetime NOT NULL,
   `Type` varchar(10) NOT NULL,
   `Message` varchar(100) NOT NULL,
-  `Rating` varchar(45) NOT NULL,
+  `Rating` int NOT NULL,
   `Status` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`Feedback_ID`,`Cus_ID`),
   KEY `CustomerID_idx` (`Cus_ID`),

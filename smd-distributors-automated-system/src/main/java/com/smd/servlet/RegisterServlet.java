@@ -1,6 +1,7 @@
 package com.smd.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -35,6 +36,8 @@ public class RegisterServlet extends HttpServlet {
 		//Creating customer array to get customer details from CusDetailsServiceImpl
 		Customer[] CustomerData = cusDetails.getCustomerDetails();
 		
+		PrintWriter out = response.getWriter();
+		
 		boolean cFound = false;
 		
 		//setting the values taken from the registration page
@@ -67,12 +70,16 @@ public class RegisterServlet extends HttpServlet {
 				boolean status = cusDetails.addCustomer(customer);
 				
 				if(status == true){//if the data was passed to the database successfully
-					response.sendRedirect("/login.jsp");
+					//display an error message
+					out.println("<script type=\"text/javascript\">");
+				    out.println("alert('Successfly Registered!!!');");
+				    out.println("location='./login.jsp'"); //redirect to the registration page
+				    out.println("</script>");
+//					response.sendRedirect("./login.jsp");
 				}
 				else{//if the data was not passed to the database
 					//redirect to the registration page
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/registration.jsp");
-					
 					//display an error message
 					request.setAttribute("message", "There was an error please try again!!!");
 					dispatcher.forward(request, response);
@@ -89,9 +96,6 @@ public class RegisterServlet extends HttpServlet {
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/registration.jsp");
 			//display error message
 			request.setAttribute("message", "Password mismatch!!!");
-			
-//			request.getSession().setAttribute("CustomerObj",customer);
-			
 			//redirect page
 			dispatcher.forward(request, response);
 		}
