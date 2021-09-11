@@ -28,15 +28,8 @@
 							class="slider round"></span>
 						</label>
 					</div>
-					<div class="form-inline">
-						<label>Product Availability</label> <label class="switch">
-							<input type="checkbox" name="availablity" checked> <span
-							class="slider round"></span>
-						</label>
-					</div>
 					<button type="submit">Add</button>
-					<br>
-					<br>
+					<br> <br>
 				</div>
 			</div>
 		</form>

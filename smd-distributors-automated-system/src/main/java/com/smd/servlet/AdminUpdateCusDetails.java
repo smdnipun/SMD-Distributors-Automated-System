@@ -91,7 +91,7 @@ public class AdminUpdateCusDetails extends HttpServlet {
 			}	
 			else { //customer with same email or NIC found found
 				RequestDispatcher redirect = getServletContext().getRequestDispatcher("admin/CustomerManagement/CustomerDetails.jsp");
-				request.setAttribute("message", "A user wwith same email or NIC exist.");
+				request.setAttribute("message", "A user with same email or NIC exist.");
 				redirect.forward(request, response);
 			}
 		} 
