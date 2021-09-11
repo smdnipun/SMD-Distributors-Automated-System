@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.smd.model.Customer;
 import com.smd.service.CusDetailsServiceImpl;
 import com.smd.service.ICustomerDetails;
+import com.smd.util.Services;
 
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
@@ -36,6 +37,9 @@ public class RegisterServlet extends HttpServlet {
 		//Creating customer array to get customer details from CusDetailsServiceImpl
 		Customer[] CustomerData = cusDetails.getCustomerDetails();
 		
+		//Creating service class object
+		Services sv = new Services();
+		
 		PrintWriter out = response.getWriter();
 		
 		boolean cFound = false;
@@ -52,7 +56,8 @@ public class RegisterServlet extends HttpServlet {
 				request.getParameter("city")+ ", " +
 				request.getParameter("State")
 				);
-		customer.setPassword(request.getParameter("pwd"));
+		String pwd = sv.doHashing(request.getParameter("pwd"));
+		customer.setPassword(pwd);
 		
 		//checking the password is correctly enter in both fields(password and re-enter password)
 		if(request.getParameter("pwd").equals(request.getParameter("rpwd"))) {
