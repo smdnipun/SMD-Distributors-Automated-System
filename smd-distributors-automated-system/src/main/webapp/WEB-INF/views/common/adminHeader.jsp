@@ -32,7 +32,7 @@
         style="font-size: 2.5rem; padding-right: 1.5rem"></i>
       <div class="pt-2">
 	      <form action="logout" method="post">
-	      	<button type="button" class="btn btn-outline-danger">LogOut</button>
+	      	<button type="submit" class="btn btn-outline-danger">LogOut</button>
 	      </form>
       </div>
     </div>

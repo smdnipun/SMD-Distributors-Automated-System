@@ -191,23 +191,26 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 		
 		try {
 			Statement stmt = con.getConnection().createStatement();
-			String command = "select * from smd.customer where where Cus_ID =" + id;
+			String command = "select * from smd.customer where Cus_ID =" + id;
 			ResultSet rs = stmt.executeQuery(command);//execute the statement
 			
 			//retrieve the data from the specific customer
-			Customer c = new Customer(
-					rs.getString(1),	//cusID
-					rs.getString(2), 	//fname
-					rs.getString(3),	//lname
-					rs.getString(4),	//hardwareName
-					rs.getString(5),	//phoneNo
-					rs.getString(6),	//password
-					rs.getString(7),	//nic
-					rs.getString(8),	//email
-					rs.getString(9),	//address
-					rs.getString(10)	//status
-					);
-			return c;
+			while(rs.next()) {
+				Customer c = new Customer(
+						rs.getString(1),	//cusID
+						rs.getString(2), 	//fname
+						rs.getString(3),	//lname
+						rs.getString(4),	//hardwareName
+						rs.getString(5),	//phoneNo
+						rs.getString(6),	//password
+						rs.getString(7),	//nic
+						rs.getString(8),	//email
+						rs.getString(9),	//address
+						rs.getString(10)	//status
+						);
+				return c;
+			}
+			return null;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
