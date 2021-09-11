@@ -2,7 +2,6 @@ package com.smd.model;
 
 //Create Payment details class
 public class PaymentDetails {
-	private String PaymentID;
 	private String CusName;
 //	private String CusID;
 	private String InvoiceID;
@@ -13,10 +12,10 @@ public class PaymentDetails {
 
 //Constructor
 	// String cusID
-	public PaymentDetails(String paymentID, String cusName, String invoiceID, double totalAmount, double paidAmount,
+	public PaymentDetails(String cusName, String invoiceID, double totalAmount, double paidAmount,
 			double balance,String status) {
 		
-		PaymentID = paymentID;
+	
 		CusName = cusName;
 //		CusID = cusID;
 		InvoiceID = invoiceID;
@@ -27,14 +26,6 @@ public class PaymentDetails {
 	}
 
 	// Setters and getters
-	public String getPaymentID() {
-		return PaymentID;
-	}
-
-	public void setPaymentID(String paymentID) {
-		PaymentID = paymentID;
-	}
-
 	public String getCusName() {
 		return CusName;
 	}

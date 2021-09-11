@@ -13,7 +13,7 @@ CreditSalesM dbc = new CreditSalesM();
 CustomerAgedRecivable[] customerAgedRecivable = dbc.getCreditAgedDetails();
 request.setAttribute("data", customerAgedRecivable);
 %>
-<jsp:include page="centerNav.jsp"></jsp:include>
+<jsp:include page="CenterNavWithoutSearch.jsp"></jsp:include>
 <div class="pt-2">
 
 	<center>
@@ -22,74 +22,33 @@ request.setAttribute("data", customerAgedRecivable);
 </div>
 <div>
 	<table id="payTable" class="display nowrap" style="width: 100%">
-		<c:choose>
-			<c:when test="${param.search==null}">
-				<%
-				CreditSalesM con = new CreditSalesM();
-				CustomerAgedRecivable[] allPayments = con.getCreditAgedDetails();
-				request.setAttribute("allPayments", allPayments);
-				%>
 
 
-				<thead>
 
-					<tr>
-						<th scope="col">CustomerID</th>
-						<th scope="col">Hardware Name</th>
-						<th scope="col">Invoice ID</th>
-						<th scope="col">Total Amount</th>
-						<th scope="col">Paid Amount</th>
-						<th scope="col">Remaining Amount</th>
+		<thead>
 
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach items="${data}" var="CustomerAgedRecivable">
-						<tr>
-							<td><c:out value="${CustomerAgedRecivable.getCus_ID()}" /></td>
-							<td><c:out
-									value="${CustomerAgedRecivable.getHardwareName()}" /></td>
-							<td><c:out value="${CustomerAgedRecivable.getInvoiceID()}" /></td>
-							<td><c:out value="${CustomerAgedRecivable.getTotalAmount()}" /></td>
-							<td><c:out value="${CustomerAgedRecivable.getPaidAmount()}" /></td>
-							<td><c:out value="${CustomerAgedRecivable.getBalance()}" /></td>
+			<tr>
+				<th scope="col">CustomerID</th>
+				<th scope="col">Hardware Name</th>
+				<th scope="col">Invoice ID</th>
+				<th scope="col">Total Amount</th>
+				<th scope="col">Paid Amount</th>
+				<th scope="col">Remaining Amount</th>
 
-						</tr>
-					</c:forEach>
-					</tbody>
-			</c:when>
-			<c:otherwise>
-				<%
-				CreditSalesM con = new CreditSalesM();
-				CustomerAgedRecivable[] searchPay = con.search(request.getParameter("search"));
-				request.setAttribute("searchData", searchPay);
-				%>
-				<c:forEach items="${searchData}" var="CustomerAgedRecivable">
-					<thead>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach items="${data}" var="CustomerAgedRecivable">
+				<tr>
+					<td><c:out value="${CustomerAgedRecivable.getCus_ID()}" /></td>
+					<td><c:out value="${CustomerAgedRecivable.getHardwareName()}" /></td>
+					<td><c:out value="${CustomerAgedRecivable.getInvoiceID()}" /></td>
+					<td><c:out value="${CustomerAgedRecivable.getTotalAmount()}" /></td>
+					<td><c:out value="${CustomerAgedRecivable.getPaidAmount()}" /></td>
+					<td><c:out value="${CustomerAgedRecivable.getBalance()}" /></td>
 
-						<tr>
-							<th scope="col">CustomerID</th>
-							<th scope="col">Hardware Name</th>
-							<th scope="col">Invoice ID</th>
-							<th scope="col">Total Amount</th>
-							<th scope="col">Paid Amount</th>
-							<th scope="col">Remaining Amount</th>
-
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td><c:out value="${CustomerAgedRecivable.getCus_ID()}" /></td>
-							<td><c:out value="${CustomerAgedRecivable.getHardwareName()}" /></td>
-							<td><c:out value="${CustomerAgedRecivable.getInvoiceID()}" /></td>
-							<td><c:out value="${CustomerAgedRecivable.getTotalAmount()}" /></td>
-							<td><c:out value="${CustomerAgedRecivable.getPaidAmount()}" /></td>
-							<td><c:out value="${CustomerAgedRecivable.getBalance()}" /></td>
-
-						</tr>
-				</c:forEach>
-				</tbody>
-			</c:otherwise>
-		</c:choose>
+				</tr>
+			</c:forEach>
+		</tbody>
 	</table>
 </div>
