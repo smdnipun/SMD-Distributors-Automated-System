@@ -3,14 +3,16 @@ package com.smd.model;
 public class Supplier {
 	
 	private int supplierID;
-	private String name;
+	private String sname;
+	private String pname;
 	private String address;
 	private String tno;
 	private String status;
 //Constructor
-	public Supplier(int supplierID, String name, String address, String tno,String status){
+	public Supplier(int supplierID,String pname, String sname, String address, String tno,String status){
 		this.supplierID=supplierID;
-		this.name=name;
+		this.pname=pname;
+		this.sname=sname;
 		this.address=address;
 		this.tno=tno;
 		this.status=status;
@@ -24,9 +26,12 @@ public class Supplier {
 		public void setSupplierID(int supplierID) {
 			this.supplierID = supplierID;
 		}
+		public void setSName(String sname) {
+			this.sname = sname;
+		}
 
-		public void setName(String name) {
-			this.name = name;
+		public void setPName(String pname) {
+			this.pname = pname;
 		}
 		
 		public void setAddress(String address) {
@@ -44,9 +49,12 @@ public class Supplier {
 	public int getSupplierID() {
 		return supplierID;
 	}
+	public String getSName() {
+		return sname;
+	}
 
-	public String getName() {
-		return name;
+	public String getPName() {
+		return pname;
 	}
 
 	public String getAddress() {

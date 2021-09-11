@@ -76,7 +76,7 @@ public class SupplierUpdate extends HttpServlet {
 		if (request.getParameter("button").equals("update")) {
 			try {
 				Statement stmt = dbc.getConnection().createStatement();
-				String command = "update vendor set Vendor_Name='" + request.getParameter("name") + "',Address='"
+				String command = "update vendor set Vendor_Name='" + request.getParameter("sname") + "','" + request.getParameter("pname") + "',Address='"
 						+ request.getParameter("address") + "'," + "Phone='" + request.getParameter("tno")
 					+ "' where Vendor_Id=" + request.getParameter("supplierID");
 			int rows = stmt.executeUpdate(command);

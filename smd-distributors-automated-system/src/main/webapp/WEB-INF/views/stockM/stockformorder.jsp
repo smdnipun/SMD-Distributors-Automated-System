@@ -28,7 +28,7 @@
 					class="form-control" id="exampleInputPassword1" name="quntity">
 			</div>
 			<div>
-			<button name ="button" value="delete" type="submit" name="id" class="btn btn-light">Release Stock</button>
+			<button name ="button" value="delete" type="submit" class="btn btn-light">Release Stock</button>
 			</div>
 		</form>
 </div>
