@@ -1,20 +1,45 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<jsp:include page="../../WEB-INF/views/common/head.jsp">
-		<jsp:param name="Title" value="SMD Distributors" />
+	<jsp:param name="Title" value="SMD Distributors" />
 
 	</jsp:include>
-
+    <link rel="stylesheet" href=<%=request.getContextPath() + "/css/Employe.css"%>>
 	<body>
 	
 		<jsp:include page="../../WEB-INF/views/common/header.jsp"></jsp:include>
 		
+		
+<script>
+$(document).ready(function() {
+    $('#example').DataTable( {
+        "scrollX": true
+    } );
+} );
 
-		<div class="(col-10)">
+
+
+</script>
+		
+		
+		
+		
+		
+		
+		
+<div class="row">
+<jsp:include
+page="EmployeeNav.jsp"></jsp:include>
+<div class="col-9">
+
+ 
+<center>
+ <h2>Employee Details</h2>
+</center>
 
 
 
-			<table class="table table-dark "  style="width:100%">
-				<thead>
+			<table id="example" class="table  display nowrap" style="width:100%">
+				<thead class="thead-dark">
 					<tr>
 						<th scope="col">EmpID</th>
 						<th scope="col">Type</th>
@@ -26,10 +51,13 @@
 						<th scope="col">NIC</th>
 						<th scope="col">Email</th>
 						<th scope="col">Address</th>
+						<th scope="col">Update Employee</th>
+						<th scope="col">Delete Employee</th>
 					</tr>
-				<tbody>
+			    		 
+			              
 					<c:forEach var="employee" items="${employeeDetails}">
-
+			
 						<c:set var="id" value="${employee.emp_ID}" />
 						<c:set var="emp_Type" value="${employee.emp_Type}" />
 						<c:set var="fname" value="${employee.first_Name}" />
@@ -40,8 +68,6 @@
 						<c:set var="nic" value="${employee.getNIC()}" />
 						<c:set var="email" value="${employee.email} " />
 						<c:set var="address" value="${employee.address}" />
-
-
 
 
 
@@ -136,21 +162,23 @@
 
 							</td>
 
-
 					</c:forEach>
-				</tbody>
+
 			</table>
 
 		</div>
+		</div>
 
 
+
 		<br>
 		<br>
 		<br>
 		<br>
 		<br>
 
-
+ 
+<jsp:include page="../../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
 
 	</body>
 

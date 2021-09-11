@@ -1,6 +1,7 @@
 package com.smd.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,6 +18,12 @@ public class EmployeeAddServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		PrintWriter out = response.getWriter();
+        response.setContentType("text/html");
+		
+        //get employee details to the variables
+        
 		String Fname = request.getParameter("fname");
 		String lname = request.getParameter("lname");
 		String phone = request.getParameter("phone");
@@ -29,14 +36,28 @@ public class EmployeeAddServlet extends HttpServlet {
 		
 		boolean isTrue;
 		
+		//pass the values to method
 		isTrue= EmployeeDBUtill.addEmployee(Fname, lname, phone, uname, password, nic, email, Address, option);
 		
 		if(isTrue==true) {
-			RequestDispatcher dis = request.getRequestDispatcher("index.jsp");
-			dis.forward(request, response);
+			
+			//Java Script for redirect
+			out.println("<script type='text/javascript'>");
+            out.println("alert('Employee successfully added to the system');"); //alert
+            out.println("location='admin/EmployeeManagement/addEmp.jsp'"); //redirect
+            out.println("</script>");
+            
+			
 		}else {
-			RequestDispatcher dis = request.getRequestDispatcher("login.jsp");
-			dis.forward(request, response);
+			
+			//Java Script for redirect
+			out.println("<script type='text/javascript'>");
+	        out.println("alert('something went wrong please check again ');"); //alert
+	        out.println("location='admin/EmployeeManagement/addEmp.jsp'"); //redirect
+	        out.println("</script>");
+	            
+			
+			
 		}
 	}
 
