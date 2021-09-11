@@ -3,6 +3,6 @@
  System.out.println(arr[0]);
 %>
 <div class="text-center">
-	<img src=<%=request.getContextPath()+"/img/Logo.png"%> height="100" width="100">
+	<img src="<%=request.getContextPath()+"/img/"+request.getParameter("image")+".jpg"%>" height="100" width="100">
 	<div>${param.ProductName}</div>
 </div>

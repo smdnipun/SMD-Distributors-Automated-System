@@ -9,11 +9,17 @@
 	<meta charset="ISO-8859-1">
 </head>
 <body>
-	<jsp:include page="../../WEB-INF/views/common/header.jsp"></jsp:include>
+	
 	
 	
 	
 <div class="pt-2">
+
+		<jsp:include page="../../WEB-INF/views/common/header.jsp"></jsp:include>
+		<jsp:include page="../../WEB-INF/views/common/navbar.jsp">
+			<jsp:param name="navs" value="ttt,ffff ddddd,fff" />
+		</jsp:include>
+
 	<center>
 		<h5>Delivery Details</h5>
 	</center>
@@ -38,7 +44,7 @@
 	</thead>
 	<tbody>
 		<c:forEach var="del" items="${deliveryDetails}">
-			<form action=<%=request.getContextPath() + "/update"%> method="post">
+			<form action=<%=request.getContextPath() + "/updated"%> method="post">
 			<tr>
 				<td><input type="text" value="${del.delivryID}" name="did" class="form-control" id="formGroupExampleInput" readonly/></td>
 				<td><c:out value="${del.route}" /></td>
@@ -51,7 +57,7 @@
 			</tr>
 			</form>
 			
-			<form  action=<%=request.getContextPath() + "/delete"%>  method="post">
+			<form  action=<%=request.getContextPath() + "/deleted"%>  method="post">
 			<tr>
 				<td/><td/><td/><td/><td/><td/>
 				<td><input type="text" value="${del.delivryID}" name="did" class="form-control" id="formGroupExampleInput" readonly/></td>

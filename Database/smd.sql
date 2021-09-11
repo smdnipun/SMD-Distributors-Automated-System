@@ -29,10 +29,10 @@ DROP TABLE IF EXISTS `feedback`;
 CREATE TABLE `feedback` (
   `Feedback_ID` int NOT NULL AUTO_INCREMENT,
   `Cus_ID` int NOT NULL,
-  `Date` varchar(11) DEFAULT NULL,
+  `Date` datetime NOT NULL,
   `Type` varchar(10) NOT NULL,
   `Message` varchar(100) NOT NULL,
-  `Rating` varchar(45) NOT NULL,
+  `Rating` int NOT NULL,
   `Status` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`Feedback_ID`,`Cus_ID`),
   KEY `CustomerID_idx` (`Cus_ID`),
@@ -382,7 +382,6 @@ where c.Cus_ID=o.Cust_ID and Order_Status="pending";
 -- Database functions & procedures
 
 
-
 -- select queries
 
 -- select tables
@@ -404,3 +403,7 @@ select * from smd.vendor;
 select * from smd.PaymentDetails;
 select * from smd.CustomerAged;
 select * from smd.NewOrders;
+
+select count(email) from customer where email = 'nipunsenarath2@gmail.com';
+
+DELETE from customer where Cus_ID = 9;

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+      <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,22 +27,72 @@
 		
 		<div class="formcontent">
 		<h5 align="center" class="capitalize">Update Feedback Details</h5> 
-			<form action="../update" method="post" class="form">
-				Feedback ID: 
-				<input type="text" name="Feedback_ID" style="width:20%" value="<%= Feedback_ID %>" readonly><br><br>
+			<form action="../updatefeedback" method="post" class="form">
+			
+			<div class="form-group row">
+    			<label for="feedbackid" class="col-sm-5 col-form-label">Feedback ID: </label>
+    			<div class="col-sm-5">
+      			<input type="text" readonly class="form-control-plaintext" name="Feedback_ID" value="<%= Feedback_ID %>">
+			    </div>
+			  </div>
+			  <div class="form-group row">
+    			<label for="feedbackid" class="col-sm-5 col-form-label">Customer ID: </label>
+    			<div class="col-sm-5">
+      			<input type="text" readonly class="form-control-plaintext" name="Cus_ID" value="<%= Cus_ID %>">
+			    </div>
+			  </div>
+			  <div class="form-group row">
+    			<label for="feedbackid" class="col-sm-5 col-form-label">Date: </label>
+    			<div class="col-sm-5">
+      			<input type="text" readonly class="form-control-plaintext" name="Date" value="<%= Date %>">
+			    </div>
+			  </div>
+			  <div class="form-group row">
+			  
+    			<label for="feedbackid" class="col-sm-5 col-form-label">Type of the message: </label>
+    			<div class="col-sm-5">
+      			<input type="text" readonly class="form-control-plaintext" name="Type" value="<%= Type %>">
+			    </div>
+			  </div>
+			  <div class="form-group row">
+    			<label for="feedbackid" class="col-sm-5 col-form-label">Message: </label>
+    			<div class="col-sm-5">
+      			<input type="text" readonly class="form-control-plaintext" name="Message" value="<%= Message %>">
+			    </div>
+			  </div>
+			  <div class="form-group row">
+    			<label for="feedbackid" class="col-sm-5 col-form-label">Rating: </label>
+    			<div class="col-sm-5">
+      			<input type="text" readonly class="form-control-plaintext" name="Rating" value="<%= Rating %>">
+			    </div>
+			  </div>
+			
+			
+				<%-- Feedback ID: 
+				<input class="form-control-plaintext" type="text" name="Feedback_ID" style="width:20%" value="<%= Feedback_ID %>" readonly><br>
 				Customer ID:  <!-- paymentid is unique auto-incremented -->
-				<input type="text" name="Cus_ID" style="width:20%" value="<%= Cus_ID %>" readonly><br><br>
+				<input class="form-control-plaintext" type="text" name="Cus_ID" style="width:20%" value="<%= Cus_ID %>" readonly><br>
 				Date: 
-				<input type="text" name="Date" style="width:20%" value="<%= Date %>" readonly><br><br>
+				<input class="form-control-plaintext" type="text" name="Date" style="width:50%" value="<%= Date %>" readonly><br>
 				Type of the message:
-				<input type="text" name="Type" style="width:20%" value="<%= Type %>" readonly><br><br>
+				<input class="form-control-plaintext" type="text" name="Type" style="width:20%" value="<%= Type %>" readonly><br>
 				Message: 
-				<input type="text" name="Message" style="width:40%" value="<%= Message %>" readonly><br><br>
+				<input class="form-control-plaintext" type="text" name="Message" style="width:50%" value="<%= Message %>" readonly><br>
 				Rating: 
-				<input type="text" name="Rating" style="width:20%" value="<%= Rating %>" readonly><br><br><br>
-				Status: 
-				<input type="text" name="Status" style="width:20%" value="<%= Status %>"><br><br><br>
-				<input type="submit" name="submit" value="Update The Data">
+				<input class="form-control-plaintext" type="text" name="Rating" style="width:20%" value="<%= Rating %>" readonly><br> --%>
+				
+				
+				<label for="Status" class="col-sm-6 col-form-label">Status:</label>
+ 	 				<select name="Status" id="Status">
+					    <option name="Status" value="<%= Status %>">Completed</option>
+					    <option name="Status" value="<%= Status %>">Pending</option>
+					    <option name="Status" value="<%= Status %>">Searching</option>
+					    <option name="Status" value="<%= Status %>">Thankyou</option>
+  					</select><br><br>
+				<%-- Status: 
+				<input type="text" name="Status" style="width:20%" value="<%= Status %>"><br><br><br> --%>
+				<input type="submit" name="submit" value="Update The Data"> 
+				
 			</form>
 		</div>
 		<br><br><br>

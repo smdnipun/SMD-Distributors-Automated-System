@@ -32,6 +32,15 @@
 							value="${product.getPrice()}" type="number" />
 					</div>
 					<div class="form-inline">
+					<% Product n=(Product) request.getAttribute("product"); %>
+						<select name="image">
+							<option value="sanstha" <%=n.getImage().equals("sanstha") ? "selected":"" %>>Sanstha</option>
+							<option value="tokyo" <%=n.getImage().equals("tokyo") ?"selected":"" %>>tokyo</option>
+							<option value="powertech" <%=n.getImage().equals("powertech") ?"selected":"" %>>powertech</option>
+							<option value="nippon" <%=n.getImage().equals("nippon") ?"selected":"" %>>nippon</option>
+						</select>
+					</div>
+					<div class="form-inline">
 						<label>Product Availability</label> <label class="switch">
 							<c:choose>
 								<c:when test="${product.getAvailablity()}">
@@ -47,45 +56,10 @@
 						</label>
 					</div>
 				</div>
-				<!--<div class="col-8">
-					<div class="px-4">
-						<div style="border: 3px solid; border-radius: 30px"
-							class="px-5 py-3">
-							<div class="h5 text-center pb-2 pt-1">Product Images</div>
-							<div class="row gy-1">
-								<div class="col-2">
-									<div class="box"></div>
-									<button class="close">x</button>
-								</div>
-								<div class="col-2">
-									<div class="box"></div>
-									<button class="close">x</button>
-								</div>
-								<div class="col-2">
-									<div class="box"></div>
-									<button class="close">x</button>
-								</div>
-								<div class="col-2">
-									<div class="box"></div>
-									<button class="close">x</button>
-								</div>
-								<div class="col-2">
-									<div class="box"></div>
-									<button class="close">x</button>
-								</div>
-								<div class="col-2">
-									<button class="buttonBox d-flex justify-content-center">
-										<h1 class="my-auto display-4">+</h1>
-									</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>-->
 			</div>
 			<div>
-				<button type="submit" name="update">Update</button>
-				<button type="submit" name="delete">Delete</button>
+				<button type="submit" name="button" value="update">Update</button>
+				<button type="submit" name="button" value="delete">Delete</button>
 			</div>
 		</form>
 	</div>

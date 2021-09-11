@@ -22,7 +22,7 @@
 				
 				
 				
-				<form action=<%=request.getContextPath() + "/view"%> method="post">
+				<form action=<%=request.getContextPath() + "/viewd"%> method="post">
 				
 					<input type="submit" name="view" value="view">
 				</form>

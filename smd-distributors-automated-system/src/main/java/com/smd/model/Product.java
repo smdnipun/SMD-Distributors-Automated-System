@@ -28,13 +28,15 @@ public class Product {
 		this.availablity=availablity;
 	}
 	
-	public Product(String productID, String name,String image, int weight, int price) {
+	public Product(String productID,int weight,String date, String name,int price,boolean availablity,String image) {
 		this.productID = productID;
 		this.name = name;
+		this.date=date;
 		this.weight = weight;
 		this.price = price;
+		this.availablity=availablity;
 		this.image=image;
-		}
+	}
 
 	public String getProductID() {
 		return productID;
@@ -59,4 +61,5 @@ public class Product {
 	public boolean getAvailablity() {
 		return availablity;
 	}
+
 }

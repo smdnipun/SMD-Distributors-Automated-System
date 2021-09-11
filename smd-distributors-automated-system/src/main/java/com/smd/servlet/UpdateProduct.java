@@ -34,9 +34,14 @@ public class UpdateProduct extends HttpServlet {
 		try {
 			Statement stmt=dbc.getConnection().createStatement();
 			
-			String command = "UPDATE product SET Name = '"+request.getParameter("pname")+"',Product_Weight = '"+request.getParameter("pweight")+"',Unit_Price = '"+request.getParameter("pprice")+"',Availability='"+availability+"' WHERE Prod_ID ="+ request.getParameter("pid");
+			String command="";
+			if(request.getParameter("button").equals("update")) {
+				command = "UPDATE product SET Name = '"+request.getParameter("pname")+"',Product_Weight = '"+request.getParameter("pweight")+"',Unit_Price = '"+request.getParameter("pprice")+"',Availability='"+availability+"',image='"+request.getParameter("image")+"' WHERE Prod_ID ="+ request.getParameter("pid");
+			}else if(request.getParameter("button").equals("delete")) {
+				command = "delete from product where Prod_ID=" + request.getParameter("pid");
+			}
 //			response.getWriter().append(command);
-			@SuppressWarnings("unused")
+
 			int rows=stmt.executeUpdate(command);
 			
 //			Staff[] data=dbc.getStaffdetails();

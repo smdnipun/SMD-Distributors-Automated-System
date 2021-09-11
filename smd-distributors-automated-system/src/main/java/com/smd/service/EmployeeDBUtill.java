@@ -144,8 +144,6 @@ public class EmployeeDBUtill {
 			String password,String nic,String email,String add) {
 		
 		boolean isSuccess = false;
-		
-		
 		try {
 			DBConnection con = new DBConnection();
 			stmt = con.getConnection().createStatement();
@@ -182,8 +180,8 @@ public class EmployeeDBUtill {
 	//method for delete employee details
 	
 	public static boolean deleteEmployee(int ID) {
+		
 		boolean isSuccess = false;
-
 		try {
 			DBConnection con = new DBConnection();
 			stmt = con.getConnection().createStatement();
@@ -287,12 +285,10 @@ public class EmployeeDBUtill {
 	
 	
 	
-
 	//getting employee salary details list from database
 	
 	public static List<EmployeeSalary> viewEmployeeSalary(){
 		ArrayList<EmployeeSalary> esl = new ArrayList<>();
-		
 		try {
 			DBConnection con = new DBConnection();
 			stmt = con.getConnection().createStatement();
@@ -402,7 +398,6 @@ public class EmployeeDBUtill {
 		return empresigninfo; //return EmployeeResignDetails array object
 	}
 
-	
 	
 	
 	

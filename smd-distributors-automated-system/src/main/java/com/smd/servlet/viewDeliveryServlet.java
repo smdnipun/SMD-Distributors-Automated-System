@@ -28,7 +28,7 @@ public class viewDeliveryServlet extends HttpServlet {
 					e.printStackTrace();
 			}
 				
-				RequestDispatcher dis = request.getRequestDispatcher("AdminUI/DeliveryManage/DeliveryDetails.jsp");
+				RequestDispatcher dis = request.getRequestDispatcher("admin/DeliveryManage/DeliveryDetails.jsp");
 				dis.forward(request, response);
 				
 			}
