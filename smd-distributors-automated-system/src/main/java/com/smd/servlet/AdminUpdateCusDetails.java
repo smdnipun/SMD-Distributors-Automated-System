@@ -93,14 +93,14 @@ public class AdminUpdateCusDetails extends HttpServlet {
 			if(status == true){//if the data was updated successfully
 				//display an error message
 				out.println("<script type=\"text/javascript\">");
-			    out.println("alert('Deleted Successfully!');");
+			    out.println("alert('Deleted Successfully !!!');");
 			    out.println("location='admin/CustomerManagement/CustomerDetails.jsp'"); //redirect to the registration page
 			    out.println("</script>");
 			}
 			else{//if the data was not passed to the database
 				//display an error message
 				out.println("<script type=\"text/javascript\">");
-			    out.println("alert('Deleted Successfully!');");
+			    out.println("alert('Deleted unsuccessful !!!');");
 			    out.println("location='admin/CustomerManagement/CustomerDetails.jsp'"); //redirect to the registration page
 			    out.println("</script>");
 			}

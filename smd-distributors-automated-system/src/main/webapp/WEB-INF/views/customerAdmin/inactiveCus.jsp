@@ -6,10 +6,6 @@
 <!--checking user logged or not -->
 <!-- creating array to get data from database -->
 <%
-if (request.getSession().getAttribute("Logged") == null) {
-	request.getSession().setAttribute("Logged", "Guest");
-}
-
 CusDetailsServiceImpl dbc = new CusDetailsServiceImpl();
 Customer[] cusDetails = dbc.inactiveCustomers();
 request.setAttribute("data", cusDetails);
@@ -42,6 +38,7 @@ request.setAttribute("inactive", inactive);
 				</form>
 			</div>
 			<table id="table" class="table display nowrap table-bordered" style="width:100%">
+				<!-- getting data for the table -->
 				<c:choose>
 					<c:when test="${param.search==null}">
 						<%

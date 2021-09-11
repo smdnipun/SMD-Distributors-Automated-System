@@ -1,7 +1,6 @@
 <div
-    class="container-fluid"
+    class="container-fluid pt-1"
     style="
-      padding-top: 1rem;
       background-color:#000000;
       padding-bottom: 0.5rem;
       position:sticky;
@@ -10,7 +9,7 @@
     "
   >
    <div class="row">
-     <div class="col-sm form-inline">
+     <div class="col-sm form-inline mt-0">
        <div>
          <img src=<%=request.getContextPath()+"/img/Logo.png" %> height="50" width="50" />
        </div>
@@ -25,7 +24,7 @@
          SMD Distributors
        </div>
      </div>
-     <div class="col-sm">
+     <div class="col-sm mt-3">
      <% if(request.getServletPath().equals("/index.jsp")){ %>
        <div class="input-group mb-3">
          <input
@@ -43,11 +42,18 @@
        <%} %>
      </div>
      <div class="col-sm d-flex justify-content-end">
-       <i
-         class="bi bi-person-circle"
-         style="font-size: 2.5rem; padding-right: 1.5rem"
-       ></i>
-       	<div style="padding-right: 1.5rem">
+	     <div class="mr-3 mt-4" style="color:white;">
+	     	<h6><%=request.getSession().getAttribute("Hname")%></h6>
+	     </div>
+       <div class="mt-1">
+	       	<a href=<%=request.getContextPath()+"/Profile.jsp"%>>
+		       <i
+		         class="bi bi-person-circle"
+		         style="font-size: 2.5rem; padding-right: 1.5rem"
+		       ></i>
+	       </a>
+       </div>
+       	<div style="padding-right: 1.5rem" class="pt-3 mr-0 ml-0">
        		<form action="logout" method="post">
 	      		<button type="submit" class="btn btn-outline-danger">LogOut</button> <!--  -->
 	      	</form>
