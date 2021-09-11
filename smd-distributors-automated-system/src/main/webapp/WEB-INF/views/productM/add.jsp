@@ -23,6 +23,14 @@
 							type="number" />
 					</div>
 					<div class="form-inline">
+						<select name="image">
+							<option value="sanstha">Sanstha</option>
+							<option value="tokyo">tokyo</option>
+							<option value="powertech">powertech</option>
+							<option value="nippon">nippon</option>
+						</select>
+					</div>
+					<div class="form-inline">
 						<label>Product Availability</label> <label class="switch">
 							<input type="checkbox" name="availablity" checked> <span
 							class="slider round"></span>

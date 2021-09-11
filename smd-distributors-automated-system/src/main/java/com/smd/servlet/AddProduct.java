@@ -41,7 +41,7 @@ public class AddProduct extends HttpServlet {
 		}else {
 			availability=1;
 		}
-		String command = "insert into product(Product_Weight,Added_Date,Name,Unit_Price,Availability) VALUES('"+request.getParameter("pweight")+"','2030-10-01','"+request.getParameter("pname")+"','"+request.getParameter("pprice")+"','"+availability+"')";
+		String command = "insert into product(Product_Weight,Added_Date,Name,Unit_Price,Availability,image) VALUES('"+request.getParameter("pweight")+"','2030-10-01','"+request.getParameter("pname")+"','"+request.getParameter("pprice")+"','"+availability+"','"+request.getParameter("image")+"')";
 		try {
 			int rows=con.getConnection().createStatement().executeUpdate(command);
 		} catch (ClassNotFoundException e) {
