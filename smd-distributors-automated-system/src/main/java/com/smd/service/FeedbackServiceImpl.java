@@ -90,11 +90,10 @@ public class FeedbackServiceImpl implements IFeedback {
 		boolean isSuccess = false;//assign this to false before execution of query
 		
 		try {
-			state=con.createStatement();//executing a query
-			String sql="update feedback set Date='"+Date+"', Type='"+Type+"',Message='"+Message+"',Rating='"+Rating+"',Status='"+Status+"'"
-							+ "where Feedback_ID='"+Feedback_ID+"'";
-			//feedbackid is unique auto-incremented
 			
+			String sql="update feedback set Date='"+Date+"', Type='"+Type+"',Message='"+Message+"',Rating='"+Rating+"',Status='"+Status+"' where Feedback_ID='"+Feedback_ID+"'";
+			//feedbackid is unique auto-incremented
+			state=con.prepareStatement(sql); //executing a query
 			int result=state.executeUpdate(sql);
 			
 			if(result>0) {

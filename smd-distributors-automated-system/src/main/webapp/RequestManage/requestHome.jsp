@@ -19,7 +19,7 @@
 
 			<!--table to display data -->
 			<div class="col-10">
-			<table class="table table-hover ">
+			<table class="table table-hover table table-sm">
 			<!-- <table class="feedback"> -->
 			<thead class="thead-dark">
 				<tr>
@@ -31,7 +31,6 @@
 					<th scope="col">Rating</th>
 					<th scope="col">Status</th>
 					<th scope="col" colspan="2" style="text-align: center;">Action</th>
-					<th scope="col">Confirmation Email</th>
 				</tr>	
 			</thead>
 			<tbody>
@@ -98,9 +97,6 @@
 									<!-- <input type="button" name="delete" value="Delete"> -->
 									<button type="button" class="btn btn-outline-dark">Delete</button>
 								</a>
-							</td>
-							<td>
-							<button type="button" class="btn btn-outline-dark">Send</button>
 							</td>
 					</tr>	
 				</c:forEach>

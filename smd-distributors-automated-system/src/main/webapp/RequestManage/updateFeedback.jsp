@@ -91,7 +91,7 @@
   					</select><br><br>
 				<%-- Status: 
 				<input type="text" name="Status" style="width:20%" value="<%= Status %>"><br><br><br> --%>
-				<input type="submit" name="submit" value="Update The Data">
+				<input type="submit" name="submit" value="Update The Data"> 
 				
 			</form>
 		</div>

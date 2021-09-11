@@ -72,13 +72,14 @@
       			<input type="text" readonly class="form-control-plaintext" name="Rating" value="<%= Rating %>">
 			    </div>
 			  </div>
-			  <label for="Status" class="col-sm-6 col-form-label">Status:</label>
- 	 				<select name="Status" id="Status">
-					    <option name="Status" value="<%= Status %>">Completed</option>
-					    <option name="Status" value="<%= Status %>">Pending</option>
-					    <option name="Status" value="<%= Status %>">Searching</option>
-					    <option name="Status" value="<%= Status %>">Thankyou</option>
-  					</select><br><br>
+			  <div class="form-group row">
+    			<label for="feedbackid" class="col-sm-5 col-form-label">Status: </label>
+    			<div class="col-sm-5">
+      			<input type="text" readonly class="form-control-plaintext" name="Rating" value="<%= Status %>">
+			    </div>
+			  </div>
+			  <br>
+			 
 			<input type="submit" name="submit" value="Delete The Data">
 		</form>
 		</div><br><br><br><br>
