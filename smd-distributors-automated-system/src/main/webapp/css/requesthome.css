@@ -37,7 +37,7 @@ font-family: arial, sans-serif;
 	
 }
 .vbody {
-background-image: url('../img/admin.jpg');
+background-image: url('../img/grey2.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -72,7 +72,7 @@ background-image: url('../img/admin.jpg');
 	}
 
 .ubody {
-background-image: url('../img/update.jpg');
+background-image: url('../img/grey2.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -82,7 +82,7 @@ background-image: url('../img/update.jpg');
 }
 
 .dbody {
-background-image: url('../img/delete.jpg'); 
+background-image: url('../img/grey2.jpg'); 
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;

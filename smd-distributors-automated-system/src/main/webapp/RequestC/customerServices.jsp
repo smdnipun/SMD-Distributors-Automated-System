@@ -25,21 +25,24 @@
             <center>
 			<form name="feedback" method="post" action="../addfeedback" style="text-align: left;">
                 <h2 style="text-align: center;">Send Us A Feedback</h2><br>
-                <h6 class="fw-light" style="text-align: center;">We would love to hear your thoughts. <br>
-                         Get connected with us!</h6><br><br>
+                <h6 class="fw-light" style="text-align: center;">We would love to hear your thoughts.
+                         Get connected with us!</h6><br>
 				
-				<label>Feedback type: </label><br>
-                    <input type="radio"  id="Type" name="Type" value="I" checked> Complaint
-	              	<input type="radio"  id="Type" name="Type" value="C">Comment               
-           			<input type="radio"  id="Type" name="Type" value="Q">Question
+				
+				<!-- <h4>Feedback type: </h4><br> -->
+				<h5 for="type">Feedback type: </h5><br>
+                    <input type="radio"  id="Type" name="Type" value="I" checked>  <label style="font-size: 15px;">Complaint </label>
+	              	<input type="radio"  id="Type" name="Type" value="C"> <label style="font-size: 15px;">Comment </label>               
+           			<input type="radio"  id="Type" name="Type" value="Q"> <label style="font-size: 15px;">Question </label>    
         	 <br><br><br>
 						
 				<div class="form-group"> 		
-                <label for="message">Type your message</label><br>
+                <h5 for="message">Type your message</h5>
                     <textarea id="Message" class="form-control" name="Message" style="height: 150px; width: 500px;" required></textarea><br><br>
 				</div>
 				
-				<h6>How Did You Like Us?</h6>
+				<!-- <h>How Did You Like Us?</h6> -->
+				<h6 for="stars">How Did You Like Us?</h6>
                 <div class="stars">
 				    <input class="star star-5" id="star-5" type="radio" name="Rating" value="5" />
 				    <label class="star star-5" for="star-5"></label>
@@ -53,7 +56,9 @@
 				    <label class="star star-1" for="star-1"></label>
 				</div>
 			<br>
-               <input type="submit" value="Submit Your Feedback" class="addbtn"></button></center>
+              <div class="submit">
+		      <input type="submit" value="Send Message" id="form_button" />
+		    </div>
                     
             </form> <br>
         </center>
