@@ -14,6 +14,45 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
+<script src ="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"> </script>
+
+<script type="text/javascript">
+
+function generatePdf(){
+    var d = new Date();
+    var y = d.getFullYear();
+   
+    var month = new Array();
+    month[0] = "January";
+    month[1] = "February";
+    month[2] = "March";
+    month[3] = "April";
+    month[4] = "May";
+    month[5] = "June";
+    month[6] = "July";
+    month[7] = "August";
+    month[8] = "September";
+    month[9] = "October";
+    month[10] = "November";
+    month[11] = "December";
+    var n = month[d.getMonth()];
+   
+    var str = 'EmployeeAttendanceReport-'+y+"-"+n;
+    const element=document.getElementById("attendReport");
+    html2pdf().from(element).save(str);
+}
+</script>
+
+<script>
+$(document).ready(function() {
+    $('#example').DataTable( {
+        "scrollX": true
+    } );
+} );
+
+
+
+</script>
 <body>
 
 

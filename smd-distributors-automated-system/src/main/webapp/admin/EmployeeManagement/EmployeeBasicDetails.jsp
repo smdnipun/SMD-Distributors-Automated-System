@@ -67,6 +67,7 @@ page="EmployeeNav.jsp"></jsp:include>
 <center>
  <h2>Employee Basic Information</h2>
 </center>
+	<button onclick="generatePdf()">Print Report </button>
 		<div id="report">
 			<table id="example" class="table  display nowrap"  style="width:100%">
 				<thead class="thead-dark">
@@ -97,7 +98,7 @@ page="EmployeeNav.jsp"></jsp:include>
 			    </table>
 
 		</div>
-					<button onclick="generatePdf()">Print Report </button>
+				
 </div>
 </div>
 
