@@ -17,11 +17,14 @@ import com.smd.service.OrderM;
 public class ViewCustomerOrders extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+		int id = Integer.parseInt(request.getSession().getAttribute("CustomerID").toString());
 		
-		List<Order> order=OrderM.ViewOrderCustomer();
+		//call view order method
+		List<Order> order=OrderM.ViewOrderCustomer(id);
 		
 		request.setAttribute("orderdetails", order);
-		
+		//redirect to myorders page
 		RequestDispatcher dis=request.getRequestDispatcher("MyOrders.jsp");
 		dis.forward(request, response);
 	}

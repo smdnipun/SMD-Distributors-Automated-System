@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>CustomerDuePayment</title>
+<title>Cash Collectors</title>
 </head>
 <body>
 	<jsp:include page="../../WEB-INF/views/common/head.jsp"></jsp:include>
@@ -14,7 +14,7 @@
 			page="../../WEB-INF/views/creditSales/creditNavigationBar.jsp"></jsp:include>
 		<div class="col-9">
 			<jsp:include
-				page="../../WEB-INF/views/creditSales/customerBalanceTableandForm.jsp"></jsp:include>
+				page="../../WEB-INF/views/creditSales/CashCollectorTable.jsp"></jsp:include>
 		</div>
 	</div>
 	<jsp:include page="../../WEB-INF/views/common/adminFooter.jsp"></jsp:include>

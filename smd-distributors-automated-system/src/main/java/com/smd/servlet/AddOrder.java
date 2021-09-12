@@ -23,9 +23,12 @@ public class AddOrder extends HttpServlet {
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
+		
 		PrintWriter out = response.getWriter();
 		response.setContentType("text/html");
 		
+		//get the details entered by the customer 
 		String CID=request.getParameter("CID");
 		
 		String TPRICE=request.getParameter("TPRICE");
@@ -37,27 +40,27 @@ public class AddOrder extends HttpServlet {
 		int quantity=Integer.parseInt(QTY); 
 		int proId=Integer.parseInt(PID); 
 		
+		//declare is true boolean method
 		boolean istrue;
+		//call insert order method
 		istrue=OrderM.insertorder(cusId, totalprice, quantity, proId);
 		
 		if(istrue==true) {
-			
+			// if successful then show the alert and redirect to Addorder
 			out.println("<script type='text/javascript'>");
             out.println("alert('Add order successful');");
             out.println("location='AddOrder.jsp'"); 
             out.println("</script>");
 			
-//			RequestDispatcher dis=request.getRequestDispatcher("AddOrder.jsp");
-//			dis.forward(request, response);
+
 		}else {
-			
+			// if unsuccessful then show the alert and redirect to Addorder
 			out.println("<script type='text/javascript'>");
             out.println("alert('something went wrong');");
             out.println("location='AddOrder.jsp'"); 
             out.println("</script>");
 			
-//			RequestDispatcher dis2=request.getRequestDispatcher("product.jsp");
-//			dis2.forward(request, response);
+
 			
 		}
 		

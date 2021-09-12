@@ -1,20 +1,45 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<jsp:include page="../../WEB-INF/views/common/head.jsp">
-		<jsp:param name="Title" value="SMD Distributors" />
+	<jsp:param name="Title" value="SMD Distributors" />
+
 	</jsp:include>
-
+    <link rel="stylesheet" href=<%=request.getContextPath() + "/css/Employe.css"%>>
 	<body>
+	
 		<jsp:include page="../../WEB-INF/views/common/header.jsp"></jsp:include>
-		<jsp:include page="../../WEB-INF/views/common/navbar.jsp">
-			<jsp:param name="navs" value="ttt,ffff ddddd,fff" />
-		</jsp:include>
+		
+		
+<script>
+$(document).ready(function() {
+    $('#example').DataTable( {
+        "scrollX": true
+    } );
+} );
 
-		<div class="(col-10)">
+
+
+</script>
+		
+		
+		
+		
+		
+		
+		
+<div class="row">
+<jsp:include
+page="EmployeeNav.jsp"></jsp:include>
+<div class="col-9">
+
+ 
+<center>
+ <h2>Employee Details</h2>
+</center>
 
 
 
-			<table class="table table-dark">
-				<thead>
+			<table id="example" class="table  display nowrap" style="width:100%">
+				<thead class="thead-dark">
 					<tr>
 						<th scope="col">EmpID</th>
 						<th scope="col">Type</th>
@@ -26,10 +51,14 @@
 						<th scope="col">NIC</th>
 						<th scope="col">Email</th>
 						<th scope="col">Address</th>
+						<th scope="col">Update Employee</th>
+						<th scope="col">Delete Employee</th>
+						<th scope="col">Manage Salary</th>
 					</tr>
-				<tbody>
+		
+			          
 					<c:forEach var="employee" items="${employeeDetails}">
-
+			
 						<c:set var="id" value="${employee.emp_ID}" />
 						<c:set var="emp_Type" value="${employee.emp_Type}" />
 						<c:set var="fname" value="${employee.first_Name}" />
@@ -40,8 +69,6 @@
 						<c:set var="nic" value="${employee.getNIC()}" />
 						<c:set var="email" value="${employee.email} " />
 						<c:set var="address" value="${employee.address}" />
-
-
 
 
 
@@ -58,7 +85,7 @@
 							<td> ${employee.address} </td>
 
 							<td>
-								<c:url value="AdminUI/EmployeeManagement/updateEmp.jsp" var="empupdate">
+								<c:url value="admin/EmployeeManagement/updateEmp.jsp" var="empupdate">
 									<c:param name="id" value="${id}" />
 									<c:param name="emp_Type" value="${emp_Type}" />
 									<c:param name="fname" value="${fname}" />
@@ -81,7 +108,7 @@
 
 							<td>
 
-								<c:url value="AdminUI/EmployeeManagement/deleteEmployee.jsp" var="empdelete">
+								<c:url value="admin/EmployeeManagement/deleteEmployee.jsp" var="empdelete">
 									<c:param name="id" value="${id}" />
 									<c:param name="fname" value="${fname}" />
 									<c:param name="lname" value="${lname}" />
@@ -103,7 +130,7 @@
 
 							<td>
 
-								<c:url value="AdminUI/EmployeeManagement/attendanceEmployee.jsp" var="empattend">
+								<c:url value="admin/EmployeeManagement/attendanceEmployee.jsp" var="empattend">
 									<c:param name="id" value="${id}" />
 									<c:param name="emp_Type" value="${emp_Type}" />
 									<c:param name="fname" value="${fname}" />
@@ -114,7 +141,7 @@
 								</c:url>
 
 								<a href="${empattend}">
-									<input type="button" name="ManageAttendance" value="ManageAttendance">
+									<input type="button" name="ManageAttendance" value="Manage sal & leave">
 								</a>
 
 
@@ -123,7 +150,7 @@
 
 							<td>
 
-								<c:url value="AdminUI/EmployeeManagement/calSalemp.jsp" var="empsal">
+								<c:url value="admin/EmployeeManagement/calSalemp.jsp" var="empsal">
 									<c:param name="id" value="${id}" />
 									<c:param name="fname" value="${fname}" />
 									<c:param name="lname" value="${lname}" />
@@ -132,28 +159,27 @@
 
 								</c:url>
 
-								<a href="${empsal}">
-									<input type="button" name="CalulateSalary" value="CalulateSalary">
-								</a>
-
+							
 
 							</td>
 
-
 					</c:forEach>
-				</tbody>
+            </tbody>  
 			</table>
 
 		</div>
+		</div>
 
 
+
 		<br>
 		<br>
 		<br>
 		<br>
 		<br>
 
-
+ 
+<jsp:include page="../../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
 
 	</body>
 

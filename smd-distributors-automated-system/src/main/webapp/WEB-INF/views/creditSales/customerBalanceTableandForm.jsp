@@ -13,14 +13,19 @@ CreditSalesM dbc = new CreditSalesM();
 CustomerAgedRecivable[] customerAgedRecivable = dbc.getCreditAgedDetails();
 request.setAttribute("data", customerAgedRecivable);
 %>
-<jsp:include page="centerNav.jsp"></jsp:include>
+<!-- Horizontal navigation bar -->
+<jsp:include page="CenterNavWithoutSearch.jsp"></jsp:include>
 <div class="pt-2">
 
 	<center>
 		<h5>Customer Balance</h5>
 	</center>
 </div>
-<table id="customerDetails" class="display nowrap" style="width: 100%">
+<div>
+	<!--Creating Customer balance table -->
+	<table id="payTable" class="display nowrap" style="width: 100%">
+
+
 
 		<thead>
 
@@ -39,14 +44,13 @@ request.setAttribute("data", customerAgedRecivable);
 				<tr>
 					<td><c:out value="${CustomerAgedRecivable.getCus_ID()}" /></td>
 					<td><c:out value="${CustomerAgedRecivable.getHardwareName()}" /></td>
-					<td><c:out value="${CustomerAgedRecivable.getInvoiceID()}"/></td>
+					<td><c:out value="${CustomerAgedRecivable.getInvoiceID()}" /></td>
 					<td><c:out value="${CustomerAgedRecivable.getTotalAmount()}" /></td>
 					<td><c:out value="${CustomerAgedRecivable.getPaidAmount()}" /></td>
 					<td><c:out value="${CustomerAgedRecivable.getBalance()}" /></td>
 
 				</tr>
-
 			</c:forEach>
-			<tr>
 		</tbody>
 	</table>
+</div>

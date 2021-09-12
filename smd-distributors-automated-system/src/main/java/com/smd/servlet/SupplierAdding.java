@@ -38,9 +38,10 @@ public class SupplierAdding extends HttpServlet {
 			  Statement stmt =
 			  sdbc.getConnection().createStatement(); 
 			  String command =
-			 "INSERT INTO vendor(Vendor_Name,Address,Phone)" + "" + "VALUES('"+request.getParameter("name") +"','"
+			 "INSERT INTO vendor(Vendor_Name,Product_Name,Address,Phone,Status)" + "" + 
+			  "VALUES('"+request.getParameter("sname") +"','"+request.getParameter("pname") +"','"
 			 + request.getParameter("address") + "','"
-			 + request.getParameter("tno") + "')"; 
+			 + request.getParameter("tno") + "','Active')"; 
 			
 			//response.getWriter().append(command);
 			  

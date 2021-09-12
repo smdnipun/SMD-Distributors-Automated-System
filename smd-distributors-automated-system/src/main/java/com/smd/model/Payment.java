@@ -1,24 +1,33 @@
 package com.smd.model;
+
 //create payment class
 public class Payment {
 	private String PaymentID;
+	private double PaidAmount;
+	private String Date;
 	private String CusID;
 	private String InvoiceID;
-	private String Date;
-	private double PaidAmount;
 	private String EmpID;
-	
-	
-	//Constructor
-	public Payment(String paymentID, String cusID, String invoiceID, String date, double paidAmount, String empID) {
+
+	// default constructor
+	public Payment() {
+		// TODO Auto-generated constructor stub
+	}
+
+	// overload constructor
+	public Payment(String paymentID, double paidAmount, String date, String cusID, String invoiceID, String empID) {
 		super();
 		PaymentID = paymentID;
+		PaidAmount = paidAmount;
+		Date = date;
 		CusID = cusID;
 		InvoiceID = invoiceID;
-		Date = date;
-		PaidAmount = paidAmount;
 		EmpID = empID;
 	}
+
+
+	// setters and getters
+
 
 	public String getPaymentID() {
 		return PaymentID;
@@ -26,6 +35,22 @@ public class Payment {
 
 	public void setPaymentID(String paymentID) {
 		PaymentID = paymentID;
+	}
+
+	public double getPaidAmount() {
+		return PaidAmount;
+	}
+
+	public void setPaidAmount(double paidAmount) {
+		PaidAmount = paidAmount;
+	}
+
+	public String getDate() {
+		return Date;
+	}
+
+	public void setDate(String date) {
+		Date = date;
 	}
 
 	public String getCusID() {
@@ -44,22 +69,6 @@ public class Payment {
 		InvoiceID = invoiceID;
 	}
 
-	public String getDate() {
-		return Date;
-	}
-
-	public void setDate(String date) {
-		Date = date;
-	}
-
-	public double getPaidAmount() {
-		return PaidAmount;
-	}
-
-	public void setPaidAmount(double paidAmount) {
-		PaidAmount = paidAmount;
-	}
-
 	public String getEmpID() {
 		return EmpID;
 	}
@@ -67,6 +76,5 @@ public class Payment {
 	public void setEmpID(String empID) {
 		EmpID = empID;
 	}
-
 
 }

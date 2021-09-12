@@ -1,6 +1,8 @@
 package com.smd.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,22 +20,40 @@ public class DeleteEmployeeServlet extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+		PrintWriter out = response.getWriter();
+        response.setContentType("text/html");
+		
+		
+		
+        //get user details to the variables
+		
 		String id =request.getParameter("id");
 		int ID = Integer.parseInt(id);
 		
 		
 		boolean isTrue;
 		
-		isTrue=EmployeeDBUtill.deleteEmployee(ID);
+		isTrue=EmployeeDBUtill.deleteEmployee(ID); //pass the values to method
 		
 		if(isTrue==true) {
-			RequestDispatcher dis = request.getRequestDispatcher("AdminUI/EmployeeManagement/addEmp.jsp");
-			dis.forward(request, response);
 			
+			//Java Script for redirect
+			out.println("<script type='text/javascript'>");
+            out.println("alert('Employee resign proccess successfully done');"); //alert
+            out.println("location='admin/EmployeeManagement/addEmp.jsp'"); //redirect
+            out.println("</script>");
+
+		
 		}else {
-			RequestDispatcher dis = request.getRequestDispatcher("AdminUI/EmployeeManagement/insertUnsuccess.jsp");
-			dis.forward(request, response);
 			
+			//Java Script for redirect
+			out.println("<script type='text/javascript'>");
+            out.println("alert('something went wrong please check again ');"); //alert
+            out.println("location='admin/EmployeeManagement/addEmp.jsp'");  //redirect
+            out.println("</script>");
+            
 		}
 	}
 

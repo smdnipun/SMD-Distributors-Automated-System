@@ -24,30 +24,29 @@ public class DeleteOrderAdmin extends HttpServlet {
 		
 		PrintWriter out = response.getWriter();
 		response.setContentType("text/html");
-		
+		//get the orderid
 		String oid=request.getParameter("OID");
 		int Orderid=Integer.parseInt(oid);
 		
+		//call delete order admin method
 		boolean isdone=OrderM.deleteeorderadmin(Orderid);
 		
 		if(isdone==true) {
-			
+			// if successful then show the alert and redirect to OrderAdminHome
 			out.println("<script type='text/javascript'>");
             out.println("alert('order deleted successfully');");
-            out.println("location='AdminUI/OrderManagement/OrderAdminHome.jsp'"); 
+            out.println("location='admin/OrderManagement/OrderAdminHome.jsp'"); 
             out.println("</script>");
 			
-//			RequestDispatcher dis=request.getRequestDispatcher("AdminUI/OrderManagement/OrderAdminHome.jsp");
-//			dis.forward(request, response);
+
 		}else {
-			
+			// if successful then show the alert and redirect to OrderAdminHome
 			out.println("<script type='text/javascript'>");
             out.println("alert('Something went wrong');");
-            out.println("location='AdminUI/OrderManagement/OrderAdminHome.jsp'"); 
+            out.println("location='admin/OrderManagement/OrderAdminHome.jsp'"); 
             out.println("</script>");
 			
-//			RequestDispatcher dis=request.getRequestDispatcher("index.jsp");
-//			dis.forward(request, response);
+
 		}
 		
 	}

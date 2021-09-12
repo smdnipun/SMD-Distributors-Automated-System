@@ -19,15 +19,15 @@
 							class="logo"> <label class="mb-1">
 					</div>
 					<div class="row px-3 d-flex">
-						<form action="RegisterServlet" method="Post">
+						<form action="RegisterServlet" method="Post" onsubmit="return checkPwd()">
 			                <fieldset>
 			                    <legend class="mb-0 justify-content-center">Welcome to SMD Distributors!</legend>
 			                    <h5>Enter Your Details</h5>
 			                    <div style = "color:red;" class="mb-0 text-sm row">
-			                    	<!-- <p>${message}</p> -->
-			                    	<p class = "register_err">
+			                    	<p>${message}</p> 
+			                    	<%-- <p class = "register_err">
 			                    		<%=request.getAttribute("reg_err") == null ? "" : request.getAttribute("reg_err") %>
-			                    	</p>
+			                    	</p> --%>
 			                    </div>
 			                    <div class="row px-3">
 			                        <label for="fname" class="mb-0 text-sm">First Name :</label>
@@ -90,8 +90,7 @@
 			</div>
 			<div class="bg-blue py-4">
 				<div class="row px-3">
-					<small class="ml-4 ml-sm-5 mb-2">Copyright &copy; 2021. All
-						rights reserved.</small>
+					<small class="ml-4 ml-sm-5 mb-2">Copyright &copy; 2021. All rights reserved.</small>
 				</div>
 			</div>
 		</div>

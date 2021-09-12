@@ -18,6 +18,9 @@ request.setAttribute("stocksum", newstock);
 
 
 <div  class="col-5 text-center align">
+<div>
+		<h4>Stock</h4>
+	</div>
 	<table class="table table-hover">
 		
 		<thead>
@@ -27,11 +30,12 @@ request.setAttribute("stocksum", newstock);
 			</tr>
 		</thead>
 		<tbody>
+		<!-- get the stock data from Stocksummary database table connection -->
 		<c:forEach items="${stocksum}" var="Stocksummary">
 			<tr>
 			
-					<td><c:out value="${Stocksummary.getName()}"/>"</td>
-					<td><c:out value="${Stocksummary.getSum()}"/>"</td>
+					<td><c:out value="${Stocksummary.getName()}"/></td>
+					<td><c:out value="${Stocksummary.getSum()}"/></td>
 				
 					
 			</tr>

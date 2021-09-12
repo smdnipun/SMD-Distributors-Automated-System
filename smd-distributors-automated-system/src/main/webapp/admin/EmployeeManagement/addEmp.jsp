@@ -1,73 +1,68 @@
 <jsp:include page="../../WEB-INF/views/common/head.jsp">
   <jsp:param name="Title" value="SMD Distributors" />
 </jsp:include>
-
+<link rel="stylesheet" href=<%=request.getContextPath() + "/css/Employe.css"%>>
 <body>
   <jsp:include page="../../WEB-INF/views/common/header.jsp"></jsp:include>
-  <jsp:include page="../../WEB-INF/views/common/navbar.jsp">
-    <jsp:param name="navs" value="ttt,ffff ddddd,fff" />
-  </jsp:include>
 
-  <div>
-    <form action=<%=request.getContextPath() +"/view"%> method="post">
+  
+<div class="row">
+<jsp:include
+page="EmployeeNav.jsp"></jsp:include>
+<div class="col-9">
 
-      <button type="submit">submit</button>
-
-    </form>
-
-  </div>
-
+ <center>
+ <h2>Add Employee</h2>
+</center>
+ 
 
 
-  <div class="(col-10)">
-
-
-    <form action=<%=request.getContextPath() +"/add"%> method="post">
+    <form action=<%=request.getContextPath() +"/addemp"%> method="post" class="content">
       <div class="form-group">
         <label for="fname">First Name</label>
         <input type="text" class="form-control" id="fname" name="fname" aria-describedby=""
-          placeholder="Enter First name">
+          placeholder="Enter First name"   pattern="[A-Za-z]{1,38}"   required>
       </div>
 
       <div class="form-group">
         <label for="lname">Last Name</label>
-        <input type="text" class="form-control" name="lname" id="lname" placeholder="">
+        <input type="text" class="form-control" name="lname" id="lname" placeholder=""   pattern="[A-Za-z]{1,38}"  required>
       </div>
 
       <div class="form-group">
         <label for="phone">Phone Number</label>
         <input type="text" class="form-control" id="phone" name="phone" aria-describedby=""
-          placeholder="Enter phone number">
+          placeholder="Enter phone number"  pattern="[0-9]{1}[0-9]{1}[0-9]{1}[0-9]{1}[0-9]{1}[0-9]{1}[0-9]{1}[0-9]{1}[0-9]{1}[0-9]{1}" required>
       </div>
 
       <div class="form-group">
         <label for="Username">Username</label>
-        <input type="text" class="form-control" name="uname" id="uname" aria-describedby="" placeholder="">
+        <input type="text" class="form-control" name="uname" id="uname" aria-describedby="" >
       </div>
 
 
       <div class="form-group">
         <label for="passowrd">Password</label>
-        <input type="password" class="form-control" name="password" id="pwd" aria-describedby="" placeholder="">
+        <input type="password" class="form-control" name="password" id="pwd" aria-describedby="" >
       </div>
 
 
       <div class="form-group">
         <label for="NIC">NIC</label>
-        <input type="text" class="form-control" name="nic" id="nic" aria-describedby="NIC" placeholder="">
+        <input type="text" class="form-control" name="nic" id="nic" aria-describedby="NIC" required>
       </div>
 
 
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" class="form-control" name="email" id="email" aria-describedby="" placeholder="">
+        <input type="email" class="form-control" name="email" id="email" aria-describedby=""   pattern="[a-zA-Z0-9.!%&'*+\/=?^_`]{3,}@[a-zA-Z0-9]{3,}[.]{1}[a-zA-Z0-9]{2,}"   required>
       </div>
 
 
 
       <div class="form-group">
         <label for="exampleInputEmail1">Address</label>
-        <input type="text" class="form-control" name="add" id="add" aria-describedby="" placeholder="">
+        <input type="text" class="form-control" name="add" id="add" aria-describedby="" required>
       </div>
 
 
@@ -85,25 +80,21 @@
 
 
       <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+        <label class="form-check-label" for="exampleCheck1" >Checked</label>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">Add Employee</button>
     </form>
 
 
 
 
   </div>
+  </div>
 
-
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-
-
+  </br>
+  </br>
+<jsp:include page="../../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
 
 </body>
 

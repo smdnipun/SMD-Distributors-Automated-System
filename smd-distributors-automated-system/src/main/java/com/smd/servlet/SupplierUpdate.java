@@ -76,27 +76,25 @@ public class SupplierUpdate extends HttpServlet {
 		if (request.getParameter("button").equals("update")) {
 			try {
 				Statement stmt = dbc.getConnection().createStatement();
-				String command = "update vendor set Vendor_Name='" + request.getParameter("name") + "',Address='"
-						+ request.getParameter("address") + "'," + "Phone='" + request.getParameter("tno")
-						+ "' where Vendor_Id=" + request.getParameter("supplierID");
-				int rows = stmt.executeUpdate(command);
-				SupplierDB supdbc = new SupplierDB();
-				Supplier[] data = supdbc.getSupplierdetails();
-				request.getSession().setAttribute("supplierdata", data);
-				response.sendRedirect("admin/StockManagement/SupplierPage.jsp");
+				String command = "update vendor set Vendor_Name='" + request.getParameter("sname") + "',Product_Name='"+request.getParameter("pname") +"',Address='"+ request.getParameter("address") + "', Phone='" + request.getParameter("tno")+ "' where Vendor_Id=" + request.getParameter("supplierID");
+			int rows = stmt.executeUpdate(command);
+				 //response.getWriter().append(command);
+				/* stmt.execute(command); */
+				 response.sendRedirect("admin/StockManagement/SupplierPage.jsp");
 			} catch (Exception e) {
 				response.getWriter().append(e.toString());
 			}
-		} else if (request.getParameter("button").equals("delete")) {
+		}
+		else if (request.getParameter("button").equals("delete")) {
 			try {
 				Statement stmt = dbc.getConnection().createStatement();
-				String command = "delete from vendor where Vendor_ID=" + request.getParameter("supplierID");
+				String command = "update vendor set Status = 'Inactive' where Vendor_Id = " + request.getParameter("supplierID");
 
 				int rows = stmt.executeUpdate(command);
+				 //response.getWriter().append(command);
+				/* stmt.execute(command); */
+				 
 
-				SupplierDB cdbc = new SupplierDB();
-				Supplier[] data = cdbc.getSupplierdetails();
-				request.getSession().setAttribute("supplierdata", data);
 				response.sendRedirect("admin/StockManagement/SupplierPage.jsp");
 			} catch (Exception e) {
 				response.getWriter().append(e.toString());

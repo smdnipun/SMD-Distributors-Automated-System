@@ -1,5 +1,10 @@
 
-<div class="col-10">
+<div class="col-9">
+<br>
+<center>
+<h1>Delete Orders</h1>
+</center>
+<br>
 <%
 	String oid=request.getParameter("oid");
 	String cid=request.getParameter("cid");
@@ -12,6 +17,7 @@
 	String pid=request.getParameter("pty");
 
 %>
+<div class="content">
 	<form action=<%=request.getContextPath() + "/deleteOrderCustomer"%> method="post">
 	
 <div class="mb-3">
@@ -50,9 +56,12 @@
   <label for="formGroupExampleInput2" class="form-label">Product ID</label>
   <input type="text" class="form-control" id="formGroupExampleInput2" value="<%=pid %>" name="PID" readonly>
 </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">Delete Order</button>
 </form>
+
 	</div>
-	<br><br><br><br>
+	<br><br><br>
+	</div>
+	
 
 

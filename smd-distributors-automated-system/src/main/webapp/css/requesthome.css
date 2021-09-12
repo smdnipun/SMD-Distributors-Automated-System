@@ -5,18 +5,17 @@ td, th {
   padding: 3px;
 } 
 .hbody {
-  background-image: url('../img/service2.jpg');
+background-image: url('../img/service2.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
 		
 }
-table { background-color:#C0C0C0;
+.table { background-color:rgb(212, 212, 212);
 font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 60%;
     border: 1px;
-    margin-left: 10px;
+    margin-left: 1px;
     opacity:0.9;
  }
  p{
@@ -24,7 +23,7 @@ font-family: arial, sans-serif;
  font-family: arial, sans-serif;
  }
 .vcontt{
-	background-color:#C0C0C0;
+	background-color:rgb(212, 212, 212);
 		width: 700px;
 		border: 15px black;
 		font: 16px;
@@ -38,7 +37,7 @@ font-family: arial, sans-serif;
 	
 }
 .vbody {
-  background-image: url('../img/admin.jpg');
+background-image: url('../img/grey2.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -73,7 +72,7 @@ font-family: arial, sans-serif;
 	}
 
 .ubody {
-  background-image: url('../img/update.jpg');
+background-image: url('../img/grey2.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -83,7 +82,7 @@ font-family: arial, sans-serif;
 }
 
 .dbody {
-  background-image: url('../img/delete.jpg');
+background-image: url('../img/grey2.jpg'); 
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -99,3 +98,23 @@ font-family: arial, sans-serif;
     margin-left: 10px;
     opacity:0.9;
 }
+
+  .reportform{
+		background-color:rgb(212, 212, 212);
+	width: 400px;
+	border: 7px black;
+	font: 13px "";
+	padding: 20px 12px 10px 20px;
+	outline-color: black;
+	outline-style: groove;
+	opacity:0.9;
+  }
+  
+#myInput {
+  width: 50%;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  margin-left: 25px;
+}
+  
+  
