@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.smd.model.Customer;
 import com.smd.service.CusDetailsServiceImpl;
 import com.smd.service.ICustomerDetails;
+import com.smd.util.Services;
 
 @WebServlet("/CustomerPwdUpdate")
 public class CustomerPwdUpdate extends HttpServlet {
@@ -27,16 +28,22 @@ public class CustomerPwdUpdate extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//getting data from the front end
-		int customerID = Integer.parseInt(request.getSession().getAttribute("CustomerID").toString());
-		String newpwd = request.getParameter("pwd");
-		
 		//creating a object from CusDetailsServiceImpl
 		ICustomerDetails cusDetails = new CusDetailsServiceImpl();
+				
+		//Creating service class object
+		Services sv = new Services();
+		
+		//getting data from the front end
+		int customerID = Integer.parseInt(request.getSession().getAttribute("CustomerID").toString());
+		String newpwd = sv.doHashing(request.getParameter("pwd"));
+		String pwd = sv.doHashing(request.getParameter("currentpwd"));
 
+		//getting data from the database
 		String currentPwd = cusDetails.getCustomerById(customerID).getPassword();
 		
-		if(request.getParameter("currentpwd").equals(currentPwd)) {
+		//Checking old password
+		if(pwd.equals(currentPwd)) {
 			//updating the password and getting the status
 			Boolean status = cusDetails.updatePassword(customerID, newpwd);
 			

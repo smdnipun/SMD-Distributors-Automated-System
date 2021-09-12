@@ -5,5 +5,10 @@
 	<div class="col-10">
 		<!--<jsp:include page="slideshow.jsp"></jsp:include>-->
 		<jsp:include page="items.jsp"></jsp:include>
+		
+	
+		
+		 <!--> <a href="AddOrder.jsp"> <input type="button" name="Order" value="Add Order"></a> -->
+	
 	</div>
 </div>

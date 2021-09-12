@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.smd.model.Customer;
 import com.smd.model.Employee;
 import com.smd.util.DBConnection;
-
+import com.smd.util.Services;
 import com.smd.service.CusDetailsServiceImpl;
 import com.smd.service.EmployeeDBUtill;
 import com.smd.service.ICustomerDetails;
@@ -34,11 +34,15 @@ public class Login extends HttpServlet {
 		EmployeeDBUtill emp = new EmployeeDBUtill();
 		Employee[] employeeData=emp.getEmployeeDetails();
 		
+		//Creating service class object
+		Services sv = new Services();
+		String pwd = sv.doHashing(request.getParameter("password"));
+		
 		boolean Found = false;
 		
 		try {
 			for(int i=0;i<customerData.length;i++) {
-				if((customerData[i].getEmail().equals(request.getParameter("email")))&&(customerData[i].getPassword().equals(request.getParameter("password")))) {
+				if((customerData[i].getEmail().equals(request.getParameter("email")))&&(customerData[i].getPassword().equals(pwd))) {
 					Found=true;
 					if(customerData[i].getStatus().equals("Active")) {
 						//setting the sessions when login
@@ -62,7 +66,7 @@ public class Login extends HttpServlet {
 		
 		try {
 			for(int i=0;i<employeeData.length;i++) {
-				if((employeeData[i].getEmail().equals(request.getParameter("email")))&&(employeeData[i].getPassword().equals(request.getParameter("password")))) {
+				if((employeeData[i].getEmail().equals(request.getParameter("email")))&&(employeeData[i].getPassword().equals(pwd))) {
 					Found=true;
 					if(employeeData[i].getEmp_Type().equals("product")) {
 						request.getSession().setAttribute("Logged","Admin");

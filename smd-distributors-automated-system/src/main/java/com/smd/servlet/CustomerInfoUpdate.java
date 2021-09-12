@@ -46,6 +46,7 @@ public class CustomerInfoUpdate extends HttpServlet {
 		boolean status = cusDetails.updatedCustomer(customer);
 		
 		if(status == true){//if the data was passed to the database successfully
+			request.getSession().setAttribute("Hname",customer.getHardwareName());
 			out.println("<script type=\"text/javascript\">");
 		    out.println("alert('Details Updated Successfully');");
 		    out.println("location='./PersonalInfo.jsp'");

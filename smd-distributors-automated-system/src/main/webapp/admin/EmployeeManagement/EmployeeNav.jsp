@@ -38,7 +38,7 @@ role="tab" aria-controls="v-tabs-profile" aria-selected="false">Add Employee
 
 <a class="nav-link" id="v-tabs-home-tab">
 
-     <form action=<%=request.getContextPath() +"/attendbemp"%> method="post" >
+     <form action=<%=request.getContextPath() +"/attendemp"%> method="post" >
 
       <button class="button" type="submit">Employee Monthly Attendance</button>
 
