@@ -18,11 +18,13 @@ request.setAttribute("payments", payments);
 
 
 <div class="col-9">
+	<!-- Horizontal navigation bar -->
 	<jsp:include page="CenterNavWithoutSearch.jsp"></jsp:include>
 	<center>
 		<h5>Customer Payments</h5>
 	</center>
 
+	<!--Creating payment history table-->
 	<table id="customerDetails" class="display nowrap" style="width: 100%">
 
 		<thead>

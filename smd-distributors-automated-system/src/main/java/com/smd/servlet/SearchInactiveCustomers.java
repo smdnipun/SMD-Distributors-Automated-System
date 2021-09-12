@@ -18,7 +18,7 @@ public class SearchInactiveCustomers extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 	}
-
+	//redirection 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url="admin/CustomerManagement/inactiveCustomers.jsp?search="+request.getParameter("search");
 		response.sendRedirect(url);

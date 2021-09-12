@@ -15,6 +15,7 @@ public class ProductDB {
 	public ProductDB() {
 	}
 
+	// database connection of Search
 	public Product[] search(String search) {
 		List<Product> ll = new LinkedList<Product>();
 		Product[] array = null;
@@ -35,6 +36,7 @@ public class ProductDB {
 		return array;
 	}
 
+	// database connection of Dispaly products
 	public Product[] getAllProducts() {
 		List<Product> ll = new LinkedList<Product>();
 		Product[] array = null;
@@ -63,6 +65,7 @@ public class ProductDB {
 		return array;
 	}
 
+	// database connection to get product id
 	@SuppressWarnings("unused")
 	public Product getProductById(int id) {
 		List<Product> ll = new LinkedList<Product>();
@@ -89,6 +92,7 @@ public class ProductDB {
 		return null;
 	}
 
+	// database connection of available products
 	public Product[] getAvailableProducts() {
 		List<Product> ll = new LinkedList<Product>();
 		Product[] array = null;

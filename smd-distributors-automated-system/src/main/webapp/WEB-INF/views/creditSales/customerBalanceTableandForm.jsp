@@ -13,6 +13,7 @@ CreditSalesM dbc = new CreditSalesM();
 CustomerAgedRecivable[] customerAgedRecivable = dbc.getCreditAgedDetails();
 request.setAttribute("data", customerAgedRecivable);
 %>
+<!-- Horizontal navigation bar -->
 <jsp:include page="CenterNavWithoutSearch.jsp"></jsp:include>
 <div class="pt-2">
 
@@ -21,6 +22,7 @@ request.setAttribute("data", customerAgedRecivable);
 	</center>
 </div>
 <div>
+	<!--Creating Customer balance table -->
 	<table id="payTable" class="display nowrap" style="width: 100%">
 
 

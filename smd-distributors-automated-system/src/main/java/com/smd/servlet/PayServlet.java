@@ -47,8 +47,10 @@ public class PayServlet extends HttpServlet {
 //		pay.setEmpID(request.getParameter("EmpID"));
 
 		// Check customer ID and order ID
+		//get boolean status from database connection
 		boolean status = check.getPayCredit(CID, OID,paidAmount);
-
+		
+		//check status and entered amount is greater than zero
 		if (status == false && paidAmount>=0) {
 
 			try {
@@ -88,7 +90,7 @@ public class PayServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-
+		
 		else {
 			//display an error message
 			out.println("<script type=\"text/javascript\">");
