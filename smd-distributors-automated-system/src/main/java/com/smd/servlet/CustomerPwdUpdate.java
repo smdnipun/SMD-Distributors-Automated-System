@@ -59,8 +59,6 @@ public class CustomerPwdUpdate extends HttpServlet {
 			    out.println("alert('Updated Successfully!!!');");
 			    out.println("location='./login.jsp'"); //redirect to the registration page
 			    out.println("</script>");
-				
-//				response.sendRedirect("./login.jsp");
 			}
 			else {
 				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Security.jsp");
