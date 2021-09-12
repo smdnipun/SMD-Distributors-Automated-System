@@ -24,9 +24,7 @@ request.setAttribute("data", customer);
 
 
 
-	<table id="table"
-		class="display nowrap table table-stripped table-bordered"
-		style="width: 100%">
+	<table id="payTable" class="display nowrap" style="width: 100%">
 		<thead>
 
 			<tr>

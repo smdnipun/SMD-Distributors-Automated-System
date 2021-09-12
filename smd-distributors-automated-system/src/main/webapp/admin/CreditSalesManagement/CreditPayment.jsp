@@ -17,7 +17,6 @@
 			<div class="col-4">
 				<br><br><br><br><br><br><br>
 				<div style="color: red;">	
-			<p><%=request.getAttribute("meassage") == null ? "" : request.getAttribute("message") %></p>
 		</div>
 			</div>
 			</div>	
