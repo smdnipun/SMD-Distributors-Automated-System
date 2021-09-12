@@ -224,22 +224,26 @@ public class CreditSalesM {
 
 	}
 //Customer age details
-	public Order getCusPayDe() {
+	public Order[] getCusPayDe(int id) {
+		List<Order> ll = new LinkedList<Order>();
+		Order[] array = null;
+		DBConnection con = new DBConnection();
 
 		try {
 			Statement stmt = con.getConnection().createStatement();
-			ResultSet rs = stmt
-					.executeQuery("select * from orders;");
+					String command ="select * from orders where Cust_ID="+ id ;
+			ResultSet rs = stmt.executeQuery(command);
 			while (rs.next()) {
 				Order n = new Order(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getDouble(5),
 						rs.getDouble(6), rs.getDouble(7), rs.getInt(8), rs.getInt(9));
-				return n;
+				ll.add(n);
 			}
+
+			array = ll.toArray(new Order [ll.size()]);
 
 		} catch (Exception e) {
 		}
-
-		return null;
+		return array;
 	}
 
 //Calculation

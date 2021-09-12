@@ -39,15 +39,15 @@ request.setAttribute("data", newOrders);
 						<td><input type="text" name="id" 
 							value="<c:out value="${NewOrdersConf.getOrderID()}" />"readonly></td>
 						<td><c:out value="${NewOrdersConf.getDate()}" /></td>
-						<td><c:out value="${NewOrdersConf.getCusID()}" /></td>
+						<td><input type="text" name="id1" value=" <c:out value="${NewOrdersConf.getCusID()}" />"readonly></td>
 						<td><c:out value="${NewOrdersConf.getCustomer()}" /></td>
 						<td><c:out value="${NewOrdersConf.getQuantity()}" /></td>
 						<td><c:out value="${NewOrdersConf.getTotalPrice()}" /></td>
 
 
-						<td><button class ="btn btn-secondary" name="button" value="${NewOrdersConf.getCusID()}"
-							href="CustomerDetailsCredit.jsp" role="button"
-							style="background-color: #b8c248">Customer Details</button><br>
+						<td><a href="CustomerPayPrev.jsp?credit=${NewOrdersConf.getCusID()}" class ="btn btn-secondary" name="id1" value="${NewOrdersConf.getCusID()}"
+							 role="button"
+							style="background-color: #b8c248">Customer Details</a><br>
 							<button type="submit" class="btn btn-secondary"
 								style="background-color: #c28f48" name="button" value="accept" />Accept
 							</button> <br>
