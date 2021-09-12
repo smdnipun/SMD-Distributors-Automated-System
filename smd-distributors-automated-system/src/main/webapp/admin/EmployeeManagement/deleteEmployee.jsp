@@ -1,14 +1,22 @@
 <jsp:include page="../../WEB-INF/views/common/head.jsp">
 	<jsp:param name="Title" value="SMD Distributors" /></jsp:include>
 	<link rel="stylesheet" href=<%=request.getContextPath() + "/css/Employe.css"%>>
+	
+<%@ page import="java.io.PrintWriter"%>
+<%
+if (request.getSession().getAttribute("Logged") != null) {
+    //request.getSession().setAttribute("Logged", "Guest");
+%>
+	
 <body>
-	<jsp:include page="../../WEB-INF/views/common/header.jsp"></jsp:include>
+	<jsp:include page="../../WEB-INF/views/common/adminHeader.jsp"></jsp:include>
 
 <div class="row">
 <jsp:include
 page="EmployeeNav.jsp"></jsp:include>
 <div class="col-9">
 
+<br>
 <center>
  <h2>Delete Employee</h2>
 </center>
@@ -20,8 +28,6 @@ page="EmployeeNav.jsp"></jsp:include>
          String fname = request.getParameter("fname");
          String lname = request.getParameter("lname");
          String phone = request.getParameter("phone");
-         String uname = request.getParameter("uname");
-         String pwd = request.getParameter("pwd");
          String nic = request.getParameter("nic");
          String email = request.getParameter("email");
          String address = request.getParameter("address");
@@ -49,12 +55,6 @@ page="EmployeeNav.jsp"></jsp:include>
     <label for="phone">Phone Number</label>
     <input type="text" class="form-control" id="phone"  name="phone" aria-describedby=""  readonly value="<%=phone%>">
   </div>
-
-  <div class="form-group">
-    <label for="Username">Username</label>
-    <input type="text" class="form-control"  name="uname" id="uname" aria-describedby="" readonly value="<%=uname%>">
-  </div>
-
 
 
   <div class="form-group">
@@ -95,3 +95,12 @@ page="EmployeeNav.jsp"></jsp:include>
 <jsp:include page="../../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
 </body>
 </html>
+
+<%
+} else {
+    PrintWriter redirect = response.getWriter();
+    redirect.println("<script>");
+    redirect.println("location='./login.jsp'");//put the location from your jsp file
+    redirect.println("</script>");
+}
+%>
