@@ -13,7 +13,7 @@ import com.smd.util.DBConnection;
 import com.smd.model.*;
 import com.smd.service.CreditSalesM;
 
-@WebServlet("/NewOrdersConf/AcceptOrders")
+@WebServlet("/AcceptOrders")
 public class AcceptOrderServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -25,7 +25,8 @@ public class AcceptOrderServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		DBConnection dbc = new DBConnection();
-		//String orderID = "0";
+		// String orderID = "0";
+
 		if (request.getParameter("button").equals("accept")) {
 			try {
 				Statement stmt = dbc.getConnection().createStatement();
@@ -35,12 +36,11 @@ public class AcceptOrderServlet extends HttpServlet {
 				CreditSalesM paydbc = new CreditSalesM();
 				NewOrdersConf[] data = paydbc.getNewOrderDetails();
 				request.getSession().setAttribute("data", data);
-				response.sendRedirect("NewOrdersconfirmation.jsp");
+				response.sendRedirect("admin/CreditSalesManagement/NewOrdersconfirmation.jsp");
 			} catch (Exception e) {
 				response.getWriter().append(e.toString());
 			}
-		}
-		else if (request.getParameter("button").equals("decline")) {
+		} else if (request.getParameter("button").equals("decline")) {
 			try {
 				Statement stmt = dbc.getConnection().createStatement();
 				String command = "delete from orders where Order_ID=" + request.getParameter("id");
@@ -50,7 +50,7 @@ public class AcceptOrderServlet extends HttpServlet {
 				CreditSalesM cdbc = new CreditSalesM();
 				NewOrdersConf[] data = cdbc.getNewOrderDetails();
 				request.getSession().setAttribute("data", data);
-				response.sendRedirect("NewOrdersconfirmation.jsp");
+				response.sendRedirect("admin/CreditSalesManagement/NewOrdersconfirmation.jsp");
 			} catch (Exception e) {
 				response.getWriter().append(e.toString());
 			}

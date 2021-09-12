@@ -84,14 +84,14 @@
 				
 				<label for="Status" class="col-sm-6 col-form-label">Status:</label>
  	 				<select name="Status" id="Status">
-					    <option name="Status" value="<%= Status %>">Completed</option>
-					    <option name="Status" value="<%= Status %>">Pending</option>
-					    <option name="Status" value="<%= Status %>">Searching</option>
-					    <option name="Status" value="<%= Status %>">Thankyou</option>
+					    <option name="Status" value="Completed">Completed</option>
+					    <option name="Status" value="Pending">Pending</option>
+					    <option name="Status" value="Searching">Searching</option>
+					    <option name="Status" value="Thankyou">Thankyou</option>
   					</select><br><br>
 				<%-- Status: 
 				<input type="text" name="Status" style="width:20%" value="<%= Status %>"><br><br><br> --%>
-				<input type="submit" name="submit" value="Update The Data">
+				<input type="submit" name="submit" value="Update The Data"> 
 				
 			</form>
 		</div>

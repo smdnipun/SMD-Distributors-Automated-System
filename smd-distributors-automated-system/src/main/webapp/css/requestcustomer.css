@@ -47,7 +47,7 @@ label.star:before {
   font-family: FontAwesome;
 }
 body {
-  background-image: url('../img/service3.jpg');
+  background-image: url('../img/grey3.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -55,14 +55,23 @@ body {
   position:relative;
 		
 }
-input[type=button]{
+#form_button {
 	width: 30%;
-	height: 40%;
-	border-radius: 5px;
-  	padding: 20px;
- 	text-align: center;
-  	display: inline-block;
-  	font-size: 16px;
-  	margin: 4px 2px;
-  	cursor: pointer;
+	height:20%;
+  border: solid 2px #474544;
+  color: #474544;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 0.975em;
+  outline: none;
+  padding: 10px 10px;
+  text-transform: uppercase;
+  
+}
+input, select, textarea {
+font-size: 150%;
+}
+input[type="radio"]{
+  margin: 0 10px 0 10px;
 }

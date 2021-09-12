@@ -18,10 +18,13 @@ public class EmpViewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 
+		
+		//get Details from employee list array and pass that list details to redirect page
 		
 		List<Employee> employeeDetails = EmployeeDBUtill.viewEmployee();
 		request.setAttribute("employeeDetails",employeeDetails);
+		
+		//redirect
 		
 		RequestDispatcher dis = request.getRequestDispatcher("admin/EmployeeManagement/viewEmp.jsp");
 		dis.forward(request, response);

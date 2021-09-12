@@ -6,10 +6,6 @@
 <!--checking user logged or not -->
 <!-- creating array to get data from database -->
 <%
-if (request.getSession().getAttribute("Logged") == null) {
-	request.getSession().setAttribute("Logged", "Guest");
-}
-
 CusDetailsServiceImpl dbc = new CusDetailsServiceImpl();
 Customer[] cusDetails = dbc.inactiveCustomers();
 request.setAttribute("data", cusDetails);
@@ -23,17 +19,17 @@ request.setAttribute("inactive", inactive);
 	<div class="col-2">
 		<jsp:include page="./VerticalNavBar.jsp"></jsp:include>
 	</div>
-	<div class="col-10 pr-3 pt-2 pb-2">
+	<div class="col-10 pr-3 pt-2 pb-4">
 		<jsp:include page="./cDetailsHnav.jsp"></jsp:include>
 		<div class="row pt-2 table-responsive-md pl-3 pb-2 mr-1">
 			<div style = "color:red;" class="d-flex justify-content-center">
 				<h4>Inactive Customer List</h4>
 			</div>
 			<div class="row">
-				<div class="d-flex justify-content-start">
+				<div class="d-flex justify-content-start mb-0">
 					<p>No.of Inactive Customers : <c:out value="${inactive}" /> </p>
 				</div>
-				<form action="../../SearchInactiveCustomers" class="d-flex mb-2 mt-1 pr-0 justify-content-end" method="post">
+				<form action="../../SearchInactiveCustomers" class="d-flex mb-2 pr-0 mt-0 justify-content-end" method="post">
 					<h6 class="ml-3 pt-1"> Search Hardware :</h6>
 					<input type="text" size="20" name="search" placeholder="Enter Hardware Name" class="ml-3" />
 					<button type="submit" class="">
@@ -41,7 +37,8 @@ request.setAttribute("inactive", inactive);
 					</button>
 				</form>
 			</div>
-			<table id="table" class="table display nowrap" style="width:100%">
+			<table id="table" class="table display nowrap table-bordered" style="width:100%">
+				<!-- getting data for the table -->
 				<c:choose>
 					<c:when test="${param.search==null}">
 						<%

@@ -16,15 +16,15 @@ request.setAttribute("data", customer);
 %>
 
 <div>
-	<jsp:include page="centerNav.jsp"></jsp:include>
+	<jsp:include page="CenterNavWithoutSearch.jsp"></jsp:include>
 	<center>
 		<h5>Customer Details</h5>
 	</center>
 
-	
-	
-	
-	<table id="table" class="display nowrap table table-stripped table-bordered" style="width: 100%">
+
+
+
+	<table id="payTable" class="display nowrap" style="width: 100%">
 		<thead>
 
 			<tr>
@@ -43,7 +43,7 @@ request.setAttribute("data", customer);
 					<td><c:out value="${Customer.getCusID()}" /></td>
 					<td><c:out value="${Customer.getHardwareName()}" /></td>
 					<td><c:out value="${Customer.getPhoneNo()}" /></td>
-					<td><c:out value="${Customer.getEmail() }"/></td>
+					<td><c:out value="${Customer.getEmail() }" /></td>
 					<td><c:out value="${Customer.getAddress()}" /></td>
 
 

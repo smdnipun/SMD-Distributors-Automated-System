@@ -41,15 +41,16 @@ CREATE TABLE `feedback` (
 );
 
 --
--- Table structure for table `employeetype`
+-- Table structure for table `employee_type`
 --
 
-DROP TABLE IF EXISTS `employeetype`;
+DROP TABLE IF EXISTS `employee_type`;
 
-CREATE TABLE `employeetype` (
-  `Emp_Type` varchar(45) NOT NULL,
+CREATE TABLE `employee_type` (
+  `Emp_Type` varchar(30) NOT NULL,
   `Basic_Salary` double NOT NULL,
   `Hours` int NOT NULL,
+  `OT_Rate` double DEFAULT NULL,
   PRIMARY KEY (`Emp_Type`)
 );
 
@@ -63,18 +64,49 @@ CREATE TABLE `employee` (
   `Emp_ID` int NOT NULL AUTO_INCREMENT,
   `First_Name` varchar(45) NOT NULL,
   `Last_Name` varchar(45) NOT NULL,
-  `Phone` varchar(11) NOT NULL,
+  `Phone` varchar(12) DEFAULT NULL,
   `Username` varchar(45) DEFAULT NULL,
   `Password` varchar(45) DEFAULT NULL,
-  `NIC` varchar(45) DEFAULT NULL,
+  `NIC` varchar(45) NOT NULL,
   `Email` varchar(45) DEFAULT NULL,
   `Address` varchar(45) DEFAULT NULL,
-  `Total_Salary` double DEFAULT NULL,
-  `Hours_Worked` int DEFAULT NULL,
-  `Emp_Type` varchar(45) NOT NULL,
+  `Emp_Type` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`Emp_ID`),
   KEY `Employee_Type_idx` (`Emp_Type`),
-  CONSTRAINT `Employee_Type` FOREIGN KEY (`Emp_Type`) REFERENCES `employeetype` (`Emp_Type`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `Employee_Type` FOREIGN KEY (`Emp_Type`) REFERENCES `employee_type` (`Emp_Type`) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+--
+-- Table structure for table `employee_salattend`
+--
+
+DROP TABLE IF EXISTS `employee_salattend`;
+
+CREATE TABLE `employee_salattend` (
+  `Emp_ID` int NOT NULL,
+  `Hours_Worked` int DEFAULT NULL,
+  `Month` varchar(20) NOT NULL,
+  `Total_Salary` double DEFAULT NULL,
+  PRIMARY KEY (`Emp_ID`,`Month`),
+  CONSTRAINT `empfr_ID` FOREIGN KEY (`Emp_ID`) REFERENCES `employee` (`Emp_ID`) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+--
+-- Table structure for table `resigned_employees`
+--
+
+DROP TABLE IF EXISTS `resigned_employees`;
+
+CREATE TABLE `resigned_employees` (
+  `Emp_ID` int NOT NULL,
+  `Emp_Type` varchar(45) DEFAULT NULL,
+  `First_Name` varchar(45) DEFAULT NULL,
+  `Last_Name` varchar(45) DEFAULT NULL,
+  `Phone` varchar(45) DEFAULT NULL,
+  `NIC` varchar(45) DEFAULT NULL,
+  `Address` varchar(45) DEFAULT NULL,
+  `Resigned_Date` date DEFAULT NULL,
+  PRIMARY KEY (`Emp_ID`)
 );
 
 --
@@ -255,23 +287,32 @@ VALUES (1,1,'2021-05-18','a','Excellent service','5','pending'),
     (3,3,'2021-04-02','c','poor service','1','pending');
     
 --
--- Dumping data for table `employeetype`
+-- Dumping data for table `employee_type`
 --
 
-INSERT INTO `employeetype` 
-VALUES ('cashCollector',30000,180),
-	('driver',25000,180),
-    ('labor',15000,150);
+INSERT INTO `employee_type` 
+VALUES ('cashCollector',30000,180,250),
+('driver',25000,180,150),('labor',15000,150,150);
 
 --
 -- Dumping data for table `employee`
 --
 
 INSERT INTO `employee` 
-VALUES (1,'Kumara','Jayathilaka','0712211759',NULL,NULL,'5712867321V','kumara@gmail.com','12/1,Galahawatta,Mawanalla',33000,187,'cashCollector'),
-	(2,'Jagath','Mahanama','0775642387',NULL,NULL,'651247987V',NULL,'20/5B,newtown,Pilimathalawa',15000,150,'labor'),
-    (3,'Saman','Karunarathna','0754336587',NULL,NULL,'612552290V',NULL,'07/5,Milawaththa,Mawanalla.',30000,195,'driver');
-    
+ VALUES (1,'Thameera','fernando','0764455678  ','null','null','199834729835','thameeralk@gmail.com','Thammera,Kandy','cashCollector');
+
+--
+-- Dumping data for table `employee_salattend`
+--
+
+INSERT INTO `employee_salattend` VALUES (1,220,'2021-09-07',40000);
+
+--
+-- Dumping data for table `resigned_employees`
+--
+
+INSERT INTO `resigned_employees` VALUES (2,'cashCollector','Poorna','Ransinghe','0788817663','199834720198','94/,Kandy','2021-09-11');
+
 --
 -- Dumping data for table `product`
 --
@@ -366,9 +407,9 @@ VALUES ('40-1150',2,2,'2021-03-25'),
 DROP View PaymentDetails;
 
 Create View PaymentDetails As 
-Select p.Pay_ID,c.Hardware_Name,c.Cus_ID,o.Order_ID,o.Total_Price,o.Paid_Amount,o.Remaining_Amount
-from customer c,orders o,payment p
-where  c.Cus_ID=o.Cust_ID and o.Cust_ID=p.Cus_ID and o.Remaining_Amount>0;
+Select c.Hardware_Name,o.Order_ID,o.Total_Price,o.Paid_Amount,o.Remaining_Amount,o.Order_Status
+from customer c,orders o
+where  c.Cus_ID=o.Cust_ID  and o.Paid_Amount<=o.Total_Price and NOT o.Order_Status='Pending';
 
 -- Customer Aged
 DROP View CustomerAged;
@@ -382,13 +423,92 @@ where c.Cus_ID=o.Cust_ID and o.Remaining_Amount>0;
 -- NewOrders
 DROP View NewOrders;
 
-Create View NewOrders As
-Select o.Order_ID,o.Order_Date,c.Hardware_Name,o.Qty,o.Total_Price
-from customer c,orders o
-where c.Cus_ID=o.Cust_ID and Order_Status="pending";
+CREATE 
+    ALGORITHM = UNDEFINED 
+    DEFINER = `root`@`localhost` 
+    SQL SECURITY DEFINER
+VIEW `neworders` AS
+    SELECT 
+        `o`.`Order_ID` AS `Order_ID`,
+        `o`.`Order_Date` AS `Order_Date`,
+        `c`.`Cus_ID` AS `Cus_ID`,
+        `c`.`Hardware_Name` AS `Hardware_Name`,
+        `o`.`Qty` AS `Qty`,
+        `o`.`Total_Price` AS `Total_Price`
+    FROM
+        (`customer` `c`
+        JOIN `orders` `o`)
+    WHERE
+        ((`c`.`Cus_ID` = `o`.`Cust_ID`)
+            AND (`o`.`Order_Status` = 'pending'))
+
+-- employeeattendance view
+
+CREATE 
+    ALGORITHM = UNDEFINED 
+    DEFINER = `root`@`localhost` 
+    SQL SECURITY DEFINER
+VIEW `smd`.`bestattend` AS
+    SELECT 
+        `e`.`Emp_ID` AS `Emp_ID`,
+        `y`.`Emp_Type` AS `Employee_Type`,
+        `e`.`First_Name` AS `First_Name`,
+        `l`.`Hours_Worked` AS `Hours_Worked`,
+        `y`.`Hours` AS `Work_Hours(PerMonth)`,
+        (`l`.`Hours_Worked` - `y`.`Hours`) AS `OT_Hours`,
+        MONTHNAME(CURDATE()) AS `Month`
+    FROM
+        ((`smd`.`employee` `e`
+        JOIN `smd`.`employee_salattend` `l`)
+        JOIN `smd`.`employee_type` `y`)
+    WHERE
+        ((`e`.`Emp_ID` = `l`.`Emp_ID`)
+            AND (`y`.`Emp_Type` = `e`.`Emp_Type`)
+            AND (MONTH(CURDATE()) = MONTH(`l`.`Month`)))
+    ORDER BY `l`.`Hours_Worked` DESC
+
+
+-- employeesalary view
+
+CREATE 
+    ALGORITHM = UNDEFINED 
+    DEFINER = `root`@`localhost` 
+    SQL SECURITY DEFINER
+VIEW `smd`.`monthlysalary` AS
+    SELECT 
+        `e`.`Emp_Type` AS `EmpType`,
+        `y`.`First_Name` AS `FirstName`,
+        `e`.`Basic_Salary` AS `BasicSalary`,
+        `l`.`Total_Salary` AS `TotalSalary`,
+        (`l`.`Total_Salary` - `e`.`Basic_Salary`) AS `OT_Increement`,
+        `e`.`Hours` AS `Work_Hours(PerMonth)`,
+        `l`.`Hours_Worked` AS `Hours_Worked`,
+        `e`.`OT_Rate` AS `OT_Rate(PerHour)`,
+        `l`.`Month` AS `Month`
+    FROM
+        ((`smd`.`employee_type` `e`
+        JOIN `smd`.`employee` `y`)
+        JOIN `smd`.`employee_salattend` `l`)
+    WHERE
+        ((`e`.`Emp_Type` = `y`.`Emp_Type`)
+            AND (`l`.`Emp_ID` = `y`.`Emp_ID`)
+            AND (MONTH(CURDATE()) = MONTH(`l`.`Month`)))
+    ORDER BY `l`.`Total_Salary` DESC
+
+
+-- OrderSummary
+Create View OrderSummary AS
+Select o.Cust_ID, o.Order_ID, o.Order_Date, p.Name, o.Qty, o.Order_Status, o.Total_Price, o.Paid_Amount, o.Remaining_Amount
+from orders o, product p
+where o.Product_ID = p.Prod_ID;
+
 
 
 -- Database functions & procedures
+
+-- Triggers
+
+
 
 
 

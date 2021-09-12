@@ -1,3 +1,4 @@
+<%request.getSession().getAttribute("CustomerID"); %>
 <div class="row">
 	<div class="col-2">
 		<jsp:include page="./customerUInavBar.jsp"></jsp:include>
@@ -9,7 +10,7 @@
 			</div>
 		</div>
 		<div class="row card px-4 py-4 my-auto mx-auto w-50">
-			<form action="changePwd" method="post" onsubmit="return checkPwd()">
+			<form action="CustomerPwdUpdate" method="post" onsubmit="return checkPwd()">
 				<label for="currentpwd" class="mt-2 mb-0 ml-2 mr-3">Current Password :</label>
 				<input type="password" id="password" name="currentpwd" size="40" class="ml-4" Required><br>
 				
@@ -22,8 +23,14 @@
 				<input type="password" id="rpwd" name="rpwd" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
 				size="40" class="ml-1" Required><br>
          		<div class="d-flex justify-content-center pt-4">
-					<div style = "color:red;" class="mt-2 mb-2"><p>${message1}</p></div>
-					<div style = "color:red;" class="mt-2 mb-2"><p>${message2}</p></div>
+					<div style = "color:red;" class="mb-0 text-sm row">
+                    	<p class = "error_updatePwd">
+                    		<%=request.getAttribute("error_updatePwd") == null ? "" : request.getAttribute("error_updatePwd") %>
+                    	</p>
+                    	<p class = "currentpwd_mismatch">
+                    		<%=request.getAttribute("currentpwd_mismatch") == null ? "" : request.getAttribute("currentpwd_mismatch") %>
+                    	</p>
+                    </div>
 					<button type="submit" name="submit" class="btn btn-success">Update Password</button>
 				</div>
 			</form>

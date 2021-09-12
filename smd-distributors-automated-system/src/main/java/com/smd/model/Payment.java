@@ -20,6 +20,9 @@ public class Payment {
 		EmpID = empID;
 	}
 
+	public Payment() {
+	}
+
 	public String getPaymentID() {
 		return PaymentID;
 	}

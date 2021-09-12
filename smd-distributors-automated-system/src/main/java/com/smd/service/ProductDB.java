@@ -43,8 +43,16 @@ public class ProductDB {
 			String command = "SELECT * from smd.product";
 			ResultSet rs = stmt.executeQuery(command);
 			while (rs.next()) {
-				Product n = new Product(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getInt(5));
-				ll.add(n);
+				if (rs.getInt(6) == 1) {
+					Product n = new Product(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4),
+							rs.getInt(5), true, rs.getString(7));
+					ll.add(n);
+				} else {
+					Product n = new Product(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4),
+							rs.getInt(5), false, rs.getString(7));
+					ll.add(n);
+				}
+
 			}
 
 			array = ll.toArray(new Product[ll.size()]);
@@ -66,11 +74,11 @@ public class ProductDB {
 			while (rs.next()) {
 				if (rs.getInt(6) == 1) {
 					Product n = new Product(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4),
-							rs.getInt(5), true);
+							rs.getInt(5), true, rs.getString(7));
 					return n;
 				} else {
 					Product n = new Product(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4),
-							rs.getInt(5), false);
+							rs.getInt(5), false, rs.getString(7));
 					return n;
 				}
 			}
@@ -91,7 +99,7 @@ public class ProductDB {
 			while (rs.next()) {
 				if (rs.getInt(6) == 1) {
 					Product n = new Product(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4),
-							rs.getInt(5), true);
+							rs.getInt(5), true, rs.getString(7));
 					ll.add(n);
 				}
 			}

@@ -69,7 +69,7 @@ public class FeedbackServiceImpl implements IFeedback {
 			//executing a query
 			state=con.createStatement();
 			String sql="Insert into feedback "
-					+ "values(0,2,NOW(),'"+Type+"','"+Message+"','"+Rating+"',null)";
+					+ "values(0,3,NOW(),'"+Type+"','"+Message+"','"+Rating+"',null)";
 			
 			//PreparedStatement stmt = (PreparedStatement) con.prepareStatement(sql);
 				
@@ -96,11 +96,10 @@ public class FeedbackServiceImpl implements IFeedback {
 		boolean isSuccess = false;//assign this to false before execution of query
 		
 		try {
-			state=con.createStatement();//executing a query
-			String sql="update feedback set Date='"+Date+"', Type='"+Type+"',Message='"+Message+"',Rating='"+Rating+"',Status='"+Status+"'"
-							+ "where Feedback_ID='"+Feedback_ID+"'";
-			//feedbackid is unique auto-incremented
 			
+			String sql="update feedback set Date='"+Date+"', Type='"+Type+"',Message='"+Message+"',Rating='"+Rating+"',Status='"+Status+"' where Feedback_ID='"+Feedback_ID+"'";
+			//feedbackid is unique auto-incremented
+			state=con.prepareStatement(sql); //executing a query
 			int result=state.executeUpdate(sql);
 			
 			if(result>0) {
@@ -170,20 +169,24 @@ public class FeedbackServiceImpl implements IFeedback {
 	}
 	
 	//generating monthly feedback reports
-	public static List<Feedback> viewMonthlyFeedbackReport(){
+	public List<Feedback> viewMonthlyFeedbackReport(String date){
 		ArrayList<Feedback> feed= new ArrayList<Feedback>();
 		try {
 			state=con.createStatement();
-			String sql="select * from feedback";
+			String sql="select * from feedback where month(Date)=extract(month from '"+date+"') and year(Date)=extract(year from '"+date+"')";
 			ResultSet rs= state.executeQuery(sql);
 			
 			while(rs.next()) {
 				int Feedback_ID=rs.getInt(1);
+				int Cus_ID= rs.getInt(2);
 				String Date= rs.getString(3);
+				String Type=rs.getString(4);
 				String Message=rs.getString(5);
+				int Rating=rs.getInt(6);
+				String Status=rs.getString(7);
 				
-				//Feedback f1= new Feedback(Feedback_ID,Date,Message);
-				//feed.add(f1);
+				Feedback f1= new Feedback(Feedback_ID,Cus_ID,Date, Type, Message, Rating, Status);
+				feed.add(f1);
 			}
 			
 		}catch(Exception e) {

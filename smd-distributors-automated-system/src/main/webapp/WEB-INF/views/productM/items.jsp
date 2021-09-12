@@ -13,6 +13,7 @@ request.setAttribute("allProducts", allProducts);
 			<div class="col-3">
 				<jsp:include page="Item.jsp">
 					<jsp:param name="ProductName" value="${item.getName()}"  />
+					<jsp:param name="image" value="${item.getImage()}"  />
 				</jsp:include>
 			</div>
 		</c:forEach>

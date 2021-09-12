@@ -7,6 +7,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 import com.smd.model.Customer;
+import com.smd.model.OrderSummary;
+import com.smd.model.PaySummary;
+import com.smd.model.Payment;
 
 public class CusDetailsServiceImpl implements ICustomerDetails {
 	
@@ -154,7 +157,6 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 		return array;
 	}
 	
@@ -191,23 +193,26 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 		
 		try {
 			Statement stmt = con.getConnection().createStatement();
-			String command = "select * from smd.customer where where Cus_ID =" + id;
+			String command = "select * from smd.customer where Cus_ID =" + id;
 			ResultSet rs = stmt.executeQuery(command);//execute the statement
 			
 			//retrieve the data from the specific customer
-			Customer c = new Customer(
-					rs.getString(1),	//cusID
-					rs.getString(2), 	//fname
-					rs.getString(3),	//lname
-					rs.getString(4),	//hardwareName
-					rs.getString(5),	//phoneNo
-					rs.getString(6),	//password
-					rs.getString(7),	//nic
-					rs.getString(8),	//email
-					rs.getString(9),	//address
-					rs.getString(10)	//status
-					);
-			return c;
+			while(rs.next()) {
+				Customer c = new Customer(
+						rs.getString(1),	//cusID
+						rs.getString(2), 	//fname
+						rs.getString(3),	//lname
+						rs.getString(4),	//hardwareName
+						rs.getString(5),	//phoneNo
+						rs.getString(6),	//password
+						rs.getString(7),	//nic
+						rs.getString(8),	//email
+						rs.getString(9),	//address
+						rs.getString(10)	//status
+						);
+				return c;
+			}
+			return null;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -221,6 +226,7 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 		
 		//creating the database connection
 		DBConnection dbc = new DBConnection();
+		
 		try {
 			Statement stmt = dbc.getConnection().createStatement();
 			
@@ -327,6 +333,34 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 		
 		return Success;
 	}
+	
+	//customer update customer Details
+	public boolean updatedCustomer(Customer customer) {
+		boolean Success = false;//assign false before execution
+		
+		//creating the database connection
+		DBConnection dbc = new DBConnection();
+		try {
+			Statement stmt = dbc.getConnection().createStatement();
+			
+			String command = "UPDATE smd.customer SET First_name= '" + customer.getFname() + "', Last_Name= '" + customer.getLname() + "', Hardware_Name= '"+ customer.getHardwareName() +"', Phone= '"+ customer.getPhoneNo() + "', Address= '" + customer.getAddress() + "' WHERE Cus_ID = " + customer.getCusID();      
+			
+			int result = stmt.executeUpdate(command);//execute the statement
+			
+			if(result>0) {
+				//insertion is successful if result is 1
+				Success=true;
+			}
+			else {
+				//insertion is unsuccessful
+				Success=false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+		
+		return Success;
+	}
 
 	@Override
 	//delete customer
@@ -398,7 +432,9 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 		return array;
 	}
 	
-	public boolean updateForgetPassword(int id, String pwd) {
+	@Override
+	//update password
+	public boolean updatePassword(int id, String pwd) {
 		boolean Success = false;//assign false before execution
 		
 		//creating the database connection
@@ -421,8 +457,85 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} 
-		
 		return Success;
+	}
+	
+	@Override
+	//get customer order Summary
+	public OrderSummary[] getOrderDetails(int id) {
+		//create linked list to take the data from the database.
+		List<OrderSummary> ll = new LinkedList<OrderSummary>();
+		
+		//Created an array to store all the customer details.
+		OrderSummary[] array = null;
+		
+		//Make the connection with Database
+		DBConnection con = new DBConnection();
+		
+		try {
+			Statement stmt = con.getConnection().createStatement();
+			String command = "select * from smd.OrderSummary where Cust_ID = " + id;
+			ResultSet rs = stmt.executeQuery(command);//execute the statement
+			
+			//Adding the data retrieved from the database to the LinkList
+			while (rs.next()) {
+				OrderSummary c = new OrderSummary(
+						rs.getInt(1),		//customer ID
+						rs.getInt(2), 		//invoice ID
+						rs.getString(3),	//order date
+						rs.getString(4),	//product name
+						rs.getInt(5),		//Quantity
+						rs.getString(6),	//order Status
+						rs.getDouble(7),	//Order Total
+						rs.getDouble(8),	//Paid Amount
+						rs.getDouble(9)		//Remaining Balance
+						);
+				ll.add(c);
+			}
+			//Inserting the value in the LinkList to the array
+			array = ll.toArray(new OrderSummary[ll.size()]);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}	
+		return array;
+	}
+	
+	@Override
+	//get customer payment summary
+	public PaySummary[] getPaymentDetails(int id) {
+		//create linked list to take the data from the database.
+		List<PaySummary> ll = new LinkedList<PaySummary>();
+		
+		//Created an array to store all the customer details.
+		PaySummary[] array = null;
+		
+		//Make the connection with Database
+		DBConnection con = new DBConnection();
+		
+		try {
+			Statement stmt = con.getConnection().createStatement();
+			String command = "select * from PaySummary where Cus_ID = " + id;
+			ResultSet rs = stmt.executeQuery(command);//execute the statement
+			
+			//Adding the data retrieved from the database to the LinkList
+			while (rs.next()) {
+				PaySummary p = new PaySummary(
+						rs.getInt(1),		//customer ID
+						rs.getInt(2),		//Receipt ID
+						rs.getInt(3), 		//invoice ID
+						rs.getString(4),	//order date
+						rs.getDouble(5)	//product name
+						);
+				ll.add(p);
+			}
+			//Inserting the value in the LinkList to the array
+			array = ll.toArray(new PaySummary[ll.size()]);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}	
+		return array;
 	}
 	
 //	public boolean checkEmail(Customer customer) {

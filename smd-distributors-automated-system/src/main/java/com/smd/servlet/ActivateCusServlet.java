@@ -63,7 +63,7 @@ public class ActivateCusServlet extends HttpServlet {
 			if(status == true) {
 				//display an error message
 				out.println("<script type=\"text/javascript\">");
-			    out.println("alert('Customer Avtivated Successfly !!!');");
+			    out.println("alert('Customer Activated Successfly !!!');");
 			    out.println("location='admin/CustomerManagement/inactiveCustomers.jsp'"); //redirect to the registration page
 			    out.println("</script>");
 //				response.sendRedirect("admin/CustomerManagement/inactiveCustomers.jsp");

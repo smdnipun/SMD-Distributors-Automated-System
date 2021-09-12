@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
      <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,11 +16,15 @@
 	<jsp:include page="../WEB-INF/views/common/adminHeader.jsp"></jsp:include> 
 	<br>
 	<h5 align="center" class="capitalize" >Request Management</h5>
-<br>
 
+		<div>
+			<form action="${pageContext.request.contextPath}/searchfeedback" method="post" class="searchbar">
+				<input type="text" id="myInput" class="form-control" name="search" placeholder="search feedbacks by status.."/>
+	 		</form> 
+ 		</div> <br>
 			<!--table to display data -->
 			<div class="col-10">
-			<table class="table table-hover ">
+			<table class="table table-hover table table-sm">
 			<!-- <table class="feedback"> -->
 			<thead class="thead-dark">
 				<tr>
@@ -31,7 +36,6 @@
 					<th scope="col">Rating</th>
 					<th scope="col">Status</th>
 					<th scope="col" colspan="2" style="text-align: center;">Action</th>
-					<th scope="col">Confirmation Email</th>
 				</tr>	
 			</thead>
 			<tbody>
@@ -99,14 +103,26 @@
 									<button type="button" class="btn btn-outline-dark">Delete</button>
 								</a>
 							</td>
-							<td>
-							<button type="button" class="btn btn-outline-dark">Send</button>
-							</td>
 					</tr>	
 				</c:forEach>
 				</tbody>
 			</table>
 		</div>
+	
+		<%-- <div class="col-10">
+			<form action=<%=request.getContextPath() + "/feedbackreport"%> method="post" class="reportform">
+			
+				<div class="mb-4">
+							<h6 style="padding: 10px">Date</h6>
+							<input type="date" name="Date" class="form-control" id="formGroupExampleInput" style="width: 300px">
+				</div>
+				<!-- <button type="button" class="btn btn-outline-dark" style="margin: 10px">Generate Report </button> -->
+				<div class="submit">
+		      <input type="submit" value="Generate Report" id="form_button" />
+		    </div>
+			</form>
+		</div>	 --%>
+
 			<br><br><br><br><br><br>
 	<jsp:include page="../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
 </body>

@@ -34,3 +34,8 @@
 	box-shadow: 1px 1px #666666;
 	transform: translateY(1px);
 } 
+
+div.dataTables_wrapper {
+        width: 1200px;
+        margin: 0 auto;
+}

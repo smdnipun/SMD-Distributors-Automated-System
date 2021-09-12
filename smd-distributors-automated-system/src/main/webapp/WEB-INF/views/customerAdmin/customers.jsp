@@ -2,13 +2,8 @@
 <%@ page import="com.smd.service.CusDetailsServiceImpl"%><!-- Import Database connection of CusDetailsServiceImpl -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<!--checking user logged or not -->
 <!-- creating array to get data from database -->
 <%
-if (request.getSession().getAttribute("Logged") == null) {
-	request.getSession().setAttribute("Logged", "Guest");
-}
-
 CusDetailsServiceImpl dbc = new CusDetailsServiceImpl();
 Customer[] cusDetails = dbc.activeCustomers();
 request.setAttribute("data", cusDetails);
@@ -23,10 +18,10 @@ request.setAttribute("active", active);
 		<jsp:include page="./VerticalNavBar.jsp"></jsp:include>
 	</div>
 	
-	<div class="col-10 pr-3 pt-2 pb-2">
+	<div class="col-10 pr-3 pt-2 pb-5">
 		<jsp:include page="./cDetailsHnav.jsp"></jsp:include>
 		<div class="row pt-2">
-			<div class="col-9 pt-3 table-responsive-md">
+			<div class="col-9 pt-2 table-responsive-md">
 				<div class="d-flex justify-content-center">
 					<h4>Customer List</h4>
 				</div>
@@ -94,7 +89,6 @@ request.setAttribute("active", active);
 	                        <input type="text" id="address" name="address" size="31" Required><br>
 	                    </div>
 	                    <div class="d-flex justify-content-around pt-3 pb-2">
-	                    	<div style = "color:red;"><p>${message}</p></div><br>
 	                        <button type="submit" class="btn btn-primary" name="btn" 
 	                        	value="update">Update</button>
 	                        <button type="submit" name="btn" class="btn btn-danger" 
