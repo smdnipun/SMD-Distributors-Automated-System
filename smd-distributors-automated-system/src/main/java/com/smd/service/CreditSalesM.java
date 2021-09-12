@@ -56,8 +56,8 @@ public class CreditSalesM {
 			ResultSet rs = stmt.executeQuery("select * from paymentdetails");
 			while (rs.next()) {
 				// rs.getNString(2)
-				PaymentDetails n = new PaymentDetails(rs.getNString(1), rs.getString(2),
-						rs.getDouble(3), rs.getDouble(4), rs.getDouble(5),rs.getString(6));
+				PaymentDetails n = new PaymentDetails(rs.getNString(1), rs.getString(2), rs.getDouble(3),
+						rs.getDouble(4), rs.getDouble(5), rs.getString(6));
 				ll.add(n);
 			}
 			array = ll.toArray(new PaymentDetails[ll.size()]);
@@ -79,8 +79,8 @@ public class CreditSalesM {
 			Statement stmt = con.getConnection().createStatement();
 			ResultSet rs = stmt.executeQuery("select * from paymentdetails where Order_ID=" + i);
 			while (rs.next()) {
-				PaymentDetails n = new PaymentDetails(rs.getNString(1), rs.getString(2),
-						rs.getDouble(3), rs.getDouble(4), rs.getDouble(5),rs.getString(6));
+				PaymentDetails n = new PaymentDetails(rs.getNString(1), rs.getString(2), rs.getDouble(3),
+						rs.getDouble(4), rs.getDouble(5), rs.getString(6));
 				ll.add(n);
 			}
 			array = ll.toArray(new PaymentDetails[ll.size()]);
@@ -117,8 +117,8 @@ public class CreditSalesM {
 			Statement stmt = con.getConnection().createStatement();
 			ResultSet rs = stmt.executeQuery("select * from neworders ");
 			while (rs.next()) {
-				NewOrdersConf n = new NewOrdersConf(rs.getString(1), rs.getString(2), rs.getString(3),rs.getString(4), rs.getInt(5),
-						rs.getDouble(6));
+				NewOrdersConf n = new NewOrdersConf(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
+						rs.getInt(5), rs.getDouble(6));
 				ll.add(n);
 			}
 
@@ -180,8 +180,7 @@ public class CreditSalesM {
 		DBConnection con = new DBConnection();
 		try {
 			Statement stmt = con.getConnection().createStatement();
-			ResultSet rs = stmt.executeQuery(
-					"select * from customer where Status='Active'");
+			ResultSet rs = stmt.executeQuery("select * from customer where Status='Active'");
 			while (rs.next()) {
 				Customer n = new Customer(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
 						rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9),
@@ -197,7 +196,7 @@ public class CreditSalesM {
 	}
 
 	// PaymentVerification
-	public boolean getPayCredit(int CID, int OID) {
+	public boolean getPayCredit(int CID, int OID,double paidAmount) {
 
 		List<Order> ll = new LinkedList<Order>();
 		Order[] array = null;
@@ -205,7 +204,7 @@ public class CreditSalesM {
 		try {
 			Statement stmt = con.getConnection().createStatement();
 			ResultSet rs = stmt
-					.executeQuery("select * from orders where order_ID =" + OID + " and Cust_ID =" + CID + ";");
+					.executeQuery("select * from orders where order_ID =" + OID + " and Cust_ID =" + CID +  " and Cust_ID =" + CID +" AND Remaining_Amount >="+paidAmount +  ";");
 			while (rs.next()) {
 				Order n = new Order(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getDouble(5),
 						rs.getDouble(6), rs.getDouble(7), rs.getInt(8), rs.getInt(9));
@@ -224,6 +223,24 @@ public class CreditSalesM {
 		}
 
 	}
+//Customer age details
+	public Order getCusPayDe() {
+
+		try {
+			Statement stmt = con.getConnection().createStatement();
+			ResultSet rs = stmt
+					.executeQuery("select * from orders;");
+			while (rs.next()) {
+				Order n = new Order(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getDouble(5),
+						rs.getDouble(6), rs.getDouble(7), rs.getInt(8), rs.getInt(9));
+				return n;
+			}
+
+		} catch (Exception e) {
+		}
+
+		return null;
+	}
 
 //Calculation
 	public Order getOrder(int CID, int OID) {
@@ -231,7 +248,7 @@ public class CreditSalesM {
 		try {
 			Statement stmt = con.getConnection().createStatement();
 			ResultSet rs = stmt
-					.executeQuery("select * from orders where order_ID =" + OID + " and Cust_ID =" + CID + ";");
+					.executeQuery("select * from orders where order_ID =" + OID + " and Cust_ID =" + CID +";");
 			while (rs.next()) {
 				Order n = new Order(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getDouble(5),
 						rs.getDouble(6), rs.getDouble(7), rs.getInt(8), rs.getInt(9));
@@ -250,11 +267,12 @@ public class CreditSalesM {
 		PaymentDetails[] array = null;
 		try {
 			Statement stmt = con.getConnection().createStatement();
-			String command = "SELECT * from smd.paymentdetails WHERE Order_Status LIKE '%" + search + "%' OR  Hardware_Name LIKE '%" + search + "%'";
+			String command = "SELECT * from smd.paymentdetails WHERE Order_Status LIKE '%" + search
+					+ "%' OR  Hardware_Name LIKE '%" + search + "%'";
 			ResultSet rs = stmt.executeQuery(command);
 			while (rs.next()) {
-				PaymentDetails n = new PaymentDetails(rs.getNString(1), rs.getString(2),
-						rs.getDouble(3), rs.getDouble(4), rs.getDouble(5),rs.getString(6));
+				PaymentDetails n = new PaymentDetails(rs.getNString(1), rs.getString(2), rs.getDouble(3),
+						rs.getDouble(4), rs.getDouble(5), rs.getString(6));
 				ll.add(n);
 			}
 
@@ -265,9 +283,9 @@ public class CreditSalesM {
 		}
 		return array;
 	}
-	
-	//Customer previous payments
-	public Order[]  getCusRemaining(String Customerid) {
+
+	// Customer previous payments
+	public Order[] getCusRemaining(String Customerid) {
 		List<Order> ll = new LinkedList<Order>();
 		Order[] array = null;
 
@@ -290,6 +308,5 @@ public class CreditSalesM {
 		}
 		return array;
 	}
-
 
 }

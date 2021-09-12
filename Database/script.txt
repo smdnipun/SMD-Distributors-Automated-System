@@ -408,8 +408,8 @@ DROP View PaymentDetails;
 
 Create View PaymentDetails As 
 Select c.Hardware_Name,o.Order_ID,o.Total_Price,o.Paid_Amount,o.Remaining_Amount,o.Order_Status
-from customer c,orders o,payment p
-where  c.Cus_ID=o.Cust_ID and o.Cust_ID=p.Cus_ID and o.Order_ID=p.Order_ID and o.Paid_Amount<=o.Total_Price;
+from customer c,orders o
+where  c.Cus_ID=o.Cust_ID  and o.Paid_Amount<=o.Total_Price and NOT o.Order_Status='Pending';
 
 -- Customer Aged
 DROP View CustomerAged;
