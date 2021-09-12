@@ -25,7 +25,7 @@ public class Stockorderreleas extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		DBConnection dbc = new DBConnection();
-	
+	//Update order status from supplier table
 			try {
 				Statement stmt = dbc.getConnection().createStatement();
 				String command = "UPDATE orders SET order_status = 'Release' WHERE Order_ID = "

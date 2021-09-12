@@ -31,7 +31,8 @@ public class SupplierAdding extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		SupplierDB sup = new SupplierDB();
-	
+		
+		//Insert Supplier data for supplier table
 
 	try {
 			  DBConnection sdbc = new DBConnection(); 
@@ -42,9 +43,6 @@ public class SupplierAdding extends HttpServlet {
 			  "VALUES('"+request.getParameter("sname") +"','"+request.getParameter("pname") +"','"
 			 + request.getParameter("address") + "','"
 			 + request.getParameter("tno") + "','Active')"; 
-			
-			//response.getWriter().append(command);
-			  
 			  stmt.execute(command);
 			  
 			  response.sendRedirect("admin/StockManagement/SupplierPage.jsp");
