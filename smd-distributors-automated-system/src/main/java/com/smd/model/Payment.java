@@ -11,7 +11,6 @@ public class Payment {
 
 	// default constructor
 	public Payment() {
-		// TODO Auto-generated constructor stub
 	}
 
 	// overload constructor

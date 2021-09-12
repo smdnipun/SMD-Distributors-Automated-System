@@ -7,7 +7,7 @@
 <link rel="stylesheet"
 	href=<%=request.getContextPath() + "/css/product.css"%>>
 <body>
-	<jsp:include page="../../WEB-INF/views/common/header.jsp"></jsp:include>
+	<jsp:include page="../../WEB-INF/views/common/adminHeader.jsp"></jsp:include>
 	<jsp:include page="../../WEB-INF/views/productM/add.jsp"></jsp:include>
 	<jsp:include page="../../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
 </body>

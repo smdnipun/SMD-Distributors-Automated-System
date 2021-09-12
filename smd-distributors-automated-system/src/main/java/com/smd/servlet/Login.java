@@ -69,7 +69,7 @@ public class Login extends HttpServlet {
 				if((employeeData[i].getEmail().equals(request.getParameter("email")))&&(employeeData[i].getPassword().equals(pwd))) {
 					Found=true;
 					//checking employee type and setting session
-					if(employeeData[i].getEmp_Type().equals("product")) {
+					if(employeeData[i].getEmp_Type().equals("proManager")) {
 						request.getSession().setAttribute("Logged","Product");
 						response.sendRedirect("admin/ProductM/all.jsp");
 					}
@@ -77,12 +77,12 @@ public class Login extends HttpServlet {
 						request.getSession().setAttribute("Logged","delManager");
 						response.sendRedirect("admin/DeliveryManage/deliveryHome.jsp");
 					}
-					else if(employeeData[i].getEmp_Type().equals("Stock")) {
+					else if(employeeData[i].getEmp_Type().equals("stokManager")) {
 						request.getSession().setAttribute("Logged","Stock");
 						response.sendRedirect("admin/StockManagement/SupplierPage.jsp");
 					}
-					else if(employeeData[i].getEmp_Type().equals("cashCollector")) {
-						request.getSession().setAttribute("Logged","Stock");
+					else if(employeeData[i].getEmp_Type().equals("cpayManager")) {
+						request.getSession().setAttribute("Logged","cpayManager");
 						request.getSession().setAttribute("empID",employeeData[i].getEmp_ID());
 						response.sendRedirect("admin/CreditSalesManagement/CreditPayment.jsp");
 					}
@@ -94,13 +94,13 @@ public class Login extends HttpServlet {
 						request.getSession().setAttribute("Logged","oderManager");
 						response.sendRedirect("admin/OrderManagement/OrderAdminHome.jsp");
 					}
-					else if(employeeData[i].getEmp_Type().equals("Stock")) {
-						request.getSession().setAttribute("Logged","Stock");
-						response.sendRedirect("admin/StockManagement/index.jsp");
+					else if(employeeData[i].getEmp_Type().equals("reqManager")) {
+						request.getSession().setAttribute("Logged","reqManager");
+						response.sendRedirect("RequestManage/viewFeedback.jsp");
 					}
-					else if(employeeData[i].getEmp_Type().equals("Stock")) {
-						request.getSession().setAttribute("Logged","Stock");
-						response.sendRedirect("admin/StockManagement/index.jsp");
+					else if(employeeData[i].getEmp_Type().equals("cusManager")) {
+						request.getSession().setAttribute("Logged","cusManager");
+						response.sendRedirect("admin/CustomerManagement/CustomerDetails.jsp");
 					}
 					break;
 				}
