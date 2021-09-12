@@ -76,7 +76,7 @@ page="EmployeeNav.jsp"></jsp:include>
 
 	<div id="attendReport" >
 	
-			<table id="example" class="table  display nowrap"  style="width:100%">
+			<table class="table"  style="width:100%">
 				<thead class="thead-dark">
 					<tr>
 						<th scope="col">EmpID</th>

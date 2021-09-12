@@ -25,4 +25,7 @@ public interface IFeedback {
 		
 		//search a feedback
 		public Feedback[] searchFeedback(String Date) throws Exception;
+
+		//report 
+		public List<Feedback> viewMonthlyFeedbackReport(String date);
 }

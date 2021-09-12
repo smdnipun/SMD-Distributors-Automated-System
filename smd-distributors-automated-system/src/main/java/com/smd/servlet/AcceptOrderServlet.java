@@ -26,7 +26,8 @@ public class AcceptOrderServlet extends HttpServlet {
 			throws ServletException, IOException {
 		DBConnection dbc = new DBConnection();
 		// String orderID = "0";
-
+		
+		//check buttons value and update order status
 		if (request.getParameter("button").equals("accept")) {
 			try {
 				Statement stmt = dbc.getConnection().createStatement();
@@ -40,6 +41,7 @@ public class AcceptOrderServlet extends HttpServlet {
 			} catch (Exception e) {
 				response.getWriter().append(e.toString());
 			}
+			//check button value and delete order
 		} else if (request.getParameter("button").equals("decline")) {
 			try {
 				Statement stmt = dbc.getConnection().createStatement();
@@ -51,20 +53,6 @@ public class AcceptOrderServlet extends HttpServlet {
 				NewOrdersConf[] data = cdbc.getNewOrderDetails();
 				request.getSession().setAttribute("data", data);
 				response.sendRedirect("admin/CreditSalesManagement/NewOrdersconfirmation.jsp");
-			} catch (Exception e) {
-				response.getWriter().append(e.toString());
-			}
-		} else {
-			String customerid = request.getParameter("button");
-			try {
-				Statement stmt = dbc.getConnection().createStatement();
-				String command = "select * from orders where Cus_ID=" + request.getParameter("Customerid");
-				
-				int rows = stmt.executeUpdate(command);
-				CreditSalesM paydbc = new CreditSalesM();
-				NewOrdersConf[] data = paydbc.getNewOrderDetails();
-				request.getSession().setAttribute("data", data);
-				response.sendRedirect("admin/CreditSalesManagement/CustomerPrePayment.jsp");
 			} catch (Exception e) {
 				response.getWriter().append(e.toString());
 			}

@@ -22,7 +22,7 @@ public class ViewFeedbackServlet extends HttpServlet {
 		
 		try {
 			IFeedback iFeedbackService= new FeedbackServiceImpl();
-			//get the payment details to display it 
+			//get the feedback details to display it 
 			List<Feedback> feedbackdetails= iFeedbackService.getFeedback();
 			request.setAttribute("feedbackdetails",feedbackdetails);
 

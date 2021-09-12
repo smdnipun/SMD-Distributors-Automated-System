@@ -14,8 +14,7 @@
 		Product product = con.getProductById(Integer.parseInt(request.getParameter("product")));
 		request.setAttribute("product", product);
 	%>
-		<a href="update.jsp?product=${product.getProductID()}"><c:out
-				value="${product.getName()}"></c:out></a>
+	<img src="<%=request.getContextPath()+"/img/"%>${product.getImage()}.jpg" class="img-thumbnail">
 	<%} %>
 	<jsp:include page="./WEB-INF/views/common/adminFooter.jsp"></jsp:include>
 </body>

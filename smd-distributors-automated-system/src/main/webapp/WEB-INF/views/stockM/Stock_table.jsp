@@ -5,7 +5,7 @@
 <%@ page import="com.smd.service.StockDB"%><!-- Import Database connection of StockDB -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<!-- create array to get data from database -->
+<!-- create array to get data from database and check the user already loged the system -->
 <%
 if (request.getSession().getAttribute("Logged") == null) {
 	request.getSession().setAttribute("Logged", "Guest");
@@ -17,13 +17,14 @@ request.setAttribute("stockdata", newstock);
 %>
 
 <div>
+<!-- Import Horizontal navigation bar -->
 <jsp:include page="./stockupnav.jsp"></jsp:include>
 </div>
 <div class="col-5 text-center align">
 	<div class="d-flex justify-content-center">
 		<h4>Stock Details</h4>
 	</div>
-	<table id="table" class="display nowrap" style="width: 90%">
+	<table id="stock" class="display nowrap" style="width: 90%">
 
 		<thead>
 			<tr>
@@ -35,19 +36,15 @@ request.setAttribute("stockdata", newstock);
 			</tr>
 		</thead>
 		<tbody>
+		<!-- get the stock data from Stock database table connection -->
 			<c:forEach items="${stockdata}" var="Stock">
 				<tr>
 
 					<td><c:out value="${Stock.getStockID()}" /></td>
-					<%-- <td><input type="text" name="stockID"
-						value="<c:out value="${Stock.getStockID()}"/>"></td> --%>
-					<td><input type="text" name="itemname"
-						value="<c:out value="${Stock.getItemName()}"/>"></td>
-					<td><input type="text" name="quntity"
-						value="<c:out value="${Stock.getQuntity()}"/>"></td>
+					<td><c:out value="${Stock.getItemName()}"/></td>
+					<td><c:out value="${Stock.getQuntity()}"/></td>
 					<td><c:out value="${Stock.getDate()}" /></td>
-					<td><input type="text" name="status"
-						value="<c:out value="${Stock.getStatus()}"/>"></td>
+					<td><c:out value="${Stock.getStatus()}"/></td>
 
 				</tr>
 			</c:forEach>

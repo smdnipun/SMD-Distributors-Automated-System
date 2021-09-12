@@ -23,22 +23,23 @@ public class SearchFeedbackServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String search=request.getParameter("search");
+		/*
+		 * String search=request.getParameter("search");
+		 * 
+		 * 
+		 * try { IFeedback ifedservice= new FeedbackServiceImpl(); Feedback[]
+		 * feeddetails= ifedservice.searchFeedback(search); } catch (Exception e) {
+		 * e.printStackTrace(); }
+		 * 
+		 * RequestDispatcher dis=
+		 * getServletContext().getRequestDispatcher("/RequestManage/requestHome.jsp");
+		 * 
+		 * if(dis!=null) dis.include(request, response); else
+		 * System.out.println("Error");
+		 */
 		
-		
-		try {
-			IFeedback ifedservice= new FeedbackServiceImpl();
-			Feedback[] feeddetails= ifedservice.searchFeedback(search);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		RequestDispatcher dis= getServletContext().getRequestDispatcher("/RequestManage/requestHome.jsp");
-		
-		if(dis!=null)
-			dis.include(request, response);
-		else
-			System.out.println("Error");
+		String url="RequestManage/requestHome.jsp?search="+request.getParameter("search");
+		response.sendRedirect(url);
 		
 	}}
 //	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

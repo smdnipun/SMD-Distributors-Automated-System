@@ -4,52 +4,59 @@
 
 <!--checking user logged or not -->
 <!-- creating array to get data from database -->
+<!--creating parameter to get Id from table -->
 <%
-if (request.getSession().getAttribute("Logged") == null) {
-	request.getSession().setAttribute("Logged", "Guest");
-}
-
-CreditSalesM dbc = new CreditSalesM();
-Order[] cashCal = (Order[]) dbc. getCusRemaining(String Cusid);
-request.setAttribute("data", cashCal);
+if (request.getParameter("credit") != null) {
+	CreditSalesM con = new CreditSalesM();
+	Order[] order = con.getCustomerById(Integer.parseInt(request.getParameter("credit")));
+	request.setAttribute("data", order);
 %>
-
-<div >
+<div>
+	<!-- Horizontal navigation bar -->
 	<jsp:include page="CenterNavWithoutSearch.jsp"></jsp:include>
 	<center>
-		<h5>Cash Collector</h5>
+		<h5>Customer prevoius payments and due amounts</h5>
 	</center>
-
-	<!-- <table id="customerDetails" class="display nowrap" style="width: 100%"> -->
+	<!--Creating CustomerPre Payment-->
+	<!-- <table id="customerDetails"  style="width: 100%"> -->
 	<table id="table" class="display nowrap" style="width: 100%">
-	
+
 
 		<thead>
 
 			<tr>
-				<th scope="col">EmployeeID</th>
-				<th scope="col">Name</th>
-				<th scope="col">Phone No</th>
-				<th scope="col">NIC No</th>
-				<th scope="col">Email address</th>
-				<th scope="col">Address</th>
+				<th scope="col">Invoice ID</th>
+				<th scope="col">Customer ID</th>
+				<th scope="col">Order date</th>
+				<th scope="col">Order Status</th>
+				<th scope="col">Total Amount</th>
+				<th scope="col">Paid Amount</th>
+				<th scope="col">Remaining Amount</th>
+				<th scope="col">Qty</th>
+				<th scope="col">Product ID</th>
 
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${data}" var="Employee">
+			<c:forEach items="${data}" var="order">
 				<tr>
-					<td><c:out value="${Employee.getEmp_ID()}" /></td>
-					<td><c:out value="${Employee.getFirst_Name()} ${Employee.getLast_Name()}" /></td>
-					<td><c:out value="${Employee.getPhone()}"/></td>
-					<td><c:out value="${Employee.getNIC()}" /></td>
-					<td><c:out value="${Employee.getEmail()}" /></td>
-					<td><c:out value="${Employee.getAddress()}" /></td>
+					<td><c:out value="${order.getOID()}" /></td>
+					<td><c:out value="${order.getCID()}" /></td>
+					<td><c:out value="${order.getODATE()}" /></td>
+					<td><c:out value="${order.getOSTATE()}" /></td>
+					<td><c:out value="${order.getTPRICE()}" /></td>
+					<td><c:out value="${order.getPAMOUNT()}" /></td>
+					<td><c:out value="${order.getRAMOUNT()}" /></td>
+					<td><c:out value="${order.getQTY()}" /></td>
+					<td><c:out value="${order.getPID()}" /></td>
+
 
 				</tr>
-
 			</c:forEach>
 			<tr>
 		</tbody>
 	</table>
 </div>
+<%
+}
+%>

@@ -9,7 +9,7 @@ public class NewOrdersConf {
 	private int Quantity;
 	private double TotalPrice;
 
-//constructor
+//overloaded constructor
 
 	public NewOrdersConf(String orderID, String date, String cusID, String customer, int quantity, double totalPrice) {
 	super();
