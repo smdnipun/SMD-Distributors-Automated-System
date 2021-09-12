@@ -150,7 +150,7 @@ public class CreditSalesM {
 		return array;
 	}
 
-//Cash Calcactors details
+//database connection of Cash Calcactors details
 	public Employee[] getCashCalactorsDetails() {
 		List<Employee> ll = new LinkedList<Employee>();
 		Employee[] array = null;
@@ -173,7 +173,7 @@ public class CreditSalesM {
 		return array;
 	}
 
-//customers Details
+//database connection of customers Details
 	public Customer[] getCustomrDetailstocredit() {
 		List<Customer> ll = new LinkedList<Customer>();
 		Customer[] array = null;
@@ -195,16 +195,16 @@ public class CreditSalesM {
 		return array;
 	}
 
-	// PaymentVerification
-	public boolean getPayCredit(int CID, int OID,double paidAmount) {
+	// database connection of PaymentVerification
+	public boolean getPayCredit(int CID, int OID, double paidAmount) {
 
 		List<Order> ll = new LinkedList<Order>();
 		Order[] array = null;
 
 		try {
 			Statement stmt = con.getConnection().createStatement();
-			ResultSet rs = stmt
-					.executeQuery("select * from orders where order_ID =" + OID + " and Cust_ID =" + CID +  " and Cust_ID =" + CID +" AND Remaining_Amount >="+paidAmount +  ";");
+			ResultSet rs = stmt.executeQuery("select * from orders where order_ID =" + OID + " and Cust_ID =" + CID
+					+ " and Cust_ID =" + CID + " AND Remaining_Amount >=" + paidAmount + ";");
 			while (rs.next()) {
 				Order n = new Order(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getDouble(5),
 						rs.getDouble(6), rs.getDouble(7), rs.getInt(8), rs.getInt(9));
@@ -215,7 +215,7 @@ public class CreditSalesM {
 
 		} catch (Exception e) {
 		}
-
+		// check array length >0 and return it
 		if (array.length > 0) {
 			return false;
 		} else {
@@ -223,15 +223,16 @@ public class CreditSalesM {
 		}
 
 	}
-//Customer age details
-	public Order[] getCusPayDe(int id) {
+
+//database connection of Customer age details
+	public Order[] getCustomerById(int id) {
 		List<Order> ll = new LinkedList<Order>();
 		Order[] array = null;
 		DBConnection con = new DBConnection();
 
 		try {
 			Statement stmt = con.getConnection().createStatement();
-					String command ="select * from orders where Cust_ID="+ id ;
+			String command = "select * from orders where Cust_ID=" + id;
 			ResultSet rs = stmt.executeQuery(command);
 			while (rs.next()) {
 				Order n = new Order(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getDouble(5),
@@ -239,20 +240,20 @@ public class CreditSalesM {
 				ll.add(n);
 			}
 
-			array = ll.toArray(new Order [ll.size()]);
+			array = ll.toArray(new Order[ll.size()]);
 
 		} catch (Exception e) {
 		}
 		return array;
 	}
 
-//Calculation
+//database connection of Calculation
 	public Order getOrder(int CID, int OID) {
 
 		try {
 			Statement stmt = con.getConnection().createStatement();
 			ResultSet rs = stmt
-					.executeQuery("select * from orders where order_ID =" + OID + " and Cust_ID =" + CID +";");
+					.executeQuery("select * from orders where order_ID =" + OID + " and Cust_ID =" + CID + ";");
 			while (rs.next()) {
 				Order n = new Order(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getDouble(5),
 						rs.getDouble(6), rs.getDouble(7), rs.getInt(8), rs.getInt(9));
@@ -265,7 +266,7 @@ public class CreditSalesM {
 		return null;
 	}
 
-	// Search
+	// database connection of Search
 	public PaymentDetails[] search(String search) {
 		List<PaymentDetails> ll = new LinkedList<PaymentDetails>();
 		PaymentDetails[] array = null;
@@ -288,29 +289,29 @@ public class CreditSalesM {
 		return array;
 	}
 
-	// Customer previous payments
-	public Order[] getCusRemaining(String Customerid) {
-		List<Order> ll = new LinkedList<Order>();
-		Order[] array = null;
-
-		try {
-			DBConnection radbc = new DBConnection();
-			Statement stmt = radbc.getConnection().createStatement();
-			String command = ("select * from orders where Cus_ID=" + Customerid + ";");
-
-			ResultSet rs = stmt.executeQuery(command);
-			while (rs.next()) {
-				Order n = new Order(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getDouble(5),
-						rs.getDouble(6), rs.getDouble(7), rs.getInt(8), rs.getInt(9));
-				ll.add(n);
-			}
-
-			array = ll.toArray(new Order[ll.size()]);
-
-		} catch (Exception e) {
-			System.out.println(e);
-		}
-		return array;
-	}
+//	// Customer previous payments
+//	public Order[] getCusRemaining(String Customerid) {
+//		List<Order> ll = new LinkedList<Order>();
+//		Order[] array = null;
+//
+//		try {
+//			DBConnection radbc = new DBConnection();
+//			Statement stmt = radbc.getConnection().createStatement();
+//			String command = ("select * from orders where Cus_ID=" + Customerid + ";");
+//
+//			ResultSet rs = stmt.executeQuery(command);
+//			while (rs.next()) {
+//				Order n = new Order(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getDouble(5),
+//						rs.getDouble(6), rs.getDouble(7), rs.getInt(8), rs.getInt(9));
+//				ll.add(n);
+//			}
+//
+//			array = ll.toArray(new Order[ll.size()]);
+//
+//		} catch (Exception e) {
+//			System.out.println(e);
+//		}
+//		return array;
+//	}
 
 }

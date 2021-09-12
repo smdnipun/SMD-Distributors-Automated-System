@@ -27,6 +27,7 @@
 						href="PaymentHistory.jsp">Payments History</a></li>
 
 				</ul>
+				<!--Creating search button -->
 				<form action="../../PaymentSearch" class="d-flex" method="post">
 					<input type="text" size="50" name="search" />
 					<button type="submit" class="">

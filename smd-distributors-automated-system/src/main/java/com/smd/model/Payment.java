@@ -8,8 +8,13 @@ public class Payment {
 	private String CusID;
 	private String InvoiceID;
 	private String EmpID;
-	
-	// Constructor
+
+	// default constructor
+	public Payment() {
+		// TODO Auto-generated constructor stub
+	}
+
+	// overload constructor
 	public Payment(String paymentID, double paidAmount, String date, String cusID, String invoiceID, String empID) {
 		super();
 		PaymentID = paymentID;
@@ -20,10 +25,7 @@ public class Payment {
 		EmpID = empID;
 	}
 
-	public Payment() {
-		// TODO Auto-generated constructor stub
-	}
-
+	// setters and getters
 	public String getPaymentID() {
 		return PaymentID;
 	}
@@ -71,12 +73,5 @@ public class Payment {
 	public void setEmpID(String empID) {
 		EmpID = empID;
 	}
-	
-	
-	
+
 }
-
-
-
-
-

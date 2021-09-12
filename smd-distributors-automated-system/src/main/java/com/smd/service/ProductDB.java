@@ -15,6 +15,7 @@ public class ProductDB {
 	public ProductDB() {
 	}
 
+	// database connection of Search
 	public Product[] search(String search) {
 		List<Product> ll = new LinkedList<Product>();
 		Product[] array = null;
@@ -35,6 +36,7 @@ public class ProductDB {
 		return array;
 	}
 
+	// database connection of Dispaly products
 	public Product[] getAllProducts() {
 		List<Product> ll = new LinkedList<Product>();
 		Product[] array = null;
@@ -55,6 +57,7 @@ public class ProductDB {
 		return array;
 	}
 
+	// database connection to get product id
 	@SuppressWarnings("unused")
 	public Product getProductById(int id) {
 		List<Product> ll = new LinkedList<Product>();
@@ -66,11 +69,11 @@ public class ProductDB {
 			while (rs.next()) {
 				if (rs.getInt(6) == 1) {
 					Product n = new Product(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4),
-							rs.getInt(5), true,rs.getString(7));
+							rs.getInt(5), true, rs.getString(7));
 					return n;
 				} else {
 					Product n = new Product(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4),
-							rs.getInt(5), false,rs.getString(7));
+							rs.getInt(5), false, rs.getString(7));
 					return n;
 				}
 			}
@@ -81,6 +84,7 @@ public class ProductDB {
 		return null;
 	}
 
+	// database connection of available products
 	public Product[] getAvailableProducts() {
 		List<Product> ll = new LinkedList<Product>();
 		Product[] array = null;
@@ -91,7 +95,7 @@ public class ProductDB {
 			while (rs.next()) {
 				if (rs.getInt(6) == 1) {
 					Product n = new Product(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4),
-							rs.getInt(5), true,rs.getString(7));
+							rs.getInt(5), true, rs.getString(7));
 					ll.add(n);
 				}
 			}

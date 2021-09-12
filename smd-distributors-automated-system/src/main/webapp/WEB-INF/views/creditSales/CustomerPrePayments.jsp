@@ -4,22 +4,23 @@
 
 <!--checking user logged or not -->
 <!-- creating array to get data from database -->
-
+<!--creating parameter to get Id from table -->
 <%
-	if (request.getParameter("credit") != null) {
-		CreditSalesM con = new CreditSalesM();
-		Order[] order = con.getCusPayDe(Integer.parseInt(request.getParameter("credit")));
-		request.setAttribute("data", order);
-	%>
-<div >
+if (request.getParameter("credit") != null) {
+	CreditSalesM con = new CreditSalesM();
+	Order[] order = con.getCustomerById(Integer.parseInt(request.getParameter("credit")));
+	request.setAttribute("data", order);
+%>
+<div>
+	<!-- Horizontal navigation bar -->
 	<jsp:include page="CenterNavWithoutSearch.jsp"></jsp:include>
 	<center>
 		<h5>Customer prevoius payments and due amounts</h5>
 	</center>
-
+	<!--Creating CustomerPre Payment-->
 	<!-- <table id="customerDetails"  style="width: 100%"> -->
 	<table id="table" class="display nowrap" style="width: 100%">
-	
+
 
 		<thead>
 
@@ -43,12 +44,12 @@
 					<td><c:out value="${order.getCID()}" /></td>
 					<td><c:out value="${order.getODATE()}" /></td>
 					<td><c:out value="${order.getOSTATE()}" /></td>
-					<td><c:out value="${order.getTPRICE()}"/></td>
+					<td><c:out value="${order.getTPRICE()}" /></td>
 					<td><c:out value="${order.getPAMOUNT()}" /></td>
 					<td><c:out value="${order.getRAMOUNT()}" /></td>
 					<td><c:out value="${order.getQTY()}" /></td>
 					<td><c:out value="${order.getPID()}" /></td>
-					
+
 
 				</tr>
 			</c:forEach>
@@ -56,4 +57,6 @@
 		</tbody>
 	</table>
 </div>
-<% } %>
+<%
+}
+%>

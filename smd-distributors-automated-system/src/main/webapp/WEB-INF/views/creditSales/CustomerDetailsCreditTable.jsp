@@ -16,13 +16,14 @@ request.setAttribute("data", customer);
 %>
 
 <div>
+	<!-- Horizontal navigation bar -->
 	<jsp:include page="CenterNavWithoutSearch.jsp"></jsp:include>
 	<center>
 		<h5>Customer Details</h5>
 	</center>
 
 
-
+	<!--Creating Customerdetailscredit table-->
 
 	<table id="payTable" class="display nowrap" style="width: 100%">
 		<thead>

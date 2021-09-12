@@ -2,9 +2,10 @@ $(document).ready(function() {
 	$('#payTable').DataTable({
 		"scrollX": true
 	});
-
+	
 	var table = $('#payTable').DataTable();
-
+	
+	/*geting data from table */
 	$('#payTable tbody').on('click', 'tr', function() {
 		var data = table.row(this).data();
 		console.log(data)

@@ -10,7 +10,7 @@ public class PaymentDetails {
 	private double Balance;
 	private String Status;
 
-//Constructor
+//overloaded Constructor
 	// String cusID
 	public PaymentDetails(String cusName, String invoiceID, double totalAmount, double paidAmount,
 			double balance,String status) {

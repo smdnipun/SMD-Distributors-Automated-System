@@ -9,8 +9,9 @@ public class CustomerAgedRecivable {
 	private double PaidAmount;
 	private double Balance;
 
-	// constructor
-
+	
+	
+//Customer overloaded constructor
 	public CustomerAgedRecivable(String cus_ID, String hardwareName, String invoiceID, double totalAmount,
 			double paidAmount, double balance) {
 		super();
