@@ -54,20 +54,6 @@ public class AcceptOrderServlet extends HttpServlet {
 			} catch (Exception e) {
 				response.getWriter().append(e.toString());
 			}
-		} else {
-			String customerid = request.getParameter("button");
-			try {
-				Statement stmt = dbc.getConnection().createStatement();
-				String command = "select * from orders where Cus_ID=" + request.getParameter("Customerid");
-				
-				int rows = stmt.executeUpdate(command);
-				CreditSalesM paydbc = new CreditSalesM();
-				NewOrdersConf[] data = paydbc.getNewOrderDetails();
-				request.getSession().setAttribute("data", data);
-				response.sendRedirect("admin/CreditSalesManagement/CustomerPrePayment.jsp");
-			} catch (Exception e) {
-				response.getWriter().append(e.toString());
-			}
 		}
 	}
 }
