@@ -32,7 +32,7 @@ if (request.getSession().getAttribute("Logged") != null) {
  		</div> <br>
 			<!--table to display data -->
 			<div class="col-8">
-			<table class="table table-hover table table-sm">
+			<table class="table table-hover table table-sm table table-striped">
 			<!-- <table class="feedback"> -->
 			<thead class="thead-dark">
 				<tr>
@@ -116,7 +116,7 @@ if (request.getSession().getAttribute("Logged") != null) {
 				</tbody>
 			</table>
 		</div>
-	
+	<br>
 		<%-- <div class="col-10">
 			<form action=<%=request.getContextPath() + "/feedbackreport"%> method="post" class="reportform">
 			
@@ -130,8 +130,8 @@ if (request.getSession().getAttribute("Logged") != null) {
 		    </div>
 			</form>
 		</div>	 --%>
-		</div>
-		</div>
+		</div><br><br>
+		</div><br><br>
 	<jsp:include page="../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
 </body>
 </html>
