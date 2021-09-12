@@ -22,7 +22,7 @@ public static List<Order> ViewOrder(){
 		try {
 			con = DBConnection.getConnection();
 			stmt = con.createStatement();
-			String sql="select * from orders";
+			String sql="select * from orders where Order_Status='accepted'";
 			rs= stmt.executeQuery(sql);
 			
 			while(rs.next()) {

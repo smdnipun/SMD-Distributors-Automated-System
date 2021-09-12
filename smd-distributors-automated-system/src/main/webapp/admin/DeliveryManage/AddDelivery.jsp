@@ -9,13 +9,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+		
 		<jsp:include page="../../WEB-INF/views/common/head.jsp"></jsp:include>
 		<jsp:include page="../../WEB-INF/views/common/adminHeader.jsp"></jsp:include>
 		
 		<div class="row">
 			<jsp:include
-				page="../../WEB-INF/views/Delivery/DeliveryNavigationbar.jsp"></jsp:include>
+				page="../../WEB-INF/views/Delivery/AddDeliveryNavi.jsp"></jsp:include>
 			<div class="col-9">
 				
 				<h2 >Add Delivery</h2>	
@@ -85,7 +85,7 @@
 </form>
 			</div>
 		</div>
-		
+		<br/>
 		<jsp:include page="../../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
 </body>
 </html>
