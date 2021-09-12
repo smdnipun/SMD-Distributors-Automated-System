@@ -37,7 +37,7 @@
 						<div class="mb-3">
 							<label class="form-label">Product Availability</label> <label
 								class="switch"> <input type="checkbox"
-								name="availablity" checked class="form-control"> <span
+								name="availablity" checked> <span
 								class="slider round"></span>
 							</label>
 						</div>
