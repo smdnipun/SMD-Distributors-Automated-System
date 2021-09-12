@@ -25,7 +25,10 @@ public class Payment {
 		EmpID = empID;
 	}
 
+
 	// setters and getters
+
+
 	public String getPaymentID() {
 		return PaymentID;
 	}

@@ -508,51 +508,6 @@ where o.Product_ID = p.Prod_ID;
 
 -- Triggers
 
--- employee table trigger
-
-CREATE DEFINER=`root`@`localhost` TRIGGER `employee_AFTER_DELETE` AFTER DELETE ON `employee` FOR EACH ROW BEGIN
-
-insert into resigned_employees
-set Emp_ID=old.Emp_ID,
-Emp_Type =old.Emp_Type , 
-First_Name=old.First_Name, 
-Last_Name=old.Last_Name, 
-Phone=old.Phone,
-NIC=old.NIC,
-Address=old.Address,
-Resigned_Date= CURDATE();
-
-END
-
-
--- employee_salattend table trigger
-
-CREATE DEFINER=`root`@`localhost` TRIGGER `employee_salattend_BEFORE_INSERT` BEFORE INSERT ON `employee_salattend` FOR EACH ROW BEGIN
-
-set @ot=new.Hours_Worked;
-set @eid=new.Emp_ID;
-
-
-select Emp_Type 
-into @type
-from employee
-where Emp_ID=@eid ;
-
-
-select  Basic_Salary , Hours ,OT_Rate
-into @bsal, @hur, @otr
-from employee_type
-where Emp_Type = @type ;
-
-set @notr = @ot - @hur ;
-set @otprice = @notr * @otr ;
-set @totsal = @bsal + @otprice;
-
-
-set new.Total_Salary = @totsal;
-
-
-END
 
 
 
