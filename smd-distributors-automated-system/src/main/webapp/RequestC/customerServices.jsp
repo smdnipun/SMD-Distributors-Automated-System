@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ page import="java.io.PrintWriter"%>
+<%
+if (request.getSession().getAttribute("Logged") != null) {
+    //request.getSession().setAttribute("Logged", "Guest");
+%>
+<% int id = Integer.parseInt(request.getSession().getAttribute("CustomerID").toString()); %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,10 +23,9 @@
 </head>
 <body>
     <jsp:include page="../WEB-INF/views/common/header.jsp"></jsp:include>
-    <%-- <jsp:include page="../WEB-INF/views/common/navbar.jsp">
-			<jsp:param name="navs" value="Home,fff_ddddd,Add Orders,fff" />
-		</jsp:include> --%>
-    <div class="mydiv">
+     <div class=row>
+    	<jsp:include page="../WEB-INF/views/Request/CusRequestnavbar.jsp"></jsp:include> 
+    	<div class="col-9">
     
             <center>
 			<form name="feedback" method="post" action="../addfeedback" style="text-align: left;">
@@ -28,6 +33,10 @@
                 <h6 class="fw-light" style="text-align: center;">We would love to hear your thoughts.
                          Get connected with us!</h6><br>
 				
+				<div class="mb-3">
+  				<label for="formGroupExampleInput2" class="form-label">Customer ID</label>
+  					<input type="hidden" class="form-control" id="formGroupExampleInput2" placeholder="Enter Customer ID" name="CID" required="true" value="<%=id %>">
+				</div> 
 				
 				<!-- <h4>Feedback type: </h4><br> -->
 				<h5 for="type">Feedback type: </h5><br>
@@ -63,6 +72,15 @@
             </form> <br>
         </center>
         </div>
-       <%-- <jsp:include page="../WEB-INF/views/common/footer.jsp"></jsp:include> --%>
+        </div>
+      <jsp:include page="../WEB-INF/views/common/footer.jsp"></jsp:include> 
 </body>
 </html>
+<%
+} else {
+    PrintWriter redirect = response.getWriter();
+    redirect.println("<script>");
+    redirect.println("location='../login.jsp'");//put the location from your jsp file
+    redirect.println("</script>");
+}
+%>

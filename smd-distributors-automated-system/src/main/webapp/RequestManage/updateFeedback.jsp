@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
       <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+              <%@ page import="java.io.PrintWriter"%>
+<%
+if (request.getSession().getAttribute("Logged") != null) {
+    //request.getSession().setAttribute("Logged", "Guest");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -91,7 +96,7 @@
   					</select><br><br>
 				<%-- Status: 
 				<input type="text" name="Status" style="width:20%" value="<%= Status %>"><br><br><br> --%>
-				<input type="submit" name="submit" value="Update The Data"> 
+				<input type="submit" name="submit" id="form_button" value="Update The Data"> 
 				
 			</form>
 		</div>
@@ -99,3 +104,11 @@
 		<jsp:include page="../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
 </body>
 </html>
+<%
+} else {
+    PrintWriter redirect = response.getWriter();
+    redirect.println("<script>");
+    redirect.println("location='../login.jsp'");//put the location from your jsp file
+    redirect.println("</script>");
+}
+%>
