@@ -22,7 +22,7 @@ page="EmployeeNav.jsp"></jsp:include>
       %> 
       
 	
-	<form action=<%=request.getContextPath() +"/attendemp" %> class="content" method="post">
+	<form action=<%=request.getContextPath() +"/empsalattnd" %> class="content" method="post">
 	
 	<div class="form-group">
     <label for="fname">EmployeeID</label>

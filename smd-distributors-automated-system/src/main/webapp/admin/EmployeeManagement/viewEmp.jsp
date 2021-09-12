@@ -53,9 +53,10 @@ page="EmployeeNav.jsp"></jsp:include>
 						<th scope="col">Address</th>
 						<th scope="col">Update Employee</th>
 						<th scope="col">Delete Employee</th>
+						<th scope="col">Manage Salary</th>
 					</tr>
-			    		 
-			              
+		
+			          
 					<c:forEach var="employee" items="${employeeDetails}">
 			
 						<c:set var="id" value="${employee.emp_ID}" />
@@ -163,7 +164,7 @@ page="EmployeeNav.jsp"></jsp:include>
 							</td>
 
 					</c:forEach>
-
+            </tbody>  
 			</table>
 
 		</div>
