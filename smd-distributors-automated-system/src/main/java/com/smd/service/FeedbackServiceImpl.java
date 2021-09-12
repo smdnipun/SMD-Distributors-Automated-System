@@ -20,14 +20,6 @@ public class FeedbackServiceImpl implements IFeedback {
 		DBConnection con = new DBConnection();
 		
 		public FeedbackServiceImpl() {
-			DBConnection db = new DBConnection();
-			try {
-				con=db.getConnection();
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
 		}
 	
 		
@@ -63,8 +55,7 @@ public class FeedbackServiceImpl implements IFeedback {
 
 	@Override
 	//2. to get the passed feedback details inserted by the customer
-	public boolean addFeedback(String Feedback_ID, String Cus_ID, String Date, String Type, String Message, String Rating,
-			String Status) {
+	public boolean addFeedback(String Feedback_ID, String Cus_ID, String Date, String Type, String Message, String Rating, String Status) {
 		boolean isSuccess = false;//assign this to false before execution of query
 		
 		try {
