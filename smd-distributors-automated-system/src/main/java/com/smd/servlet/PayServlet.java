@@ -36,7 +36,7 @@ public class PayServlet extends HttpServlet {
 		CreditSalesM check = new CreditSalesM();
 		Order add = check.getOrder(CID, OID);
 		double pamount = add.getPAMOUNT();
-//		double ramount = add.getRAMOUNT();
+		double ramount = add.getRAMOUNT();
 		
 //		PaymentDetails pay = (PaymentDetails) request.getSession().getAttribute("Emp_ID");
 
@@ -64,11 +64,14 @@ public class PayServlet extends HttpServlet {
 				
 				
 				double TotalPaid = pamount + paidAmount;
-//				double TotalRemain = ramount - paidAmount;
+				double TotalRemain = ramount - paidAmount;
 
 				// update the order table
-				String command1 = "update orders SET Paid_Amount =" + TotalPaid + "," + 
-						" WHERE Cust_ID =" + CID + " and Order_ID=" + OID;
+//				String command1 = "update orders SET Paid_Amount =" + TotalPaid + "," + 
+//						" WHERE Cust_ID =" + CID + " and Order_ID=" + OID;
+				
+				String command1 = "update orders SET Paid_Amount =" + TotalPaid + "," + " Remaining_Amount="
+						+ TotalRemain + " WHERE Cust_ID =" + CID + " and Order_ID=" + OID;
 
 				// update order status into paid
 				String command2 = "update orders SET Order_Status ='Paid'  WHERE Remaining_Amount=0 and Cust_ID =" + CID

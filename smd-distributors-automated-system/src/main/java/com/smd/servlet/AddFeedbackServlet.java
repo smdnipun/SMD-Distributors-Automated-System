@@ -49,8 +49,11 @@ public class AddFeedbackServlet extends HttpServlet {
 						out.println("});");
 						out.println("</script>"); 
 						
-						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/RequestC/customerServices.jsp");
-						dispatcher.include(request, response);
+//						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/RequestC/customerServices.jsp");
+//						dispatcher.include(request, response);
+						
+						
+						response.sendRedirect("./RequestC/customerServices.jsp");
 						
 						//RequestDispatcher dispatcher = request.getRequestDispatcher("/RequestC/customerServices.jsp");
 						//dispatcher.forward(request, response);//redirecting from the servlet to
@@ -65,8 +68,10 @@ public class AddFeedbackServlet extends HttpServlet {
 						out.println("});");
 						out.println("</script>"); 
 						
-						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/RequestC/customerServices.jsp");
-						dispatcher.include(request, response);
+//						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/RequestC/customerServices.jsp");
+//						dispatcher.include(request, response);
+						
+						response.sendRedirect("./RequestC/customerServices.jsp");
 						
 						//RequestDispatcher dispatcher = request.getRequestDispatcher("/RequestC/customerServices.jsp");
 						//dispatcher.forward(request, response);//redirecting from the servlet to
