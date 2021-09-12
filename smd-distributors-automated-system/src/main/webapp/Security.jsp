@@ -1,7 +1,6 @@
 <%@ page import="java.io.PrintWriter"%>
 <%
 if (request.getSession().getAttribute("Logged") != null) {
-	//request.getSession().setAttribute("Logged", "Guest");
 %>	
 <jsp:include page="WEB-INF/views/common/head.jsp">
 	<jsp:param name="Title" value="SMD Distributors | Account Settings" /></jsp:include>
