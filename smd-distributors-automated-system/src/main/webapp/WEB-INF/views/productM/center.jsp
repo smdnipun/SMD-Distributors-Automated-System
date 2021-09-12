@@ -3,12 +3,9 @@
 		<jsp:include page="../customer/customerUInavBar.jsp"></jsp:include>
 	</div>
 	<div class="col-10">
-		<!--<jsp:include page="slideshow.jsp"></jsp:include>-->
+		<jsp:include page="slideshow.jsp"></jsp:include>
 		<jsp:include page="items.jsp"></jsp:include>
 		
-	
-		
-		 <!--> <a href="AddOrder.jsp"> <input type="button" name="Order" value="Add Order"></a> -->
 	
 	</div>
 </div>

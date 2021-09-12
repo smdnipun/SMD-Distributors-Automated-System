@@ -116,4 +116,27 @@ public class ProductDB {
 		return array;
 	}
 
+	public Product[] SeachInAvailable(String search) {
+		List<Product> ll = new LinkedList<Product>();
+		Product[] array = null;
+		try {
+			Statement stmt = con.getConnection().createStatement();
+			String command = "SELECT * from smd.product WHERE Name LIKE '%" + search + "%'";
+			ResultSet rs = stmt.executeQuery(command);
+			while (rs.next()) {
+				if (rs.getInt(6) != 0) {
+					Product n = new Product(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4),
+							rs.getInt(5),true,rs.getString(7));
+					ll.add(n);
+				}
+			}
+
+			array = ll.toArray(new Product[ll.size()]);
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return array;
+	}
+
 }
