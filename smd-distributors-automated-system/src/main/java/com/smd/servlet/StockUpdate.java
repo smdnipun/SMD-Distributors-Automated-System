@@ -35,19 +35,7 @@ public class StockUpdate extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		StockDB stockdb = new StockDB();
-		// check the quantity
-		/*
-		 * int CID = (Integer.parseInt(request.getParameter("CID"))); int OID
-		 * =(Integer.parseInt(request.getParameter("OID"))); CreditSalesM check = new
-		 * CreditSalesM(); Order add = check.getOrder(CID, OID);
-		 */
-		/*
-		 * String name= request.getParameter("itemname"); int InQuantity =
-		 * Integer.parseInt(request.getParameter("quntity")); int quantityOnhand =
-		 * stockdb.getQuantity(name);
-		 */
-		/* int Quantity = quan.length; */
-
+		//Compier the databse and input value of quantity and add the data 
 		if (request.getParameter("button").equals("add")) {
 
 			try {
@@ -57,22 +45,22 @@ public class StockUpdate extends HttpServlet {
 						+ request.getParameter("itemname") + "','" + request.getParameter("date") + "','"
 						+ request.getParameter("quntity") + "', 'add')";
 				stmt.execute(command);
-				// response.getWriter().append(command);
+				
 
-				// response.getWriter().append(command.toString());
 				response.sendRedirect("admin/StockManagement/StockPage.jsp");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-
+			//Compier the databse and input value of quantity and delete the data 
 		} else if (request.getParameter("button").equals("delete")) {
 
 			String name = request.getParameter("itemname");
 			int InQuantity = Integer.parseInt(request.getParameter("quntity"));
 			int quantityOnhand = stockdb.getQuantity(name);
-			System.out.println(name);
-			System.out.println(InQuantity);
-			System.out.println(quantityOnhand);
+			response.getWriter().append(name);
+			response.getWriter().append(request.getParameter("quntity"));
+			response.getWriter().append(Integer.toString(quantityOnhand));
+
 			if (quantityOnhand > InQuantity) {
 
 				try {
@@ -81,10 +69,10 @@ public class StockUpdate extends HttpServlet {
 					String command1 = "INSERT INTO stock(Item_name,Date,Quantity,Status)" + "" + "VALUES('"
 							+ request.getParameter("itemname") + "','" + request.getParameter("date") + "','"
 							+ request.getParameter("quntity") + "','delete')";
-					// stmt.execute(command1);
+					
 					response.getWriter().append(command1);
 
-					// response.sendRedirect("admin/StockManagement/StockPage.jsp");
+				
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

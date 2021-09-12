@@ -39,7 +39,6 @@ request.setAttribute("supplierdata", newsupplier);
 				<form action="../../SupplierUpdate" method="post">
 						<tr>
 
-							<%-- <td>"<c:out value="${Supplier.getSupplierID()}" /></td> --%>
 							<td><input readonly type="text" name="supplierID"
 								value="<c:out value="${Supplier.getSupplierID()}"/>"></td>
 							<td><input type="text" name="sname"
