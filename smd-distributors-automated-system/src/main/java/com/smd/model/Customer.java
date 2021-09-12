@@ -11,6 +11,7 @@ public class Customer {
 		private String email;
 		private String address;
 		private String status;
+		private String code;
 
 		/*Default constructor*/
 		public Customer() {
@@ -32,6 +33,12 @@ public class Customer {
 			this.email = email;
 			this.address = address;
 			this.status = status;
+		}
+		
+		public Customer(String cusID, String email, String code) {
+			this.cusID = cusID;
+			this.email = email;
+			this.code = code;
 		}
 
 		/*Getters and setters*/
@@ -114,5 +121,13 @@ public class Customer {
 
 		public void setStatus(String status) {
 			this.status = status;
+		}
+		
+		public String getCode() {
+			return code;
+		}
+		
+		public void setCode(String code) {
+			this.code = code;
 		}
 }

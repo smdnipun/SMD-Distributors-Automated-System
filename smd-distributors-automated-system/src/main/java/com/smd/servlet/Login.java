@@ -53,7 +53,7 @@ public class Login extends HttpServlet {
 						response.sendRedirect("./index.jsp");//redirect to login page
 					}
 					else {
-						RequestDispatcher r=request.getRequestDispatcher("ErrorDeactivatedAccount.jsp"); 
+						RequestDispatcher r=request.getRequestDispatcher("./ErrorDeactivatedAccount.jsp"); 
 						r.forward(request, response);
 					}
 					
