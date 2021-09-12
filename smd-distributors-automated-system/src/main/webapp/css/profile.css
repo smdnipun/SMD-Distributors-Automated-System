@@ -1,0 +1,41 @@
+@charset "ISO-8859-1";
+.covermain {
+  position: relative;
+  left: 0;
+  top: 0;
+  text-align: center;
+}
+
+.propic {
+  top: 245px;
+  left: 550px;
+}
+
+#up_pro_pic {
+  border-radius: 4px;
+  position: absolute;
+  top: 480px;
+  left: 722px;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.button{
+	background-color:transparent;
+	border-radius: 2px;
+    color: white;
+    padding: 2px 5px;
+    text-align: center;
+    display: inline-block;
+    font-size: 12px;
+    text-transform: uppercase;
+	box-shadow: 1px 1px #666666;
+	transform: translateY(1px);
+} 
+
+div.dataTables_wrapper {
+        width: 1200px;
+        margin: 0 auto;
+}

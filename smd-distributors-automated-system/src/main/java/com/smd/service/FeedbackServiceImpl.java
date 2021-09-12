@@ -8,7 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-import com.mysql.jdbc.PreparedStatement;
 import com.smd.model.Feedback;
 import com.smd.util.DBConnection;
 
@@ -21,7 +20,14 @@ public class FeedbackServiceImpl implements IFeedback {
 		DBConnection con = new DBConnection();
 		
 		public FeedbackServiceImpl() {
-			//con=DBConnection.getConnection();
+			DBConnection db = new DBConnection();
+			try {
+				con=db.getConnection();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 	
 		

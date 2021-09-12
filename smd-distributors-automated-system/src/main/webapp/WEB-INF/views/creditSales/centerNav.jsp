@@ -27,58 +27,13 @@
 						href="PaymentHistory.jsp">Payments History</a></li>
 
 				</ul>
+				<!--Creating search button -->
 				<form action="../../PaymentSearch" class="d-flex" method="post">
 					<input type="text" size="50" name="search" />
 					<button type="submit" class="">
 						<i class="bi bi-search"></i>
 					</button>
 				</form>
-				<div>.
-				<table id="customerDetails" class="display nowrap" style="width: 100%">
-					<c:choose>
-						<c:when test="${param.search==null}">
-							<%
-							CreditSalesM con = new CreditSalesM();
-							PaymentDetails[] allPayments = con.getPaymentdetails();
-							request.setAttribute("allPayments", allPayments);
-							%>
-							
-								
-								<thead>
-									<tr>
-										<th scope="col">Pay_ID</th>
-										<th scope="col">Hardware Name</th>
-										<th scope="col">Invoice ID</th>
-										<th scope="col">Total Price</th>
-										<th scope="col">Paid Amount</th>
-										<th scope="col">Remaining Amount</th>
-
-
-									</tr>
-								</thead>
-								<tbody>
-									<c:forEach items="${allPayments}" var="paymentDetails">
-										<td><c:out value="${PaymentDetails.getPaymentID()}" /></td>
-										<td><c:out value="${PaymentDetails.getCusName()}" /></td>
-										<td><c:out value="${PaymentDetails.getInvoiceID()}" /></td>
-										<td><c:out value="${PaymentDetails.getTotalAmount()}" /></td>
-										<td><c:out value="${PaymentDetails.getPaidAmount()}" /></td>
-										<td><c:out value="${PaymentDetails.getBalance()}" /></td>
-									</c:forEach>
-						</c:when>
-						<c:otherwise>
-							<%
-							CreditSalesM con = new CreditSalesM();
-							PaymentDetails[] searchPay = con.search(request.getParameter("search"));
-							request.setAttribute("searchData", searchPay);
-							%>
-							<c:forEach items="${searchData}" var="PaymentDetails">
-								<b>jjjjj</b>
-							</c:forEach>
-						</c:otherwise>
-					</c:choose>
-					</table>
-				</div>
 
 			</div>
 		</div>

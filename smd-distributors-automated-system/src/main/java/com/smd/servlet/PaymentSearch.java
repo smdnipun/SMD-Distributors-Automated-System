@@ -19,9 +19,9 @@ public class PaymentSearch extends HttpServlet {
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
-
+	//redirection 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url="admin/CreditSalesManagement/CreditPayment.jsp?search="+request.getParameter("search");
+		String url="admin/CreditSalesManagement/CustomerAged.jsp?search="+request.getParameter("search");
 		response.sendRedirect(url);
 	}
 

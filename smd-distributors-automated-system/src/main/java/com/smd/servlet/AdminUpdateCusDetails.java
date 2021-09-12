@@ -1,6 +1,7 @@
 package com.smd.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,10 +14,7 @@ import com.smd.model.Customer;
 import com.smd.service.CusDetailsServiceImpl;
 import com.smd.service.ICustomerDetails;
 
-/**
- * Servlet implementation class AdminUpdateCusDetails
- */
-@WebServlet("/AdminUpdateCusDetails")
+@WebServlet("/adminUpdate")
 public class AdminUpdateCusDetails extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -28,7 +26,6 @@ public class AdminUpdateCusDetails extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-	@SuppressWarnings("unused")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//creating customer object to set the values
 		Customer customer = new Customer();
@@ -38,6 +35,10 @@ public class AdminUpdateCusDetails extends HttpServlet {
 		
 		//Creating customer array to get customer details from CusDetailsServiceImpl
 		Customer[] CustomerData = cusDetails.getCustomerDetails();
+		
+		PrintWriter out = response.getWriter();
+		
+		boolean cFound = false;
 		
 		//setting the values taken from the registration page
 		customer.setCusID(request.getParameter("cus_id"));
@@ -51,19 +52,38 @@ public class AdminUpdateCusDetails extends HttpServlet {
 		
 		if(request.getParameter("btn").equals("update")) {
 			
-			//calling the addCustomer function in CusDetailsServiceImpl and getting the status
-			boolean status = cusDetails.updateCustomerfromAdmin(customer);
-			
-			if(status == true){//if the data was passed to the database successfully
-				response.sendRedirect("admin/CustomerManagement/CustomerDetails.jsp");
+			for(int i=0;i<CustomerData.length;i++) {
+				if( ((CustomerData[i].getEmail().equals(request.getParameter("email"))) || (CustomerData[i].getNIC().equals(request.getParameter("nic")))) 
+						&& (!CustomerData[i].getCusID().equals(request.getParameter("cus_id"))) ) {
+					cFound = true;
+					break;
+				}
 			}
-			else{//if the data was not passed to the database
-				//redirect to the registration page
-				RequestDispatcher dispatcher = request.getRequestDispatcher("admin/CustomerManagement/CustomerDetails.jsp");
+			
+			if(cFound == false) {
+				//calling the updateCustomerfromAdmin function in CusDetailsServiceImpl and getting the status
+				boolean status = cusDetails.updateCustomerfromAdmin(customer);
 				
+				if(status == true){//if the data was passed to the database successfully
+					out.println("<script type=\"text/javascript\">");
+				    out.println("alert('Updated Successfully!');");
+				    out.println("location='admin/CustomerManagement/CustomerDetails.jsp'");  //redirect to the same page
+				    out.println("</script>");
+				}
+				else{//if the data was not passed to the database
+					//display an error message
+					out.println("<script type=\"text/javascript\">");
+				    out.println("alert('There was an error please try again!!!');");
+				    out.println("location='admin/CustomerManagement/CustomerDetails.jsp'"); //redirect to the same page
+				    out.println("</script>");	
+				}
+			}	
+			else { //customer with same email or NIC found found
 				//display an error message
-				request.setAttribute("message", "There was an error please try again!!!");
-				dispatcher.forward(request, response);
+				out.println("<script type=\"text/javascript\">");
+			    out.println("alert('A user with same email or NIC exist.');");
+			    out.println("location='admin/CustomerManagement/CustomerDetails.jsp'"); //redirect to the registration page
+			    out.println("</script>");
 			}
 		} 
 		else if(request.getParameter("btn").equals("delete")) {
@@ -71,17 +91,20 @@ public class AdminUpdateCusDetails extends HttpServlet {
 			boolean status = cusDetails.setInactive(customer);
 			
 			if(status == true){//if the data was updated successfully
-				response.sendRedirect("admin/CustomerManagement/CustomerDetails.jsp");
+				//display an error message
+				out.println("<script type=\"text/javascript\">");
+			    out.println("alert('Deleted Successfully !!!');");
+			    out.println("location='admin/CustomerManagement/CustomerDetails.jsp'"); //redirect to the registration page
+			    out.println("</script>");
 			}
 			else{//if the data was not passed to the database
-				//redirect to the registration page
-				RequestDispatcher dispatcher = request.getRequestDispatcher("admin/CustomerManagement/CustomerDetails.jsp");
-				
 				//display an error message
-				request.setAttribute("message", "There was an error please try again!!!");
-				dispatcher.forward(request, response);
+				out.println("<script type=\"text/javascript\">");
+			    out.println("alert('Deleted unsuccessful !!!');");
+			    out.println("location='admin/CustomerManagement/CustomerDetails.jsp'"); //redirect to the registration page
+			    out.println("</script>");
 			}
-			
+		
 		}
 		
 	}

@@ -43,12 +43,13 @@ CREATE TABLE `feedback` (
 -- Table structure for table `employeetype`
 --
 
-DROP TABLE IF EXISTS `employeetype`;
+DROP TABLE IF EXISTS `employee_type`;
 
-CREATE TABLE `employeetype` (
+CREATE TABLE `employee_type` (
   `Emp_Type` varchar(45) NOT NULL,
   `Basic_Salary` double NOT NULL,
   `Hours` int NOT NULL,
+   `OT_Rate` double DEFAULT NULL,
   PRIMARY KEY (`Emp_Type`)
 );
 
@@ -68,12 +69,43 @@ CREATE TABLE `employee` (
   `NIC` varchar(45) DEFAULT NULL,
   `Email` varchar(45) DEFAULT NULL,
   `Address` varchar(45) DEFAULT NULL,
-  `Total_Salary` double DEFAULT NULL,
-  `Hours_Worked` int DEFAULT NULL,
   `Emp_Type` varchar(45) NOT NULL,
   PRIMARY KEY (`Emp_ID`),
   KEY `Employee_Type_idx` (`Emp_Type`),
-  CONSTRAINT `Employee_Type` FOREIGN KEY (`Emp_Type`) REFERENCES `employeetype` (`Emp_Type`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `Employee_Type` FOREIGN KEY (`Emp_Type`) REFERENCES `employee_type` (`Emp_Type`) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+--
+-- Table structure for table `employee_salattend`
+--
+
+DROP TABLE IF EXISTS `employee_salattend`;
+
+CREATE TABLE `employee_salattend` (
+  `Emp_ID` int NOT NULL,
+  `Hours_Worked` int DEFAULT NULL,
+  `Month` varchar(20) NOT NULL,
+  `Total_Salary` double DEFAULT NULL,
+  PRIMARY KEY (`Emp_ID`,`Month`),
+  CONSTRAINT `empfr_ID` FOREIGN KEY (`Emp_ID`) REFERENCES `employee` (`Emp_ID`) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+--
+-- Table structure for table `resigned_employees`
+--
+
+DROP TABLE IF EXISTS `resigned_employees`;
+
+CREATE TABLE `resigned_employees` (
+  `Emp_ID` int NOT NULL,
+  `Emp_Type` varchar(45) DEFAULT NULL,
+  `First_Name` varchar(45) DEFAULT NULL,
+  `Last_Name` varchar(45) DEFAULT NULL,
+  `Phone` varchar(45) DEFAULT NULL,
+  `NIC` varchar(45) DEFAULT NULL,
+  `Address` varchar(45) DEFAULT NULL,
+  `Resigned_Date` date DEFAULT NULL,
+  PRIMARY KEY (`Emp_ID`)
 );
 
 --
@@ -254,23 +286,37 @@ VALUES (1,1,'2021-05-18','a','Excellent service','5','pending'),
     (3,3,'2021-04-02','c','poor service','1','pending');
     
 --
--- Dumping data for table `employeetype`
+-- Dumping data for table `employee_type`
 --
 
-INSERT INTO `employeetype` 
-VALUES ('cashCollector',30000,180),
-	('driver',25000,180),
-    ('labor',15000,150);
+INSERT INTO `employee_type` 
+VALUES ('cashCollector',30000,180,250),
+('driver',25000,180,150),('labor',15000,150,150);
 
 --
 -- Dumping data for table `employee`
 --
 
 INSERT INTO `employee` 
-VALUES (1,'Kumara','Jayathilaka','0712211759',NULL,NULL,'5712867321V','kumara@gmail.com','12/1,Galahawatta,Mawanalla',33000,187,'cashCollector'),
-	(2,'Jagath','Mahanama','0775642387',NULL,NULL,'651247987V',NULL,'20/5B,newtown,Pilimathalawa',15000,150,'labor'),
-    (3,'Saman','Karunarathna','0754336587',NULL,NULL,'612552290V',NULL,'07/5,Milawaththa,Mawanalla.',30000,195,'driver');
+ VALUES (1,'Thameera','fernando','0764455678  ','null','null','199834729835',
+ 'thameeralk@gmail.com','Thammera,Kandy','cashCollector');
     
+	
+	
+--
+-- Dumping data for table `employee_salattend`
+--
+
+INSERT INTO `employee_salattend` VALUES (1,220,'2021-09-07',40000);
+
+--
+-- Dumping data for table `resigned_employees`
+--
+
+INSERT INTO `resigned_employees` VALUES (2,'cashCollector','Poorna','Ransinghe','0788817663',
+'199834720198','94/,Kandy','2021-09-11');	
+		
+	
 --
 -- Dumping data for table `product`
 --
@@ -379,7 +425,65 @@ from customer c,orders o
 where c.Cus_ID=o.Cust_ID and Order_Status="pending";
 
 
+-- employeeattendance view
+
+CREATE 
+    ALGORITHM = UNDEFINED 
+    DEFINER = `root`@`localhost` 
+    SQL SECURITY DEFINER
+VIEW `smd`.`bestattend` AS
+    SELECT 
+        `e`.`Emp_ID` AS `Emp_ID`,
+        `y`.`Emp_Type` AS `Employee_Type`,
+        `e`.`First_Name` AS `First_Name`,
+        `l`.`Hours_Worked` AS `Hours_Worked`,
+        `y`.`Hours` AS `Work_Hours(PerMonth)`,
+        (`l`.`Hours_Worked` - `y`.`Hours`) AS `OT_Hours`,
+        MONTHNAME(CURDATE()) AS `Month`
+    FROM
+        ((`smd`.`employee` `e`
+        JOIN `smd`.`employee_salattend` `l`)
+        JOIN `smd`.`employee_type` `y`)
+    WHERE
+        ((`e`.`Emp_ID` = `l`.`Emp_ID`)
+            AND (`y`.`Emp_Type` = `e`.`Emp_Type`)
+            AND (MONTH(CURDATE()) = MONTH(`l`.`Month`)))
+    ORDER BY `l`.`Hours_Worked` DESC ;
+
+
+-- employeesalary view
+
+CREATE 
+    ALGORITHM = UNDEFINED 
+    DEFINER = `root`@`localhost` 
+    SQL SECURITY DEFINER
+VIEW `smd`.`monthlysalary` AS
+    SELECT 
+        `e`.`Emp_Type` AS `EmpType`,
+        `y`.`First_Name` AS `FirstName`,
+        `e`.`Basic_Salary` AS `BasicSalary`,
+        `l`.`Total_Salary` AS `TotalSalary`,
+        (`l`.`Total_Salary` - `e`.`Basic_Salary`) AS `OT_Increement`,
+        `e`.`Hours` AS `Work_Hours(PerMonth)`,
+        `l`.`Hours_Worked` AS `Hours_Worked`,
+        `e`.`OT_Rate` AS `OT_Rate(PerHour)`,
+        `l`.`Month` AS `Month`
+    FROM
+        ((`smd`.`employee_type` `e`
+        JOIN `smd`.`employee` `y`)
+        JOIN `smd`.`employee_salattend` `l`)
+    WHERE
+        ((`e`.`Emp_Type` = `y`.`Emp_Type`)
+            AND (`l`.`Emp_ID` = `y`.`Emp_ID`)
+            AND (MONTH(CURDATE()) = MONTH(`l`.`Month`)))
+    ORDER BY `l`.`Total_Salary` DESC ;
+
+
+
+
 -- Database functions & procedures
+
+-- Triggers
 
 
 
@@ -404,3 +508,7 @@ select * from smd.vendor;
 select * from smd.PaymentDetails;
 select * from smd.CustomerAged;
 select * from smd.NewOrders;
+
+select count(email) from customer where email = 'nipunsenarath2@gmail.com';
+
+DELETE from customer where Cus_ID = 9;

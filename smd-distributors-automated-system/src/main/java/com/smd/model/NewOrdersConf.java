@@ -3,22 +3,24 @@ package com.smd.model;
 //create NewOrders class
 public class NewOrdersConf {
 	private String OrderID;
-	private String Customer;
 	private String Date;
+	private String CusID;
+	private String Customer;
 	private int Quantity;
 	private double TotalPrice;
 
-//constructor
-	public NewOrdersConf(String orderID, String customer, String date, int quantity, double totalPrice) {
-		super();
-		OrderID = orderID;
-		Customer = customer;
-		Date = date;
-		Quantity = quantity;
-		TotalPrice = totalPrice;
-	}
+//overloaded constructor
 
-//setters and getters
+	public NewOrdersConf(String orderID, String date, String cusID, String customer, int quantity, double totalPrice) {
+	super();
+	OrderID = orderID;
+	Date = date;
+	CusID = cusID;
+	Customer = customer;
+	Quantity = quantity;
+	TotalPrice = totalPrice;
+}
+	//setters and getters
 
 	public String getOrderID() {
 		return OrderID;
@@ -28,20 +30,28 @@ public class NewOrdersConf {
 		OrderID = orderID;
 	}
 
-	public String getCustomer() {
-		return Customer;
-	}
-
-	public void setCustomer(String customer) {
-		Customer = customer;
-	}
-
 	public String getDate() {
 		return Date;
 	}
 
 	public void setDate(String date) {
 		Date = date;
+	}
+
+	public String getCusID() {
+		return CusID;
+	}
+
+	public void setCusID(String cusID) {
+		CusID = cusID;
+	}
+
+	public String getCustomer() {
+		return Customer;
+	}
+
+	public void setCustomer(String customer) {
+		Customer = customer;
 	}
 
 	public int getQuantity() {
@@ -59,4 +69,6 @@ public class NewOrdersConf {
 	public void setTotalPrice(double totalPrice) {
 		TotalPrice = totalPrice;
 	}
+
+	
 }

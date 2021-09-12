@@ -1,24 +1,54 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ page import="com.smd.model.Stockorder"%><!--Import Stockorder.class-->
+<%@ page import="com.smd.service.StockDB"%><!-- Import Database connection of StockDB -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<div class="col-8 text-center align">
+<!-- create array to get data from database -->
+<%
+if (request.getSession().getAttribute("Logged") == null) {
+	request.getSession().setAttribute("Logged", "Guest");
+}
+
+StockDB dbc = new StockDB();
+Stockorder[] newstock = (Stockorder[]) dbc.getStockorder();
+request.setAttribute("stockorderdata", newstock);
+%>
+<!-- upper navigation bar -->
+<div>
+	<jsp:include page="./stockupnav.jsp"></jsp:include>
+</div>
+<!-- stockorder Table -->
+<div class="col-7 text-center align">
 	<table class="table table-hover">
-		<caption>List of users</caption>
+
 		<thead>
 			<tr>
-				<th scope="col">Credit ID</th>
-				<th scope="col">Product Name</th>
-				<th scope="col">Quntity</th>
+				<!-- Table headers -->
+				<th scope="col">Order ID</th>
+				<th scope="col">Quantity</th>
 				<th scope="col">Date</th>
-				<th scope="col">Status</th>
+				<th scope="col">Product Name</th>
+
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<th scope="row">1</th>
-				<td>Mark</td>
-				<td>Otto</td>
-				<td>@mdo</td>
-				<td>@mdo</td>
-			</tr>
+			<!-- Pass the data from DB -->
+			<c:forEach items="${stockorderdata}" var="Stockorder">
+				<form action="../../ReleasOrders" method="post">
+				<tr>
+				    <td><input readonly type="text" name="oID"
+								value="<c:out value="${Stockorder.getoID()}"/>"></td>
+					<%-- <td><c:out value="${Stockorder.getoID()}" /></td> --%>
+					<td><c:out value="${Stockorder.getQty()}" /></td>
+					<td><c:out value="${Stockorder.getOdate()}" /></td>
+					<td><c:out value="${Stockorder.getpName()}" /></td>
+					<td><button type="submit" class="btn btn-secondary"
+					style="background-color: #c28f48" name="button" value="accept" />Accept</button>
+						</form></td>
+				</tr>
+
+			</c:forEach>
 		</tbody>
 	</table>
 </div>

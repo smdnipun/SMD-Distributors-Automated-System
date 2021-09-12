@@ -15,14 +15,16 @@ public class Stock {
 		this.quntity=quntity;
 		this.date=date;
 		this.status=status;
+	
 	}
 	
 	//Created constructor 
 public Stock() {
 		
 	}
+//Getters
 
-	//Getters
+
 	public int getStockID() {
 		return stockID;
 	}
@@ -43,10 +45,10 @@ public Stock() {
 	}
 	
 //Setters
+	
 	public void setStockID(int stockID) {
 		this.stockID = stockID;
 	}
-
 	public void setItemName(String itemName) {
 		this.itemName = itemName;
 	}

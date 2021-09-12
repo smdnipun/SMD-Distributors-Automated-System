@@ -1,6 +1,7 @@
 package com.smd.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,6 +23,9 @@ public class UpdateAdminOrders extends HttpServlet {
 	@SuppressWarnings("unused")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		PrintWriter out = response.getWriter();
+		response.setContentType("text/html");
+		//get the details 
 		String OID=request.getParameter("OID");
 		String CID=request.getParameter("CID");
 		String ODATE=request.getParameter("ODATE");
@@ -39,18 +43,27 @@ public class UpdateAdminOrders extends HttpServlet {
 		int quantity=Integer.parseInt(QTY); 
 		int proId=Integer.parseInt(PID); 
 		int oid=Integer.parseInt(OID); 
-		
+		//call the update method 
 		boolean isdone=OrderM.updateorderadmin(oid, cusId, ODATE, OSTATES, totalprice, paidamount, remainamount, quantity, proId);
 		
 		if(isdone==true) {
-			RequestDispatcher dis=request.getRequestDispatcher("AdminUI/OrderManagement/OrderAdminHome.jsp");
-			dis.forward(request, response);
+			// if successful then show the alert and redirect to OrderAdminHome
+			out.println("<script type='text/javascript'>");
+            out.println("alert('Order Update Successfully');");
+            out.println("location='admin/OrderManagement/OrderAdminHome.jsp'"); 
+            out.println("</script>");
+			
+
 			
 		}
 else {
-			
-			RequestDispatcher dis=request.getRequestDispatcher("index.jsp");
-			dis.forward(request, response);
+	// if successful then show the alert and redirect to OrderAdminHome	
+	out.println("<script type='text/javascript'>");
+    out.println("alert('Something went wrong');");
+    out.println("location='admin/OrderManagement/OrderAdminHome.jsp'"); 
+    out.println("</script>");
+	
+
 		}
 		
 	}

@@ -9,7 +9,9 @@ public class CustomerAgedRecivable {
 	private double PaidAmount;
 	private double Balance;
 
-	// constructor
+	
+	
+//Customer overloaded constructor
 	public CustomerAgedRecivable(String cus_ID, String hardwareName, String invoiceID, double totalAmount,
 			double paidAmount, double balance) {
 		super();
@@ -19,8 +21,9 @@ public class CustomerAgedRecivable {
 		TotalAmount = totalAmount;
 		PaidAmount = paidAmount;
 		Balance = balance;
+
 	}
-	
+
 	// setters and getters
 	public String getCus_ID() {
 		return Cus_ID;
@@ -38,18 +41,18 @@ public class CustomerAgedRecivable {
 		HardwareName = hardwareName;
 	}
 
-	public double getTotalAmount() {
-		return TotalAmount;
-	}
 	public String getInvoiceID() {
 		return InvoiceID;
 	}
 
-
 	public void setInvoiceID(String invoiceID) {
 		InvoiceID = invoiceID;
 	}
-	
+
+	public double getTotalAmount() {
+		return TotalAmount;
+	}
+
 	public void setTotalAmount(double totalAmount) {
 		TotalAmount = totalAmount;
 	}

@@ -1,4 +1,19 @@
 
+<script>
+            
+            function isInputNumber(evt){
+                
+                var ch = String.fromCharCode(evt.which);
+                
+                if(!(/[0-9]/.test(ch))){
+                    evt.preventDefault();
+                }
+                
+            }
+            
+            
+            
+        </script>
 
 <div class="col-10">
 <%
@@ -13,6 +28,13 @@
 	String pid=request.getParameter("pty");
 
 %>
+
+<br>
+<center>
+<h1>Update Order</h1>
+</center>
+<br>
+<div class="content">
 	<form action=<%=request.getContextPath() + "/updateadmin"%> method="post">
 	
 <div class="mb-3">
@@ -51,7 +73,10 @@
   <label for="formGroupExampleInput2" class="form-label">Product ID</label>
   <input type="text" class="form-control" id="formGroupExampleInput2" value="<%=pid %>" name="PID">
 </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+
+  <button type="submit" class="btn btn-primary">Update Order</button>
 </form>
 	</div>
-	<br><br><br><br>
+	<br><br><br>
+	</div>
+	

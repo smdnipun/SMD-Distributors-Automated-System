@@ -1,6 +1,7 @@
 package com.smd.servlet;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
@@ -21,28 +22,38 @@ public class DeleteCustomerOrders extends HttpServlet {
        
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		//get the orderid
 		String oid=request.getParameter("OID");
 		int Orderid=Integer.parseInt(oid);
 		
 		PrintWriter out = response.getWriter();
         response.setContentType("text/html");
-        
+        //check the order state is delivered or not
         if(request.getParameter("OSTATES").equals("delivered")) {
         	out.println("<script type='text/javascript'>");
             out.println("alert('Sorry Order is already in Delivery process');");
-            out.println("location='AddOrder.jsp'"); 
+            out.println("location='index.jsp'"); 
             out.println("</script>");
         }else {
+        	//call the delete order admin method
         	boolean isdone=OrderM.deleteeorderadmin(Orderid);
     		
     		if(isdone==true) {
-    			RequestDispatcher dis=request.getRequestDispatcher("AddOrder.jsp");
-    			dis.forward(request, response);
-    		}else {
+    			// if successful then show the alert and redirect to Addorder
+    			out.println("<script type='text/javascript'>");
+                out.println("alert('successfully deleted');");
+                out.println("location='index.jsp'"); 
+                out.println("</script>");
     			
-    			RequestDispatcher dis=request.getRequestDispatcher("index.jsp");
-    			dis.forward(request, response);
+
+    		}else {
+    			// if successful then show the alert and redirect to Addorder
+    			out.println("<script type='text/javascript'>");
+                out.println("alert('something went wrong');");
+                out.println("location='index.jsp'"); 
+                out.println("</script>");
+    			
+
     		}
         }
         

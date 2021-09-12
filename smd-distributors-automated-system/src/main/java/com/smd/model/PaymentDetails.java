@@ -2,37 +2,30 @@ package com.smd.model;
 
 //Create Payment details class
 public class PaymentDetails {
-	private String PaymentID;
 	private String CusName;
 //	private String CusID;
 	private String InvoiceID;
 	private double TotalAmount;
 	private double PaidAmount;
 	private double Balance;
+	private String Status;
 
-//Constructor
-	//String cusID
-	public PaymentDetails(String paymentID, String cusName, String invoiceID, double totalAmount,
-			double paidAmount, double balance) {
-		super();
-		PaymentID = paymentID;
+//overloaded Constructor
+	// String cusID
+	public PaymentDetails(String cusName, String invoiceID, double totalAmount, double paidAmount,
+			double balance,String status) {
+		
+	
 		CusName = cusName;
 //		CusID = cusID;
 		InvoiceID = invoiceID;
 		TotalAmount = totalAmount;
 		PaidAmount = paidAmount;
 		Balance = balance;
+		Status = status;
 	}
 
 	// Setters and getters
-	public String getPaymentID() {
-		return PaymentID;
-	}
-
-	public void setPaymentID(String paymentID) {
-		PaymentID = paymentID;
-	}
-
 	public String getCusName() {
 		return CusName;
 	}
@@ -79,6 +72,14 @@ public class PaymentDetails {
 
 	public void setBalance(double balance) {
 		Balance = balance;
+	}
+
+	public String getStatus() {
+		return Status;
+	}
+
+	public void setStatus(String status) {
+		Status = status;
 	}
 
 }

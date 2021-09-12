@@ -1,6 +1,7 @@
 package com.smd.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Statement;
 
 import javax.servlet.ServletException;
@@ -33,10 +34,23 @@ public class UpdateProduct extends HttpServlet {
 		}
 		try {
 			Statement stmt=dbc.getConnection().createStatement();
-			
-			String command = "UPDATE product SET Name = '"+request.getParameter("pname")+"',Product_Weight = '"+request.getParameter("pweight")+"',Unit_Price = '"+request.getParameter("pprice")+"',Availability='"+availability+"' WHERE Prod_ID ="+ request.getParameter("pid");
+			PrintWriter out = response.getWriter();
+			String command="";
+			if(request.getParameter("button").equals("update")) {
+				command = "UPDATE product SET Name = '"+request.getParameter("pname")+"',Product_Weight = '"+request.getParameter("pweight")+"',Unit_Price = '"+request.getParameter("pprice")+"',Availability='"+availability+"',image='"+request.getParameter("image")+"' WHERE Prod_ID ="+ request.getParameter("pid");
+				out.println("<script type=\"text/javascript\">");
+			    out.println("alert('Product Updated Successfly !!!');");
+			    out.println("location='admin/ProductM/all.jsp'"); 
+			    out.println("</script>");
+			}else if(request.getParameter("button").equals("delete")) {
+				command = "delete from product where Prod_ID=" + request.getParameter("pid");
+				out.println("<script type=\"text/javascript\">");
+			    out.println("alert('Product Deleted Successfly !!!');");
+			    out.println("location='admin/ProductM/all.jsp'"); 
+			    out.println("</script>");
+			}
 //			response.getWriter().append(command);
-			@SuppressWarnings("unused")
+
 			int rows=stmt.executeUpdate(command);
 			
 //			Staff[] data=dbc.getStaffdetails();

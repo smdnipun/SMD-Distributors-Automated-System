@@ -2,16 +2,21 @@
     	 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
    
 
-<div class="col-10">
-<table class="table">
-  <thead>
+<div class="col-9">
+<br>
+<center>
+<h1>Orders</h1>
+</center>
+<br>
+<table id="example" class="table  display nowrap"  style="width:100%">
+                <thead class="thead-dark">
     <tr>
        <th scope="col">Order ID</th>
        <th scope="col">Customer ID</th>
        <th scope="col">Order Date</th>
        <th scope="col">Order States</th>
        <th scope="col">Total Price</th>
-       <th scope="col">Paid Amount}</th>
+       <th scope="col">Paid Amount</th>
        <th scope="col">Remain Amount</th>
        <th scope="col">Quantity</th>
        <th scope="col">Product ID</th>
@@ -47,7 +52,7 @@
       <td> ${orders.PID}</td>
       <td>
      
-      <c:url value="AdminUI/OrderManagement/UpdateOrderAdmin.jsp" var="orderupdate">
+      <c:url value="admin/OrderManagement/UpdateOrderAdmin.jsp" var="orderupdate">
       <c:param name="oid" value="${oid}"/>
       <c:param name="cid" value="${cid}"/>
       <c:param name="odate" value="${odate}"/>
@@ -61,14 +66,14 @@
      
       </c:url>
       <a href="${orderupdate}">
-        <input type="button" name="update" value="update order">
+        <input type="button" name="update" value="Update Order">
       </a>
     
       
       </td>
       
       <td>
-      <c:url value="AdminUI/OrderManagement/DeleteOrderAdmin.jsp" var="orderdelete">
+      <c:url value="admin/OrderManagement/DeleteOrderAdmin.jsp" var="orderdelete">
       <c:param name="oid" value="${oid}"/>
       <c:param name="cid" value="${cid}"/>
       <c:param name="odate" value="${odate}"/>
@@ -82,7 +87,7 @@
      
       </c:url>
       <a href="${orderdelete}">
-        <input type="button" name="delete" value="delete order">
+        <input type="button" name="delete" value="Delete Order">
       </a>
       
       
