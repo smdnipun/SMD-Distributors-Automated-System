@@ -82,22 +82,23 @@ page="EmployeeNav.jsp"></jsp:include>
  <h2>Employee Monthly Salary Report</h2>
 </center>
 
-<button onclick="generatePdf()">Print Report </button>
+
+<button  onclick="generatePdf()">Print Report </button>
 
 
 	<div id="empSalReport" >
-
+	
 			<table id="example" class="table  display nowrap" style="width:100%">
-				<thead class="thead-dark">
+				<thead class="thead-dark" >
 					<tr>
 						<th scope="col">EmpType</th>
 						<th scope="col">FirstName</th>
 						<th scope="col">BasicSalary</th>
 						<th scope="col">TotalSalary</th>
 						<th scope="col">OT_Increement</th>
-						<th scope="col">Work_Hours(perMonth)</th>
+						<th scope="col">Work_Hours</th>
 						<th scope="col">Hours_worked</th>
-						<th scope="col">OT_Rate(perHour)</th>
+						<th scope="col">OT_Rate</th>
 						<th scope="col">Month</th>
 				
 					</tr>
