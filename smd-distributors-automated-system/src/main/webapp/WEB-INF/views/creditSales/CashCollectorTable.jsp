@@ -14,15 +14,16 @@ Employee[] cashCal = (Employee[]) dbc.getCashCalactorsDetails();
 request.setAttribute("data", cashCal);
 %>
 
-<div >
+<div>
+	<!-- Horizontal navigation bar -->
 	<jsp:include page="CenterNavWithoutSearch.jsp"></jsp:include>
 	<center>
 		<h5>Cash Collector</h5>
 	</center>
-
+	<!--Creating cash collector table -->
 	<!-- <table id="customerDetails" class="display nowrap" style="width: 100%"> -->
 	<table id="table" class="display nowrap" style="width: 100%">
-	
+
 
 		<thead>
 
@@ -40,8 +41,9 @@ request.setAttribute("data", cashCal);
 			<c:forEach items="${data}" var="Employee">
 				<tr>
 					<td><c:out value="${Employee.getEmp_ID()}" /></td>
-					<td><c:out value="${Employee.getFirst_Name()} ${Employee.getLast_Name()}" /></td>
-					<td><c:out value="${Employee.getPhone()}"/></td>
+					<td><c:out
+							value="${Employee.getFirst_Name()} ${Employee.getLast_Name()}" /></td>
+					<td><c:out value="${Employee.getPhone()}" /></td>
 					<td><c:out value="${Employee.getNIC()}" /></td>
 					<td><c:out value="${Employee.getEmail()}" /></td>
 					<td><c:out value="${Employee.getAddress()}" /></td>

@@ -26,7 +26,8 @@ public class AcceptOrderServlet extends HttpServlet {
 			throws ServletException, IOException {
 		DBConnection dbc = new DBConnection();
 		// String orderID = "0";
-
+		
+		//check buttons value and update order status
 		if (request.getParameter("button").equals("accept")) {
 			try {
 				Statement stmt = dbc.getConnection().createStatement();
@@ -40,6 +41,7 @@ public class AcceptOrderServlet extends HttpServlet {
 			} catch (Exception e) {
 				response.getWriter().append(e.toString());
 			}
+			//check button value and delete order
 		} else if (request.getParameter("button").equals("decline")) {
 			try {
 				Statement stmt = dbc.getConnection().createStatement();

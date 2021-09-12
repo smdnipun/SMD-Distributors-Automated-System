@@ -53,7 +53,7 @@ public class Login extends HttpServlet {
 						response.sendRedirect("./index.jsp");//redirect to login page
 					}
 					else {
-						RequestDispatcher r=request.getRequestDispatcher("ErrorDeactivatedAccount.jsp"); 
+						RequestDispatcher r=request.getRequestDispatcher("./ErrorDeactivatedAccount.jsp"); 
 						r.forward(request, response);
 					}
 					
@@ -69,7 +69,7 @@ public class Login extends HttpServlet {
 				if((employeeData[i].getEmail().equals(request.getParameter("email")))&&(employeeData[i].getPassword().equals(pwd))) {
 					Found=true;
 					if(employeeData[i].getEmp_Type().equals("product")) {
-						request.getSession().setAttribute("Logged","Admin");
+						request.getSession().setAttribute("Logged","Product");
 						response.sendRedirect("admin/ProductM/all.jsp");
 					}
 					else if(employeeData[i].getEmp_Type().equals("Delivery")) {
@@ -88,9 +88,9 @@ public class Login extends HttpServlet {
 						request.getSession().setAttribute("Logged","empManager");
 						response.sendRedirect("admin/EmployeeManagement/addEmp.jsp");
 					}
-					else if(employeeData[i].getEmp_Type().equals("order")) {
-						request.getSession().setAttribute("Logged","Stock");
-						response.sendRedirect("admin/StockManagement/index.jsp");
+					else if(employeeData[i].getEmp_Type().equals("oderManager")) {
+						request.getSession().setAttribute("Logged","oderManager");
+						response.sendRedirect("admin/OrderManagement/OrderAdminHome.jsp");
 					}
 					else if(employeeData[i].getEmp_Type().equals("Stock")) {
 						request.getSession().setAttribute("Logged","Stock");
