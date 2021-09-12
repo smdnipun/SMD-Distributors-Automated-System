@@ -82,7 +82,7 @@ public class RegisterServlet extends HttpServlet {
 				    out.println("</script>");
 //					response.sendRedirect("./login.jsp");
 				}
-				else{//if the data was not passed to the database
+				else{//if the data was not passed to the database--
 					//redirect to the registration page
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/registration.jsp");
 					//display an error message

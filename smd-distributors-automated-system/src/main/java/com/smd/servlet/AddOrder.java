@@ -49,7 +49,7 @@ public class AddOrder extends HttpServlet {
 			// if successful then show the alert and redirect to Addorder
 			out.println("<script type='text/javascript'>");
             out.println("alert('Add order successful');");
-            out.println("location='AddOrder.jsp'"); 
+            out.println("location='index.jsp'"); 
             out.println("</script>");
 			
 
@@ -57,7 +57,7 @@ public class AddOrder extends HttpServlet {
 			// if unsuccessful then show the alert and redirect to Addorder
 			out.println("<script type='text/javascript'>");
             out.println("alert('something went wrong');");
-            out.println("location='AddOrder.jsp'"); 
+            out.println("location='index.jsp'"); 
             out.println("</script>");
 			
 
