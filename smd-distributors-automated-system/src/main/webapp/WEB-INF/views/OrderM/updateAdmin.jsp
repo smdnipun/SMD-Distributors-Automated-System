@@ -1,3 +1,4 @@
+
 <script>
             
             function isInputNumber(evt){
@@ -27,6 +28,7 @@
 	String pid=request.getParameter("pty");
 
 %>
+
 <br>
 <center>
 <h1>Update Order</h1>
@@ -71,6 +73,7 @@
   <label for="formGroupExampleInput2" class="form-label">Product ID</label>
   <input type="text" class="form-control" id="formGroupExampleInput2" value="<%=pid %>" name="PID">
 </div>
+
   <button type="submit" class="btn btn-primary">Update Order</button>
 </form>
 	</div>

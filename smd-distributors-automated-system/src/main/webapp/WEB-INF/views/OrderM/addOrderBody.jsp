@@ -45,15 +45,15 @@ int id = Integer.parseInt(request.getSession().getAttribute("CustomerID").toStri
 	
 <div class="mb-3">
   <label for="formGroupExampleInput2" class="form-label">Customer ID</label>
-  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter Customer ID" name="CID" required="true" value="<%=id %>">
+  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter Customer ID" name="CID" required="true" value="<%=id %>" readonly>
 </div>
 <div class="mb-3">
-  <label for="formGroupExampleInput2" class="form-label">Product ID</label>
-  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter " name="PID" required="true">
+<label for="formGroupExampleInput2" class="form-label">Product ID</label>
+<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter " name="PID" value="${product.getProductID()}" required="true" readonly>
 </div>
 <div class="mb-3">
   <label for="formGroupExampleInput2" class="form-label">Unit Price</label>
-  <input type="text" class="form-control" id="txtFirstNo" placeholder="Enter " name="PID" required="true" onkeypress="sum()">
+  <input type="text" class="form-control" id="txtFirstNo" placeholder="Enter " name="PID" required="true" onkeypress="sum()" value="${product.getPrice()}" readonly>
 </div>
 <div class="mb-3">
   <label for="formGroupExampleInput2" class="form-label">Quantity</label>
@@ -62,7 +62,7 @@ int id = Integer.parseInt(request.getSession().getAttribute("CustomerID").toStri
 
 <div class="mb-3">
   <label for="formGroupExampleInput" class="form-label">Total price</label>
-  <input type="text" class="form-control" placeholder="Enter Total price" name="TPRICE" onkeyup="isInputNumber(event)" required="true" id="txtResult">
+  <input type="text" class="form-control" placeholder="Enter Total price" name="TPRICE" onkeyup="isInputNumber(event)" required="true" id="txtResult" readonly>
 </div>
 
 
