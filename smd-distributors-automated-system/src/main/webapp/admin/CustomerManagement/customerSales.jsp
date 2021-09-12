@@ -14,7 +14,7 @@ if (request.getSession().getAttribute("Logged") != null) {
 } else {
 	PrintWriter redirect = response.getWriter();
 	redirect.println("<script>");
-	redirect.println("location='./login.jsp'");
+	redirect.println("location='../../login.jsp'");
 	redirect.println("</script>");
 }
 %>
