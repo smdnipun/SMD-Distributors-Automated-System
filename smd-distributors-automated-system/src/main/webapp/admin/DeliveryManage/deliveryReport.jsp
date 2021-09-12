@@ -4,25 +4,50 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+	<script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js" ></script>
+	<script type="text/javascript">
+	function generatePdf(){
+	var d = new Date();
+	var y = d.getFullYear();
+
+	var month = new Array();
+	month[0] = "January";
+	month[1] = "February";
+	month[2] = "March";
+	month[3] = "April";
+	month[4] = "May";
+	month[5] = "June";
+	month[6] = "July";
+	month[7] = "August";
+	month[8] = "September";
+	month[9] = "October";
+	month[10] = "November";
+	month[11] = "December";
+	var n = month[d.getMonth()];
+
+	var str = 'Monthly Delivery Report-'+y+"-"+n;
+	const element=document.getElementById("report");
+	html2pdf().from(element).save(str);
+	}
+	</script>
+	
 	<jsp:include page="../../WEB-INF/views/common/head.jsp">
 	<jsp:param name="Title" value="SMD Distributors/Delivery Management" /></jsp:include>
 	<meta charset="ISO-8859-1">
 </head>
 <body>
-	
-	
-	
-	
-	<jsp:include page="../../WEB-INF/views/common/head.jsp"></jsp:include>
+		
+		<jsp:include page="../../WEB-INF/views/common/head.jsp"></jsp:include>
 		<jsp:include page="../../WEB-INF/views/common/adminHeader.jsp"></jsp:include>
 		
 		<div class="row">
 			<jsp:include
 				page="../../WEB-INF/views/Delivery/DeliveryNavigationbar.jsp"></jsp:include>
 			<div class="col-9">
-	
+	<div id="report">
 		<center>
-			<h5>Delivery Details</h5>
+			<h5>Delivery Report</h5>
 		</center>
 		
 	
@@ -46,49 +71,27 @@
 		</thead>
 		<tbody>
 			<c:forEach var="del" items="${deliveryDetails}">
-				<form action=<%=request.getContextPath() + "/updated"%> method="post">
+				
 				<tr>
-					<td><input type="text" value="${del.delivryID}" name="did" class="form-control" readonly/></td>
+					<td><c:out value="${del.delivryID}" /></td>
 					<td><c:out value="${del.route}" /></td>
 					<td><c:out value="${del.date}" /></td>
-					<td><input type="text" value="${del.status}" name="upStatus" class="form-control" /></td>
+					<td><c:out value="${del.status}"/></td>
 					<td><c:out value="${del.oID}" /></td>
 					<td><c:out value="${del.cID}" /></td>
 					<td><c:out value="${del.vehicle}" /></td>
-					<td><input type="submit" name="uodate" value="Update" class="btn btn-primary"style="background-color:#fbda57; color:#000000"> </td>
 				</tr>
-				</form>
-				
-				<form  action=<%=request.getContextPath() + "/deleted"%>  method="post">
-				<tr>
-					<td/><td/><td/><td/><td/><td/>
-					<td><input type="text" value="${del.delivryID}" name="did" class="form-control" id="formGroupExampleInput" readonly/></td>
-					<td><input type="submit" name="delete" value="Delete" class="btn btn-primary"style="background-color:#fbda57; color:#000000"> </td>
-				</tr>
-				</form>
+	
 			</c:forEach>
 	
 		</tbody>
 	</table>
-	
-	<div style="padding:100px; align:center" class="col-4">
-	
-	
-	
-	
-	
-	
-	<form action=<%=request.getContextPath() + "/dreport"%> method="post">
-	
-	<div class="mb-4">
-				<label for="formGroupExampleInput" class="form-label">Date</label>
-				<input type="date" name="rdate" aria-describedby="" class="form-control" id="formGroupExampleInput">
 	</div>
-	<button type="submit" name="report" class="btn btn-primary"style="background-color:#fbda57; color:#000000">Generate Report </button>
 	
-	</form>
 	
-	</div>
+	<button type="submit" name="pdf" onclick="generatePdf()" class="btn btn-primary"style="background-color:#fbda57; color:#000000">Print </button>
+	
+	
 	
 	</div>
 	</div>

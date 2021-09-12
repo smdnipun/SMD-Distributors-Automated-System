@@ -105,7 +105,15 @@
 		<servlet-name>odr</servlet-name>
 		<url-pattern>/odr</url-pattern>
 	</servlet-mapping>
-
+	
+	<servlet>
+		<servlet-name>dreport</servlet-name>
+		<servlet-class>com.smd.servlet.DeliveryReportServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>dreport</servlet-name>
+		<url-pattern>/dreport</url-pattern>
+	</servlet-mapping>
 
 
 	<servlet>

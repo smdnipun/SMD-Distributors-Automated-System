@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>CustomerDuePayment</title>
+<title>Cash Collectors</title>
 </head>
 <body>
 	<jsp:include page="../../WEB-INF/views/common/head.jsp"></jsp:include>

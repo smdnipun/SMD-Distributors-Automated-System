@@ -226,6 +226,7 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 		
 		//creating the database connection
 		DBConnection dbc = new DBConnection();
+		
 		try {
 			Statement stmt = dbc.getConnection().createStatement();
 			
@@ -431,6 +432,8 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 		return array;
 	}
 	
+	@Override
+	//update password
 	public boolean updatePassword(int id, String pwd) {
 		boolean Success = false;//assign false before execution
 		
@@ -457,6 +460,7 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 		return Success;
 	}
 	
+	@Override
 	//get customer order Summary
 	public OrderSummary[] getOrderDetails(int id) {
 		//create linked list to take the data from the database.
@@ -497,6 +501,7 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 		return array;
 	}
 	
+	@Override
 	//get customer payment summary
 	public PaySummary[] getPaymentDetails(int id) {
 		//create linked list to take the data from the database.

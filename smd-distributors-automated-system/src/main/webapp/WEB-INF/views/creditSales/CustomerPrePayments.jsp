@@ -1,4 +1,4 @@
-<%@ page import="com.smd.model.Employee"%><!--Import NewOrderCOnf.class-->
+<%@ page import="com.smd.model.Order"%><!--Import NewOrderCOnf.class-->
 <%@ page import="com.smd.service.CreditSalesM"%><!-- Import Database connection of creditSales -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
@@ -10,7 +10,7 @@ if (request.getSession().getAttribute("Logged") == null) {
 }
 
 CreditSalesM dbc = new CreditSalesM();
-Employee[] cashCal = (Employee[]) dbc.getCashCalactorsDetails();
+Order[] cashCal = (Order[]) dbc. getCusRemaining(String Cusid);
 request.setAttribute("data", cashCal);
 %>
 

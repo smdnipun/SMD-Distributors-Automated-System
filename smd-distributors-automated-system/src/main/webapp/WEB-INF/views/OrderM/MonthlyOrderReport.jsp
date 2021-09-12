@@ -38,8 +38,8 @@ function generatePdf(){
 
 
 
-<table class="table">
-  <thead>
+<table id="example" class="table  display nowrap"  style="width:100%">
+                <thead class="thead-dark">
     <tr>
        <th scope="col">Product ID</th>
        <th scope="col">Total Quantity</th>

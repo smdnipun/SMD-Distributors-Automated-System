@@ -151,7 +151,7 @@ public class OrderM {
 	}
 	
 	//view order method
-public static List<Order> ViewOrderCustomer(){
+public static List<Order> ViewOrderCustomer(int id){
 		
 	//create order type array list object
 		ArrayList<Order> odr=new ArrayList<>(); 
@@ -161,7 +161,7 @@ public static List<Order> ViewOrderCustomer(){
 		
 		try {
 			Statement stmt = con.getConnection().createStatement();//create statement object by using DBConnection object
-			String Sql="select * from orders";
+			String Sql="select * from orders where Cust_ID='"+id+"'";
 			ResultSet rs= stmt.executeQuery(Sql);//executing a query
 			
 			//assigned details retrieved from the database to order object
