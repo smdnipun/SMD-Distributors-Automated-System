@@ -11,6 +11,15 @@
 			cid = request.getParameter("cid");
 			ostate = request.getParameter("ostate");
 			
+			if(oid==null){
+				oid="";
+			}
+			if(cid==null){
+				cid="";
+			}
+			if(ostate==null){
+				ostate="";
+			}
 		
 		%>
 		
@@ -27,7 +36,11 @@
 			</div>
 			<div class="mb-3">
 				<label for="formGroupExampleInput" class="form-label">Status</label>
-				<input type="text" name="status" aria-describedby="" value="<%=ostate%>" class="form-control" id="formGroupExampleInput">
+				<select class="dropdown-header" name="status" id="formGroupExampleInput">
+				    <option value="<%=ostate%>"><%=ostate%></option>
+				    <option value="delivered">delivered</option>
+				  
+				 </select>
 			</div>
 			<div class="mb-3">
 				<label for="formGroupExampleInput" class="form-label" >Order ID</label>
@@ -39,7 +52,7 @@
 			</div>
 			<div class="mb-3">
 				<label for="formGroupExampleInput" class="form-label">Vehicle</label>
-			    <select name="vehicle" id="formGroupExampleInput">
+			    <select class="dropdown-header" name="vehicle" id="formGroupExampleInput">
 				    <option value="NC-2025">Tata</option>
 				    <option value="NA-0122">Volvo Truck</option>
 				    <option value="40-1150">Ashok Leyland</option>

@@ -3,7 +3,7 @@
 	<div class="nav flex-column nav-tabs text-center" id="v-tabs-tab"
 		role="tablist" aria-orientation="vertical">
 		<a class="nav-link" id="v-tabs-home-tab" data-mdb-toggle="tab"
-			href="#v-tabs-home" role="tab" aria-controls="v-tabs-home"
+			href="http://localhost:8090/smd-distributors-automated-system/admin/DeliveryManage/deliveryHome.jsp" role="tab" aria-controls="v-tabs-home"
 			aria-selected="true">Home</a> 
 		<a class="nav-link"
 			id="v-tabs-profile-tab" data-mdb-toggle="tab" href="#v-tabs-profile"
@@ -11,7 +11,7 @@
 			Management</a> 
 		<a class="nav-link" id="v-tabs-messages-tab"
 			data-mdb-toggle="tab" href="#v-tabs-messages" role="tab"
-			aria-controls="v-tabs-messages" aria-selected="false">View
+			aria-controls="v-tabs-messages" aria-selected="false">Add
 			Delivery</a>
 	</div>
 </div>

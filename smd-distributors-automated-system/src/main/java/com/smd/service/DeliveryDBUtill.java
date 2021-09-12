@@ -197,4 +197,93 @@ public static List<Delivery> deliveryReport(String date){
 	
 	}
 
+
+
+
+	public static boolean updateVehicle(String vnum, String vin, String vl, String vs) {
+
+		boolean isSuccess = false;
+		try {
+			con = DBConnection.getConnection();
+			stmt = con.createStatement();
+			String sql = "update vehicle set Status='"+vs+"',Licence_Exp='"+vl+"',Insurence_Exp='"+vin+"'"+ "where Vehicle_Num='"+vnum+"'";
+			int rrs = stmt.executeUpdate(sql);
+			
+			if(rrs>0) {
+				isSuccess=true;
+			}else {
+				isSuccess=false;
+			}		
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return isSuccess;
+	}
+
+
+
+
+	public static boolean deleteVehicle(String vnum) {
+		
+		boolean isSuccess = false;
+		try {
+			con = DBConnection.getConnection();
+			stmt = con.createStatement();
+			String sql = "delete from vehicle where Vehicle_Num='"+vnum+"'";
+			int rrs = stmt.executeUpdate(sql);
+			
+			if(rrs>0) {
+				isSuccess=true;
+			}else {
+				isSuccess=false;
+			}		
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return isSuccess;
+		
+	}
+
+
+
+
+	public static List<Delivery> getDeletedDelivary() {
+		
+		ArrayList<Delivery> dil = new ArrayList<>();
+		
+		try{
+			
+			con = DBConnection.getConnection();
+			stmt = con.createStatement();
+			String sql = "select * from deleteddelivery";
+			rs = stmt.executeQuery(sql);
+			
+			while(rs.next()) {
+				
+				int Delivery_ID = rs.getInt(1);
+				String Route = rs.getString(2);
+				String Date = rs.getString(3);
+				String Status = rs.getString(4);
+				int Order_ID = rs.getInt(5);
+				int Cus_ID = rs.getInt(6);
+				String vehicle = rs.getString(7);
+				
+				Delivery d = new Delivery(Delivery_ID,Route,Date,Status,Order_ID,Cus_ID,vehicle);
+				dil.add(d);
+				
+			}
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return dil;
+		
+	}	
 }

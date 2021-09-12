@@ -11,7 +11,6 @@
 			Management</a> 
 		<a class="nav-link" id="v-tabs-messages-tab"
 			data-mdb-toggle="tab" href="#v-tabs-messages" role="tab"
-			aria-controls="v-tabs-messages" aria-selected="false">View
-			Delivery</a>
+			aria-controls="v-tabs-messages" aria-selected="false">Vehicle Details</a>
 	</div>
 </div>

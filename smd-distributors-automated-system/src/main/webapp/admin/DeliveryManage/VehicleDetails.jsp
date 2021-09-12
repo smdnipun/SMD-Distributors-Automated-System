@@ -14,15 +14,15 @@
 	
 	
 	<jsp:include page="../../WEB-INF/views/common/head.jsp"></jsp:include>
-		<jsp:include page="../../WEB-INF/views/common/adminHeader.jsp"></jsp:include>
+	<jsp:include page="../../WEB-INF/views/common/adminHeader.jsp"></jsp:include>
 		
 		<div class="row">
 			<jsp:include
-				page="../../WEB-INF/views/Delivery/DeliveryNavigationbar.jsp"></jsp:include>
-			<div class="col-9">
+				page="../../WEB-INF/views/Delivery/AddVehicleNavi.jsp"></jsp:include>
+			<div class="col-10">
 	
 		<center>
-			<h5>Vehicle Details</h5>
+			<h3>Vehicle Details</h3>
 		</center>
 		
 	
@@ -37,27 +37,33 @@
 				<th scope="col">Status</th>
 				<th scope="col">Supported_Weight</th>
 				<th scope="col">Vehicle_Type</th>
-				<th scope="col"></th>
-				
-				
-	
+			
 			</tr>
 		</thead>
 		
 		<tbody>
 			<c:forEach var="veh" items="${vehicleDetails}">
+				<form action=<%=request.getContextPath() + "/vupdated"%> method="post">
+				
 				<tr>
-					<td><input type="text" value="${veh.getVehicleNum()}" name="did" class="form-control" readonly/></td>
-					<td><c:out value="${veh.getInsurenceExp()}" /></td>
-					<td><c:out value="${veh.getLicenceExp()}" /></td>
-					<td><input type="text" value="${veh.getStatus()}" name="upStatus" class="form-control" /></td>
-					<td><c:out value="${veh.getWeight()}" /></td>
-					<td><c:out value="${veh.getType()}" /></td>
+					<td><input type="text" value="${veh.getVehicleNum()}" name="vnum" class="form-control" readonly/></td>
+					<td><input type="date" value="${veh.getInsurenceExp()}" name="vin" class="form-control" /></td>
+					<td><input type="date" value="${veh.getLicenceExp()}" name="vl" class="form-control" /></td>
+					<td><input type="text" value="${veh.getStatus()}" name="vs" class="form-control" /></td>
+					<td><input type="text" value="${veh.getWeight()}" name="vw" class="form-control" readonly/></td>
+					<td><input type="text" value="${veh.getType()}" name="vt" class="form-control" readonly/></td>	
 					<td><input type="submit" name="uodate" value="Update" class="btn btn-primary"style="background-color:#fbda57; color:#000000"> </td>
 				</tr>
-
+				</form>
 				
-				
+				<form  action=<%=request.getContextPath() + "/vdeleted"%>  method="post">
+				<tr>
+					<td/><td/><td/><td/><td/>
+					<td><input type="hidden" value="${veh.getVehicleNum()}" name="did" class="form-control" id="formGroupExampleInput" readonly/></td>
+					<td><input type="submit" name="delete" value="Delete" class="btn btn-primary"style="background-color:#fbda57; color:#000000"> </td>
+				</tr>
+				</form>
+	
 			</c:forEach>
 	
 		</tbody>

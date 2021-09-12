@@ -9,9 +9,6 @@
 			id="v-tabs-profile-tab" data-mdb-toggle="tab" href="#v-tabs-profile"
 			role="tab" aria-controls="v-tabs-profile" aria-selected="false">Delivery
 			Management</a> 
-		<a class="nav-link" id="v-tabs-messages-tab"
-			data-mdb-toggle="tab" href="#v-tabs-messages" role="tab"
-			aria-controls="v-tabs-messages" aria-selected="false">View
-			Delivery</a>
+		
 	</div>
 </div>

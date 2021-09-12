@@ -22,31 +22,44 @@ if (request.getSession().getAttribute("Logged") != null) {
 		
 		<div class="row">
 			<jsp:include
-				page="../../WEB-INF/views/Delivery/DeliveryNavigationbar.jsp"></jsp:include>
-			<div class="col-9">
+				page="../../WEB-INF/views/Delivery/HomeNavi.jsp"></jsp:include>
+			<div class="col-8">
 				
 				
+				<br/>				<br/><br/>				<br/><br/>
 				
 				
+			<center>	
 				
 				<form action=<%=request.getContextPath() + "/viewd"%> method="post">
 				
-					<input type="submit" name="view" value="View Deliveries">
+					<input class="btn btn-warning" type="submit" name="view" value="View Deliveries">
 				</form>
+				
+				<br/><br/>
 				
 				<form action=<%=request.getContextPath() + "/odr"%> method="post">
 				
-					<input type="submit" name="odr" value="Make Delivery">
+					<input class="btn btn-warning" type="submit" name="odr" value="Make Delivery">
 				</form>
+				
+								<br/><br/>
 				
 				<form action=<%=request.getContextPath() + "/viewveh"%> method="post">
 				
-					<input type="submit" name="viewveh" value="Vehicle Details">
+					<input class="btn btn-warning" type="submit" name="viewveh" value="Vehicle Details">
 				</form>
 				
-							
+								<br/><br/>
 				
+				<form action=<%=request.getContextPath() + "/viewdeldel"%> method="post">
 				
+					<input class="btn btn-warning" type="submit" name="view" value="View Deleted Deliveries">
+				</form>
+				
+								<br/>
+				
+				</center>	
 		
 				
 			</div>

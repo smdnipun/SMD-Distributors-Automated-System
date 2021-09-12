@@ -154,6 +154,24 @@
 		<url-pattern>/viewveh</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>vupdated</servlet-name>
+		<servlet-class>com.smd.servlet.UpdateVehicleServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>vupdated</servlet-name>
+		<url-pattern>/vupdated</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>viewdeldel</servlet-name>
+		<servlet-class>com.smd.servlet.ViewDeletedDeliveryServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>viewdeldel</servlet-name>
+		<url-pattern>/viewdeldel</url-pattern>
+	</servlet-mapping>
+	
 
 	<!-- <welcome-file-list> <welcome-file>index.html</welcome-file> <welcome-file>index.htm</welcome-file> 
 		<welcome-file>index.jsp</welcome-file> <welcome-file>default.html</welcome-file> 
