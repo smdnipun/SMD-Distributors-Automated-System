@@ -16,12 +16,14 @@ import com.smd.util.DBConnection;
 public class FeedbackServiceImpl implements IFeedback {
 
 	//creating objects
-		private static Connection con;
 		private static Statement state=null;
 		
+		DBConnection con = new DBConnection();
+		
 		public FeedbackServiceImpl() {
-			con=DBConnection.getConnection();
+			//con=DBConnection.getConnection();
 		}
+	
 		
 	@Override
 	//1.method to get all the feedback details saved in the database
@@ -29,7 +31,7 @@ public class FeedbackServiceImpl implements IFeedback {
 		//to get all the feedback details saved in a tuple
 		ArrayList<Feedback> feedback1= new ArrayList<Feedback>();
 			try{
-				state=con.createStatement();//executing a query
+				state=con.getConnection().createStatement();//executing a query
 				String sql="select * from feedback";
 				ResultSet result= state.executeQuery(sql);			
 				
@@ -61,9 +63,10 @@ public class FeedbackServiceImpl implements IFeedback {
 		
 		try {
 			//executing a query
-			state=con.createStatement();
+			state=con.getConnection().createStatement();
+			
 			String sql="Insert into feedback "
-					+ "values(0,3,NOW(),'"+Type+"','"+Message+"','"+Rating+"',null)";
+					+ "values(0,'"+Cus_ID+"',NOW(),'"+Type+"','"+Message+"','"+Rating+"',null)";
 			
 			//PreparedStatement stmt = (PreparedStatement) con.prepareStatement(sql);
 				
@@ -93,7 +96,7 @@ public class FeedbackServiceImpl implements IFeedback {
 			
 			String sql="update feedback set Date='"+Date+"', Type='"+Type+"',Message='"+Message+"',Rating='"+Rating+"',Status='"+Status+"' where Feedback_ID='"+Feedback_ID+"'";
 			//feedbackid is unique auto-incremented
-			state=con.prepareStatement(sql); //executing a query
+			state=con.getConnection().prepareStatement(sql); //executing a query
 			int result=state.executeUpdate(sql);
 			
 			if(result>0) {
@@ -116,7 +119,7 @@ public class FeedbackServiceImpl implements IFeedback {
 		boolean isSuccess=false;//assign this to false before execution of query
 		
 		try {
-			state=con.createStatement();//executing a query
+			state=con.getConnection().createStatement();//executing a query
 			
 			String sql="delete from feedback where Feedback_ID='"+Feedback_ID+"'"; //feedbackid is unique auto-incremented
 			
@@ -142,7 +145,7 @@ public class FeedbackServiceImpl implements IFeedback {
 		List<Feedback> f1= new LinkedList<Feedback>();
 		Feedback[] feedarray= null;
 		
-		state=con.createStatement();
+		state=con.getConnection().createStatement();
 		String sql="select * from feedback where Date LIKE '%"+ serach +"%'";
 		ResultSet result= state.executeQuery(sql);
 			
@@ -166,7 +169,7 @@ public class FeedbackServiceImpl implements IFeedback {
 	public List<Feedback> viewMonthlyFeedbackReport(String date){
 		ArrayList<Feedback> feed= new ArrayList<Feedback>();
 		try {
-			state=con.createStatement();
+			state=con.getConnection().createStatement();
 			String sql="select * from feedback where month(Date)=extract(month from '"+date+"') and year(Date)=extract(year from '"+date+"')";
 			ResultSet rs= state.executeQuery(sql);
 			

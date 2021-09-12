@@ -45,7 +45,20 @@ background-image: url('../img/grey2.jpg');
   position:relative;
 		
 }
-
+#form_button {
+	width: 30%;
+	height:10%;
+  border: solid 2px #474544;
+  color: #474544;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 0.975em;
+  outline: none;
+  padding: 10px 10px;
+  text-transform: uppercase;
+  
+}
 
 .capitalize{
 	color: black;
@@ -57,19 +70,11 @@ background-image: url('../img/grey2.jpg');
 	background-color:#f0f5f5;
 	opacity:0.8;
 	padding: 20px 12px 10px 20px;
+	
+	border: 7px black;
+	outline-color: black;
+	outline-style: groove;
 }
-.form{
-		
-		width: 700px;
-		border: 15px black;
-		margin: 20px;
-		font: 16px;
-		padding: 20px 12px 10px 20px;
-		outline-style: double;
-		outline-color: black;
-		float:center;
-		
-	}
 
 .ubody {
 background-image: url('../img/grey2.jpg');
@@ -114,7 +119,7 @@ background-image: url('../img/grey2.jpg');
   width: 50%;
   font-size: 16px;
   border: 1px solid #ddd;
-  margin-left: 25px;
+  margin-left: 20px;
 }
   
   
