@@ -69,7 +69,7 @@ public class Login extends HttpServlet {
 				if((employeeData[i].getEmail().equals(request.getParameter("email")))&&(employeeData[i].getPassword().equals(pwd))) {
 					Found=true;
 					if(employeeData[i].getEmp_Type().equals("product")) {
-						request.getSession().setAttribute("Logged","Admin");
+						request.getSession().setAttribute("Logged","Product");
 						response.sendRedirect("admin/ProductM/all.jsp");
 					}
 					else if(employeeData[i].getEmp_Type().equals("Delivery")) {
