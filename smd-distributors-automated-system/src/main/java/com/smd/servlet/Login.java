@@ -84,9 +84,9 @@ public class Login extends HttpServlet {
 						request.getSession().setAttribute("Logged","Stock");
 						response.sendRedirect("admin/CreditSalesManagement/CreditPayment.jsp");
 					}
-					else if(employeeData[i].getEmp_Type().equals("employee")) {
-						request.getSession().setAttribute("Logged","Stock");
-						response.sendRedirect("admin/StockManagement/index.jsp");
+					else if(employeeData[i].getEmp_Type().equals("empManager")) {
+						request.getSession().setAttribute("Logged","empManager");
+						response.sendRedirect("admin/EmployeeManagement/addEmp.jsp");
 					}
 					else if(employeeData[i].getEmp_Type().equals("order")) {
 						request.getSession().setAttribute("Logged","Stock");

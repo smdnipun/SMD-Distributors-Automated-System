@@ -8,6 +8,11 @@
 
 	</jsp:include>
 	
+<%@ page import="java.io.PrintWriter"%>
+<%
+if (request.getSession().getAttribute("Logged") != null) {
+    //request.getSession().setAttribute("Logged", "Guest");
+%>	
     
     
 <!DOCTYPE html>
@@ -53,7 +58,7 @@ function generatePdf(){
 </head>
 <body>
 
-<jsp:include page="../../WEB-INF/views/common/header.jsp"></jsp:include>
+<jsp:include page="../../WEB-INF/views/common/adminHeader.jsp"></jsp:include>
 
 
 
@@ -64,6 +69,7 @@ function generatePdf(){
 page="EmployeeNav.jsp"></jsp:include>
 <div class="col-9">
 
+<br>
 <center>
  <h2>Employee Basic Information</h2>
 </center>
@@ -118,3 +124,12 @@ page="EmployeeNav.jsp"></jsp:include>
 
 </body>
 </html>
+
+<%
+} else {
+    PrintWriter redirect = response.getWriter();
+    redirect.println("<script>");
+    redirect.println("location='./login.jsp'");//put the location from your jsp file
+    redirect.println("</script>");
+}
+%>

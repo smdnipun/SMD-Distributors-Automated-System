@@ -6,7 +6,7 @@ import java.util.SplittableRandom;
 
 public class Services {
 	public static void main (String[] args) {
-		System.out.println(Services.generateOtp(6));
+		System.out.println(Services.doHashing("admin8"));
 	}
 	
 	//implementing password Hashing

@@ -1,3 +1,9 @@
+<%@ page import="java.io.PrintWriter"%>
+<%
+if (request.getSession().getAttribute("Logged") != null) {
+    //request.getSession().setAttribute("Logged", "Guest");
+%>
+
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -7,9 +13,7 @@
 
 	</jsp:include>
 	
-    
-    
-    
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,7 +72,7 @@ $(document).ready(function() {
 <body>
 
 
-<jsp:include page="../../WEB-INF/views/common/header.jsp"></jsp:include>
+<jsp:include page="../../WEB-INF/views/common/adminHeader.jsp"></jsp:include>
 
 
 <div class="row">
@@ -77,7 +81,7 @@ page="EmployeeNav.jsp"></jsp:include>
 <div class="col-9">
 
 
-
+<br>
 <center>
  <h2>Employee Monthly Salary Report</h2>
 </center>
@@ -87,8 +91,8 @@ page="EmployeeNav.jsp"></jsp:include>
 
 
 	<div id="empSalReport" >
-	
-			<table id="example" class="table  display nowrap" style="width:100%">
+	<div style="height: 500px;overflow: scroll;">
+			<table  class="table" style="width:100%">
 				<thead class="thead-dark" >
 					<tr>
 						<th scope="col">EmpType</th>
@@ -124,7 +128,7 @@ page="EmployeeNav.jsp"></jsp:include>
 		        </c:forEach>
 				</tbody>
 			    </table>
-
+</div>
 </div>
 </div>
 </div>
@@ -145,3 +149,12 @@ page="EmployeeNav.jsp"></jsp:include>
 
 </body>
 </html>
+
+<%
+} else {
+    PrintWriter redirect = response.getWriter();
+    redirect.println("<script>");
+    redirect.println("location='./login.jsp'");//put the location from your jsp file
+    redirect.println("</script>");
+}
+%>
