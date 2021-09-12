@@ -59,6 +59,17 @@
 			<servlet-name>SearchFeedback</servlet-name>
 			<url-pattern>/searchfeedback</url-pattern> <!-- action to the seach -->
 		</servlet-mapping>
+		
+		<!-- reports for feedback -->
+		 <servlet>
+			<servlet-name>FeedbackReport</servlet-name>
+			<servlet-class>com.smd.servlet.FeedbackReportServlet</servlet-class> <!-- match the servlet -->
+		</servlet>
+
+		<servlet-mapping> <!-- path to the servlet -->
+			<servlet-name>FeedbackReport</servlet-name>
+			<url-pattern>/feedbackreport</url-pattern> <!-- action to the seach -->
+		</servlet-mapping>
 
          
       <servlet>

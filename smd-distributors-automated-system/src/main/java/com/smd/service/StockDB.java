@@ -17,7 +17,7 @@ public class StockDB {
 		DBConnection con = new DBConnection();
 		try {
 			Statement stmt = con.getConnection().createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT * FROM stock;");
+			ResultSet rs = stmt.executeQuery("SELECT * FROM stock where Status ='add';");
 			while (rs.next()) {
 				Stock n = new Stock(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5));
 				ll.add(n);

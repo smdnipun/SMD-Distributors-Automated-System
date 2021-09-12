@@ -23,7 +23,7 @@ request.setAttribute("stockdata", newstock);
 	<div class="d-flex justify-content-center">
 		<h4>Stock Details</h4>
 	</div>
-	<table id="table" class="display nowrap" style="width: 90%">
+	<table id="stock" class="display nowrap" style="width: 90%">
 
 		<thead>
 			<tr>
@@ -41,13 +41,10 @@ request.setAttribute("stockdata", newstock);
 					<td><c:out value="${Stock.getStockID()}" /></td>
 					<%-- <td><input type="text" name="stockID"
 						value="<c:out value="${Stock.getStockID()}"/>"></td> --%>
-					<td><input type="text" name="itemname"
-						value="<c:out value="${Stock.getItemName()}"/>"></td>
-					<td><input type="text" name="quntity"
-						value="<c:out value="${Stock.getQuntity()}"/>"></td>
+					<td><c:out value="${Stock.getItemName()}"/></td>
+					<td><c:out value="${Stock.getQuntity()}"/></td>
 					<td><c:out value="${Stock.getDate()}" /></td>
-					<td><input type="text" name="status"
-						value="<c:out value="${Stock.getStatus()}"/>"></td>
+					<td><c:out value="${Stock.getStatus()}"/></td>
 
 				</tr>
 			</c:forEach>

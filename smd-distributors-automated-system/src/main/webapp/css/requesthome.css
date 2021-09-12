@@ -15,7 +15,7 @@ background-image: url('../img/service2.jpg');
 font-family: arial, sans-serif;
     border-collapse: collapse;
     border: 1px;
-    margin-left: 10px;
+    margin-left: 1px;
     opacity:0.9;
  }
  p{
@@ -99,40 +99,22 @@ background-image: url('../img/grey2.jpg');
     opacity:0.9;
 }
 
-.row{
-    display:flex;
-    flex-direction:row;
-    justify-content:space-around;
-    flex-flow:wrap;
-}
- .d1
-  {
-      width: 700px;
-      height: 250px;
-  }
-  .d2
-  {
-      width: 500px;
-      height: 250px;
-  }
-
-  .report{
-		border: 10px black;
-		margin: 10px;
-		font: 16px;
-		padding: 10px 5px 10px 5px;
-		outline-style: double;
-		outline-color: black;
+  .reportform{
+		background-color:rgb(212, 212, 212);
+	width: 400px;
+	border: 7px black;
+	font: 13px "";
+	padding: 20px 12px 10px 20px;
+	outline-color: black;
+	outline-style: groove;
+	opacity:0.9;
   }
   
 #myInput {
-  background-image: url('/css/searchicon.png');
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  width: 100%;
+  width: 50%;
   font-size: 16px;
-  padding: 12px 20px 12px 40px;
   border: 1px solid #ddd;
-  margin-bottom: 12px;
+  margin-left: 25px;
 }
+  
   
