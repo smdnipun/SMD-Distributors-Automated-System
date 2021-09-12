@@ -2,7 +2,7 @@
 	<jsp:param name="Title" value="SMD Distributors|Stock Management" /></jsp:include>
 	<link rel="stylesheet" href=<%=request.getContextPath() + "/css/table.css"%>>
 <body>
- <script src=<%=request.getContextPath()+"/js/table.js"%>></script> 
+ <script src=<%=request.getContextPath()+"/js/stock.js"%>></script> 
 	<div>
 		<div>
 			<jsp:include page="../../WEB-INF/views/common/header.jsp"></jsp:include>

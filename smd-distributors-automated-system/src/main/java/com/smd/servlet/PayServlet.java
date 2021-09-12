@@ -80,7 +80,7 @@ public class PayServlet extends HttpServlet {
 //				response.getWriter().append(command1);
 
 				out.println("<script type=\"text/javascript\">");
-			    out.println("alert('Customer Activated Successfly !!!');");
+			    out.println("alert('You have successfully paid!!!');");
 			    out.println("location='admin/CreditSalesManagement/CreditPayment.jsp'"); //redirect to the registration page
 			    out.println("</script>");
 
@@ -92,7 +92,7 @@ public class PayServlet extends HttpServlet {
 		else {
 			//display an error message
 			out.println("<script type=\"text/javascript\">");
-		    out.println("alert('There was an error please try again!!!');");
+		    out.println("alert('You entered the order ID or customer ID incorrectly or entered the payment incorrectly, please try again !!');");
 		    out.println("location='admin/CreditSalesManagement/CreditPayment.jsp'");//redirect to the registration page
 		    out.println("</script>");
 
