@@ -17,15 +17,15 @@
 		
 			<div class="form-group">
 				<label for="exampleInputPassword1">Item Name</label> <input type="text"
-					class="form-control" id="exampleInputPassword1" name="itemname">
+					class="form-control" id="exampleInputPassword1" name="itemname" required>
 			</div>
 			<div class="form-group">
 				<label for="exampleInputPassword1">Date</label> <input type="date"
-					class="form-control" id="exampleInputPassword1" name="date">
+					class="form-control" id="exampleInputPassword1" name="date" required >
 			</div>
 			<div class="form-group">
-				<label for="exampleInputPassword1">Quntity</label> <input type="text"
-					class="form-control" id="exampleInputPassword1" name="quntity">
+				<label for="exampleInputPassword1">Quntity</label> <input type="number"
+					class="form-control" id="exampleInputPassword1" name="quntity" required>
 			</div>
 			<div>
 			<button name ="button" value="add" type="submit" name="id" class="btn btn-light">Add Stock</button>
