@@ -1,4 +1,4 @@
-<div class="col-4">
+<div class="col-4 pr-5">
 	<form action="../../pay" method="Post">
 		<!-- input date -->
 		<div class="mb-3">

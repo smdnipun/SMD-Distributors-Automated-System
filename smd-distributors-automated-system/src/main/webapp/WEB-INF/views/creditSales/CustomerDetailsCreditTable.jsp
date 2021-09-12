@@ -25,7 +25,7 @@ request.setAttribute("data", customer);
 
 	<!--Creating Customerdetailscredit table-->
 
-	<table id="payTable" class="display nowrap" style="width: 100%">
+	<table id="table" class="display nowrap" style="width: 100%">
 		<thead>
 
 			<tr>

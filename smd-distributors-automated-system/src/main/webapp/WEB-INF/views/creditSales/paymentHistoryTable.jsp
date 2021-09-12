@@ -25,7 +25,7 @@ request.setAttribute("payments", payments);
 	</center>
 
 	<!--Creating payment history table-->
-	<table id="customerDetails" class="display nowrap" style="width: 100%">
+	<table id="payTable" class="display nowrap" style="width: 100%">
 
 		<thead>
 			<tr>
