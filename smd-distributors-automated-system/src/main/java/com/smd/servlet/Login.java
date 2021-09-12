@@ -64,8 +64,8 @@ public class Login extends HttpServlet {
 						request.getSession().setAttribute("Logged","Admin");
 						response.sendRedirect("admin/ProductM/all.jsp");
 					}
-					else if(employeeData[i].getEmp_Type().equals("Delivery")) {
-						request.getSession().setAttribute("Logged","Delivery");
+					else if(employeeData[i].getEmp_Type().equals("delManager")) {
+						request.getSession().setAttribute("Logged","delManager");
 						response.sendRedirect("admin/DeliveryManage/deliveryHome.jsp");
 					}
 					else if(employeeData[i].getEmp_Type().equals("Stock")) {

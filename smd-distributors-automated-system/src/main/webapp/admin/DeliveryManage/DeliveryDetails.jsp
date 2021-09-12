@@ -1,7 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%@ page import="java.io.PrintWriter"%>
+<%
+if (request.getSession().getAttribute("Logged") != null) {
+    //request.getSession().setAttribute("Logged", "Guest");
+%>
+
 <!DOCTYPE html>
+
 <html>
 <head>
 	<jsp:include page="../../WEB-INF/views/common/head.jsp">
@@ -26,17 +34,16 @@
 		</center>
 		
 	
-	<table class="table table-hover">
-	
-		<thead>
+	<table id="example" class="table display nowrap" style="width:100%">
+	<thead class="thead-dark">
 			<tr>
 	
-				<th scope="col">Delivery ID</th>
+				<th scope="col">Delivery_ID</th>
 				<th scope="col">Route</th>
 				<th scope="col">Date</th>
 				<th scope="col">Status</th>
-				<th scope="col">Order ID</th>
-				<th scope="col">Customer ID</th>
+				<th scope="col">Order_ID</th>
+				<th scope="col">Customer_ID</th>
 				<th scope="col">Vehicle</th>
 				<th scope="col"></th>
 				
@@ -62,7 +69,7 @@
 				<form  action=<%=request.getContextPath() + "/deleted"%>  method="post">
 				<tr>
 					<td/><td/><td/><td/><td/><td/>
-					<td><input type="text" value="${del.delivryID}" name="did" class="form-control" id="formGroupExampleInput" readonly/></td>
+					<td><input type="hidden" value="${del.delivryID}" name="did" class="form-control" id="formGroupExampleInput" readonly/></td>
 					<td><input type="submit" name="delete" value="Delete" class="btn btn-primary"style="background-color:#fbda57; color:#000000"> </td>
 				</tr>
 				</form>
@@ -98,3 +105,11 @@
 		
 </body>
 </html>
+<%
+} else {
+    PrintWriter redirect = response.getWriter();
+    redirect.println("<script>");
+    redirect.println("location='../../login.jsp'");//put the location from your jsp file
+    redirect.println("</script>");
+}
+%>

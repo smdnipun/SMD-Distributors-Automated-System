@@ -1,7 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
+<%@ page import="java.io.PrintWriter"%>
+<%
+if (request.getSession().getAttribute("Logged") != null) {
+    //request.getSession().setAttribute("Logged", "Guest");
+%>
     
 <!DOCTYPE html>
+
 <html>
 <head>
 	<jsp:include page="../../WEB-INF/views/common/head.jsp">
@@ -24,12 +31,17 @@
 				
 				<form action=<%=request.getContextPath() + "/viewd"%> method="post">
 				
-					<input type="submit" name="view" value="view">
+					<input type="submit" name="view" value="View Deliveries">
 				</form>
 				
 				<form action=<%=request.getContextPath() + "/odr"%> method="post">
 				
-					<input type="submit" name="odr" value="Add">
+					<input type="submit" name="odr" value="Make Delivery">
+				</form>
+				
+				<form action=<%=request.getContextPath() + "/viewveh"%> method="post">
+				
+					<input type="submit" name="viewveh" value="Vehicle Details">
 				</form>
 				
 							
@@ -44,3 +56,11 @@
 	
 </body>
 </html>
+<%
+} else {
+    PrintWriter redirect = response.getWriter();
+    redirect.println("<script>");
+    redirect.println("location='../../login.jsp'");//put the location from your jsp file
+    redirect.println("</script>");
+}
+%>

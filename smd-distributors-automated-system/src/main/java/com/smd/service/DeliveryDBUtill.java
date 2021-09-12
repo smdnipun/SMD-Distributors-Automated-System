@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.mysql.jdbc.CallableStatement;
 import com.smd.model.Delivery;
+import com.smd.model.Vehicle;
 import com.smd.util.DBConnection;
 
 public class DeliveryDBUtill {
@@ -158,6 +159,42 @@ public static List<Delivery> deliveryReport(String date){
 			e.printStackTrace();
 		}
 		return report;
-	}	
+	}
+
+
+
+
+	public static List<Vehicle> getVehicle() {
 	
+		ArrayList<Vehicle> veh = new ArrayList<>();
+		
+		try{
+			
+			con = DBConnection.getConnection();
+			stmt = con.createStatement();
+			String sql = "select * from vehicle";
+			rs = stmt.executeQuery(sql);
+			
+			while(rs.next()) {
+				
+				String Vehicle_Num = rs.getString(1);
+				String Insurence_Exp = rs.getString(2);
+				String Licence_Exp = rs.getString(3);
+				String Type = rs.getString(4);
+				double Supported_Weight = rs.getDouble(5);
+				String Status = rs.getString(6);
+				
+				
+				Vehicle v = new Vehicle(Vehicle_Num,Insurence_Exp,Licence_Exp,Status,Supported_Weight,Type);
+				veh.add(v);
+			}
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return veh;
+	
+	}
+
 }
