@@ -12,6 +12,9 @@
 		request.setAttribute("product", product);
 	%>
 	<div class="col-10 my-auto">
+		<div>
+			<img src="<%=request.getContextPath()+"/img/"%>${product.getImage()}.jpg" class="img-thumbnail">
+		</div>
 		<form action="../../updateproduct" method="post">
 			<div class="row">
 				<div class="col-4">
