@@ -7,8 +7,5 @@
 		<jsp:include page="items.jsp"></jsp:include>
 		
 	
-		
-		 <!--> <a href="AddOrder.jsp"> <input type="button" name="Order" value="Add Order"></a> -->
-	
 	</div>
 </div>
