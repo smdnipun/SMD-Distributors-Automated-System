@@ -1,10 +1,9 @@
 <jsp:include page="../../WEB-INF/views/common/head.jsp">
 	<jsp:param name="Title" value="SMD Distributors | Customer Details" /></jsp:include>
- <link rel="stylesheet"
+<link rel="stylesheet"
 	href=<%=request.getContextPath() + "/css/table.css"%>>
 <body>
-	 <script src=<%=request.getContextPath() + "/js/table.js"%>></script> 
-
+	<script src=<%=request.getContextPath() + "/js/payTable.js"%>></script>
 	<jsp:include page="../../WEB-INF/views/common/adminHeader.jsp"></jsp:include>
 	<div class="row">
 		<jsp:include

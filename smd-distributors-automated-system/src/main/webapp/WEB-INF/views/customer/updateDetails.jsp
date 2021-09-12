@@ -3,10 +3,6 @@
 <%@ page import="com.smd.service.ICustomerDetails"%>
 <%@ page import="com.smd.service.CusDetailsServiceImpl"%>
 <%
-if (request.getSession().getAttribute("Logged") == null) {
-	request.getSession().setAttribute("Logged", "Guest");
-}
-
 if (request.getSession().getAttribute("CustomerID") != null) {
 	CusDetailsServiceImpl con = new CusDetailsServiceImpl();
 	Customer customer = con.getCustomerById(Integer.parseInt(request.getSession().getAttribute("CustomerID").toString()));
@@ -16,7 +12,7 @@ if (request.getSession().getAttribute("CustomerID") != null) {
 	<div class="col-2">
 		<jsp:include page="./customerUInavBar.jsp"></jsp:include>
 	</div>
-	<div class="col-10 pt-2 pb-2">
+	<div class="col-10 pt-2 pb-4">
 		<div class="d-flex justify-content-center">
 			<h3>Personal Info</h3>
 		</div>

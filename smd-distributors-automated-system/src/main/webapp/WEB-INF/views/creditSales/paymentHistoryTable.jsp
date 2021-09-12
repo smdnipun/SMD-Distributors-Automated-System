@@ -18,7 +18,7 @@ request.setAttribute("payments", payments);
 
 
 <div class="col-9">
-	<jsp:include page="centerNav.jsp"></jsp:include>
+	<jsp:include page="CenterNavWithoutSearch.jsp"></jsp:include>
 	<center>
 		<h5>Customer Payments</h5>
 	</center>

@@ -10,13 +10,13 @@
 </head>
 <body>
 
-	<jsp:include page="../../WEB-INF/views/common/header.jsp"></jsp:include>
-	
-	<div class="row overflow-auto">
-			<div class="col-2">
-				<jsp:include page="../../WEB-INF/views/Delivery/DeliveryNavigationbar.jsp"></jsp:include>
-			</div>
-			<div class="col-10 pb-5">
+	<jsp:include page="../../WEB-INF/views/common/head.jsp"></jsp:include>
+		<jsp:include page="../../WEB-INF/views/common/adminHeader.jsp"></jsp:include>
+		
+		<div class="row">
+			<jsp:include
+				page="../../WEB-INF/views/Delivery/DeliveryNavigationbar.jsp"></jsp:include>
+			<div class="col-9">
 				
 				
 				
