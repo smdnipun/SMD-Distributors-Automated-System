@@ -15,6 +15,7 @@ import javax.mail.PasswordAuthentication;
 
 //import com.mysql.cj.Session;
 import com.smd.model.Customer;
+import com.smd.model.Order;
 
 public class Services {	
 	//implementing password Hashing
@@ -57,7 +58,7 @@ public class Services {
 		return sb.toString();
 	}
 	
-	//send email
+	//send email(Forget password)
 	public boolean sendEmail(Customer customer) {
 		boolean status = false;
 		
@@ -105,6 +106,59 @@ public class Services {
 		
 		return status;
 	}
+	
+	//send email
+	public boolean SendSuccessfulMail(Customer customer ,Order order) {
+		boolean status = false;
+		
+		//creating the needed variables
+		String toEmail = customer.getEmail();	//receiver email
+		String fromEmail = "distributionsmd5@gmail.com";	//sender email
+		String password = "smddistributor123@";		//password
+		
+		try {
+			//set email server
+			Properties pr = new Properties();
+			pr.setProperty("mail.smtp.host", "smtp.gmail.com");	//smtp server
+			pr.setProperty("mail.smtp.port", "465");	//port number
+			pr.setProperty("mail.smtp.auth", "true");	//Authentication
+			pr.setProperty("mail.smtp.socketFactory.port", "465"); //SSL port
+			pr.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");	//SSL properties
+			
+			//get Session
+			//gives authentication from the sender's email
+			Session session = Session.getInstance(pr, new Authenticator() {
+				@Override
+				protected PasswordAuthentication getPasswordAuthentication() {
+					return new PasswordAuthentication(fromEmail, password);
+				}
+			});
+			
+			//Build message
+			Message message = new MimeMessage(session);
+			
+			message.setFrom(new InternetAddress(fromEmail)); //sending email address
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail)); //receiving email address
+			
+			//message body
+			message.setSubject("SMD Distributors Payment Accept");//set subject
+			message.setText("Hello,"+order.getOID());
+			
+			//sending the mail
+			Transport.send(message);
+			
+			status = true;
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return status;
+	}
+	
+	
 }
+
+
 
 

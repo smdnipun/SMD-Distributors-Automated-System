@@ -6,10 +6,10 @@
 			href="CustomerDetailsCredit.jsp" role="tab"
 			aria-controls="v-tabs-profile" aria-selected="false">Customer
 			details</a>
-			 <a class="nav-link" id="v-tabs-messages-tab"
+			<!--  <a class="nav-link" id="v-tabs-messages-tab"
 			 href="cashCollectorDetails.jsp" role="tab"
 			aria-controls="v-tabs-messages" aria-selected="">cash
-			calculators</a>
+			calculators</a> -->
 			
 	</div>
 </div>
