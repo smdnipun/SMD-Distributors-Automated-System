@@ -44,7 +44,7 @@ request.setAttribute("data", newOrders);
 							value="<c:out value="${NewOrdersConf.getOrderID()}" />" readonly></td>
 						<td><c:out value="${NewOrdersConf.getDate()}" /></td>
 						<td><input type="text" name="id1"
-							value=" <c:out value="${NewOrdersConf.getCusID()}" />" readonly></td>
+							value="<c:out value="${NewOrdersConf.getCusID()}" />" readonly></td>
 						<td><c:out value="${NewOrdersConf.getCustomer()}" /></td>
 						<td><c:out value="${NewOrdersConf.getQuantity()}" /></td>
 						<td><c:out value="${NewOrdersConf.getTotalPrice()}" /></td>
@@ -52,17 +52,15 @@ request.setAttribute("data", newOrders);
 						<!-- creating buttons and passing buttons to accept,delete and redirect to customer details page -->
 						<td><a
 							href="CustomerPayPrev.jsp?credit=${NewOrdersConf.getCusID()}"
-							class="btn btn-secondary" name="id1"
-							value="${NewOrdersConf.getCusID()}" role="button"
+							class="btn btn-secondary" role="button"
 							style="background-color: #b8c248">Customer Details</a><br>
 							<button type="submit" class="btn btn-secondary"
-								style="background-color: #c28f48" name="button" value="accept" />Accept
+								style="background-color: #c28f48" name="button" value="accept">Accept
 							</button> <br>
 
 							<button type="submit" class="btn btn-secondary"
 								style="background-color: #9a4832" name="button" value="decline">Decline</button>
-							<br>
-						<br>
+							<br> <br>
 					</form>
 					</td>
 

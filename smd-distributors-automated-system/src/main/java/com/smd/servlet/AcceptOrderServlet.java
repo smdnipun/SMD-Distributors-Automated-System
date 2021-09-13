@@ -32,7 +32,8 @@ public class AcceptOrderServlet extends HttpServlet {
 		Services sm = new Services();
 		Customer cus = new Customer();
 		Order ord = new Order();
-		int cusID = Integer.parseInt(request.getParameter("id1").toString());
+		String id=request.getParameter("id1");
+		int cusID = Integer.parseInt(id);
 		int orderID = Integer.parseInt(request.getParameter("id").toString());
 
 		// check button value and delete order
@@ -56,8 +57,8 @@ public class AcceptOrderServlet extends HttpServlet {
 		else {
 			try {
 				cus = payaccpt.getCustomerById(cusID);
-//				ord = paydbc.getOrder(cusID, orderID);
-//				sm.SendSuccessfulMail(cus, ord);
+				ord = paydbc.getOrder(cusID, orderID);
+				sm.SendSuccessfulMail(cus, ord);
 				Statement stmt = dbc.getConnection().createStatement();
 				String command = "UPDATE orders SET order_status = 'Accepted' WHERE Order_ID = "
 						+ request.getParameter("id");

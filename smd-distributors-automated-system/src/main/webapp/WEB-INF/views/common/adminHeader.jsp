@@ -16,7 +16,7 @@
 				style="font-size: 2.5rem; padding-right: 1.5rem"></i>
 			<div style="padding-right: 1.5rem" class="mt-3 mr-0 ml-0">
 
-				<form action="../../logout" method="post">
+				<form action="<%=request.getContextPath()%>/logout" method="post">
 					<button type="submit" class="btn btn-outline-danger">LogOut</button>
 				</form>
 				
