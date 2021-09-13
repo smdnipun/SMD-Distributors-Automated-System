@@ -3,7 +3,10 @@
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%@ page import="java.io.PrintWriter"%>
-
+<%
+if (request.getSession().getAttribute("Logged") != null) {
+    //request.getSession().setAttribute("Logged", "Guest");
+%>
 <!DOCTYPE html>
 
 <html>
@@ -72,3 +75,11 @@
 		
 </body>
 </html>
+<%
+} else {
+    PrintWriter redirect = response.getWriter();
+    redirect.println("<script>");
+    redirect.println("location='../../login.jsp'");//put the location from your jsp file
+    redirect.println("</script>");
+}
+%>
