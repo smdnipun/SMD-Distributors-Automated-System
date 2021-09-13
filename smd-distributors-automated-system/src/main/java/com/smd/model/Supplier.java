@@ -9,7 +9,7 @@ public class Supplier {
 	private String tno;
 	private String status;
 //Constructor
-	public Supplier(int supplierID,String pname, String sname, String address, String tno,String status){
+	public Supplier(int supplierID,String sname, String pname, String address, String tno,String status){
 		this.supplierID=supplierID;
 		this.pname=pname;
 		this.sname=sname;

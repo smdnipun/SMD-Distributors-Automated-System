@@ -66,7 +66,7 @@ public class PayServlet extends HttpServlet {
 				double TotalPaid = pamount + paidAmount;
 				double TotalRemain = ramount - paidAmount;
 
-				// update the order table
+
 				String command1 = "update orders SET Paid_Amount =" + TotalPaid + "," + " Remaining_Amount="
 						+ TotalRemain + " WHERE Cust_ID =" + CID + " and Order_ID=" + OID;
 

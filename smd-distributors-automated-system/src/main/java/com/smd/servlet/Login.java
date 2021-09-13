@@ -53,7 +53,7 @@ public class Login extends HttpServlet {
 						response.sendRedirect("./index.jsp");//redirect to login page
 					}
 					else {
-						RequestDispatcher r=request.getRequestDispatcher("ErrorDeactivatedAccount.jsp"); 
+						RequestDispatcher r=request.getRequestDispatcher("./ErrorDeactivatedAccount.jsp"); 
 						r.forward(request, response);
 					}
 					
@@ -69,38 +69,38 @@ public class Login extends HttpServlet {
 				if((employeeData[i].getEmail().equals(request.getParameter("email")))&&(employeeData[i].getPassword().equals(pwd))) {
 					Found=true;
 					//checking employee type and setting session
-					if(employeeData[i].getEmp_Type().equals("product")) {
-						request.getSession().setAttribute("Logged","Admin");
+					if(employeeData[i].getEmp_Type().equals("proManager")) {
+						request.getSession().setAttribute("Logged","Product");
 						response.sendRedirect("admin/ProductM/all.jsp");
 					}
-					else if(employeeData[i].getEmp_Type().equals("Delivery")) {
-						request.getSession().setAttribute("Logged","Delivery");
+					else if(employeeData[i].getEmp_Type().equals("delManager")) {
+						request.getSession().setAttribute("Logged","delManager");
 						response.sendRedirect("admin/DeliveryManage/deliveryHome.jsp");
 					}
-					else if(employeeData[i].getEmp_Type().equals("Stock")) {
+					else if(employeeData[i].getEmp_Type().equals("stokManager")) {
 						request.getSession().setAttribute("Logged","Stock");
 						response.sendRedirect("admin/StockManagement/SupplierPage.jsp");
 					}
-					else if(employeeData[i].getEmp_Type().equals("cashCollector")) {
-						request.getSession().setAttribute("Logged","Stock");
+					else if(employeeData[i].getEmp_Type().equals("cpayManager")) {
+						request.getSession().setAttribute("Logged","cpayManager");
 						request.getSession().setAttribute("empID",employeeData[i].getEmp_ID());
 						response.sendRedirect("admin/CreditSalesManagement/CreditPayment.jsp");
 					}
-					else if(employeeData[i].getEmp_Type().equals("employee")) {
-						request.getSession().setAttribute("Logged","Stock");
-						response.sendRedirect("admin/StockManagement/index.jsp");
+					else if(employeeData[i].getEmp_Type().equals("empManager")) {
+						request.getSession().setAttribute("Logged","empManager");
+						response.sendRedirect("admin/EmployeeManagement/addEmp.jsp");
 					}
-					else if(employeeData[i].getEmp_Type().equals("order")) {
-						request.getSession().setAttribute("Logged","Stock");
-						response.sendRedirect("admin/StockManagement/index.jsp");
+					else if(employeeData[i].getEmp_Type().equals("oderManager")) {
+						request.getSession().setAttribute("Logged","oderManager");
+						response.sendRedirect("admin/OrderManagement/OrderAdminHome.jsp");
 					}
-					else if(employeeData[i].getEmp_Type().equals("Stock")) {
-						request.getSession().setAttribute("Logged","Stock");
-						response.sendRedirect("admin/StockManagement/index.jsp");
+					else if(employeeData[i].getEmp_Type().equals("reqManager")) {
+						request.getSession().setAttribute("Logged","reqManager");
+						response.sendRedirect("RequestManage/viewFeedback.jsp");
 					}
-					else if(employeeData[i].getEmp_Type().equals("Stock")) {
-						request.getSession().setAttribute("Logged","Stock");
-						response.sendRedirect("admin/StockManagement/index.jsp");
+					else if(employeeData[i].getEmp_Type().equals("cusManager")) {
+						request.getSession().setAttribute("Logged","cusManager");
+						response.sendRedirect("admin/CustomerManagement/CustomerDetails.jsp");
 					}
 					break;
 				}

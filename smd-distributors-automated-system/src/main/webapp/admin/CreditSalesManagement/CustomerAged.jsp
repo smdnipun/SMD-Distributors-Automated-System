@@ -5,6 +5,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>CustomerAged</title>
+<link rel="stylesheet"
+	href=<%=request.getContextPath() + "/css/payTable.css"%>>
 </head>
 <body>
 	<jsp:include page="../../WEB-INF/views/common/head.jsp"></jsp:include>

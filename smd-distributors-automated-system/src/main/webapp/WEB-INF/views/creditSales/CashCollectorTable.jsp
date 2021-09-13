@@ -22,10 +22,10 @@ request.setAttribute("data", cashCal);
 	</center>
 	<!--Creating cash collector table -->
 	<!-- <table id="customerDetails" class="display nowrap" style="width: 100%"> -->
-	<table id="payTable" class="display nowrap" style="width: 100%">
+	<table id="payTable" class="table" style="width: 100%">
 
 
-		<thead>
+		<thead class="thead-dark">
 
 			<tr>
 				<th scope="col">EmployeeID</th>

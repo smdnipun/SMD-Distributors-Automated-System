@@ -21,7 +21,7 @@ request.setAttribute("data", customerAged);
 		<h5>Customer Aged Recivable</h5>
 	</center>
 	<!--Creating customerage table-->
-	<table id="customerDetails" class="display nowrap" style="width: 100%">
+	<table id="customerDetails" class="table" style="width: 100%">
 		<c:choose>
 			<c:when test="${param.search==null}">
 				<%
@@ -30,7 +30,8 @@ request.setAttribute("data", customerAged);
 				request.setAttribute("allPayments", allPayments);
 				%>
 
-				<thead>
+
+				<thead class="thead-dark">
 					<tr>
 
 						<th scope="col">Hardware Name</th>
@@ -69,7 +70,7 @@ request.setAttribute("data", customerAged);
 				request.setAttribute("searchData", searchPay);
 				%>
 				<c:forEach items="${searchData}" var="PaymentDetails">
-					<thead>
+					<thead class="thead-dark">
 						<tr>
 
 							<th scope="col">Hardware Name</th>

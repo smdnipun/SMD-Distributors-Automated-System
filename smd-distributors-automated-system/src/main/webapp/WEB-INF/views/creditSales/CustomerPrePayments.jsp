@@ -18,50 +18,54 @@ if (request.getParameter("credit") != null) {
 		<h5>Customer prevoius payments and due amounts</h5>
 	</center>
 	<!--Creating CustomerPre Payment-->
-	<!-- <table id="customerDetails"  style="width: 100%"> -->
-	<table id="table" class="display nowrap" style="width: 100%">
+	<div id="pricing" class="container-fluid">
+		<!-- <table id="customerDetails"  style="width: 100%"> -->
+		<table id="table" class="table" style="width: 100%">
 
 
-		<thead>
+			<thead class="thead-dark">
 
-			<tr>
-				<th scope="col">Invoice ID</th>
-				<th scope="col">Customer ID</th>
-				<th scope="col">Order date</th>
-				<th scope="col">Order Status</th>
-				<th scope="col">Total Amount</th>
-				<th scope="col">Paid Amount</th>
-				<th scope="col">Remaining Amount</th>
-				<th scope="col">Qty</th>
-				<th scope="col">Product ID</th>
 
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${data}" var="order">
 				<tr>
-					<td><c:out value="${order.getOID()}" /></td>
-					<td><c:out value="${order.getCID()}" /></td>
-					<td><c:out value="${order.getODATE()}" /></td>
-					<td><c:out value="${order.getOSTATE()}" /></td>
-					<td><c:out value="${order.getTPRICE()}" /></td>
-					<td><c:out value="${order.getPAMOUNT()}" /></td>
-					<td><c:out value="${order.getRAMOUNT()}" /></td>
-					<td><c:out value="${order.getQTY()}" /></td>
-					<td><c:out value="${order.getPID()}" /></td>
-
+					<th scope="col">Invoice ID</th>
+					<th scope="col">Customer ID</th>
+					<th scope="col">Order date</th>
+					<th scope="col">Order Status</th>
+					<th scope="col">Total Amount</th>
+					<th scope="col">Paid Amount</th>
+					<th scope="col">Remaining Amount</th>
+					<th scope="col">Qty</th>
+					<th scope="col">Product ID</th>
 
 				</tr>
-			</c:forEach>
-			<tr>
-		</tbody>
-	</table>
-	<!-- create button to back-->
-	<form action="../../AcceptOrders" method="post">
+			</thead>
+			<tbody>
+				<c:forEach items="${data}" var="order">
+					<tr>
+						<td><c:out value="${order.getOID()}" /></td>
+						<td><c:out value="${order.getCID()}" /></td>
+						<td><c:out value="${order.getODATE()}" /></td>
+						<td><c:out value="${order.getOSTATE()}" /></td>
+						<td><c:out value="${order.getTPRICE()}" /></td>
+						<td><c:out value="${order.getPAMOUNT()}" /></td>
+						<td><c:out value="${order.getRAMOUNT()}" /></td>
+						<td><c:out value="${order.getQTY()}" /></td>
+						<td><c:out value="${order.getPID()}" /></td>
 
-		<button type="submit" class="btn btn-secondary"
-			style="background-color: #DE431F" name="button" value="decline">Back</button>
-	</form>
+
+					</tr>
+				</c:forEach>
+				<tr>
+			</tbody>
+		</table>
+
+		<!-- create button to back-->
+		<form action="../../AcceptOrders" method="post">
+
+			<button type="submit" class="btn btn-secondary"
+				style="background-color: #DE431F" name="button" value="decline">Back</button>
+		</form>
+	</div>
 </div>
 <%
 }

@@ -26,16 +26,12 @@ public class SupplierInactiveupdate extends HttpServlet {
 			throws ServletException, IOException {
 		DBConnection dbc = new DBConnection();
 		
-		 
+		 //update inactive supplier data 
 			try {
 				Statement stmt = dbc.getConnection().createStatement();
 				String command = "update vendor set Status = 'Active' where Vendor_Id = " + request.getParameter("supplierID");
 
 				int rows = stmt.executeUpdate(command);
-				 //response.getWriter().append(command);
-				/* stmt.execute(command); */
-				 
-
 				response.sendRedirect("admin/StockManagement/SupplierInactiveDetails.jsp");
 			} catch (Exception e) {
 				response.getWriter().append(e.toString());

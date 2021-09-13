@@ -3,7 +3,7 @@ function checkPwd(){
 		return true;
 	}
 	else{
-		alert("Password missmatch !!! \nPlease Recheck the Password");
+		alert("Password missmatch, Please Recheck the Password !!!");
 		return false;
 	}
 }

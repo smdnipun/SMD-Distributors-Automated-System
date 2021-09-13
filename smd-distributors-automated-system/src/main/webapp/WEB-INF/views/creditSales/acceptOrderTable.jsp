@@ -22,9 +22,10 @@ request.setAttribute("data", newOrders);
 	<jsp:include page="CenterNavWithoutSearch.jsp"></jsp:include>
 
 	<!-- Creating Accept order table -->
-	<table id="customerDetails" class="display nowrap" style="width: 100%">
+	<table id="customerDetails" class="table" style="width: 100%">
 
-		<thead>
+
+		<thead class="thead-dark">
 			<tr>
 				<th scope="col">Invoice ID</th>
 				<th scope="col">Date</th>
@@ -59,7 +60,9 @@ request.setAttribute("data", newOrders);
 							</button> <br>
 
 							<button type="submit" class="btn btn-secondary"
-								style="background-color: #9a4832" name="button" value="decline">Decline</button><br><br>
+								style="background-color: #9a4832" name="button" value="decline">Decline</button>
+							<br>
+						<br>
 					</form>
 					</td>
 

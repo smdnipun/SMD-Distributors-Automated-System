@@ -30,6 +30,7 @@ request.setAttribute("stocksum", newstock);
 			</tr>
 		</thead>
 		<tbody>
+		<!-- get the stock data from Stocksummary database table connection -->
 		<c:forEach items="${stocksum}" var="Stocksummary">
 			<tr>
 			

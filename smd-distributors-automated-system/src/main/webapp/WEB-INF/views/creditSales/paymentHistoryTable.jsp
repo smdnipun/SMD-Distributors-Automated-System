@@ -25,9 +25,9 @@ request.setAttribute("payments", payments);
 	</center>
 
 	<!--Creating payment history table-->
-	<table id="payTable" class="display nowrap" style="width: 100%">
+	<table id="payTable" class="table" style="width: 100%">
 
-		<thead>
+		<thead class="thead-dark">
 			<tr>
 
 				<th scope="col">Payment ID</th>
@@ -57,4 +57,8 @@ request.setAttribute("payments", payments);
 		<button type="button" class="btn btn-secondary"
 			style="background-color: #b8b8b8">Generate Report</button>
 	</p>
+	<br>
+<br>
+<br>
 </div>
+

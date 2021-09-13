@@ -1,33 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ page import="java.io.PrintWriter"%>
+<%
+if (request.getSession().getAttribute("Logged") != null) {
+    //request.getSession().setAttribute("Logged", "Guest");
+%>
+<% int id = Integer.parseInt(request.getSession().getAttribute("CustomerID").toString()); %> 
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Customer Services</title>
+	     <jsp:include page="../WEB-INF/views/common/header.jsp"></jsp:include>
     <jsp:include page="../WEB-INF/views/common/head.jsp">
 	<jsp:param name="Title" value="SMD Distributors" /></jsp:include>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/requestcustomer.css"/>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-	<!-- <script>
-	function validsubmit(){
-		alert("Thank you for your feedback!");
-		return true;
-	}
-	</script> -->
 </head>
 <body>
-    <jsp:include page="../WEB-INF/views/common/header.jsp"></jsp:include>
-    <%-- <jsp:include page="../WEB-INF/views/common/navbar.jsp">
-			<jsp:param name="navs" value="Home,fff_ddddd,Add Orders,fff" />
-		</jsp:include> --%>
-    <div class="mydiv">
+   
+     <div class=row>
+    	<jsp:include page="../WEB-INF/views/Request/CusRequestnavbar.jsp"></jsp:include> 
+    	<div class="col-9">
     
             <center>
-			<form name="feedback" method="post" action="../addfeedback" style="text-align: left;">
+			<form id="feedback" method="post" action="../addfeedback" style="text-align: left;">
                 <h2 style="text-align: center;">Send Us A Feedback</h2><br>
                 <h6 class="fw-light" style="text-align: center;">We would love to hear your thoughts.
                          Get connected with us!</h6><br>
 				
+				<div class="mb-3">
+  					<input type="hidden" class="form-control" id="formGroupExampleInput2" placeholder="Enter Customer ID" name="Cus_ID" required="true" value="<%=id %>" readonly>
+					</div>
 				
 				<!-- <h4>Feedback type: </h4><br> -->
 				<h5 for="type">Feedback type: </h5><br>
@@ -56,13 +58,20 @@
 				    <label class="star star-1" for="star-1"></label>
 				</div>
 			<br>
-              <div class="submit">
-		      <input type="submit" value="Send Message" id="form_button" />
-		    </div>
+		      <input type="submit" value="Send Message" id="feed_button" />
                     
             </form> <br>
         </center>
         </div>
-       <%-- <jsp:include page="../WEB-INF/views/common/footer.jsp"></jsp:include> --%>
+        </div>
+       <jsp:include page="../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
 </body>
 </html>
+<%
+} else {
+    PrintWriter redirect = response.getWriter();
+    redirect.println("<script>");
+    redirect.println("location='../login.jsp'");//put the location from your jsp file
+    redirect.println("</script>");
+}
+%>
