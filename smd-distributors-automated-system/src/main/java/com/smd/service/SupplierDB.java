@@ -8,7 +8,7 @@ import java.util.List;
 import com.smd.util.DBConnection;
 
 import com.smd.model.Supplier;
-//Connect Supplier Table(Active)
+//Databse Connection Supplier Table(Active)
 public class SupplierDB{
 public Supplier[] getSupplierdetails() {
 	List<Supplier> ll = new LinkedList<Supplier>();
@@ -28,7 +28,7 @@ public Supplier[] getSupplierdetails() {
 	return array;
 
 }
-//Connect Supplier Table(Inactive)
+//DataBase Connection Supplier Table(Inactive)
 public Supplier[] getSupplierInactivedetails() {
 	List<Supplier> ll = new LinkedList<Supplier>();
 	Supplier[] array = null;

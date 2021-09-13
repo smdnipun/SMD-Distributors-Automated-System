@@ -14,7 +14,7 @@ import com.smd.model.Delivery;
 import com.smd.model.Vehicle;
 import com.smd.service.DeliveryDBUtill;
 
-@WebServlet("/DeleteVehicleServlet")
+// @WebServlet("/vdeleted")
 public class DeleteVehicleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

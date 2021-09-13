@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
      <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+     
+     <%@ page import="java.io.PrintWriter"%>
+<%
+if (request.getSession().getAttribute("Logged") != null) {
+    //request.getSession().setAttribute("Logged", "Guest");
+%>
     
 <!DOCTYPE html>
 <html>
@@ -14,22 +20,24 @@
 </head>
 <body class="hbody">
 	<jsp:include page="../WEB-INF/views/common/adminHeader.jsp"></jsp:include> 
+	<div class="row">
+	<jsp:include page="../WEB-INF/views/Request/AdminRequestnavbar.jsp"></jsp:include> 
+	
+	<div class="col-9">
 	<br>
-	<h5 align="center" class="capitalize" >Request Management</h5>
-
 		<div>
 			<form action="${pageContext.request.contextPath}/searchfeedback" method="post" class="searchbar">
 				<input type="text" id="myInput" class="form-control" name="search" placeholder="search feedbacks by status.."/>
 	 		</form> 
  		</div> <br>
 			<!--table to display data -->
-			<div class="col-10">
-			<table class="table table-hover table table-sm">
+			<div class="col-8">
+			<table class="table table-hover table table-sm table table-striped">
 			<!-- <table class="feedback"> -->
 			<thead class="thead-dark">
 				<tr>
 					<th scope="col">Feedback ID</th>
-					<th scope="col">Customer ID</th> <!-- paymentid is unique auto-incremented -->
+					<th scope="col">Customer ID</th> <!-- feedbackid is unique auto-incremented -->
 					<th scope="col">Date</th>
 					<th scope="col">Type</th>
 					<th scope="col">Message</th>
@@ -108,7 +116,7 @@
 				</tbody>
 			</table>
 		</div>
-	
+	<br>
 		<%-- <div class="col-10">
 			<form action=<%=request.getContextPath() + "/feedbackreport"%> method="post" class="reportform">
 			
@@ -122,8 +130,16 @@
 		    </div>
 			</form>
 		</div>	 --%>
-
-			<br><br><br><br><br><br>
+		</div><br><br>
+		</div><br><br>
 	<jsp:include page="../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
 </body>
 </html>
+<%
+} else {
+    PrintWriter redirect = response.getWriter();
+    redirect.println("<script>");
+    redirect.println("location='../login.jsp'");//put the location from your jsp file
+    redirect.println("</script>");
+}
+%>

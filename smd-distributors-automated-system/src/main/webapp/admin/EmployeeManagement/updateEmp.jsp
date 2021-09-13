@@ -1,3 +1,10 @@
+<%@ page import="java.io.PrintWriter"%>
+<%
+if (request.getSession().getAttribute("Logged") != null) {
+    //request.getSession().setAttribute("Logged", "Guest");
+%>
+
+
 <jsp:include page="../../WEB-INF/views/common/head.jsp">
 	<jsp:param name="Title" value="SMD Distributors" /></jsp:include>
 	<link rel="stylesheet" href=<%=request.getContextPath() + "/css/Employe.css"%>>
@@ -8,7 +15,8 @@
 <jsp:include
 page="EmployeeNav.jsp"></jsp:include>
 <div class="col-9">
-	
+
+<br>	
 <center>
  <h2>Update Employee</h2>
 </center>
@@ -20,8 +28,6 @@ page="EmployeeNav.jsp"></jsp:include>
          String fname = request.getParameter("fname");
          String lname = request.getParameter("lname");
          String phone = request.getParameter("phone");
-         String uname = request.getParameter("uname");
-         String pwd = request.getParameter("pwd");
          String nic = request.getParameter("nic");
          String email = request.getParameter("email");
          String address = request.getParameter("address");
@@ -37,28 +43,17 @@ page="EmployeeNav.jsp"></jsp:include>
 	
   <div class="form-group">
     <label for="fname">First Name</label>
-    <input type="text" class="form-control" id="fname" name="fname" aria-describedby="" value="<%=fname%>" required>
+    <input type="text" class="form-control" id="fname" name="fname" aria-describedby=""  pattern="[A-Za-z]{1,38}" value="<%=fname%>" required>
   </div>
 
   <div class="form-group">
     <label for="lname">Last Name</label>
-    <input type="text" class="form-control" name="lname" id="lname"  value="<%=lname%>" required>
+    <input type="text" class="form-control" name="lname" id="lname"  value="<%=lname%>"  pattern="[A-Za-z]{1,38}" required>
   </div>
 
   <div class="form-group">
     <label for="phone">Phone Number</label>
-    <input type="text" class="form-control" id="phone"  name="phone" aria-describedby=""  value="<%=phone%>" required>
-  </div>
-
-  <div class="form-group">
-    <label for="Username">Username</label>
-    <input type="text" class="form-control"  name="uname" id="uname" aria-describedby=""  value="<%=uname%>">
-  </div>
-
-
-  <div class="form-group">
-    <label for="passowrd">Password</label>
-    <input type="password" class="form-control"  name="password" id="pwd" aria-describedby=""  value="<%=pwd%>">
+    <input type="text" class="form-control" id="phone"  name="phone" aria-describedby=""  value="<%=phone%>" pattern="[0-9]{1}[0-9]{1}[0-9]{1}[0-9]{1}[0-9]{1}[0-9]{1}[0-9]{1}[0-9]{1}[0-9]{1}[0-9]{1}" required>
   </div>
 
 
@@ -100,3 +95,12 @@ page="EmployeeNav.jsp"></jsp:include>
 
 </body>
 </html>
+
+<%
+} else {
+    PrintWriter redirect = response.getWriter();
+    redirect.println("<script>");
+    redirect.println("location='./login.jsp'");//put the location from your jsp file
+    redirect.println("</script>");
+}
+%>

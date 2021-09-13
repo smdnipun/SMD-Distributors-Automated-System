@@ -1,8 +1,8 @@
 @charset "ISO-8859-1";
 
-form{
-	background-color:rgb(231, 235, 239);
-	width: 40%;
+#feedback{
+	background-color:rgb(238, 238, 238);
+	width: 50%;
 	border: 7px black;
 	margin: 20px;
 	font: 13px "";
@@ -47,7 +47,7 @@ label.star:before {
   font-family: FontAwesome;
 }
 body {
-  background-image: url('../img/grey3.jpg');
+  /* background-image: url('../img/grey3.jpg'); */
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -55,7 +55,7 @@ body {
   position:relative;
 		
 }
-#form_button {
+#feed_button {
 	width: 30%;
 	height:20%;
   border: solid 2px #474544;

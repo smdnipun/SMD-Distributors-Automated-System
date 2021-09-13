@@ -200,13 +200,13 @@ public static List<Order> ViewOrderCustomer(int id){
 	}
 
 	//customer's update method
-public static boolean updateordercustomer(int oid,int qty){
+public static boolean updateordercustomer(int oid,int qty,double tprice){
 	boolean isdone=false; //assign isdone to false before execution of query
 	
 	try {
 		DBConnection con = new DBConnection();//create DBConnection object
 		Statement stmt = con.getConnection().createStatement();//create statement object by using DBConnection object
-		String sql="update orders set Qty='"+qty+"'"+"where Order_ID='"+oid+"'";
+		String sql="update orders set Qty='"+qty+"',Total_Price='"+tprice+"',Paid_Amount='"+0+"'"+"where Order_ID='"+oid+"'";
 		int rs=stmt.executeUpdate(sql);//executing a query
 		
 		if(rs>0) {

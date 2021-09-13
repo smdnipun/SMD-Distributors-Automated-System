@@ -1,17 +1,18 @@
 @charset "ISO-8859-1";
 td, th {
-  border: 1px solid #dddddd;
+  border: 1px solid #e4e4e4;
   text-align: center;
   padding: 3px;
 } 
 .hbody {
-background-image: url('../img/service2.jpg');
+	/* background-image: url('../img/service2.jpg'); */
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
 		
 }
-.table { background-color:rgb(212, 212, 212);
+.table { 
+	/* background-color:rgb(212, 212, 212); */
 font-family: arial, sans-serif;
     border-collapse: collapse;
     border: 1px;
@@ -23,7 +24,7 @@ font-family: arial, sans-serif;
  font-family: arial, sans-serif;
  }
 .vcontt{
-	background-color:rgb(212, 212, 212);
+	background-color:rgb(238, 238, 238);
 		width: 700px;
 		border: 15px black;
 		font: 16px;
@@ -37,7 +38,7 @@ font-family: arial, sans-serif;
 	
 }
 .vbody {
-background-image: url('../img/grey2.jpg');
+/* background-image: url('../img/grey2.jpg'); */
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -45,7 +46,20 @@ background-image: url('../img/grey2.jpg');
   position:relative;
 		
 }
-
+#form_button {
+	width: 30%;
+	height:10%;
+  border: solid 2px #474544;
+  color: #474544;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 0.975em;
+  outline: none;
+  padding: 10px 10px;
+  text-transform: uppercase;
+  
+}
 
 .capitalize{
 	color: black;
@@ -54,25 +68,17 @@ background-image: url('../img/grey2.jpg');
 	margin: 0 auto; 
 	width:800px;
 	text-align: left;
-	background-color:#f0f5f5;
+	background-color:rgb(238, 238, 238);
 	opacity:0.8;
 	padding: 20px 12px 10px 20px;
+	
+	border: 7px black;
+	outline-color: black;
+	outline-style: groove;
 }
-.form{
-		
-		width: 700px;
-		border: 15px black;
-		margin: 20px;
-		font: 16px;
-		padding: 20px 12px 10px 20px;
-		outline-style: double;
-		outline-color: black;
-		float:center;
-		
-	}
 
 .ubody {
-background-image: url('../img/grey2.jpg');
+/* background-image: url('../img/grey2.jpg'); */
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -82,7 +88,7 @@ background-image: url('../img/grey2.jpg');
 }
 
 .dbody {
-background-image: url('../img/grey2.jpg'); 
+/* background-image: url('../img/grey2.jpg');  */
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -93,7 +99,7 @@ background-image: url('../img/grey2.jpg');
 
 .form-control{
 	width: 60%;
-	background-color:#f0f5f5;
+	background-color:rgb(238, 238, 238);
 	border: 1px;
     margin-left: 10px;
     opacity:0.9;
@@ -114,7 +120,7 @@ background-image: url('../img/grey2.jpg');
   width: 50%;
   font-size: 16px;
   border: 1px solid #ddd;
-  margin-left: 25px;
+  margin-left: 20px;
 }
   
   

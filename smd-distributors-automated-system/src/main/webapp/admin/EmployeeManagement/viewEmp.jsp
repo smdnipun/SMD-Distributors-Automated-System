@@ -1,3 +1,9 @@
+<%@ page import="java.io.PrintWriter"%>
+<%
+if (request.getSession().getAttribute("Logged") != null) {
+    //request.getSession().setAttribute("Logged", "Guest");
+%>
+
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<jsp:include page="../../WEB-INF/views/common/head.jsp">
 	<jsp:param name="Title" value="SMD Distributors" />
@@ -6,7 +12,7 @@
     <link rel="stylesheet" href=<%=request.getContextPath() + "/css/Employe.css"%>>
 	<body>
 	
-		<jsp:include page="../../WEB-INF/views/common/header.jsp"></jsp:include>
+		<jsp:include page="../../WEB-INF/views/common/adminHeader.jsp"></jsp:include>
 		
 		
 <script>
@@ -31,14 +37,14 @@ $(document).ready(function() {
 page="EmployeeNav.jsp"></jsp:include>
 <div class="col-9">
 
- 
+<br>
 <center>
  <h2>Employee Details</h2>
 </center>
 
+<div style="height: 700px;overflow: scroll;">
 
-
-			<table id="example" class="table  display nowrap" style="width:100%">
+			<table  class="table" style="width:100%">
 				<thead class="thead-dark">
 					<tr>
 						<th scope="col">EmpID</th>
@@ -46,8 +52,6 @@ page="EmployeeNav.jsp"></jsp:include>
 						<th scope="col">Fname</th>
 						<th scope="col">Lname</th>
 						<th scope="col">Phone</th>
-						<th scope="col">Username</th>
-						<th scope="col">Password</th>
 						<th scope="col">NIC</th>
 						<th scope="col">Email</th>
 						<th scope="col">Address</th>
@@ -55,7 +59,7 @@ page="EmployeeNav.jsp"></jsp:include>
 						<th scope="col">Delete Employee</th>
 						<th scope="col">Manage Salary</th>
 					</tr>
-		
+					</thead>
 			          
 					<c:forEach var="employee" items="${employeeDetails}">
 			
@@ -78,8 +82,6 @@ page="EmployeeNav.jsp"></jsp:include>
 							<td>${employee.first_Name} </td>
 							<td>${employee.last_Name}</td>
 							<td>${employee.phone} </td>
-							<td>${employee.username} </td>
-							<td>${employee.password} </td>
 							<td>${employee.getNIC()}</td>
 							<td>${employee.email} </td>
 							<td> ${employee.address} </td>
@@ -91,8 +93,6 @@ page="EmployeeNav.jsp"></jsp:include>
 									<c:param name="fname" value="${fname}" />
 									<c:param name="lname" value="${lname}" />
 									<c:param name="phone" value="${phone}" />
-									<c:param name="uname" value="${uname}" />
-									<c:param name="pwd" value="${pwd}" />
 									<c:param name="nic" value="${nic}" />
 									<c:param name="email" value="${email}" />
 									<c:param name="address" value="${address}" />
@@ -113,8 +113,6 @@ page="EmployeeNav.jsp"></jsp:include>
 									<c:param name="fname" value="${fname}" />
 									<c:param name="lname" value="${lname}" />
 									<c:param name="phone" value="${phone}" />
-									<c:param name="uname" value="${uname}" />
-									<c:param name="pwd" value="${pwd}" />
 									<c:param name="nic" value="${nic}" />
 									<c:param name="email" value="${email}" />
 									<c:param name="address" value="${address}" />
@@ -148,25 +146,10 @@ page="EmployeeNav.jsp"></jsp:include>
 							</td>
 
 
-							<td>
-
-								<c:url value="admin/EmployeeManagement/calSalemp.jsp" var="empsal">
-									<c:param name="id" value="${id}" />
-									<c:param name="fname" value="${fname}" />
-									<c:param name="lname" value="${lname}" />
-									<c:param name="phone" value="${phone}" />
-									<c:param name="nic" value="${nic}" />
-
-								</c:url>
-
-							
-
-							</td>
-
 					</c:forEach>
             </tbody>  
 			</table>
-
+</div>
 		</div>
 		</div>
 
@@ -184,3 +167,12 @@ page="EmployeeNav.jsp"></jsp:include>
 	</body>
 
 	</html>
+	
+<%
+} else {
+    PrintWriter redirect = response.getWriter();
+    redirect.println("<script>");
+    redirect.println("location='./login.jsp'");//put the location from your jsp file
+    redirect.println("</script>");
+}
+%>

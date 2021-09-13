@@ -6,7 +6,7 @@ request.setAttribute("navArray", navArray);
 %>
 
 <div class="col-2"
-	style="background-color: #E0E0E2;z-index:1">
+	style="background-color: #E0E0E2;z-index:1;height:100vh">
 	<div class="nav flex-column nav-tabs" id="v-tabs-tab" role="tablist"
 		aria-orientation="vertical">
 		<c:forEach items="${navArray}" var="nav">

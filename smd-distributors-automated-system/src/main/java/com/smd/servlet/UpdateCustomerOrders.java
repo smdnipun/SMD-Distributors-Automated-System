@@ -25,22 +25,32 @@ public class UpdateCustomerOrders extends HttpServlet {
 		//get orderid and quantity
 		String OID=request.getParameter("OID");
 		String QTY=request.getParameter("QTY");
+		String TPRICE=request.getParameter("TPRICE");
+//		String PAT=request.getParameter("PAT");
+//		String RAT=request.getParameter("RAT");
+//		double pat=Double.parseDouble(PAT);
+//		double rat=Double.parseDouble(RAT);
+		
+	
+	
 	
 		 
 		int quantity=Integer.parseInt(QTY); 
-		int oid=Integer.parseInt(OID); 
-		
+		int oid=Integer.parseInt(OID);
+		double tprice=Double.parseDouble(TPRICE);
+//		rat=tprice-pat;
+				
 		PrintWriter out = response.getWriter();
         response.setContentType("text/html");
 		//check whether the order state is delivered or not
 		if(request.getParameter("OSTATES").equals("delivered")) {
         	out.println("<script type='text/javascript'>");
             out.println("alert('Sorry Order is already in Delivery process');");
-            out.println("location='AddOrder.jsp'"); 
+            out.println("location='index.jsp'"); 
             out.println("</script>");
         }else {
         	//call the update order method 
-        	boolean isdone=OrderM.updateordercustomer(oid, quantity);
+        	boolean isdone=OrderM.updateordercustomer(oid, quantity,tprice);
     		
     		
     		
@@ -48,7 +58,7 @@ public class UpdateCustomerOrders extends HttpServlet {
     			// if successful then show the alert and redirect to AddOrder
     			out.println("<script type='text/javascript'>");
                 out.println("alert('update successfully');");
-                out.println("location='AddOrder.jsp'"); 
+                out.println("location='index.jsp'"); 
                 out.println("</script>");
     			
 
@@ -56,7 +66,7 @@ public class UpdateCustomerOrders extends HttpServlet {
     			// if successful then show the alert and redirect to AddOrder
     			out.println("<script type='text/javascript'>");
                 out.println("alert('something went wrong');");
-                out.println("location='AddOrder.jsp'"); 
+                out.println("location='index.jsp'"); 
                 out.println("</script>");
     			
 

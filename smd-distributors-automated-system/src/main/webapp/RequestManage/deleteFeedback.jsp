@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
       <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@ page import="java.io.PrintWriter"%>
+<%
+if (request.getSession().getAttribute("Logged") != null) {
+    //request.getSession().setAttribute("Logged", "Guest");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -80,9 +85,17 @@
 			  </div>
 			  <br>
 			 
-			<input type="submit" name="submit" value="Delete The Data">
+			<input type="submit" name="submit" id="form_button" value="Delete The Data">
 		</form>
 		</div><br><br><br><br>
 	<jsp:include page="../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
 </body>
 </html>
+<%
+} else {
+    PrintWriter redirect = response.getWriter();
+    redirect.println("<script>");
+    redirect.println("location='../login.jsp'");//put the location from your jsp file
+    redirect.println("</script>");
+}
+%>

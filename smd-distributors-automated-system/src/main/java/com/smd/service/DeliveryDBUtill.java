@@ -284,7 +284,7 @@ public static List<Delivery> deliveryReport(String date){
 			e.printStackTrace();
 		}
 		return dil;
-		
+
 	}
 
 
@@ -311,9 +311,5 @@ public static List<Delivery> deliveryReport(String date){
 		}
 		return isSuccess;
 	}
-
-
-
-
 
 }

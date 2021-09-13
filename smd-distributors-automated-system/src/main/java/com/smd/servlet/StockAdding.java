@@ -2,9 +2,10 @@
 package com.smd.servlet;
 
 import java.io.IOException;
-
+import java.io.PrintWriter;
 import java.sql.Statement;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,9 +30,15 @@ public class StockAdding extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 		StockDB stockdb = new StockDB();
+		//Create object and veriables for Stocksummary DB 
+		String name = request.getParameter("itemname");
+		int InQuantity = Integer.parseInt(request.getParameter("quntity"));
+		int quantityOnhand = stockdb.getQuantity(name);
 		
-
-	
+		PrintWriter out = response.getWriter();
+		
+//Compier the databse and input value of quantity and add the data 
+		if (quantityOnhand > InQuantity && InQuantity>0) {
 			try {
 				DBConnection sdbc = new DBConnection();
 				Statement stmt = sdbc.getConnection().createStatement();
@@ -44,6 +51,15 @@ public class StockAdding extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}
+		//dispaly the error masage
+		else {
+			out.println("<script type=\"text/javascript\">");
+		    out.println("alert('out of stock!!');");
+		    out.println("location='admin/StockManagement/SupplierorderDetails.jsp'");//redirect to the registration page
+		    out.println("</script>");
+
+		}
 			
 			
 		}

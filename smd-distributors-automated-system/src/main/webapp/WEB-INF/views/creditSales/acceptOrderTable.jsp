@@ -59,7 +59,7 @@ request.setAttribute("data", newOrders);
 							</button> <br>
 
 							<button type="submit" class="btn btn-secondary"
-								style="background-color: #9a4832" name="button" value="decline">Decline</button>
+								style="background-color: #9a4832" name="button" value="decline">Decline</button><br><br>
 					</form>
 					</td>
 

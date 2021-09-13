@@ -5,74 +5,71 @@
          http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	version="3.1">
 
-  <!--  insert feedback -->
-		<!-- <servlet>
-			<servlet-name>AddFeedback</servlet-name>
-			<servlet-class>com.smd.servlet.AddFeedbackServlet</servlet-class>--> <!-- match the servlet -->
-		<!-- </servlet>-->
-		
-		<!-- <servlet-mapping>--> <!-- path to the servlet -->
-		 	<!-- <servlet-name>AddFeedback</servlet-name>
-		 	<url-pattern>/addfeedback</url-pattern>--> <!-- action to the feedback insert form -->
-		 <!-- </servlet-mapping>-->
-		  
-		  <!-- view feedback -->
-		 <servlet>
-			<servlet-name>ViewFeedback</servlet-name>
-			<servlet-class>com.smd.servlet.ViewFeedbackServlet</servlet-class> <!-- match the servlet -->
-		</servlet>
-		
-		<servlet-mapping> <!-- path to the servlet -->
-		 	<servlet-name>ViewFeedback</servlet-name>
-		 	<url-pattern>/viewfeedback</url-pattern> <!-- action to the view form -->
-		 </servlet-mapping>
-		 
-		 <!-- update feedback -->
-		 <servlet>
-			<servlet-name>UpdateFeedback</servlet-name>
-			<servlet-class>com.smd.servlet.UpdateFeedbackServlet</servlet-class> <!-- match the servlet -->
-		</servlet>
+	<!-- insert feedback -->
+	<!-- <servlet> <servlet-name>AddFeedback</servlet-name> <servlet-class>com.smd.servlet.AddFeedbackServlet</servlet-class> --> <!-- match the servlet -->
+	<!-- </servlet> -->
 
-		<servlet-mapping> <!-- path to the servlet -->
-			<servlet-name>UpdateFeedback</servlet-name>
-			<url-pattern>/updatefeedback</url-pattern> <!-- action to the update form -->
-		</servlet-mapping>
-		
-		<!-- delete feedback -->
-		 <servlet>
-			<servlet-name>DeleteFeedback</servlet-name>
-			<servlet-class>com.smd.servlet.DeleteFeedbackServlet</servlet-class> <!-- match the servlet -->
-		</servlet>
+	<!-- <servlet-mapping> --> <!-- path to the servlet -->
+	<!-- <servlet-name>AddFeedback</servlet-name> <url-pattern>/addfeedback</url-pattern> --> <!-- action to the feedback insert form -->
+	<!-- </servlet-mapping> -->
 
-		<servlet-mapping> <!-- path to the servlet -->
-			<servlet-name>DeleteFeedback</servlet-name>
-			<url-pattern>/deletefeedback</url-pattern> <!-- action to the delete form -->
-		</servlet-mapping>
-		
-		<!-- search feedback -->
-		 <servlet>
-			<servlet-name>SearchFeedback</servlet-name>
-			<servlet-class>com.smd.servlet.SearchFeedbackServlet</servlet-class> <!-- match the servlet -->
-		</servlet>
+	<!-- view feedback -->
+	<servlet>
+		<servlet-name>ViewFeedback</servlet-name>
+		<servlet-class>com.smd.servlet.ViewFeedbackServlet</servlet-class> <!-- match the servlet -->
+	</servlet>
 
-		<servlet-mapping> <!-- path to the servlet -->
-			<servlet-name>SearchFeedback</servlet-name>
-			<url-pattern>/searchfeedback</url-pattern> <!-- action to the seach -->
-		</servlet-mapping>
-		
-		<!-- reports for feedback -->
-		 <servlet>
-			<servlet-name>FeedbackReport</servlet-name>
-			<servlet-class>com.smd.servlet.FeedbackReportServlet</servlet-class> <!-- match the servlet -->
-		</servlet>
+	<servlet-mapping> <!-- path to the servlet -->
+		<servlet-name>ViewFeedback</servlet-name>
+		<url-pattern>/viewfeedback</url-pattern> <!-- action to the view form -->
+	</servlet-mapping>
 
-		<servlet-mapping> <!-- path to the servlet -->
-			<servlet-name>FeedbackReport</servlet-name>
-			<url-pattern>/feedbackreport</url-pattern> <!-- action to the seach -->
-		</servlet-mapping>
+	<!-- update feedback -->
+	<servlet>
+		<servlet-name>UpdateFeedback</servlet-name>
+		<servlet-class>com.smd.servlet.UpdateFeedbackServlet</servlet-class> <!-- match the servlet -->
+	</servlet>
 
-         
-      <servlet>
+	<servlet-mapping> <!-- path to the servlet -->
+		<servlet-name>UpdateFeedback</servlet-name>
+		<url-pattern>/updatefeedback</url-pattern> <!-- action to the update form -->
+	</servlet-mapping>
+
+	<!-- delete feedback -->
+	<servlet>
+		<servlet-name>DeleteFeedback</servlet-name>
+		<servlet-class>com.smd.servlet.DeleteFeedbackServlet</servlet-class> <!-- match the servlet -->
+	</servlet>
+
+	<servlet-mapping> <!-- path to the servlet -->
+		<servlet-name>DeleteFeedback</servlet-name>
+		<url-pattern>/deletefeedback</url-pattern> <!-- action to the delete form -->
+	</servlet-mapping>
+
+	<!-- search feedback -->
+	<servlet>
+		<servlet-name>SearchFeedback</servlet-name>
+		<servlet-class>com.smd.servlet.SearchFeedbackServlet</servlet-class> <!-- match the servlet -->
+	</servlet>
+
+	<servlet-mapping> <!-- path to the servlet -->
+		<servlet-name>SearchFeedback</servlet-name>
+		<url-pattern>/searchfeedback</url-pattern> <!-- action to the seach -->
+	</servlet-mapping>
+
+	<!-- reports for feedback -->
+	<servlet>
+		<servlet-name>FeedbackReport</servlet-name>
+		<servlet-class>com.smd.servlet.FeedbackReportServlet</servlet-class> <!-- match the servlet -->
+	</servlet>
+
+	<servlet-mapping> <!-- path to the servlet -->
+		<servlet-name>FeedbackReport</servlet-name>
+		<url-pattern>/feedbackreport</url-pattern> <!-- action to the seach -->
+	</servlet-mapping>
+
+
+	<servlet>
 		<servlet-name>insertorder</servlet-name>
 		<servlet-class>com.smd.servlet.AddOrder</servlet-class>
 	</servlet>
@@ -80,16 +77,11 @@
 		<servlet-name>insertorder</servlet-name>
 		<url-pattern>/insert</url-pattern>
 	</servlet-mapping>
-         
-         <!--<servlet>
-		<servlet-name>viewadminorder</servlet-name>
-		<servlet-class>com.smd.servlet.viewAdminOrders</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>viewadminorder</servlet-name>
-		<url-pattern>/viewadmin</url-pattern>
-	</servlet-mapping>-->
-	
+
+	<!--<servlet> <servlet-name>viewadminorder</servlet-name> <servlet-class>com.smd.servlet.viewAdminOrders</servlet-class> 
+		</servlet> <servlet-mapping> <servlet-name>viewadminorder</servlet-name> 
+		<url-pattern>/viewadmin</url-pattern> </servlet-mapping> -->
+
 	<display-name>smd-distributors-automated-system</display-name>
 	<servlet>
 		<servlet-name>viewd</servlet-name>
@@ -107,7 +99,7 @@
 		<servlet-name>addd</servlet-name>
 		<url-pattern>/addd</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>odr</servlet-name>
 		<servlet-class>com.smd.servlet.getOrdertoDeliveryServlet</servlet-class>
@@ -116,7 +108,7 @@
 		<servlet-name>odr</servlet-name>
 		<url-pattern>/odr</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>dreport</servlet-name>
 		<servlet-class>com.smd.servlet.DeliveryReportServlet</servlet-class>
@@ -153,7 +145,7 @@
 		<servlet-name>viewveh</servlet-name>
 		<url-pattern>/viewveh</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>vupdated</servlet-name>
 		<servlet-class>com.smd.servlet.UpdateVehicleServlet</servlet-class>
@@ -162,7 +154,7 @@
 		<servlet-name>vupdated</servlet-name>
 		<url-pattern>/vupdated</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>viewdeldel</servlet-name>
 		<servlet-class>com.smd.servlet.ViewDeletedDeliveryServlet</servlet-class>
@@ -171,7 +163,7 @@
 		<servlet-name>viewdeldel</servlet-name>
 		<url-pattern>/viewdeldel</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>addveh</servlet-name>
 		<servlet-class>com.smd.servlet.AddVehicle</servlet-class>
@@ -180,7 +172,6 @@
 		<servlet-name>addveh</servlet-name>
 		<url-pattern>/addveh</url-pattern>
 	</servlet-mapping>
-	
 	<servlet>
 		<servlet-name>vdeleted</servlet-name>
 		<servlet-class>com.smd.servlet.DeleteVehicleServlet</servlet-class>
@@ -189,7 +180,6 @@
 		<servlet-name>vdeleted</servlet-name>
 		<url-pattern>/vdeleted</url-pattern>
 	</servlet-mapping>
-	
 
 	<!-- <welcome-file-list> <welcome-file>index.html</welcome-file> <welcome-file>index.htm</welcome-file> 
 		<welcome-file>index.jsp</welcome-file> <welcome-file>default.html</welcome-file> 
@@ -197,10 +187,10 @@
 		</welcome-file-list> -->
 
 	<!-- insert feedback -->
-	 <servlet>
+	<servlet>
 		<servlet-name>AddFeedback</servlet-name>
 		<servlet-class>com.smd.servlet.AddFeedbackServlet</servlet-class> <!-- match the servlet -->
-	 </servlet>
+	</servlet>
 
 	<servlet-mapping> <!-- path to the servlet -->
 		<servlet-name>AddFeedback</servlet-name>
@@ -208,9 +198,7 @@
 	</servlet-mapping>
 
 	<!-- view feedback -->
-	<!-- <servlet>
-		<servlet-name>ViewFeedback</servlet-name>
-		<servlet-class>com.smd.servlet.ViewFeedbackServlet</servlet-class> --> <!-- match the servlet -->
+	<!-- <servlet> <servlet-name>ViewFeedback</servlet-name> <servlet-class>com.smd.servlet.ViewFeedbackServlet</servlet-class> --> <!-- match the servlet -->
 	<!-- </servlet> -->
 
 	<servlet-mapping> <!-- path to the servlet -->
@@ -219,10 +207,8 @@
 	</servlet-mapping>
 
 	<!-- update feedback -->
-	<!-- <servlet>
-		<servlet-name>UpdateFeedback</servlet-name>
-		<servlet-class>com.smd.servlet.UpdateFeedbackServlet</servlet-class> --> <!-- match the servlet -->
-	<!-- </servlet>-->
+	<!-- <servlet> <servlet-name>UpdateFeedback</servlet-name> <servlet-class>com.smd.servlet.UpdateFeedbackServlet</servlet-class> --> <!-- match the servlet -->
+	<!-- </servlet> -->
 
 	<servlet-mapping> <!-- path to the servlet -->
 		<servlet-name>UpdateFeedback</servlet-name>
@@ -230,25 +216,18 @@
 	</servlet-mapping>
 
 	<!-- delete feedback -->
-	<!-- <servlet>
-		<servlet-name>DeleteFeedback</servlet-name>
-		<servlet-class>com.smd.servlet.DeleteFeedbackServlet</servlet-class> match the servlet -->
-	<!--</servlet>-->
+	<!-- <servlet> <servlet-name>DeleteFeedback</servlet-name> <servlet-class>com.smd.servlet.DeleteFeedbackServlet</servlet-class> 
+		match the servlet -->
+	<!--</servlet> -->
 
-	<!-- <servlet-mapping>--> <!-- path to the servlet -->
-		<!-- <servlet-name>DeleteFeedback</servlet-name>
-		<url-pattern>/delete</url-pattern> --> <!-- action to the delete form -->
+	<!-- <servlet-mapping> --> <!-- path to the servlet -->
+	<!-- <servlet-name>DeleteFeedback</servlet-name> <url-pattern>/delete</url-pattern> --> <!-- action to the delete form -->
 	<!-- </servlet-mapping> -->
 
 
-	 <!-- <servlet>
-		<servlet-name>insertorder</servlet-name>
-		<servlet-class>com.smd.servlet.AddOrder</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>insertorder</servlet-name>
-		<url-pattern>/insert</url-pattern>
-	</servlet-mapping>-->
+	<!-- <servlet> <servlet-name>insertorder</servlet-name> <servlet-class>com.smd.servlet.AddOrder</servlet-class> 
+		</servlet> <servlet-mapping> <servlet-name>insertorder</servlet-name> <url-pattern>/insert</url-pattern> 
+		</servlet-mapping> -->
 
 	<servlet>
 		<servlet-name>viewadminorder</servlet-name>
@@ -325,126 +304,126 @@
 
 
 
-<!-- Employee Management -->
+	<!-- Employee Management -->
 
 	<servlet>
-  			<servlet-name>EmployeeAdd</servlet-name>
-  			<servlet-class>com.smd.servlet.EmployeeAddServlet</servlet-class> 
-  </servlet>
-  
-  <servlet-mapping>
-      		<servlet-name>EmployeeAdd</servlet-name>
-  			<url-pattern>/addemp</url-pattern>
-  </servlet-mapping>
-  
-  
-  <servlet>
-  			<servlet-name>EmployeeView</servlet-name>
-  			<servlet-class>com.smd.servlet.EmpViewServlet</servlet-class> 
-  </servlet>
-  
-  <servlet-mapping>
-      		<servlet-name>EmployeeView</servlet-name>
-  			<url-pattern>/viewemp</url-pattern>
-  </servlet-mapping>
-  
-  
-    <servlet>
-  			<servlet-name>EmployeeUpdate</servlet-name>
-  			<servlet-class>com.smd.servlet.UpdateEmployeeServlet</servlet-class> 
-   </servlet>
-  
-  <servlet-mapping>
-      		<servlet-name>EmployeeUpdate</servlet-name>
-  			<url-pattern>/updateemp</url-pattern>
-  </servlet-mapping>
-  
-  
-  
-    <servlet>
-  			<servlet-name>EmployeeDelete</servlet-name>
-  			<servlet-class>com.smd.servlet.DeleteEmployeeServlet</servlet-class> 
-   </servlet>
-  
-  <servlet-mapping>
-      		<servlet-name>EmployeeDelete</servlet-name>
-  			<url-pattern>/deleteemp</url-pattern>
-  </servlet-mapping>
-  
-  
-  
-   
-  <servlet>
-  			<servlet-name>EmployeeAttend</servlet-name>
-  			<servlet-class>com.smd.servlet.AttendanceEmployeeServlet</servlet-class> 
-   </servlet>
-  
-  <servlet-mapping>
-      		<servlet-name>EmployeeAttend</servlet-name>
-  			<url-pattern>/empsalattnd</url-pattern>
-  </servlet-mapping>
-  
-  
-  
-  
-   <servlet>
-  			<servlet-name>EmployeeCalSal</servlet-name>
-  			<servlet-class>com.smd.servlet.CalcSalEmployeeServlet</servlet-class> 
-   </servlet>
-  
-  <servlet-mapping>
-      		<servlet-name>EmployeeCalSal</servlet-name>
-  			<url-pattern>/calc</url-pattern>
-  </servlet-mapping>
-	
-	
-	
-	
+		<servlet-name>EmployeeAdd</servlet-name>
+		<servlet-class>com.smd.servlet.EmployeeAddServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>EmployeeAdd</servlet-name>
+		<url-pattern>/addemp</url-pattern>
+	</servlet-mapping>
+
+
 	<servlet>
-  			<servlet-name>EmployeeBestAttend</servlet-name>
-  			<servlet-class>com.smd.servlet.EmpBestAttendanceServlet</servlet-class> 
-   </servlet>
-  
-  <servlet-mapping>
-      		<servlet-name>EmployeeBestAttend</servlet-name>
-  			<url-pattern>/attendemp</url-pattern>
-  </servlet-mapping>
-  
-	
-	
-		
+		<servlet-name>EmployeeView</servlet-name>
+		<servlet-class>com.smd.servlet.EmpViewServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>EmployeeView</servlet-name>
+		<url-pattern>/viewemp</url-pattern>
+	</servlet-mapping>
+
+
 	<servlet>
-  			<servlet-name>EmployeeMonthSal</servlet-name>
-  			<servlet-class>com.smd.servlet.EmployeeMonthlySalary</servlet-class> 
-   </servlet>
-  
-  <servlet-mapping>
-      		<servlet-name>EmployeeMonthSal</servlet-name>
-  			<url-pattern>/empSal</url-pattern>
-  </servlet-mapping>
-  
-	
-	
+		<servlet-name>EmployeeUpdate</servlet-name>
+		<servlet-class>com.smd.servlet.UpdateEmployeeServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>EmployeeUpdate</servlet-name>
+		<url-pattern>/updateemp</url-pattern>
+	</servlet-mapping>
+
+
+
 	<servlet>
-  			<servlet-name>EmplyBasicIn</servlet-name>
-  			<servlet-class>com.smd.servlet.EmployeeBasicDetailsServlet</servlet-class> 
-   </servlet>
-  
-  <servlet-mapping>
-      		<servlet-name>EmplyBasicIn</servlet-name>
-  			<url-pattern>/employeeBasInfo</url-pattern>
-  </servlet-mapping>
-  
-	
-		<servlet>
-  			<servlet-name>EmplyResignDetails</servlet-name>
-  			<servlet-class>com.smd.servlet.EmployeeResignedServlet</servlet-class> 
-   </servlet>
-  
-  <servlet-mapping>
-      		<servlet-name>EmplyResignDetails</servlet-name>
-  			<url-pattern>/employeeresigninfo</url-pattern>
-  </servlet-mapping>
-  
-  
+		<servlet-name>EmployeeDelete</servlet-name>
+		<servlet-class>com.smd.servlet.DeleteEmployeeServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>EmployeeDelete</servlet-name>
+		<url-pattern>/deleteemp</url-pattern>
+	</servlet-mapping>
+
+
+
+
+	<servlet>
+		<servlet-name>EmployeeAttend</servlet-name>
+		<servlet-class>com.smd.servlet.AttendanceEmployeeServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>EmployeeAttend</servlet-name>
+		<url-pattern>/empsalattnd</url-pattern>
+	</servlet-mapping>
+
+
+
+
+	<servlet>
+		<servlet-name>EmployeeCalSal</servlet-name>
+		<servlet-class>com.smd.servlet.CalcSalEmployeeServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>EmployeeCalSal</servlet-name>
+		<url-pattern>/calc</url-pattern>
+	</servlet-mapping>
+
+
+
+
+	<servlet>
+		<servlet-name>EmployeeBestAttend</servlet-name>
+		<servlet-class>com.smd.servlet.EmpBestAttendanceServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>EmployeeBestAttend</servlet-name>
+		<url-pattern>/attendemp</url-pattern>
+	</servlet-mapping>
+
+
+
+
+	<servlet>
+		<servlet-name>EmployeeMonthSal</servlet-name>
+		<servlet-class>com.smd.servlet.EmployeeMonthlySalary</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>EmployeeMonthSal</servlet-name>
+		<url-pattern>/empSal</url-pattern>
+	</servlet-mapping>
+
+
+
+	<servlet>
+		<servlet-name>EmplyBasicIn</servlet-name>
+		<servlet-class>com.smd.servlet.EmployeeBasicDetailsServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>EmplyBasicIn</servlet-name>
+		<url-pattern>/employeeBasInfo</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>EmplyResignDetails</servlet-name>
+		<servlet-class>com.smd.servlet.EmployeeResignedServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>EmplyResignDetails</servlet-name>
+		<url-pattern>/employeeresigninfo</url-pattern>
+	</servlet-mapping>
+
+
 </web-app>

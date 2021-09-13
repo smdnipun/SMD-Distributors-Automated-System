@@ -15,7 +15,7 @@ import com.smd.service.DeliveryDBUtill;
 import com.smd.service.DeliveryOrderUtill;
 
 
-@WebServlet("/AddVehicle")
+//@WebServlet("/AddVehicle")
 public class AddVehicle extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

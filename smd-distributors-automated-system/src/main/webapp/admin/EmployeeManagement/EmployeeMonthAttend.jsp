@@ -7,6 +7,12 @@
 
 	</jsp:include>
 	
+<%@ page import="java.io.PrintWriter"%>
+<%
+if (request.getSession().getAttribute("Logged") != null) {
+    //request.getSession().setAttribute("Logged", "Guest");
+%>
+	
 	
 <!DOCTYPE html>
 <html>
@@ -59,7 +65,7 @@ $(document).ready(function() {
 </head>
 <body>
 
-<jsp:include page="../../WEB-INF/views/common/header.jsp"></jsp:include>
+<jsp:include page="../../WEB-INF/views/common/adminHeader.jsp"></jsp:include>
 
 
 <div class="row">
@@ -67,6 +73,7 @@ $(document).ready(function() {
 page="EmployeeNav.jsp"></jsp:include>
 <div class="col-9">
 
+<br>
 <center>
  <h2>Employee Monthly Attendance Report</h2>
 </center>
@@ -83,7 +90,7 @@ page="EmployeeNav.jsp"></jsp:include>
 						<th scope="col">EmpType</th>
 						<th scope="col">Fname</th>
 						<th scope="col">Hours_worked</th>
-						<th scope="col">Work_Hours(perMonth)</th>
+						<th scope="col">Work_Hours</th>
 						<th scope="col">OT_Hours</th>
 						<th scope="col">Month</th>
 				
@@ -128,3 +135,12 @@ page="EmployeeNav.jsp"></jsp:include>
 <jsp:include page="../../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
 </body>
 </html>
+
+<%
+} else {
+    PrintWriter redirect = response.getWriter();
+    redirect.println("<script>");
+    redirect.println("location='./login.jsp'");//put the location from your jsp file
+    redirect.println("</script>");
+}
+%>
