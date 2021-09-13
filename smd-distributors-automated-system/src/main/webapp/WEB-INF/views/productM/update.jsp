@@ -30,23 +30,24 @@
 						<div class="mb-3">
 							<label class="form-label">Product Name</label> <input
 								name="pname" size="20" value="${product.getName()}"
-								class="form-control" />
+								class="form-control" required/>
 						</div>
 						<div class="mb-3">
 							<label class="form-label">Product Weight</label> <input
 								name="pweight" size="2" value="${product.getWeight()}"
-								type="number" class="form-control" min="1" />
+								type="number" class="form-control" min="1" required/>
 						</div>
 						<div class="mb-3">
 							<label class="form-label">Product Price</label> <input
 								name="pprice" size="10" value="${product.getPrice()}"
-								type="number" class="form-control" min="1" />
+								type="number" class="form-control" min="1" required/>
 						</div>
 						<div class="mb-3">
+						<label class="form-label">Product Image</label>
 							<%
 							Product n = (Product) request.getAttribute("product");
 							%>
-							<select name="image">
+							<select name="image" required>
 								<option value="sanstha"
 									<%=n.getImage().equals("sanstha") ? "selected" : ""%>>Sanstha</option>
 								<option value="tokyo"

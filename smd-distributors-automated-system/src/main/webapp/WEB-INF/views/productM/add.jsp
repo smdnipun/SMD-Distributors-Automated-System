@@ -14,20 +14,20 @@
 						</div>
 						<div class="mb-3">
 							<label class="form-label">Product Name</label> <input
-								name="pname" size="20" class="form-control" />
+								name="pname" size="20" class="form-control" required/>
 						</div>
 						<div class="mb-3">
 							<label class="form-label">Product Weight</label> <input
 								name="pweight" size="2" type="number" min="1"
-								class="form-control" />
+								class="form-control" required/>
 						</div>
 						<div class="mb-3">
 							<label class="form-label">Product Price</label> <input
-								name="pprice" size="10" type="number" min="1" class="form-control" />
+								name="pprice" size="10" type="number" min="1" class="form-control" required/>
 						</div>
 						<div class="mb-3">
 							<label class="form-label">Product Image</label> <select
-								name="image">
+								name="image" required>
 								<option value="sanstha">Sanstha</option>
 								<option value="tokyo">tokyo</option>
 								<option value="powertech">powertech</option>

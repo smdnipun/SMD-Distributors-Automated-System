@@ -52,9 +52,16 @@
 				<table class="table table-striped">
 					<tbody>
 						<c:forEach items="${searchData}" var="product">
-							<tr>
+							<!--<tr>
 								<td><a href="update.jsp?product=${product.getProductID()}"><c:out
 											value="${product.getName()}"></c:out></a></td>
+							</tr>-->
+							<tr>
+								<td><a href="update.jsp?product=${product.getProductID()}">
+										<img
+										src="<%=request.getContextPath()+"/img/"%>${product.getImage()}.jpg"
+										width="40" height="40" /> <c:out value="${product.getName()}"></c:out>
+								</a></td>
 							</tr>
 						</c:forEach>
 					</tbody>

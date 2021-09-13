@@ -23,11 +23,11 @@ request.setAttribute("data", customerAgedRecivable);
 </div>
 <div>
 	<!--Creating Customer balance table -->
-	<table id="payTable" class="display nowrap" style="width: 100%">
+	<table id="payTable" class="table" style="width: 100%">
 
 
 
-		<thead>
+		<thead class="thead-dark">
 
 			<tr>
 				<th scope="col">CustomerID</th>

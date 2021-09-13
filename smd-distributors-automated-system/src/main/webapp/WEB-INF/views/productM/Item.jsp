@@ -1,6 +1,5 @@
 <% String test=request.getParameter("ProductName"); 
  String[] arr=test.split(" ");
- System.out.println(arr[0]);
 %>
 <a href="AddOrder.jsp?product=${param.id}">
 <div class="text-center">

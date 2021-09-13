@@ -14,14 +14,15 @@
 			<%
 			if (request.getServletPath().equals("/index.jsp")) {
 			%>
-			<div class="input-group mb-3">
+			<div class="input-group mb-3 form-inline">
 				<form action="search" method="post">
-					<input type="text" class="form-control" aria-label="Default"
+				<div class="form-inline">
+					<input type="text" class="form-control d-inline" aria-label="Default"
 						aria-describedby="inputGroup-sizing-default" name="search"/>
-					<div class="input-group-prepend">
-						<button type="submit" class="input-group-text" id="inputGroup-sizing-default"><i
-							class="bi bi-search"></i></button>
-					</div>
+					<!--<div class="input-group-prepend">-->
+						<button type="submit" class="input-group-text d-inline" id="inputGroup-sizing-default"><i
+							class="bi bi-search"></i></button></div>
+					<!--</div>-->
 				</form>
 			</div>
 			<%
