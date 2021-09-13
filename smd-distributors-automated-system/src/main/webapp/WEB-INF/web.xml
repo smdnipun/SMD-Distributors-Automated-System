@@ -172,6 +172,24 @@
 		<url-pattern>/viewdeldel</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>addveh</servlet-name>
+		<servlet-class>com.smd.servlet.AddVehicle</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>addveh</servlet-name>
+		<url-pattern>/addveh</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>vdeleted</servlet-name>
+		<servlet-class>com.smd.servlet.DeleteVehicleServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>vdeleted</servlet-name>
+		<url-pattern>/vdeleted</url-pattern>
+	</servlet-mapping>
+	
 
 	<!-- <welcome-file-list> <welcome-file>index.html</welcome-file> <welcome-file>index.htm</welcome-file> 
 		<welcome-file>index.jsp</welcome-file> <welcome-file>default.html</welcome-file> 

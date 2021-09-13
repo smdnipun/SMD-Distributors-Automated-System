@@ -89,7 +89,15 @@ if (request.getSession().getAttribute("Logged") != null) {
 	
 	
 	
+	<form action=<%=request.getContextPath() + "/dreport"%> method="post">
 	
+	<div class="mb-4">
+				<label for="formGroupExampleInput" class="form-label">Date</label>
+				<input type="date" name="rdate" aria-describedby="" class="form-control" id="formGroupExampleInput" required>
+	</div>
+	<button type="submit" name="report" class="btn btn-primary"style="background-color:#fbda57; color:#000000">Generate Report </button>
+	
+	</form>
 	
 	</div>
 	

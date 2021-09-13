@@ -285,5 +285,35 @@ public static List<Delivery> deliveryReport(String date){
 		}
 		return dil;
 		
-	}	
+	}
+
+
+
+
+	public static boolean insertVehicle(String vnum, String idate, String ldate, String type, double wweight,String status) {
+		
+		boolean isSuccess=false;
+		
+		try {
+			con = DBConnection.getConnection();
+			stmt = con.createStatement();
+			String sql = "insert into vehicle values('"+vnum+"','"+idate+"','"+ldate+"','"+type+"','"+wweight+"','"+status+"')";
+			int rrs = stmt.executeUpdate(sql);
+			
+			if(rrs>0) {
+				isSuccess=true;
+			}else {
+				isSuccess=false;
+			}		
+		}
+		catch(Exception e) {		
+			e.printStackTrace();		
+		}
+		return isSuccess;
+	}
+
+
+
+
+
 }

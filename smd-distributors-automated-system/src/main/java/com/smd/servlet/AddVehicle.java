@@ -15,29 +15,26 @@ import com.smd.service.DeliveryDBUtill;
 import com.smd.service.DeliveryOrderUtill;
 
 
-@WebServlet("/addDeliveryServlet")
-public class addDeliveryServlet extends HttpServlet {
+@WebServlet("/AddVehicle")
+public class AddVehicle extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	
+       
+   
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String route = request.getParameter("route");
-		String date = request.getParameter("date");
+
+		String vnum = request.getParameter("vnum");
+		String ldate = request.getParameter("ldate");
+		String idate = request.getParameter("idate");
+		String type = request.getParameter("type");
+		String weight = request.getParameter("weight");
 		String status = request.getParameter("status");
-		String oid = request.getParameter("oid");
-		String cid = request.getParameter("cid");
-		String vehicle = request.getParameter("vehicle");
 		
-		int ooid = Integer.parseInt(oid);
-		int ccid = Integer.parseInt(cid);
-		
-		
-		
+		double wweight = Double.parseDouble(weight);
+
 		
 		boolean isTrue;
 		
-		isTrue = DeliveryDBUtill.insertDelivery(route, date, status, ooid, ccid,vehicle);
+		isTrue = DeliveryDBUtill.insertVehicle(vnum, idate, ldate, type, wweight,status);
 		
 		if(isTrue==true) {
 			
@@ -46,10 +43,11 @@ public class addDeliveryServlet extends HttpServlet {
 			
 		}
 		else {
-			RequestDispatcher dis2 = request.getRequestDispatcher("admin/DeliveryManage/deliveryHome.jsp");
+			RequestDispatcher dis2 = request.getRequestDispatcher("admin/DeliveryManage/Unsuccess.jsp");
 			dis2.forward(request, response);
 		}
 		
+	
 	}
 
 }
