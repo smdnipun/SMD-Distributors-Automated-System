@@ -5,8 +5,9 @@
 		<a class="nav-link" id="v-tabs-home-tab" data-mdb-toggle="tab"
 			href="#v-tabs-home" role="tab" aria-controls="v-tabs-home"
 			aria-selected="true">Home</a> 
-			<a class="nav-link" id="v-tabs-home-tab" data-mdb-toggle="tab"
+
+			<!-- <a class="nav-link" id="v-tabs-home-tab" data-mdb-toggle="tab"
 			href="#v-tabs-home" role="tab" aria-controls="v-tabs-home"
-			aria-selected="true">Generate Report</a> 
+			aria-selected="true">Generate Report</a> --> 
 	</div>
 </div>

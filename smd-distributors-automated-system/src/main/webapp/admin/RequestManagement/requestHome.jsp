@@ -11,7 +11,7 @@ if (request.getSession().getAttribute("Logged") != null) {
 <!DOCTYPE html>
 <html>
 <head>
-	<jsp:include page="../WEB-INF/views/common/head.jsp">
+	<jsp:include page="../../WEB-INF/views/common/head.jsp">
 	<jsp:param name="Title" value="SMD Distributors" /></jsp:include>
 	<meta charset="ISO-8859-1">
 	 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/requesthome.css">
@@ -19,9 +19,9 @@ if (request.getSession().getAttribute("Logged") != null) {
 
 </head>
 <body class="hbody">
-	<jsp:include page="../WEB-INF/views/common/adminHeader.jsp"></jsp:include> 
+	<jsp:include page="../../WEB-INF/views/common/adminHeader.jsp"></jsp:include> 
 	<div class="row">
-	<jsp:include page="../WEB-INF/views/Request/AdminRequestnavbar.jsp"></jsp:include> 
+	<jsp:include page="../../WEB-INF/views/Request/AdminRequestnavbar.jsp"></jsp:include> 
 	
 	<div class="col-9">
 	<br>
@@ -44,6 +44,7 @@ if (request.getSession().getAttribute("Logged") != null) {
 					<th scope="col">Rating</th>
 					<th scope="col">Status</th>
 					<th scope="col" colspan="2" style="text-align: center;">Action</th>
+					<th scope="col">Confirmation Email</th>
 				</tr>	
 			</thead>
 			<tbody>
@@ -72,7 +73,7 @@ if (request.getSession().getAttribute("Logged") != null) {
 							
 							<td>
 								<!-- set the page that need to be navigated when updating as the value -->
-								<c:url value="RequestManage/updateFeedback.jsp" var="feedbackupdate">
+								<c:url value="admin/RequestManagement/updateFeedback.jsp" var="feedbackupdate">
 				
 									<!-- data to take to the navigated page -->
 									<c:param name="Feedback_ID" value="${Feedback_ID}"></c:param> <!-- feedbackid is unique auto-incremented -->
@@ -93,7 +94,7 @@ if (request.getSession().getAttribute("Logged") != null) {
 								
 							<td>
 								<!-- set the page that need to be navigated when deleting as the value -->
-								<c:url value="RequestManage/deleteFeedback.jsp" var="feedbackdelete">
+								<c:url value="admin/RequestManagement/deleteFeedback.jsp" var="feedbackdelete">
 									
 									<!-- data to take to the navigated page -->
 									<c:param name="Feedback_ID" value="${Feedback_ID}"></c:param> <!-- feedbackid is unique auto-incremented -->
@@ -111,35 +112,45 @@ if (request.getSession().getAttribute("Logged") != null) {
 									<button type="button" class="btn btn-outline-dark">Delete</button>
 								</a>
 							</td>
+							
+							<td>
+						
+								<c:url value="admin/RequestManagement/feedbackEmail.jsp" var="feedbackemail">
+						
+								</c:url>
+								<a href="feedbackemail"> <!-- pass the variable name -->
+									<button type="button" class="btn btn-outline-dark">Send</button>
+								</a>
+							</td>
 					</tr>	
 				</c:forEach>
 				</tbody>
 			</table>
 		</div>
 	<br>
-		<%-- <div class="col-10">
+	<div class="col-10">
 			<form action=<%=request.getContextPath() + "/feedbackreport"%> method="post" class="reportform">
 			
 				<div class="mb-4">
 							<h6 style="padding: 10px">Date</h6>
-							<input type="date" name="Date" class="form-control" id="formGroupExampleInput" style="width: 300px">
+							<input type="date" name="fdate" class="form-control" id="formGroupExampleInput" style="width: 300px">
 				</div>
 				<!-- <button type="button" class="btn btn-outline-dark" style="margin: 10px">Generate Report </button> -->
 				<div class="submit">
-		      <input type="submit" value="Generate Report" id="form_button" />
+		      <input type="submit" value="Generate Report" id="form_button" style="width: 50%"/>
 		    </div>
 			</form>
-		</div>	 --%>
+		</div>
 		</div><br><br>
 		</div><br><br>
-	<jsp:include page="../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
+	<jsp:include page="../../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
 </body>
 </html>
 <%
 } else {
     PrintWriter redirect = response.getWriter();
     redirect.println("<script>");
-    redirect.println("location='../login.jsp'");//put the location from your jsp file
+    redirect.println("location='../../login.jsp'");//put the location from your jsp file
     redirect.println("</script>");
 }
 %>

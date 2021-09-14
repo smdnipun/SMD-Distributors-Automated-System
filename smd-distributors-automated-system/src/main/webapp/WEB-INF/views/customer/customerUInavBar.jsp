@@ -32,7 +32,7 @@
         </div>
 			
 		<a class="nav-link" id="v-tabs-Feedback-tab" data-mdb-toggle="tab"
-			href="RequestC/customerServices.jsp" role="tab" aria-controls="v-tabs-Feedback"
+			href="customerServices.jsp" role="tab" aria-controls="v-tabs-Feedback"
 			aria-selected="false">Feedback</a> 
 			
 	</div>

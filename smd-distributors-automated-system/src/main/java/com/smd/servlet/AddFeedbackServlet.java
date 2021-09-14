@@ -49,11 +49,14 @@ public class AddFeedbackServlet extends HttpServlet {
 						out.println("});");
 						out.println("</script>"); 
 						
-						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/RequestC/customerServices.jsp");
-						dispatcher.include(request, response);
+						/*
+						 * RequestDispatcher dispatcher =
+						 * getServletContext().getRequestDispatcher("/customerServices.jsp");
+						 * dispatcher.include(request, response);
+						 */
 						
-						//RequestDispatcher dispatcher = request.getRequestDispatcher("/RequestC/customerServices.jsp");
-						//dispatcher.forward(request, response);//redirecting from the servlet to
+						response.sendRedirect("./customerServices.jsp");
+						
 						
 					}else {//if the data wasn't passed to the database successfully 
 						PrintWriter out = response.getWriter();
@@ -65,11 +68,14 @@ public class AddFeedbackServlet extends HttpServlet {
 						out.println("});");
 						out.println("</script>"); 
 						
-						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/RequestC/customerServices.jsp");
-						dispatcher.include(request, response);
+						/*
+						 * RequestDispatcher dispatcher =
+						 * getServletContext().getRequestDispatcher("/customerServices.jsp");
+						 * dispatcher.include(request, response);
+						 */
 						
-						//RequestDispatcher dispatcher = request.getRequestDispatcher("/RequestC/customerServices.jsp");
-						//dispatcher.forward(request, response);//redirecting from the servlet to
+						response.sendRedirect("./customerServices.jsp");
+						
 					}
 				}catch (Exception e) {
 					e.printStackTrace();
