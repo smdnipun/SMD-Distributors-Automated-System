@@ -50,7 +50,7 @@ public class UpdateFeedbackServlet extends HttpServlet {
 						out.println("</script>");
 						
 						//redirecting from the servlet to
-						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/RequestManage/viewFeedback.jsp");
+						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/RequestManagement/viewFeedback.jsp");
 						dispatcher.include(request, response);
 						
 						//RequestDispatcher dis= request.getRequestDispatcher("/RequestManage/requestHome.jsp");
@@ -69,7 +69,7 @@ public class UpdateFeedbackServlet extends HttpServlet {
 						out.println("</script>");
 						
 						//redirecting from the servlet to
-						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/RequestManage/viewFeedback.jsp");
+						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/RequestManagement/viewFeedback.jsp");
 						dispatcher.include(request, response);
 						
 						//RequestDispatcher dis= request.getRequestDispatcher("/RequestManage/requestHome.jsp");

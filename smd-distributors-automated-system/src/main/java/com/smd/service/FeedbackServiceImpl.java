@@ -174,12 +174,10 @@ public class FeedbackServiceImpl implements IFeedback {
 				int Feedback_ID=rs.getInt(1);
 				int Cus_ID= rs.getInt(2);
 				String Date= rs.getString(3);
-				String Type=rs.getString(4);
 				String Message=rs.getString(5);
-				int Rating=rs.getInt(6);
 				String Status=rs.getString(7);
 				
-				Feedback f1= new Feedback(Feedback_ID,Cus_ID,Date, Type, Message, Rating, Status);
+				Feedback f1= new Feedback(Feedback_ID,Cus_ID,Date, Message, Status);
 				feed.add(f1);
 			}
 			

@@ -11,12 +11,12 @@ if (request.getSession().getAttribute("Logged") != null) {
 <head>
 	<meta charset="ISO-8859-1">
 	<title>Delete Feedback</title>
-	<jsp:include page="../WEB-INF/views/common/head.jsp">
+	<jsp:include page="../../WEB-INF/views/common/head.jsp">
 	<jsp:param name="Title" value="SMD Distributors" /></jsp:include>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/requesthome.css">
 </head>
 <body class="dbody">
-	<jsp:include page="../WEB-INF/views/common/adminHeader.jsp"></jsp:include>
+	<jsp:include page="../../WEB-INF/views/common/adminHeader.jsp"></jsp:include>
 	<br>
 	
 		
@@ -32,7 +32,7 @@ if (request.getSession().getAttribute("Logged") != null) {
 		%>
 		<div class="formcontent">
 		<h5 class="capitalize" align="center">Delete the record</h5>
-		<form action="../deletefeedback" method="post" class="form">
+		<form action="${pageContext.request.contextPath}/deletefeedback" method="post" class="form">
 			<%-- Feedback ID: <input type="text" name="Feedback_ID" value="<%= Feedback_ID %>" readonly> <br><br>
 			Customer ID: <input type="text" name="Cus_ID" value="<%= Cus_ID %>" readonly> <br><br>
 			Date:  <input type="text" name="Date" value="<%= Date %>" readonly> <br><br>
@@ -88,14 +88,14 @@ if (request.getSession().getAttribute("Logged") != null) {
 			<input type="submit" name="submit" id="form_button" value="Delete The Data">
 		</form>
 		</div><br><br><br><br>
-	<jsp:include page="../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
+	<jsp:include page="../../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
 </body>
 </html>
 <%
 } else {
     PrintWriter redirect = response.getWriter();
     redirect.println("<script>");
-    redirect.println("location='../login.jsp'");//put the location from your jsp file
+    redirect.println("location='../../login.jsp'");//put the location from your jsp file
     redirect.println("</script>");
 }
 %>

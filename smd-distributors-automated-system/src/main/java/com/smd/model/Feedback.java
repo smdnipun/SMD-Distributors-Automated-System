@@ -23,6 +23,15 @@ public class Feedback {
 		this.status = Status;
 	}
 
+	//constructor for reports
+	public Feedback(int Feedback_ID, int Cus_ID, String Date, String Message, String Status) {
+		this.feedback_ID = Feedback_ID;
+		this.cus_ID = Cus_ID;
+		this.date = Date;
+		this.message = Message;
+		this.status = Status;
+	}
+
 	//getters and setters for each property to return the values
 	public int getFeedback_ID() {
 		return feedback_ID;

@@ -10,12 +10,12 @@ if (request.getSession().getAttribute("Logged") != null) {
 <head>
 	<meta charset="ISO-8859-1">
 	<title>View Feedback</title>
-	<jsp:include page="../WEB-INF/views/common/head.jsp">
+	<jsp:include page="../../WEB-INF/views/common/head.jsp">
 	<jsp:param name="Title" value="SMD Distributors" /></jsp:include>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/requesthome.css">
 </head>
 <body class="vbody">
-	<jsp:include page="../WEB-INF/views/common/adminHeader.jsp"></jsp:include>
+	<jsp:include page="../../WEB-INF/views/common/adminHeader.jsp"></jsp:include>
 	<br><br><br>
 	
 	<div class ="vcontt">
@@ -30,14 +30,14 @@ if (request.getSession().getAttribute("Logged") != null) {
 		</form>
 	</div>
 	<br><br><br><br><br><br><br><br><br>
-	<jsp:include page="../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
+	<jsp:include page="../../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
 </body>
 </html>
 <%
 } else {
     PrintWriter redirect = response.getWriter();
     redirect.println("<script>");
-    redirect.println("location='../login.jsp'");//put the location from your jsp file
+    redirect.println("location='../../login.jsp'");//put the location from your jsp file
     redirect.println("</script>");
 }
 %>
