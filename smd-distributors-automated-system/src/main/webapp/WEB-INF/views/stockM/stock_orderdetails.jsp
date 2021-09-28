@@ -19,7 +19,7 @@ request.setAttribute("stockorderdata", newstock);
 	<jsp:include page="./stockupnav.jsp"></jsp:include>
 </div>
 <!-- stockorder Table -->
-<div class="col-7 text-center align">
+<div class="col-8 text-center align">
 	<table class="table table-hover">
 
 		<thead>
@@ -36,16 +36,17 @@ request.setAttribute("stockorderdata", newstock);
 			<!-- Pass the data from DB -->
 			<c:forEach items="${stockorderdata}" var="Stockorder">
 				<form action="../../ReleasOrders" method="post">
-				<tr>
-				    <td><input readonly type="text" name="oID"
-								value="<c:out value="${Stockorder.getoID()}"/>"></td>
-					<%-- <td><c:out value="${Stockorder.getoID()}" /></td> --%>
-					<td><c:out value="${Stockorder.getQty()}" /></td>
-					<td><c:out value="${Stockorder.getOdate()}" /></td>
-					<td><c:out value="${Stockorder.getpName()}" /></td>
-					<td><button type="submit" class="btn btn-secondary"
-					style="background-color: #c28f48" name="button" value="accept" />Accept</button>
-						</form></td>
+					<tr>
+						<td><input readonly type="text" name="oID"
+							value="<c:out value="${Stockorder.getoID()}"/>"></td>
+						<td><c:out value="${Stockorder.getQty()}" /></td>
+						<td><c:out value="${Stockorder.getOdate()}" /></td>
+						<td><c:out value="${Stockorder.getpName()}" /></td>
+						<td><button type="submit" class="btn btn-secondary"
+								style="background-color: #c28f48" name="button" value="accept" />Accept
+							</button>
+				</form>
+				</td>
 				</tr>
 
 			</c:forEach>

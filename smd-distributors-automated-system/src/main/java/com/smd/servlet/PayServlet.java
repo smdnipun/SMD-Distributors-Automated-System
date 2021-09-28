@@ -60,13 +60,16 @@ public class PayServlet extends HttpServlet {
 				// insert data into payment table
 				String command = "INSERT INTO payment(Amount,Date,Order_ID,Cus_ID,Emp_ID)" + "VALUES('"
 						+ request.getParameter("PaidAmount") + "'" + "," + "'" + request.getParameter("Date") + "'"
-						+ "," + "'" + OID + "'" + "," + "'" + CID + "'" + "," + "'1'" + ")";
+						+ "," + "'" + OID + "'" + "," + "'" + CID + "'" + "," + request.getSession().getAttribute("empID") + ")";
 				
 				
 				double TotalPaid = pamount + paidAmount;
 				double TotalRemain = ramount - paidAmount;
 
 				// update the order table
+//				String command1 = "update orders SET Paid_Amount =" + TotalPaid + "," + 
+//						" WHERE Cust_ID =" + CID + " and Order_ID=" + OID;
+				
 				String command1 = "update orders SET Paid_Amount =" + TotalPaid + "," + " Remaining_Amount="
 						+ TotalRemain + " WHERE Cust_ID =" + CID + " and Order_ID=" + OID;
 
@@ -94,7 +97,7 @@ public class PayServlet extends HttpServlet {
 		else {
 			//display an error message
 			out.println("<script type=\"text/javascript\">");
-		    out.println("alert('You entered the order ID or customer ID incorrectly or entered the payment incorrectly, please try again !!');");
+		    out.println("alert('You entered the order ID or customer ID or entered the payment incorrectly, please try again !!');");
 		    out.println("location='admin/CreditSalesManagement/CreditPayment.jsp'");//redirect to the registration page
 		    out.println("</script>");
 

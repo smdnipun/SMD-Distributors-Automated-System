@@ -1,7 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
+<%@ page import="java.io.PrintWriter"%>
+<%
+if (request.getSession().getAttribute("Logged") != null) {
+    //request.getSession().setAttribute("Logged", "Guest");
+%>
     
 <!DOCTYPE html>
+
 <html>
 <head>
 	<jsp:include page="../../WEB-INF/views/common/head.jsp">
@@ -15,26 +22,44 @@
 		
 		<div class="row">
 			<jsp:include
-				page="../../WEB-INF/views/Delivery/DeliveryNavigationbar.jsp"></jsp:include>
-			<div class="col-9">
+				page="../../WEB-INF/views/Delivery/HomeNavi.jsp"></jsp:include>
+			<div class="col-8">
 				
 				
+				<br/>				<br/><br/>				<br/><br/>
 				
 				
+			<center>	
 				
 				<form action=<%=request.getContextPath() + "/viewd"%> method="post">
 				
-					<input type="submit" name="view" value="view">
+					<input class="btn btn-warning" type="submit" name="view" value="View Deliveries">
 				</form>
+				
+				<br/><br/>
 				
 				<form action=<%=request.getContextPath() + "/odr"%> method="post">
 				
-					<input type="submit" name="odr" value="Add">
+					<input class="btn btn-warning" type="submit" name="odr" value="Make Delivery">
 				</form>
 				
-							
+								<br/><br/>
 				
+				<form action=<%=request.getContextPath() + "/viewveh"%> method="post">
 				
+					<input class="btn btn-warning" type="submit" name="viewveh" value="Vehicle Details">
+				</form>
+				
+								<br/><br/>
+				
+				<form action=<%=request.getContextPath() + "/viewdeldel"%> method="post">
+				
+					<input class="btn btn-warning" type="submit" name="view" value="View Deleted Deliveries">
+				</form>
+				
+								<br/>
+				
+				</center>	
 		
 				
 			</div>
@@ -44,3 +69,11 @@
 	
 </body>
 </html>
+<%
+} else {
+    PrintWriter redirect = response.getWriter();
+    redirect.println("<script>");
+    redirect.println("location='../../login.jsp'");//put the location from your jsp file
+    redirect.println("</script>");
+}
+%>

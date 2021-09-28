@@ -3,7 +3,8 @@
 <%@ page import="com.smd.service.ProductDB"%>
 <div class="row">
 	<jsp:include page="../common/navbar.jsp">
-		<jsp:param name="navs" value="home,/" />
+		<jsp:param name="navs"
+			value="View All Products,all.jsp_Add Products,add.jsp" />
 	</jsp:include>
 	<%
 	if (request.getParameter("product") != null) {

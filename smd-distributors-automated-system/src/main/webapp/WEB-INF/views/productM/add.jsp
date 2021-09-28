@@ -1,7 +1,7 @@
 <div class="row">
 	<jsp:include page="../common/navbar.jsp">
 		<jsp:param name="navs"
-			value="View All Products,all.jsp_ddddd,fff_ddddd,fff" />
+			value="View All Products,all.jsp_Add Products,add.jsp" />
 	</jsp:include>
 	<div class="col-10 my-auto">
 		<div class="content">

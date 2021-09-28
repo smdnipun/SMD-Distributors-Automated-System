@@ -49,13 +49,11 @@ public class AddFeedbackServlet extends HttpServlet {
 						out.println("});");
 						out.println("</script>"); 
 						
-						/*
-						 * RequestDispatcher dispatcher =
-						 * getServletContext().getRequestDispatcher("/customerServices.jsp");
-						 * dispatcher.include(request, response);
-						 */
+//						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/RequestC/customerServices.jsp");
+//						dispatcher.include(request, response);
 						
-						response.sendRedirect("./customerServices.jsp");
+						
+						response.sendRedirect("./RequestC/customerServices.jsp");
 						
 						
 					}else {//if the data wasn't passed to the database successfully 
@@ -68,13 +66,10 @@ public class AddFeedbackServlet extends HttpServlet {
 						out.println("});");
 						out.println("</script>"); 
 						
-						/*
-						 * RequestDispatcher dispatcher =
-						 * getServletContext().getRequestDispatcher("/customerServices.jsp");
-						 * dispatcher.include(request, response);
-						 */
+//						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/RequestC/customerServices.jsp");
+//						dispatcher.include(request, response);
 						
-						response.sendRedirect("./customerServices.jsp");
+						response.sendRedirect("./RequestC/customerServices.jsp");
 						
 					}
 				}catch (Exception e) {

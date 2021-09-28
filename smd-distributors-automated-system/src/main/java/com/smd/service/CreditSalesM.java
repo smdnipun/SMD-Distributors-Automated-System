@@ -232,7 +232,7 @@ public class CreditSalesM {
 
 		try {
 			Statement stmt = con.getConnection().createStatement();
-			String command = "select * from orders where Cust_ID=" + id;
+			String command = "select * from orders where Cust_ID=" + id  ;
 			ResultSet rs = stmt.executeQuery(command);
 			while (rs.next()) {
 				Order n = new Order(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getDouble(5),

@@ -35,6 +35,7 @@ request.setAttribute("supplierdata", newsupplier);
 				</tr>
 			</thead>
 			<tbody>
+			<!--get the date from Supplier table DB -->
 				<c:forEach items="${supplierdata}" var="Supplier">
 				<form action="../../SupplierInactiveUpdate" method="post">
 						<tr>
@@ -44,7 +45,7 @@ request.setAttribute("supplierdata", newsupplier);
 								value="<c:out value="${Supplier.getSupplierID()}"/>"></td>
 							<td><input type="text" name="sname"
 								value="<c:out value="${Supplier.getSName()}"/>"></td>
-								<td><input type="text" name="pname"
+							<td><input type="text" name="pname"
 								value="<c:out value="${Supplier.getPName()}"/>"></td>
 							<td><input type="text" name="address"
 								value="<c:out value="${Supplier.getAddress()}"/>"></td>

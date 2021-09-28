@@ -63,11 +63,12 @@ public class Login extends HttpServlet {
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+		//checking employee details 
 		try {
 			for(int i=0;i<employeeData.length;i++) {
 				if((employeeData[i].getEmail().equals(request.getParameter("email")))&&(employeeData[i].getPassword().equals(pwd))) {
 					Found=true;
+					//checking employee type and setting session
 					if(employeeData[i].getEmp_Type().equals("proManager")) {
 						request.getSession().setAttribute("Logged","Product");
 						response.sendRedirect("admin/ProductM/all.jsp");
@@ -95,7 +96,7 @@ public class Login extends HttpServlet {
 					}
 					else if(employeeData[i].getEmp_Type().equals("reqManager")) {
 						request.getSession().setAttribute("Logged","reqManager");
-						response.sendRedirect("admin/RequestManagement/viewFeedback.jsp");
+						response.sendRedirect("RequestManage/viewFeedback.jsp");
 					}
 					else if(employeeData[i].getEmp_Type().equals("cusManager")) {
 						request.getSession().setAttribute("Logged","cusManager");

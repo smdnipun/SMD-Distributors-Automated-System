@@ -10,7 +10,7 @@ import com.smd.model.Stockorder;
 import com.smd.model.Stocksummary;
 
 public class StockDB {
-	// Stock
+	// Database connection of Stock
 	public Stock[] getStockdetails() {
 		List<Stock> ll = new LinkedList<Stock>();
 		Stock[] array = null;
@@ -29,8 +29,28 @@ public class StockDB {
 		return array;
 
 	}
+	
+	// Database connection of Stock
+	public Stock[] getStockdeletedetails() {
+		List<Stock> ll = new LinkedList<Stock>();
+		Stock[] array = null;
+		DBConnection con = new DBConnection();
+		try {
+			Statement stmt = con.getConnection().createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM stock where Status ='delete';");
+			while (rs.next()) {
+				Stock n = new Stock(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5));
+				ll.add(n);
+			}
+			array = ll.toArray(new Stock[ll.size()]);
 
-//Stockorder
+		} catch (Exception e) {
+		}
+		return array;
+
+	}
+
+//Database connection of Stockorder
 	public Stockorder[] getStockorder() {
 
 		List<Stockorder> ll = new LinkedList<Stockorder>();
@@ -52,7 +72,7 @@ public class StockDB {
 
 	}
 
-//Stocksummary
+//Database connection of Stocksummary
 	public Stocksummary[] getStocksummary() {
 
 		List<Stocksummary> ll = new LinkedList<Stocksummary>();
@@ -74,7 +94,7 @@ public class StockDB {
 
 	}
 
-//Stocksummarycheck
+//Databse connection of Stocksummarycheck
 
 	public int getQuantity(String name) {
 		DBConnection con = new DBConnection();
