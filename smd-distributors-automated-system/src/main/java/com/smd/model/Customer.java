@@ -12,6 +12,7 @@ public class Customer {
 		private String address;
 		private String status;
 		private String code;
+		private String date;
 
 		/*Default constructor*/
 		public Customer() {
@@ -19,9 +20,8 @@ public class Customer {
 		}
 		
 		/*customer overloaded Constructor*/
-		
 		public Customer(String cusID, String fname, String lname, String hardwareName, String phoneNo,
-				String password, String nic, String email, String address, String status) {
+				String password, String nic, String email, String address, String status, String date) {
 			super();
 			this.cusID = cusID;
 			this.fname = fname;
@@ -33,6 +33,7 @@ public class Customer {
 			this.email = email;
 			this.address = address;
 			this.status = status;
+			this.date = date;
 		}
 		
 		public Customer(String cusID, String email, String code) {
@@ -129,5 +130,13 @@ public class Customer {
 		
 		public void setCode(String code) {
 			this.code = code;
+		}
+
+		public String getDate() {
+			return date;
+		}
+
+		public void setDate(String date) {
+			this.date = date;
 		}
 }

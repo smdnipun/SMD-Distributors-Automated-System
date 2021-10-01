@@ -6,6 +6,7 @@ import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.smd.model.BestCustomers;
 import com.smd.model.Customer;
 import com.smd.model.OrderSummary;
 import com.smd.model.PaySummary;
@@ -42,7 +43,8 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 						rs.getString(7),	//nic
 						rs.getString(8),	//email
 						rs.getString(9),	//address
-						rs.getString(10)	//status
+						rs.getString(10),	//status
+						rs.getString(11) 	//date
 						);
 				ll.add(c);
 			}
@@ -85,7 +87,8 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 						rs.getString(7),	//nic
 						rs.getString(8),	//email
 						rs.getString(9),	//address
-						rs.getString(10)	//status
+						rs.getString(10),	//status
+						rs.getString(11) 	//date
 						);
 				ll.add(c);
 			}
@@ -147,7 +150,8 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 						rs.getString(7),	//nic
 						rs.getString(8),	//email
 						rs.getString(9),	//address
-						rs.getString(10)	//status
+						rs.getString(10),	//status
+						rs.getString(11)
 						);
 				ll.add(c);
 			}
@@ -208,7 +212,8 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 						rs.getString(7),	//nic
 						rs.getString(8),	//email
 						rs.getString(9),	//address
-						rs.getString(10)	//status
+						rs.getString(10),	//status
+						rs.getString(11)
 						);
 				return c;
 			}
@@ -230,8 +235,8 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 		try {
 			Statement stmt = dbc.getConnection().createStatement();
 			
-			String command = "insert into smd.customer(First_Name,Last_Name,Hardware_Name,Phone,Password,NIC,Email,Address,Status)"
-					+ "VALUES('" + customer.getFname() + "','" + customer.getLname() + "','" + customer.getHardwareName() + "','" + customer.getPhoneNo() + "','" + customer.getPassword() + "','" + customer.getNIC() + "','" + customer.getEmail() + "','" + customer.getAddress() + "','" + "Active" + "')";
+			String command = "insert into smd.customer(First_Name,Last_Name,Hardware_Name,Phone,Password,NIC,Email,Address,Status,reg_date)"
+					+ "VALUES('" + customer.getFname() + "','" + customer.getLname() + "','" + customer.getHardwareName() + "','" + customer.getPhoneNo() + "','" + customer.getPassword() + "','" + customer.getNIC() + "','" + customer.getEmail() + "','" + customer.getAddress() + "','" + "Active" + "','" + customer.getDate() +"')";
 	
 			int result = stmt.executeUpdate(command);//execute the statement
 			
@@ -418,7 +423,8 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 						rs.getString(7),	//nic
 						rs.getString(8),	//email
 						rs.getString(9),	//address
-						rs.getString(10)	//status
+						rs.getString(10),	//status
+						rs.getString(11)	//date
 						);
 				ll.add(c);
 			}
@@ -563,4 +569,37 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 //		return Success;
 //	}
 
+	public BestCustomers[] getBestCus() {
+		//create linked list to take the data from the database.
+		List<BestCustomers> ll = new LinkedList<BestCustomers>();
+		
+		//Created an array to store all the customer details.
+		BestCustomers[] array = null;
+		
+		//Make the connection with Database
+		DBConnection con = new DBConnection();
+		
+		try {
+			Statement stmt = con.getConnection().createStatement();
+			String command = "select * from smd.bestCustomers";
+			ResultSet rs = stmt.executeQuery(command);//execute the statement
+			
+			//Adding the data retrieved from the database to the LinkList
+			while (rs.next()) {
+				BestCustomers p = new BestCustomers(
+						rs.getString(1),	//customer ID
+						rs.getString(2),	//Hardware name
+						rs.getString(3), 	//phone No
+						rs.getString(4),	//month
+						rs.getString(5)		//Quantity
+						);
+				ll.add(p);
+			}
+			//Inserting the value in the LinkList to the array
+			array = ll.toArray(new BestCustomers[ll.size()]);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}	
+		return array;
+	}
 }
