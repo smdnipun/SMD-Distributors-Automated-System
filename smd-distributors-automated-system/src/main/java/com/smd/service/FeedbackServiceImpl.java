@@ -37,13 +37,14 @@ public class FeedbackServiceImpl implements IFeedback {
 				while(result.next()) {
 					int Feedback_ID=result.getInt(1);
 					int Cus_ID=result.getInt(2);
-					String Date=result.getString(3);
-					String Type=result.getString(4);
-					String Message=result.getString(5);
-					int Rating=result.getInt(6);
-					String Status=result.getString(7);
+					String Email=result.getString(3);
+					String Date=result.getString(4);
+					String Type=result.getString(5);
+					String Message=result.getString(6);
+					int Rating=result.getInt(7);
+					String Status=result.getString(8);
 					
-					Feedback f1 = new Feedback(Feedback_ID,Cus_ID,Date, Type,Message, Rating, Status);
+					Feedback f1 = new Feedback(Feedback_ID,Cus_ID, Email, Date, Type,Message, Rating, Status);
 					feedback1.add(f1);
 				}
 			}catch (Exception e) {
@@ -55,7 +56,7 @@ public class FeedbackServiceImpl implements IFeedback {
 
 	@Override
 	//2. to get the passed feedback details inserted by the customer
-	public boolean addFeedback(String Feedback_ID, String Cus_ID, String Date, String Type, String Message, String Rating, String Status) {
+	public boolean addFeedback(String Feedback_ID, String Cus_ID, String Email, String Date, String Type, String Message, String Rating, String Status) {
 		boolean isSuccess = false;//assign this to false before execution of query
 		
 		try {
@@ -63,7 +64,7 @@ public class FeedbackServiceImpl implements IFeedback {
 			state=con.getConnection().createStatement();
 			
 			String sql="Insert into feedback "
-					+ "values(0,'"+Cus_ID+"',NOW(),'"+Type+"','"+Message+"','"+Rating+"',null)";
+					+ "values(0,'"+Cus_ID+"','"+Email+"',NOW(),'"+Type+"','"+Message+"','"+Rating+"',null)";
 			
 			//PreparedStatement stmt = (PreparedStatement) con.prepareStatement(sql);
 				
@@ -85,7 +86,7 @@ public class FeedbackServiceImpl implements IFeedback {
 
 	@Override
 	//3.method to update a certain feedback tuple in the database passed by the feedbackid
-	public boolean updateFeedback(String Feedback_ID, String Cus_ID, String Date, String Type, String Message, String Rating,
+	public boolean updateFeedback(String Feedback_ID, String Cus_ID, String Email,String Date, String Type, String Message, String Rating,
 			String Status) {
 		boolean isSuccess = false;//assign this to false before execution of query
 		
@@ -153,8 +154,9 @@ public class FeedbackServiceImpl implements IFeedback {
 					result.getString(3),
 					result.getString(4),
 					result.getString(5),
-					result.getInt(6),
-					result.getString(7)
+					result.getString(6),
+					result.getInt(7),
+					result.getString(8)
 			);	
 			f1.add(fed);
 		}
@@ -173,11 +175,12 @@ public class FeedbackServiceImpl implements IFeedback {
 			while(rs.next()) {
 				int Feedback_ID=rs.getInt(1);
 				int Cus_ID= rs.getInt(2);
-				String Date= rs.getString(3);
-				String Message=rs.getString(5);
-				String Status=rs.getString(7);
+				String Email= rs.getString(3);
+				String Date= rs.getString(4);
+				String Message=rs.getString(6);
+				String Status=rs.getString(8);
 				
-				Feedback f1= new Feedback(Feedback_ID,Cus_ID,Date, Message, Status);
+				Feedback f1= new Feedback(Feedback_ID,Cus_ID,Email,Date, Message, Status);
 				feed.add(f1);
 			}
 			

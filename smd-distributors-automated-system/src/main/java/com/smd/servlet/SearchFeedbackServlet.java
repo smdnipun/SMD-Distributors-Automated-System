@@ -15,7 +15,7 @@ import com.smd.model.Feedback;
 import com.smd.service.FeedbackServiceImpl;
 import com.smd.service.IFeedback;
 
-//@WebServlet("/SearchFeedbackServlet")
+@WebServlet("/SearchFeedbackServlet")
 public class SearchFeedbackServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -38,8 +38,13 @@ public class SearchFeedbackServlet extends HttpServlet {
 		 * System.out.println("Error");
 		 */
 		
-		String url="/admin/RequestManagement/requestHome.jsp?search="+request.getParameter("search");
-		response.sendRedirect(url);
+		//String url="/admin/RequestManagement/requestHome.jsp?search="+request.getParameter("search");
+		//response.sendRedirect(url);
+		
+		 String nextJSP = "/admin/RequestManagement/requestHome.jsp";
+		  RequestDispatcher dispatcher = 
+		   getServletContext().getRequestDispatcher(nextJSP);
+		  dispatcher.forward(request,response);
 		
 	}}
 //	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

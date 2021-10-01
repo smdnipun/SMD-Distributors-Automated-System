@@ -59,6 +59,7 @@ if (request.getSession().getAttribute("Logged") != null) {
 						<tr>
 							<th scope="col">Feedback ID</th>
 							<th scope="col">Customer ID</th> <!-- feedbackid is unique auto-incremented -->
+							<th scope="col">Email</th>
 							<th scope="col">Date</th>
 							<th scope="col">Message</th>
 							<th scope="col">Status</th>
@@ -94,6 +95,7 @@ if (request.getSession().getAttribute("Logged") != null) {
 							<tr>
 								<td><c:out value="${feed.feedback_ID}" /></td>
 								<td><c:out value="${feed.cus_ID}" /></td>
+								<td><c:out value="${feed.email}" /></td>
 								<td><c:out value="${feed.date}" /></td>
 								<td><c:out value="${feed.message}"/></td>
 								<td><c:out value="${feed.status}" /></td>
@@ -104,7 +106,9 @@ if (request.getSession().getAttribute("Logged") != null) {
 					</tbody>
 				</table>
 			</div>
-			 <input type="submit" name="pdf" onclick="generatePdf()" value="Print Report" id="form_button" style="width: 20%; height: 20%" />
+	
+			 <input type="submit" name="pdf" onclick="generatePdf()" value="Print Report" id="form_button" style="width: 20%; height: 15%" />
+		
 		</div>
 	</div>
 
