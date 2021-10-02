@@ -25,8 +25,11 @@ if (request.getSession().getAttribute("Logged") != null) {
 				page="../../WEB-INF/views/Delivery/HomeNavi.jsp"></jsp:include>
 			<div class="col-8">
 				
+				<br/>
 				
-				<br/>				<br/><br/>				<br/><br/>
+				<center><h1 class="display-4"> Delivery Manager Home</h1></center>
+				
+						<br/>				<br/><br/>
 				
 				
 			<center>	
@@ -57,7 +60,7 @@ if (request.getSession().getAttribute("Logged") != null) {
 					<input class="btn btn-warning" type="submit" name="view" value="View Deleted Deliveries">
 				</form>
 				
-								<br/>
+								<br/><br/><br/><br/><br/><br/><br/>
 				
 				</center>	
 		

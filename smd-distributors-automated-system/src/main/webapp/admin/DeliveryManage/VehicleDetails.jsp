@@ -95,7 +95,7 @@ if (request.getSession().getAttribute("Logged") != null) {
 			
 			<div class="mb-3">
 				<label for="formGroupExampleInput" class="form-label">Vehicle Number</label>
-				<input type="text" name="vnum"  aria-describedby="" class="form-control" id="formGroupExampleInput" pattern="^[A-Z0-9]{2,3}-?[0-9]{4}$" required>
+				<input type="text" name="vnum"  aria-describedby="" class="form-control" id="formGroupExampleInput" pattern="^[A-Z0-9]{2,3}-?[0-9]{4}$" placeholder="NA-2911 / 65-324" required>
 			</div>
 			<div class="mb-3">
 				<label for="formGroupExampleInput" class="form-label">Insurence EXP Date</label>
