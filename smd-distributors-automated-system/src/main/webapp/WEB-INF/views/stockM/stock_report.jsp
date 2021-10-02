@@ -11,21 +11,32 @@ if (request.getSession().getAttribute("Logged") == null) {
 }
 
 StockDB dbc = new StockDB();
-Stock[] newstock = (Stock[]) dbc.getAllStockdetails();
+Stock[] newstock = (Stock[]) dbc.getAllStockdetails("0","0");
 request.setAttribute("stockdata", newstock);
 %>
 
 <div>
 <!-- Import Horizontal navigation bar -->
-<jsp:include page="./stockupnav.jsp"></jsp:include>
+<jsp:include page="./stockreportupnav.jsp"></jsp:include>
 </div>
 <div class="col-5 text-center align">
 	<div class="d-flex justify-content-center">
 		<h4>Stock Details</h4>
 	</div>
+			<form>
+			<label for="stock">Select Product:</label> <select name="stock">
+				<option value="0">All products</option>
+				<c:forEach items="${getAllStockdetails}" var="stock">
+					<option value="<c:out value="${stock.getitemName()}"></c:out>">${stock.getitemName()}</option>
+				</c:forEach>
+			</select> <input type="month" name="month" min="2021-01"></input>
+			<button type="submit">Submit</button>
+		</form>
+		
 	<table id="stock" class="display nowrap" style="width: 90%">
 
 		<thead>
+		
 			<tr>
 				<th style="width: 10%" scope="col">Stock ID</th>
 				<th style="width: 10%" scope="col">Item Name</th>
@@ -38,14 +49,45 @@ request.setAttribute("stockdata", newstock);
 		<!-- get the stock data from Stock database table connection -->
 			<c:forEach items="${stockdata}" var="Stock">
 				<tr>
+				<c:choose>
+				<c:when test="${param.month!=null}">
+					<%
+					StockDB reportCon = new StockDB();
+					Stock[] report = reportCon.getAllStockdetails(request.getParameter("month"), request.getParameter("product"));
+				
+					request.setAttribute("report", report);
+					%>
+					<c:forEach items="${stockdata}" var="Stock">
+						<tr>
 					<td><c:out value="${Stock.getStockID()}" /></td>
 					<td><c:out value="${Stock.getItemName()}"/></td>
 					<td><c:out value="${Stock.getQuntity()}"/></td>
 					<td><c:out value="${Stock.getDate()}" /></td>
 					<td><c:out value="${Stock.getStatus()}"/></td>
+						</tr>
+					</c:forEach>
+				</c:when>
+				<c:otherwise>
+					<%
+					StockDB reportCon = new StockDB();
+					Stock[] report = reportCon.getAllStockdetails("0", "0");
+					
+					request.setAttribute("report", report);
+					%>
+					<c:forEach items="${stockdata}" var="Stock">
+						<tr>
+					<td><c:out value="${Stock.getStockID()}" /></td>
+					<td><c:out value="${Stock.getItemName()}"/></td>
+					<td><c:out value="${Stock.getQuntity()}"/></td>
+					<td><c:out value="${Stock.getDate()}" /></td>
+					<td><c:out value="${Stock.getStatus()}"/></td>
+						</tr>
+					</c:forEach>
+				</c:otherwise>
+			</c:choose>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
-	<button type="button" id ="repgenerate" class="btn btn-light">GENERATE REPORT</button>
+	<button type="button" id ="repgenerate1" class="btn btn-light">GENERATE REPORT</button>
 </div>
