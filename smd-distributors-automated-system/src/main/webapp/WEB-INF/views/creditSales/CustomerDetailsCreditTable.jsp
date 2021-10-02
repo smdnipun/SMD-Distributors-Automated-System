@@ -32,7 +32,7 @@ request.setAttribute("data", customer);
 				<%
 				CreditSalesM con = new CreditSalesM();
 				Customer[] allCustomer = con.getCustomrDetailstocredit();
-				request.setAttribute("allCustomer", allCustomer);
+				request.setAttribute("data", allCustomer);
 				%>
 
 				<thead class="thead-dark">
@@ -67,7 +67,7 @@ request.setAttribute("data", customer);
 				<%
 				CreditSalesM con = new CreditSalesM();
 				Customer[] searchCus = con.search(request.getParameter("search"));
-				request.setAttribute("searchData", searchCus);
+				request.setAttribute("data", searchCus);
 				%>
 				<c:forEach items="${data}" var="Customer">
 					<thead class="thead-dark">
