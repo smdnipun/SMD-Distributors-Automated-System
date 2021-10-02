@@ -55,7 +55,7 @@ request.setAttribute("payments", payments);
 					Payment[] report = reportCon.getReportP(request.getParameter("month"));
 					request.setAttribute("report", report);
 					%>
-					<c:forEach items="${report}" var="item">
+					<c:forEach items="${report}" var="Payment">
 						<tr>
 							<td><c:out value="${Payment.getPaymentID()}" /></td>
 							<td><c:out value="${Payment.getPaidAmount()}" /></td>
@@ -69,9 +69,19 @@ request.setAttribute("payments", payments);
 				<c:otherwise>
 					<%
 					CreditSalesM reportCon = new CreditSalesM();
-					Payment[] report = reportCon.getReportP(request.getParameter("month"));
+					Payment[] report = reportCon.getReportP("0");
 					request.setAttribute("report", report);
 					%>
+										<c:forEach items="${report}" var="Payment">
+						<tr>
+							<td><c:out value="${Payment.getPaymentID()}" /></td>
+							<td><c:out value="${Payment.getPaidAmount()}" /></td>
+							<td><c:out value="${Payment.getDate()}" /></td>
+							<td><c:out value="${Payment.getCusID()}" /></td>
+							<td><c:out value="${Payment.getInvoiceID()}" /></td>
+							<td><c:out value="${Payment.getEmpID()}" /></td>
+						</tr>
+					</c:forEach>
 				</c:otherwise>
 			</c:choose>
 

@@ -322,9 +322,13 @@ public class CreditSalesM {
 		Payment[] array = null;
 		try {
 			String command = "";
-			if(month==null) {
-				command = "SELECT * from smd.payment  WHERE Hardware_Name LIKE '%" +month+"%'"; 
+			if(month.equals("0")) 
+			{
+				command = "SELECT * from smd.payment";
+			}else {
+				command = "SELECT * from smd.payment  WHERE Date LIKE '%" +month+"-%'";
 			}
+				 
 			Statement stmt = con.getConnection().createStatement();
 		
 			ResultSet rs = stmt.executeQuery(command);
