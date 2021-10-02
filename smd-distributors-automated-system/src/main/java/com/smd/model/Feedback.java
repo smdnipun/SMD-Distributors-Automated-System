@@ -3,6 +3,7 @@ package com.smd.model;
 public class Feedback {
 	private int feedback_ID; //feedbackid is unique auto-incremented
 	private int cus_ID; //passing the customer id from the entered username
+	private String email;
 	private String date;
 	private String type;
 	private String message;
@@ -12,10 +13,11 @@ public class Feedback {
 	public Feedback() {}
 
 	//overloaded constructor to set values
-	public Feedback(int Feedback_ID, int Cus_ID, String Date, String Type, String Message, int Rating,
+	public Feedback(int Feedback_ID, int Cus_ID, String Email, String Date, String Type, String Message, int Rating,
 			String Status) {
 		this.feedback_ID = Feedback_ID;
 		this.cus_ID = Cus_ID;
+		this.email=Email;
 		this.date = Date;
 		this.type = Type;
 		this.message = Message;
@@ -24,9 +26,10 @@ public class Feedback {
 	}
 
 	//constructor for reports
-	public Feedback(int Feedback_ID, int Cus_ID, String Date, String Message, String Status) {
+	public Feedback(int Feedback_ID, int Cus_ID, String Email, String Date, String Message, String Status) {
 		this.feedback_ID = Feedback_ID;
 		this.cus_ID = Cus_ID;
+		this.email=Email;
 		this.date = Date;
 		this.message = Message;
 		this.status = Status;
@@ -87,6 +90,14 @@ public class Feedback {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 }

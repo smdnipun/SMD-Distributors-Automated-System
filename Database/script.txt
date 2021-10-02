@@ -39,6 +39,8 @@ CREATE TABLE `feedback` (
   CONSTRAINT `CustomerID` FOREIGN KEY (`Cus_ID`) REFERENCES `customer` (`Cus_ID`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+
+
 --
 -- Table structure for table `employee_type`
 --
@@ -689,6 +691,13 @@ CREATE DEFINER=`root`@`localhost` TRIGGER `delivery_AFTER_DELETE` AFTER DELETE O
 END;
 
 
+-- Order table Trigger
+
+CREATE DEFINER=`root`@`localhost` TRIGGER `orders_BEFORE_UPDATE` BEFORE UPDATE ON `orders` FOR EACH ROW BEGIN
+set @p=new.Paid_Amount;
+set new.Remaining_Amount=old.Remaining_Amount-new.Paid_Amount;
+set new.Paid_Amount=old.Paid_Amount+@p;
+END
 
 
 -- select queries
