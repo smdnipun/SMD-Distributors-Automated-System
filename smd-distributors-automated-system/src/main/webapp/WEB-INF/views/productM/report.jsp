@@ -2,11 +2,14 @@
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.LinkedList"%>
 <%@ page import="com.smd.model.Product"%>
+<%@ page import="com.smd.model.ProductReportItem"%>
 <%@ page import="com.smd.service.ProductDB"%>
+
 <%
 ProductDB con = new ProductDB();
 Product[] allProducts = con.getAllProducts();
 request.setAttribute("allProducts", allProducts);
+int total=0;
 %>
 
 <div class="row">
@@ -16,26 +19,12 @@ request.setAttribute("allProducts", allProducts);
 	</jsp:include>
 	<div class="col-10">
 		<form>
-			<label for="month">Select Month:</label> <select name="month">
-				<option value="0">All months</option>
-				<option value="1">January</option>
-				<option value="2">February</option>
-				<option value="3">March</option>
-				<option value="4">April</option>
-				<option value="5">May</option>
-				<option value="6">June</option>
-				<option value="7">July</option>
-				<option value="8">August</option>
-				<option value="9">September</option>
-				<option value="10">October</option>
-				<option value="11">November</option>
-				<option value="12">December</option>
-			</select> <label for="product">Select Product:</label> <select name="product">
+			<label for="product">Select Product:</label> <select name="product">
 				<option value="0">All products</option>
 				<c:forEach items="${allProducts}" var="product">
 					<option value="<c:out value="${product.getName()}"></c:out>">${product.getName()}</option>
 				</c:forEach>
-			</select>
+			</select> <input type="month" name="month" min="2021-01"></input>
 			<button type="submit">Submit</button>
 		</form>
 		<table class="table" id="tblCustomers">
@@ -43,19 +32,43 @@ request.setAttribute("allProducts", allProducts);
 				<th>Product Name</th>
 				<th>Customer Name</th>
 				<th>Quantity</th>
+				<th>Order Date</th>
 				<th>Total Price</th>
 			</tr>
+			<c:choose>
+				<c:when test="${param.month!=null}">
+					<%
+					ProductDB reportCon = new ProductDB();
+					ProductReportItem[] report = reportCon.getReport(request.getParameter("month"), request.getParameter("product"));
+					for(ProductReportItem test:report)
+					{
+						total += Integer.valueOf(test.getPrice());
+					}
+					request.setAttribute("report", report);
+					%>
+					<c:forEach items="${report}" var="item">
+						<tr>
+							<td>${item.getPname()}</td>
+							<td>${item.getCname()}</td>
+							<td>${item.getQuantity()}</td>
+							<td>${item.getDate()}</td>
+							<td>Rs.${item.getPrice()}</td>
+						</tr>
+					</c:forEach>
+				</c:when>
+				<c:otherwise>
+					<%
+					ProductDB reportCon = new ProductDB();
+					ProductReportItem[] report = reportCon.getReport(request.getParameter("month"), request.getParameter("product"));
+					request.setAttribute("report", report);
+					%>
+				</c:otherwise>
+			</c:choose>
 			<tr>
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-				<td>10</td>
-			</tr>
-			<tr>
-				<th colspan="3" style="text-align:center;">Total Amount:</th>
-				<th>Rs.100000</th>
+				<th colspan="4" style="text-align: center;">Total Amount:</th>
+				<th>Rs.<%= Integer.toString(total) %></th>
 			</tr>
 		</table>
-		<button id="btnExport">test</button>
+		<button id="btnExport">Print Report</button>
 	</div>
 </div>
