@@ -43,113 +43,110 @@ public class PDFbestCus extends HttpServlet {
 
 		// getting the month
 		String date = request.getParameter("month");
-		System.out.println("month : " + date);
-		
-			String[] x = date.split("-");
-			String month = null;
 
-			// selecting the month in words
-			switch (x[1]) {
-			case "01":
-				month = "January";
-				break;
-			case "02":
-				month = "February";
-				break;
-			case "03":
-				month = "March";
-				break;
-			case "04":
-				month = "April";
-				break;
-			case "05":
-				month = "May";
-				break;
-			case "06":
-				month = "June";
-				break;
-			case "07":
-				month = "July";
-				break;
-			case "08":
-				month = "August";
-				break;
-			case "09":
-				month = "September";
-				break;
-			case "10":
-				month = "October";
-				break;
-			case "11":
-				month = "November";
-				break;
-			case "12":
-				month = "December";
-				break;
-			}
-			
-			pw.print("<script>alert('PDF Generated...')</script>");
+		String[] x = date.split("-");
+		String month = null;
 
-			try {
-				Document document = new Document();
-				PdfWriter.getInstance(document, new FileOutputStream("C://Users//Nipun//Downloads//Best_Customer.pdf"));
-				document.open();
+		// selecting the month in words
+		switch (x[1]) {
+		case "01":
+			month = "January";
+			break;
+		case "02":
+			month = "February";
+			break;
+		case "03":
+			month = "March";
+			break;
+		case "04":
+			month = "April";
+			break;
+		case "05":
+			month = "May";
+			break;
+		case "06":
+			month = "June";
+			break;
+		case "07":
+			month = "July";
+			break;
+		case "08":
+			month = "August";
+			break;
+		case "09":
+			month = "September";
+			break;
+		case "10":
+			month = "October";
+			break;
+		case "11":
+			month = "November";
+			break;
+		case "12":
+			month = "December";
+			break;
+		}
 
-				Paragraph p = new Paragraph();
-				p.add("Best Customer List " + month + " " + x[0]);
-				p.setAlignment(Element.ALIGN_CENTER);
+		pw.print("<script>alert('PDF Generated...')</script>");
 
-				document.add(p);
-				document.add(Chunk.NEWLINE);
+		try {
+			Document document = new Document();
+			PdfWriter.getInstance(document, new FileOutputStream("C://Users//Nipun//Downloads//Best_Customer.pdf"));
+			document.open();
 
-				PdfPTable table = new PdfPTable(new float[] { 10, 30, 25, 40, 15 });
+			Paragraph p = new Paragraph();
+			p.add("Best Customer List " + month + " " + x[0]);
+			p.setAlignment(Element.ALIGN_CENTER);
 
-				table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
+			document.add(p);
+			document.add(Chunk.NEWLINE);
 
-				table.addCell("Cus.No");
-				table.addCell("Hardware Name");
-				table.addCell("Phone No.");
-				table.addCell("Address");
-				table.addCell("Quantity");
+			PdfPTable table = new PdfPTable(new float[] { 10, 30, 25, 40, 15 });
 
-				table.setHeaderRows(1);
-				PdfPCell[] cells = table.getRow(0).getCells();
+			table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
 
-				for (int j = 0; j < cells.length; j++) {
-					cells[j].setBackgroundColor(BaseColor.GRAY);
-				}
+			table.addCell("Cus.No");
+			table.addCell("Hardware Name");
+			table.addCell("Phone No.");
+			table.addCell("Address");
+			table.addCell("Quantity");
 
-				DBConnection con = new DBConnection();
+			table.setHeaderRows(1);
+			PdfPCell[] cells = table.getRow(0).getCells();
 
-				String q = "select Cust_ID, Hardware_Name, Phone, Address, Total_Quantity from bestCustomers where Month = '"
-						+ month + " " + x[0] + "'";
-				Statement st = con.getConnection().createStatement();
-				ResultSet rs = st.executeQuery(q);
-
-				while (rs.next()) {
-					table.addCell(rs.getString(1));
-					table.addCell(rs.getString(2));
-					table.addCell(rs.getString(3));
-					table.addCell(rs.getString(4));
-					table.addCell(rs.getString(5));
-				}
-
-				document.add(table);
-				document.close();
-
-				// print a success message in console
-				System.out.println("Done");
-
-			} catch (Exception e) {
-				e.printStackTrace();
+			for (int j = 0; j < cells.length; j++) {
+				cells[j].setBackgroundColor(BaseColor.GRAY);
 			}
 
-			// display an error message
-			pw.println("<script type=\"text/javascript\">");
-			pw.println("location='admin/CustomerManagement/customerSales.jsp'"); // redirect to the customerSales page
-			pw.println("</script>");
-			
-		
+			DBConnection con = new DBConnection();
+
+			String q = "select Cust_ID, Hardware_Name, Phone, Address, Total_Quantity from bestCustomers where Month = '"
+					+ month + " " + x[0] + "'";
+			Statement st = con.getConnection().createStatement();
+			ResultSet rs = st.executeQuery(q);
+
+			while (rs.next()) {
+				table.addCell(rs.getString(1));
+				table.addCell(rs.getString(2));
+				table.addCell(rs.getString(3));
+				table.addCell(rs.getString(4));
+				table.addCell(rs.getString(5));
+			}
+
+			document.add(table);
+			document.close();
+
+			// print a success message in console
+			System.out.println("Done");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		// display an error message
+		pw.println("<script type=\"text/javascript\">");
+		pw.println("location='admin/CustomerManagement/customerSales.jsp'"); // redirect to the customerSales page
+		pw.println("</script>");
 	}
 
 }
