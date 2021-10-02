@@ -33,7 +33,6 @@ public class PDFbestCus extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -46,7 +45,6 @@ public class PDFbestCus extends HttpServlet {
 		String date = request.getParameter("month");
 		System.out.println("month : " + date);
 		
-		if(!date.equals(null) || date.equals("")) {
 			String[] x = date.split("-");
 			String month = null;
 
@@ -151,13 +149,6 @@ public class PDFbestCus extends HttpServlet {
 			pw.println("location='admin/CustomerManagement/customerSales.jsp'"); // redirect to the customerSales page
 			pw.println("</script>");
 			
-		} else {
-			//display an error message
-			pw.println("<script type=\"text/javascript\">");
-		    pw.println("alert('Please Enter the MONTH-YEAR !!!');");
-		    pw.println("location='admin/CustomerManagement/customerSales.jsp'"); //redirect to the CustomerSales page
-		    pw.println("</script>");
-		}
 		
 	}
 
