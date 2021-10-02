@@ -1,25 +1,16 @@
-
-<!-- Import heder -->
+<%
+//if (request.getSession().getAttribute("Logged").equals("Product")) {
+%>
 <jsp:include page="../../WEB-INF/views/common/head.jsp">
-	<jsp:param name="Title" value="SMD Distributors|Stock Management" /></jsp:include>
+	<jsp:param name="Title" value="SMD Distributors" /></jsp:include>
+<link rel="stylesheet"
+	href=<%=request.getContextPath() + "/css/product.css"%>>
 <body>
-<!-- Import  common heder -->
 	<jsp:include page="../../WEB-INF/views/common/adminHeader.jsp"></jsp:include>
-	<div class="row">
-		<div class="col-2">
-		<!-- Import vertical navigation bar -->
-			<jsp:include page="../../WEB-INF/views/stockM/stock_navi.jsp"></jsp:include>
-		</div>
-		<div class="col-10 pb-5" >
-		<!-- Import Supplier table -->
-			<jsp:include page="../../WEB-INF/views/stockM/supplier_table.jsp"></jsp:include><br><br>
-			<!-- Import  Supplier form-->
-			<jsp:include page="../../WEB-INF/views/stockM/supplier_form.jsp"></jsp:include>
-		</div>
-	</div>
-	<!-- Import common footer -->
+	<jsp:include page="../../WEB-INF/views/productM/report.jsp"></jsp:include>
 	<jsp:include page="../../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
-	<script type="text/javascript"
+</body>
+<script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script type="text/javascript"
 	src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
@@ -28,9 +19,9 @@
 <script type="text/javascript">
 	$("body").on(
 			"click",
-			"#repgenerate",
+			"#btnExport",
 			function() {
-				html2canvas($('#table')[0], {
+				html2canvas($('#tblCustomers')[0], {
 					onrendered : function(canvas) {
 						var data = canvas.toDataURL();
 						var docDefinition = {
@@ -40,9 +31,12 @@
 							} ]
 						};
 						pdfMake.createPdf(docDefinition).download(
-								"Active Suppliers.pdf");
+								"customer-details.pdf");
 					}
 				});
 			});
 </script>
-</body>
+</html>
+<%
+//}
+%>

@@ -9,9 +9,10 @@ int id = Integer.parseInt(request.getSession().getAttribute("CustomerID").toStri
 <h1>My Orders</h1>
 </center>
 <br>
-<table id="example" class="table  display nowrap"  style="width:100%">
+
+ <table id="example" class="table  display nowrap"  style="width:100%">
                 <thead class="thead-dark">
-    <tr>
+      <tr>
      
       <th scope="col">Order ID</th>
        <th scope="col">Customer ID</th>

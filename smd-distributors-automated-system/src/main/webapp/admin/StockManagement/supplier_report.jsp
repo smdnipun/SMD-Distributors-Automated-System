@@ -11,14 +11,14 @@
 			<jsp:include page="../../WEB-INF/views/stockM/stock_navi.jsp"></jsp:include>
 		</div>
 		<div class="col-10 pb-5" >
-		<!-- Import Supplier table -->
-			<jsp:include page="../../WEB-INF/views/stockM/supplier_table.jsp"></jsp:include><br><br>
-			<!-- Import  Supplier form-->
-			<jsp:include page="../../WEB-INF/views/stockM/supplier_form.jsp"></jsp:include>
+		
+		<jsp:include page="../../WEB-INF/views/stockM/supplier_report_table.jsp"></jsp:include><br><br>
+		
 		</div>
 	</div>
 	<!-- Import common footer -->
 	<jsp:include page="../../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
+	
 	<script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script type="text/javascript"
@@ -40,9 +40,10 @@
 							} ]
 						};
 						pdfMake.createPdf(docDefinition).download(
-								"Active Suppliers.pdf");
+								"Suppliers.pdf");
 					}
 				});
 			});
-</script>
+</script> 
+	
 </body>

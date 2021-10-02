@@ -1,4 +1,4 @@
-<div class="col-2" style="background-color: #e4e4e4;height:900px">
+<div class="col-2" style="background-color: #e4e4e4;height:900px" >
 <!-- Tab navs -->
 <div class="nav flex-column nav-tabs text-center" id="v-tabs-tab"
 role="tablist" aria-orientation="vertical">

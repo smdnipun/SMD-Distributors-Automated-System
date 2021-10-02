@@ -42,7 +42,10 @@ request.setAttribute("data", newOrders);
 					<form action="../../AcceptOrders" method="post">
 						<td><input type="text" name="id"
 							value="<c:out value="${NewOrdersConf.getOrderID()}" />" readonly></td>
+							
 						<td><c:out value="${NewOrdersConf.getDate()}" /></td>
+						
+						
 						<td><input type="text" name="id1"
 							value="<c:out value="${NewOrdersConf.getCusID()}" />" readonly></td>
 						<td><c:out value="${NewOrdersConf.getCustomer()}" /></td>

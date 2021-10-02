@@ -15,6 +15,13 @@ if (request.getSession().getAttribute("Logged") != null) {
 <jsp:include page="../../WEB-INF/views/common/head.jsp">
 	<jsp:param name="Title" value="SMD Distributors/Delivery Management" /></jsp:include>
 <meta charset="ISO-8859-1">
+
+<style>
+	thead input {
+        width: 100%;
+    }
+</style>
+
 </head>
 <body>
 
@@ -29,12 +36,82 @@ if (request.getSession().getAttribute("Logged") != null) {
 				page="../../WEB-INF/views/Delivery/DeliveryNavigationbar.jsp"></jsp:include>
 			<div class="col-9">
 	
+	
+	<script>
+	
+	
+	$(document).ready(function () {
+	    // Setup - add a text input to each footer cell
+	    $('#example thead tr')
+	        .clone(true)
+	        .addClass('filters')
+	        .appendTo('#example thead');
+	 
+	    var table = $('#example').DataTable({
+	        orderCellsTop: true,
+	        fixedHeader: true,
+	        initComplete: function () {
+	            var api = this.api();
+	 
+	            // For each column
+	            api
+	                .columns()
+	                .eq(0)
+	                .each(function (colIdx) {
+	                    // Set the header cell to contain the input element
+	                    var cell = $('.filters th').eq(
+	                        $(api.column(colIdx).header()).index()
+	                    );
+	                    var title = $(cell).text();
+	                    $(cell).html('<input type="text" placeholder="' + title + '" />');
+	 
+	                    // On every keypress in this input
+	                    $(
+	                        'input',
+	                        $('.filters th').eq($(api.column(colIdx).header()).index())
+	                    )
+	                        .off('keyup change')
+	                        .on('keyup change', function (e) {
+	                            e.stopPropagation();
+	 
+	                            // Get the search value
+	                            $(this).attr('title', $(this).val());
+	                            var regexr = '({search})'; //$(this).parents('th').find('select').val();
+	 
+	                            var cursorPosition = this.selectionStart;
+	                            // Search the column for that value
+	                            api
+	                                .column(colIdx)
+	                                .search(
+	                                    this.value != ''
+	                                        ? regexr.replace('{search}', '(((' + this.value + ')))')
+	                                        : '',
+	                                    this.value != '',
+	                                    this.value == ''
+	                                )
+	                                .draw();
+	 
+	                            $(this)
+	                                .focus()[0]
+	                                .setSelectionRange(cursorPosition, cursorPosition);
+	                        });
+	                });
+	        },
+	    });
+	});
+	
+	
+	</script>
+	
+	
+	
 		<center>
 			<h5>Delivery Details</h5>
 		</center>
-		
 	
-	<table id="example" class="table display nowrap" style="width:100%">
+	
+	
+	<table style="width:100%" id="example" class="display" >
 	<thead class="thead-dark">
 			<tr>
 	
@@ -82,12 +159,9 @@ if (request.getSession().getAttribute("Logged") != null) {
 		</tbody>
 	</table>
 	
-	<div style="padding:100px; align:center" class="col-4">
+	<br><br><br>
 	
-	
-	
-	
-	
+	<div class="float-right">
 	
 	<form action=<%=request.getContextPath() + "/dreport"%> method="post">
 	
@@ -104,7 +178,7 @@ if (request.getSession().getAttribute("Logged") != null) {
 	</div>
 	</div>
 
-
+	<br><br><br><br>
 	<jsp:include page="../../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
 
 </body>

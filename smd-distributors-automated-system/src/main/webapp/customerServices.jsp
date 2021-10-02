@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ page import="java.io.PrintWriter"%>
+     <%@ page import="com.smd.model.*"%>
 <%
 if (request.getSession().getAttribute("Logged") != null) {
     //request.getSession().setAttribute("Logged", "Guest");
 %>
 <% int id = Integer.parseInt(request.getSession().getAttribute("CustomerID").toString()); %> 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +18,9 @@ if (request.getSession().getAttribute("Logged") != null) {
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/requestcustomer.css"/>
 </head>
 <body>
-   
+   <% 
+   Customer cus= new Customer();
+   String email = (String)session.getAttribute("Email"); %> 
      <div class=row>
     	<div class="col-2">
 		<jsp:include page="WEB-INF/views/customer/customerUInavBar.jsp"></jsp:include>
@@ -31,6 +35,10 @@ if (request.getSession().getAttribute("Logged") != null) {
 				
 				<div class="mb-3">
   					<input type="hidden" class="form-control" id="formGroupExampleInput2" placeholder="Enter Customer ID" name="Cus_ID" required="true" value="<%=id %>" readonly>
+					</div>
+					
+				<div class="mb-3">
+  					<input type="hidden" class="form-control" id="formGroupExampleInput2" name="Email" required="true" value="<%=email %>" readonly>
 					</div>
 				
 				<!-- <h4>Feedback type: </h4><br> -->

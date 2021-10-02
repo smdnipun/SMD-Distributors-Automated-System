@@ -47,6 +47,7 @@ public class Login extends HttpServlet {
 					if(customerData[i].getStatus().equals("Active")) {
 						//setting the sessions when login
 						request.getSession().setAttribute("CustomerID",customerData[i].getCusID());
+						request.getSession().setAttribute("Email",customerData[i].getEmail());
 						request.getSession().setAttribute("Hname",customerData[i].getHardwareName());
 						request.getSession().setAttribute("Customer",customerData[i]);
 						request.getSession().setAttribute("Logged","User");
@@ -96,7 +97,7 @@ public class Login extends HttpServlet {
 					}
 					else if(employeeData[i].getEmp_Type().equals("reqManager")) {
 						request.getSession().setAttribute("Logged","reqManager");
-						response.sendRedirect("RequestManage/viewFeedback.jsp");
+						response.sendRedirect("admin/RequestManagement/viewFeedback.jsp");
 					}
 					else if(employeeData[i].getEmp_Type().equals("cusManager")) {
 						request.getSession().setAttribute("Logged","cusManager");
