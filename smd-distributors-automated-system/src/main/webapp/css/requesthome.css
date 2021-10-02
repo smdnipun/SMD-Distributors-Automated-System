@@ -20,13 +20,15 @@ font-family: arial, sans-serif;
     opacity:0.9;
  }
  p{
- color: black;
+ color: white;
  font-family: arial, sans-serif;
  }
 .vcontt{
-	background-color:rgb(238, 238, 238);
+	background-color:black;
+	border-radius: 15px;
 		width: 700px;
 		border: 15px black;
+		border-radius: 15px;
 		font: 16px;
 		padding: 20px 12px 10px 20px;
 		outline-style: double;
@@ -62,8 +64,13 @@ font-family: arial, sans-serif;
 }
 
 .capitalize{
+	color: white;
+}
+.ucapitalize{
 	color: black;
 }
+
+
 .formcontent{
 	margin: 0 auto; 
 	width:800px;
@@ -71,7 +78,7 @@ font-family: arial, sans-serif;
 	background-color:rgb(238, 238, 238);
 	opacity:0.8;
 	padding: 20px 12px 10px 20px;
-	
+	border-radius: 15px;
 	border: 7px black;
 	outline-color: black;
 	outline-style: groove;
@@ -110,6 +117,7 @@ font-family: arial, sans-serif;
 	width: 400px;
 	border: 7px black;
 	font: 13px "";
+	border-radius: 15px;
 	padding: 20px 12px 10px 20px;
 	outline-color: black;
 	outline-style: groove;

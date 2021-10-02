@@ -9,33 +9,30 @@ if (request.getSession().getAttribute("Logged") != null) {
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js" ></script>
-	<script type="text/javascript">
-	function generatePdf(){
-	var d = new Date();
-	var y = d.getFullYear();
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+<script type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+<script type="text/javascript">
+			function generatePdf() {
+				html2canvas($('#freport')[0], {
+					onrendered : function(canvas) {
+						var data = canvas.toDataURL();
+						var docDefinition = {
+							content : [ {
+								image : data,
+								width : 500
+							} ]
+						};
+						pdfMake.createPdf(docDefinition).download(
+								"Monthly Feedback Report.pdf");
+					}
+				});
+			}
+</script>
 
-	var month = new Array();
-	month[0] = "January";
-	month[1] = "February";
-	month[2] = "March";
-	month[3] = "April";
-	month[4] = "May";
-	month[5] = "June";
-	month[6] = "July";
-	month[7] = "August";
-	month[8] = "September";
-	month[9] = "October";
-	month[10] = "November";
-	month[11] = "December";
-	var n = month[d.getMonth()];
-
-	var str = 'Monthly Feedback Report-'+y+"-"+n;
-	const element=document.getElementById("freport");
-	html2pdf().from(element).save(str);
-	
-	}
-	</script>
 	<jsp:include page="../../WEB-INF/views/common/head.jsp">
 	<jsp:param name="Title" value="SMD Distributors" /></jsp:include>
 	<meta charset="ISO-8859-1">
@@ -53,42 +50,19 @@ if (request.getSession().getAttribute("Logged") != null) {
 			<!--table to display report -->
 			<div class="col-10" id="freport">
 			<br><center><h5>Feedback Report</h5></center><br>
-				<table class="table table-hover">
+				<table class="table table-hover table table-sm table table-striped" style="width:100%">
 				<!-- <table class="feedback"> -->
 					<thead class="thead-dark">
 						<tr>
-							<th scope="col">Feedback ID</th>
-							<th scope="col">Customer ID</th> <!-- feedbackid is unique auto-incremented -->
-							<th scope="col">Email</th>
-							<th scope="col">Date</th>
-							<th scope="col">Message</th>
-							<th scope="col">Status</th>
+							<th scope="col" class="text-center">FeedID</th><!-- feedbackid is unique auto-incremented -->
+							<th scope="col" class="text-center">CusID</th> 
+							<th scope="col" class="text-center">Email</th>
+							<th scope="col" style="width: 30%" class="text-center">Date</th>
+							<th scope="col" style="width: 30%" class="text-center">Message</th>
+							<th scope="col" class="text-center">Status</th>
 						</tr>	
 					</thead>
 					<tbody>
-					
-<!-- 					create a loop to display data in the table -->
-<!-- 					items name should be the name you gave in the setattribute in the servlet -->
-<%-- 					<c:forEach var="feedback" items="${feedbackdetails}"> --%>
-					
-<!-- 					assign values for the variables -->
-<%-- 					<c:set var="Feedback_ID" value="${feedback.feedback_ID}"> </c:set> <!-- feedbackid is unique auto-incremented --> --%>
-<%-- 					<c:set var="Cus_ID" value="${feedback.cus_ID}"> </c:set> <!-- customerid is unique auto-incremented --> --%>
-<%-- 					<c:set var="Date" value="${feedback.date}"> </c:set> --%>
-<%-- 					<c:set var="Message" value="${feedback.message}"> </c:set> --%>
-<%-- 					<c:set var="Status" value="${feedback.status}"> </c:set> --%>
-						
-<!-- 						<tr> -->
-<!-- 						print details inside the table -->
-<%-- 							<td>${feedback.feedback_ID}</td> <!-- feedbackid is unique auto-incremented --> --%>
-<%-- 							<td>${feedback.cus_ID}</td> <!-- customerid is unique auto-incremented --> --%>
-<%-- 							<td>${feedback.date}</td> --%>
-<%-- 							<td>${feedback.message}</td> --%>
-<%-- 							<td>${feedback.status}</td> --%>
-							
-<!-- 						</tr> -->
-<%-- 					</c:forEach> --%>
-					
 					
 						<c:forEach var="feed" items="${feedbackdetails}">
 				
@@ -106,9 +80,7 @@ if (request.getSession().getAttribute("Logged") != null) {
 					</tbody>
 				</table>
 			</div>
-	
-			 <input type="submit" name="pdf" onclick="generatePdf()" value="Print Report" id="form_button" style="width: 20%; height: 15%" />
-		
+			<button id="form_button"onclick="generatePdf()" style="height: 20%">Print Report</button>
 		</div>
 	</div>
 

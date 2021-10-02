@@ -36,22 +36,22 @@ request.setAttribute("data", cusDetails);
 			<table id="Order_table" class="table display nowrap table-bordered" style="width:100%">
 		        <thead class="thead-dark">
 		            <tr>
+		            	<th scope="col">Date</th>
 		            	<th scope="col">Cus.No</th>
 		                <th scope="col">Hardware Name</th>
 		                <th scope="col">Phone No</th>
 		                <th scope="col">Address</th>
-		                <th scope="col">Date</th>
 		                <th scope="col">Quantity</th>
 		            </tr>
 		        </thead>
 		        <tbody>
 		          	<c:forEach items="${data}" var="Customer"> 
 		           		<tr>
+		           			<td><c:out value="${Customer.getMonth()}" /></td>
 				    	 	<td scope="row"><c:out value="${Customer.getId()}" /></td>
 				    	 	<td><c:out value="${Customer.getHname()}" /></td>
 				    	 	<td><c:out value="${Customer.getPhoneNo()}" /></td>
 				    	 	<td><c:out value="${Customer.getAddress()}" /></td>
-				    	 	<td><c:out value="${Customer.getMonth()}" /></td>
 				    	 	<td><c:out value="${Customer.getQty()}" /></td>
 			    	 	</tr>
 		   			</c:forEach>

@@ -159,8 +159,8 @@ public class Services {
 	}
 	
 	
-	//send email to accept order
-	public boolean SendPaidAmountMail(Customer customer ,Order order) {
+	//send email to payment 
+	public boolean SendPaidAmountMail(Customer customer ,Order order,double Remaining,double Paid) {
 		boolean status = false;
 		
 		//creating the needed variables
@@ -193,9 +193,16 @@ public class Services {
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail)); //receiving email address
 			
 			//message body
+			if( Remaining==0 ) {
 			message.setSubject("SMD Distributors Payments");//set subject
-			message.setText("Hello,This message is to confirm our acceptance of  order number :"  + order.getOID() + " which we received on "+ order.getODATE() + ". We are truly excited to do business with you and thank you for putting your trust in our products and services."
-					+ "Your order will delivered as soon as possible. Should you have any queries regarding your order, please call our customer support number(0776208209). ");
+			message.setText("You have paid total amount invoice :"  + order.getOID() +"\nThank you!! ");}
+			
+			else {
+				message.setSubject("SMD Distributors Payments");//set subject
+				message.setText("Invoice ID :"+order.getOID()+"\n"+"Paid Amount :"+Paid+"\n"+"Balance :"+Remaining+"\n "
+							+ "Thank you for your payment ");
+				
+			}
 			
 			//sending the mail
 			Transport.send(message);

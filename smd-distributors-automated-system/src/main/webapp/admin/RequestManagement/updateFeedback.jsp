@@ -32,7 +32,7 @@ if (request.getSession().getAttribute("Logged") != null) {
 		
 		
 		<div class="formcontent">
-		<h5 align="center" class="capitalize">Update Feedback Details</h5> 
+		<h5 align="center" class="ucapitalize">Update Feedback Details</h5> 
 			<form action="${pageContext.request.contextPath}/updatefeedback" method="post" class="form">
 			
 			<div class="form-group row">
