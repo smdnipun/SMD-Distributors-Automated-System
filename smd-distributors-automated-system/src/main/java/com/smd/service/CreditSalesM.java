@@ -294,11 +294,15 @@ public class CreditSalesM {
 	public PaymentDetails[] getReport(String month) {
 		List<PaymentDetails> ll = new LinkedList<PaymentDetails>();
 		PaymentDetails[] array = null;
-		try {
-			String command = "";
-			if(month==null) {
-				command = "SELECT * from smd.paymentdetails ";
-			}
+			try {
+				String command = "";
+				if(month.equals("0")) 
+				{
+					command = "SELECT * from smd.paymentdetails";
+				}else {
+					command = "SELECT * from smd.paymentdetails WHERE Order_Date LIKE '%" +month+"-%'";
+				}
+				
 			Statement stmt = con.getConnection().createStatement();
 		
 			ResultSet rs = stmt.executeQuery(command);

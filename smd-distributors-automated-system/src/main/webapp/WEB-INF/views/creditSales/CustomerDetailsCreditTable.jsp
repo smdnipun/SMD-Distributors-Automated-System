@@ -25,7 +25,7 @@ request.setAttribute("data", customer);
 
 	<!--Creating Customerdetailscredit table-->
 
-	<table id="payTable" class="table" style="width: 100%">
+	<table  class="table" style="width: 100%">
 
 		<c:choose>
 			<c:when test="${param.search==null}">
