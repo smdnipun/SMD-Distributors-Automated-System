@@ -145,6 +145,7 @@ public class Services {
 			message.setSubject("SMD Distributors Payment Accept");//set subject
 			message.setText("Hello,This message is to confirm our acceptance of  order number :"  + order.getOID() + " which we received on "+ order.getODATE() + ". We are truly excited to do business with you and thank you for putting your trust in our products and services."
 					+ "Your order will delivered as soon as possible. Should you have any queries regarding your order, please call our customer support number(0776208209). ");
+
 			
 			//sending the mail
 			Transport.send(message);

@@ -57,7 +57,7 @@ public class CreditSalesM {
 			while (rs.next()) {
 				// rs.getNString(2)
 				PaymentDetails n = new PaymentDetails(rs.getNString(1), rs.getString(2), rs.getDouble(3),
-						rs.getDouble(4), rs.getDouble(5), rs.getString(6));
+						rs.getDouble(4), rs.getDouble(5), rs.getString(6),rs.getString(7));
 				ll.add(n);
 			}
 			array = ll.toArray(new PaymentDetails[ll.size()]);
@@ -80,7 +80,7 @@ public class CreditSalesM {
 			ResultSet rs = stmt.executeQuery("select * from paymentdetails where Order_ID=" + i);
 			while (rs.next()) {
 				PaymentDetails n = new PaymentDetails(rs.getNString(1), rs.getString(2), rs.getDouble(3),
-						rs.getDouble(4), rs.getDouble(5), rs.getString(6));
+						rs.getDouble(4), rs.getDouble(5), rs.getString(6),rs.getString(7));
 				ll.add(n);
 			}
 			array = ll.toArray(new PaymentDetails[ll.size()]);
@@ -277,7 +277,7 @@ public class CreditSalesM {
 			ResultSet rs = stmt.executeQuery(command);
 			while (rs.next()) {
 				PaymentDetails n = new PaymentDetails(rs.getNString(1), rs.getString(2), rs.getDouble(3),
-						rs.getDouble(4), rs.getDouble(5), rs.getString(6));
+						rs.getDouble(4), rs.getDouble(5), rs.getString(6),rs.getString(7));
 				ll.add(n);
 			}
 

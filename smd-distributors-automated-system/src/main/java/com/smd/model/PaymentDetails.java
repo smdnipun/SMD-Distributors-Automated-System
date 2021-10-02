@@ -9,11 +9,12 @@ public class PaymentDetails {
 	private double PaidAmount;
 	private double Balance;
 	private String Status;
+	private String Date;
 
 //overloaded Constructor
 	// String cusID
 	public PaymentDetails(String cusName, String invoiceID, double totalAmount, double paidAmount,
-			double balance,String status) {
+			double balance,String status,String date) {
 		
 	
 		CusName = cusName;
@@ -23,6 +24,7 @@ public class PaymentDetails {
 		PaidAmount = paidAmount;
 		Balance = balance;
 		Status = status;
+		Date=date;
 	}
 
 	// Setters and getters
@@ -80,6 +82,14 @@ public class PaymentDetails {
 
 	public void setStatus(String status) {
 		Status = status;
+	}
+	
+	public String getDate() {
+		return Date;
+	}
+
+	public void setDate(String date) {
+		Date= date;
 	}
 
 }

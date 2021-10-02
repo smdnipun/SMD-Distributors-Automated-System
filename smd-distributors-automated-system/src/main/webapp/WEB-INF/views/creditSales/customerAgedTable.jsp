@@ -30,7 +30,7 @@ request.setAttribute("data", customerAged);
 				request.setAttribute("allPayments", allPayments);
 				%>
 
-
+			
 				<thead class="thead-dark">
 					<tr>
 
@@ -40,6 +40,7 @@ request.setAttribute("data", customerAged);
 						<th scope="col">Paid Amount</th>
 						<th scope="col">Remaining Amount</th>
 						<th scope="col">Status</th>
+						<th scope="col">Date</th>
 
 
 					</tr>
@@ -56,12 +57,15 @@ request.setAttribute("data", customerAged);
 							<td><c:out value="${PaymentDetails.getPaidAmount()}" /></td>
 							<td><c:out value="${PaymentDetails.getBalance()}" /></td>
 							<td><c:out value="${PaymentDetails.getStatus()}" /></td>
+							<td><c:out value="${PaymentDetails.getDate()}" /></td>
+							
 
 
 
 						</tr>
 					</c:forEach>
 				</tbody>
+		
 			</c:when>
 			<c:otherwise>
 				<%
@@ -92,6 +96,7 @@ request.setAttribute("data", customerAged);
 							<td><c:out value="${PaymentDetails.getPaidAmount()}" /></td>
 							<td><c:out value="${PaymentDetails.getBalance()}" /></td>
 							<td><c:out value="${PaymentDetails.getStatus()}" /></td>
+							<td><c:out value="${PaymentDetails.getDate()}" /></td>
 						</tr>
 				</c:forEach>
 				</tbody>
@@ -100,7 +105,7 @@ request.setAttribute("data", customerAged);
 	</table>
 
 	<p align="right">
-		<button type="button" class="btn btn-secondary"
+		<button id="print" class="btn btn-secondary"
 			style="background-color: #b8b8b8">Generate Report</button>
 	</p>
 </div>
