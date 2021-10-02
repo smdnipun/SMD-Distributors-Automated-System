@@ -24,6 +24,7 @@ if (request.getSession().getAttribute("Logged") != null) {
 		<%
 			String Feedback_ID = request.getParameter("Feedback_ID");
 			String Cus_ID = request.getParameter("Cus_ID");
+			String Email = request.getParameter("Email");
 			String Date = request.getParameter("Date");
 			String Type = request.getParameter("Type");
 			String Message = request.getParameter("Message");
@@ -50,6 +51,12 @@ if (request.getSession().getAttribute("Logged") != null) {
     			<label for="feedbackid" class="col-sm-5 col-form-label">Customer ID: </label>
     			<div class="col-sm-5">
       			<input type="text" readonly class="form-control-plaintext" name="Cus_ID" value="<%= Cus_ID %>">
+			    </div>
+			  </div>
+			   <div class="form-group row">
+    			<label for="feedbackid" class="col-sm-5 col-form-label">Email: </label>
+    			<div class="col-sm-5">
+      			<input type="text" readonly class="form-control-plaintext" name="Email" value="<%= Email %>">
 			    </div>
 			  </div>
 			  <div class="form-group row">

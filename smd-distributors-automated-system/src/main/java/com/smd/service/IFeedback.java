@@ -13,11 +13,11 @@ public interface IFeedback {
 		//public Feedback selectFeedback(String Feedback_ID);
 			
 		//add feedback for feedback table
-		public boolean addFeedback(String Feedback_ID, String Cus_ID, String Date, String Type, String Message, String Rating,
+		public boolean addFeedback(String Feedback_ID, String Cus_ID, String Email, String Date, String Type, String Message, String Rating,
 				String Status);
 		
 		//update a feedback
-		public boolean updateFeedback(String Feedback_ID, String Cus_ID, String Date, String Type, String Message, String Rating,
+		public boolean updateFeedback(String Feedback_ID, String Cus_ID, String Email, String Date, String Type, String Message, String Rating,
 				String Status);
 
 		//remove a feedback

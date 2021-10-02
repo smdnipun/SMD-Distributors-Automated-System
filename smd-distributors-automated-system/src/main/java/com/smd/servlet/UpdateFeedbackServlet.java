@@ -18,13 +18,13 @@ public class UpdateFeedbackServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			
 		String Feedback_ID=request.getParameter("Feedback_ID");
 		String Cus_ID=request.getParameter("Cus_ID");
+		String Email=request.getParameter("Email");
 		String Date=request.getParameter("Date");
 		String Type=request.getParameter("Type");
 		String Message=request.getParameter("Message");
@@ -35,7 +35,7 @@ public class UpdateFeedbackServlet extends HttpServlet {
 		
 		IFeedback iFeedbackService = new FeedbackServiceImpl();
 		//to catch the result got from the model class method
-		istrue=iFeedbackService.updateFeedback(Feedback_ID, Cus_ID, Date,Type, Message, Rating, Status);
+		istrue=iFeedbackService.updateFeedback(Feedback_ID, Cus_ID, Email,Date,Type, Message, Rating, Status);
 		
 		//if the data was passed to the database successfully 
 				try{
