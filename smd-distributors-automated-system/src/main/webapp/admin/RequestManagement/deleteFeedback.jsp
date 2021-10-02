@@ -32,7 +32,7 @@ if (request.getSession().getAttribute("Logged") != null) {
 			String Status = request.getParameter("Status");
 		%>
 		<div class="formcontent">
-		<h5 class="capitalize" align="center">Delete the record</h5>
+		<h5 class="ucapitalize" align="center">Delete the record</h5>
 		<form action="${pageContext.request.contextPath}/deletefeedback" method="post" class="form">
 			<%-- Feedback ID: <input type="text" name="Feedback_ID" value="<%= Feedback_ID %>" readonly> <br><br>
 			Customer ID: <input type="text" name="Cus_ID" value="<%= Cus_ID %>" readonly> <br><br>
