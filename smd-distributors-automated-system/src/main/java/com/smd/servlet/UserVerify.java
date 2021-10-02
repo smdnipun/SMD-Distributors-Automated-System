@@ -46,6 +46,7 @@ public class UserVerify extends HttpServlet {
 						String code = sm.generateOtp();
 						Customer customer = new Customer(customerData[i].getCusID(),email, code);
 						
+						//send mail to the customer
 						boolean test = sm.sendEmail(customer);
 						
 						if(test) { 

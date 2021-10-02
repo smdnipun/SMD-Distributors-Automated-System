@@ -64,9 +64,6 @@
 				<th scope="col">Customer ID</th>
 				<th scope="col">Vehicle</th>
 				<th scope="col"></th>
-				
-				
-	
 			</tr>
 		</thead>
 		<tbody>

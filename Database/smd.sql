@@ -389,6 +389,7 @@ DROP TABLE IF EXISTS `feedback`;
 CREATE TABLE `feedback` (
   `Feedback_ID` int NOT NULL AUTO_INCREMENT,
   `Cus_ID` int NOT NULL,
+  `Email` varchar(45) NOT NULL,
   `Date` datetime NOT NULL,
   `Type` varchar(10) NOT NULL,
   `Message` varchar(100) NOT NULL,
@@ -396,7 +397,8 @@ CREATE TABLE `feedback` (
   `Status` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`Feedback_ID`,`Cus_ID`),
   KEY `CustomerID_idx` (`Cus_ID`),
-  CONSTRAINT `CustomerID` FOREIGN KEY (`Cus_ID`) REFERENCES `customer` (`Cus_ID`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `CustomerID` FOREIGN KEY (`Cus_ID`) REFERENCES `customer` (`Cus_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `CustomerEmail` FOREIGN KEY (`Email`) REFERENCES `customer` (`Email`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

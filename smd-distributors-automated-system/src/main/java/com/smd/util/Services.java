@@ -154,8 +154,7 @@ public class Services {
 			
 		} catch(Exception e) {
 			e.printStackTrace();
-		}
-		
+		}	
 		return status;
 	}
 	
@@ -265,7 +264,4 @@ public class Services {
 			return status;
 		}
 }
-
-
-
 

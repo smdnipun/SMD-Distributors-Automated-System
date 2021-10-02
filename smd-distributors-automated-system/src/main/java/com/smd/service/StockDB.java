@@ -11,6 +11,26 @@ import com.smd.model.Stocksummary;
 
 public class StockDB {
 	// Database connection of Stock
+	public Stock[] getAllStockdetails() {
+		List<Stock> ll = new LinkedList<Stock>();
+		Stock[] array = null;
+		DBConnection con = new DBConnection();
+		try {
+			Statement stmt = con.getConnection().createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM stock;");
+			while (rs.next()) {
+				Stock n = new Stock(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5));
+				ll.add(n);
+			}
+			array = ll.toArray(new Stock[ll.size()]);
+
+		} catch (Exception e) {
+		}
+		return array;
+
+	}
+	
+	// Database connection of Stock
 	public Stock[] getStockdetails() {
 		List<Stock> ll = new LinkedList<Stock>();
 		Stock[] array = null;

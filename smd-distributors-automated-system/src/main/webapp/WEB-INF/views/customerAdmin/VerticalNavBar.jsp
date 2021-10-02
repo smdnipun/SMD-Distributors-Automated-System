@@ -7,6 +7,6 @@
 		aria-selected="true">Customer details</a> 
 		
 	<a class="nav-link" id="customer-report-tab" data-mdb-toggle="tab"
-		href="customerSales.jsp" role="tab" aria-controls="v-tabs-profile" 
+		href="ReportCusReg.jsp" role="tab" aria-controls="v-tabs-profile" 
 		aria-selected="false">Reports</a>
 </div>

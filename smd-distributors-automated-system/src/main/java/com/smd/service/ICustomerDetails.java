@@ -1,5 +1,6 @@
 package com.smd.service;
 
+import com.smd.model.BestCustomers;
 import com.smd.model.Customer;
 import com.smd.model.OrderSummary;
 import com.smd.model.PaySummary;
@@ -52,4 +53,7 @@ public interface ICustomerDetails {
 	
 	//get customer payment summary
 	public PaySummary[] getPaymentDetails(int id);
+	
+	//get best customer details
+	public BestCustomers[] getBestCus();
 }

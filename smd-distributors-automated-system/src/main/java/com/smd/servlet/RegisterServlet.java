@@ -2,6 +2,8 @@ package com.smd.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -54,10 +56,15 @@ public class RegisterServlet extends HttpServlet {
 		customer.setAddress(
 				request.getParameter("address")+ ", " +
 				request.getParameter("city")+ ", " +
-				request.getParameter("State")
+				request.getParameter("state")
 				);
 		String pwd = sv.doHashing(request.getParameter("pwd"));
 		customer.setPassword(pwd);
+		//getting the system date
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");  
+		LocalDateTime now = LocalDateTime.now();  
+		String date = dtf.format(now);
+		customer.setDate(date);
 		
 		//checking the password is correctly enter in both fields(password and re-enter password)
 		if(request.getParameter("pwd").equals(request.getParameter("rpwd"))) {

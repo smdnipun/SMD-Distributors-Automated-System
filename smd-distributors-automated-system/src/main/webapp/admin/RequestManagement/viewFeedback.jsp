@@ -26,7 +26,7 @@ if (request.getSession().getAttribute("Logged") != null) {
 			<p>Request Management Admin can Search feedbacks according to the date.</p>
 			<p>Request Management Admin can Update/Delete these details.</p>
 			<p>Request Management Admin can Genarate Reports for ratings.</p>
-			<input type="submit" name="viewbtn" value="View Feedback Details">
+			<input type="submit" name="viewbtn" value="View Feedback Details" class="btnview">
 		</form>
 	</div>
 	<br><br><br><br><br><br><br><br><br>
