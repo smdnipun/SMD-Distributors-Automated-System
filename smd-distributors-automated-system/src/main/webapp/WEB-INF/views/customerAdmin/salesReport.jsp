@@ -20,7 +20,7 @@ request.setAttribute("data", cusDetails);
 			<div class="d-flex justify-content-center">
 				<h4>Best Customers</h4>
 			</div>
-			<form action="" method="post" class="pb-3">
+			<form action="../../PDFbestCus" method="post" class="pb-3">
 				<div class="row">
 					<div class="col-9">
 						<label for="date">Date</label>
@@ -39,7 +39,8 @@ request.setAttribute("data", cusDetails);
 		            	<th scope="col">Cus.No</th>
 		                <th scope="col">Hardware Name</th>
 		                <th scope="col">Phone No</th>
-		                <th scopte="col">Date</th>
+		                <th scope="col">Address</th>
+		                <th scope="col">Date</th>
 		                <th scope="col">Quantity</th>
 		            </tr>
 		        </thead>
@@ -49,6 +50,7 @@ request.setAttribute("data", cusDetails);
 				    	 	<td scope="row"><c:out value="${Customer.getId()}" /></td>
 				    	 	<td><c:out value="${Customer.getHname()}" /></td>
 				    	 	<td><c:out value="${Customer.getPhoneNo()}" /></td>
+				    	 	<td><c:out value="${Customer.getAddress()}" /></td>
 				    	 	<td><c:out value="${Customer.getMonth()}" /></td>
 				    	 	<td><c:out value="${Customer.getQty()}" /></td>
 			    	 	</tr>

@@ -20,7 +20,7 @@ request.setAttribute("data", cusDetails);
 			<div class="d-flex justify-content-center">
 				<h4>New Registration</h4>
 			</div>
-			<form action="" method="post" class="pb-3">
+			<form action="../../PDFcusReg" method="post" class="pb-3">
 				<div class="row">
 					<div class="col-9">
 						<label for="date">Date</label>

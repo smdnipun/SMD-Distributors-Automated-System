@@ -4,14 +4,16 @@ public class BestCustomers {
 	private String id;
 	private String hname;
 	private String phoneNo;
+	private String address;
 	private String month;
 	private String qty;
 	
-	public BestCustomers(String id, String hname, String phoneNo, String month, String qty) {
+	public BestCustomers(String id, String hname, String phoneNo, String address, String month, String qty) {
 		super();
 		this.id = id;
 		this.hname = hname;
 		this.phoneNo = phoneNo;
+		this.address = address;
 		this.month = month;
 		this.qty = qty;
 	}
@@ -54,5 +56,13 @@ public class BestCustomers {
 
 	public void setQty(String qty) {
 		this.qty = qty;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 }

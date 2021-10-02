@@ -590,8 +590,9 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 						rs.getString(1),	//customer ID
 						rs.getString(2),	//Hardware name
 						rs.getString(3), 	//phone No
-						rs.getString(4),	//month
-						rs.getString(5)		//Quantity
+						rs.getString(4),	//address
+						rs.getString(5),	//month
+						rs.getString(6)		//Quantity
 						);
 				ll.add(p);
 			}
