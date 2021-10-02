@@ -79,6 +79,8 @@ page="EmployeeNav.jsp"></jsp:include>
 
 <button onclick="generatePdf()">Print Report </button>
 
+<div id="attendReport" >
+
 <div style="height: 400px;overflow: scroll;">
 			<table class="table"  style="width:100%">
 				<thead class="thead-dark">
@@ -114,7 +116,7 @@ page="EmployeeNav.jsp"></jsp:include>
 		        </c:forEach>
 				</tbody>
 			    </table>
-
+</div>
 </div>
 </div>
 </div>

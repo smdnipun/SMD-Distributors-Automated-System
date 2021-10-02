@@ -23,6 +23,12 @@ $(document).ready(function() {
 } );
 
 
+$(document).ready(function () {
+	$('#dtBasicExample').DataTable();
+	$('.dataTables_length').addClass('bs-select');
+	});
+
+
 
 </script>
 		
@@ -42,9 +48,9 @@ page="EmployeeNav.jsp"></jsp:include>
  <h2>Employee Details</h2>
 </center>
 
-<div style="height: 700px;overflow: scroll;">
+<div style="height: 700px;overflow: scroll;"> 
 
-			<table  class="table" style="width:100%">
+			<table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
 				<thead class="thead-dark">
 					<tr>
 						<th scope="col">EmpID</th>
@@ -149,9 +155,9 @@ page="EmployeeNav.jsp"></jsp:include>
 					</c:forEach>
             </tbody>  
 			</table>
-</div>
-		</div>
-		</div>
+	</div>
+	</div>
+   </div>  
 
 
 
