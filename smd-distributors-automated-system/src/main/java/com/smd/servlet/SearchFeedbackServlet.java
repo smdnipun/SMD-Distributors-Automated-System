@@ -38,7 +38,7 @@ public class SearchFeedbackServlet extends HttpServlet {
 		 * System.out.println("Error");
 		 */
 		
-		String url="RequestManage/requestHome.jsp?search="+request.getParameter("search");
+		String url="/admin/RequestManagement/requestHome.jsp?search="+request.getParameter("search");
 		response.sendRedirect(url);
 		
 	}}

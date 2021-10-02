@@ -106,7 +106,7 @@ font-family: arial, sans-serif;
 }
 
   .reportform{
-		background-color:rgb(212, 212, 212);
+		background-color:#e4e4e4;
 	width: 400px;
 	border: 7px black;
 	font: 13px "";
@@ -114,6 +114,9 @@ font-family: arial, sans-serif;
 	outline-color: black;
 	outline-style: groove;
 	opacity:0.9;
+	float:center;
+		margin: 0 auto; 
+		text-align: center;
   }
   
 #myInput {

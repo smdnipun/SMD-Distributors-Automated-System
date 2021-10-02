@@ -10,19 +10,21 @@ if (request.getSession().getAttribute("Logged") != null) {
 <html>
 <head>
 	<title>Customer Services</title>
-	     <jsp:include page="../WEB-INF/views/common/header.jsp"></jsp:include>
-    <jsp:include page="../WEB-INF/views/common/head.jsp">
+	     <jsp:include page="./WEB-INF/views/common/header.jsp"></jsp:include>
+    <jsp:include page="./WEB-INF/views/common/head.jsp">
 	<jsp:param name="Title" value="SMD Distributors" /></jsp:include>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/requestcustomer.css"/>
 </head>
 <body>
    
      <div class=row>
-    	<jsp:include page="../WEB-INF/views/Request/CusRequestnavbar.jsp"></jsp:include> 
+    	<div class="col-2">
+		<jsp:include page="WEB-INF/views/customer/customerUInavBar.jsp"></jsp:include>
+		</div>
     	<div class="col-9">
     
             <center>
-			<form id="feedback" method="post" action="../addfeedback" style="text-align: left;">
+			<form id="feedback" method="post" action="${pageContext.request.contextPath}/addfeedback" style="text-align: left;">
                 <h2 style="text-align: center;">Send Us A Feedback</h2><br>
                 <h6 class="fw-light" style="text-align: center;">We would love to hear your thoughts.
                          Get connected with us!</h6><br>
@@ -64,14 +66,14 @@ if (request.getSession().getAttribute("Logged") != null) {
         </center>
         </div>
         </div>
-       <jsp:include page="../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
+       <jsp:include page="./WEB-INF/views/common/adminFooter.jsp"></jsp:include>
 </body>
 </html>
 <%
 } else {
     PrintWriter redirect = response.getWriter();
     redirect.println("<script>");
-    redirect.println("location='../login.jsp'");//put the location from your jsp file
+    redirect.println("location='./login.jsp'");//put the location from your jsp file
     redirect.println("</script>");
 }
 %>

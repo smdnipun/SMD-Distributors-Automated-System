@@ -55,8 +55,6 @@ public class AddFeedbackServlet extends HttpServlet {
 						
 						response.sendRedirect("./RequestC/customerServices.jsp");
 						
-						//RequestDispatcher dispatcher = request.getRequestDispatcher("/RequestC/customerServices.jsp");
-						//dispatcher.forward(request, response);//redirecting from the servlet to
 						
 					}else {//if the data wasn't passed to the database successfully 
 						PrintWriter out = response.getWriter();
@@ -73,8 +71,6 @@ public class AddFeedbackServlet extends HttpServlet {
 						
 						response.sendRedirect("./RequestC/customerServices.jsp");
 						
-						//RequestDispatcher dispatcher = request.getRequestDispatcher("/RequestC/customerServices.jsp");
-						//dispatcher.forward(request, response);//redirecting from the servlet to
 					}
 				}catch (Exception e) {
 					e.printStackTrace();
