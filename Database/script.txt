@@ -29,6 +29,7 @@ DROP TABLE IF EXISTS `feedback`;
 CREATE TABLE `feedback` (
   `Feedback_ID` int NOT NULL AUTO_INCREMENT,
   `Cus_ID` int NOT NULL,
+  `Email` varchar(45) NOT NULL,
   `Date` datetime NOT NULL,
   `Type` varchar(10) NOT NULL,
   `Message` varchar(100) NOT NULL,
@@ -36,7 +37,8 @@ CREATE TABLE `feedback` (
   `Status` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`Feedback_ID`,`Cus_ID`),
   KEY `CustomerID_idx` (`Cus_ID`),
-  CONSTRAINT `CustomerID` FOREIGN KEY (`Cus_ID`) REFERENCES `customer` (`Cus_ID`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `CustomerID` FOREIGN KEY (`Cus_ID`) REFERENCES `customer` (`Cus_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `CustomerEmail` FOREIGN KEY (`Email`) REFERENCES `customer` (`Email`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
@@ -324,9 +326,9 @@ VALUES (1,'Dilupa','Gimhan','DGHardware','0767008922','dghan','dg01','981491768V
 --
 
 INSERT INTO `feedback` 
-VALUES (1,1,'2021-05-18','a','Excellent service','5','pending'),
-	(2,2,'2021-08-19','q','is it possible to delivery?','3','compelted'),
-    (3,3,'2021-04-02','c','poor service','1','pending');
+VALUES (1,1,'dg@gmail.com','2021-05-18','C','Excellent service','5','pending'),
+	(2,2,'rana@gmail.com','2021-08-19','Q','is it possible to delivery?','3','compelted'),
+    (3,3,'tham@gmail.com','2021-04-02','I','poor service','1','pending');
     
 --
 -- Dumping data for table `employee_type`
