@@ -43,7 +43,7 @@ public class StockUpdate extends HttpServlet {
 				Statement stmt = sdbc.getConnection().createStatement();
 				String command = "INSERT INTO stock(Item_name,Date,Quantity,Status)" + "" + "VALUES('"
 						+ request.getParameter("itemname") + "','" + request.getParameter("date") + "','"
-						+ request.getParameter("quntity") + "', 'add')";
+						+ request.getParameter("quntity") + "', 'Add')";
 				stmt.execute(command);
 				
 

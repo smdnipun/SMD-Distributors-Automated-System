@@ -38,18 +38,12 @@ request.setAttribute("supplierdata", newsupplier);
 				
 						<tr>
 
-							<td><input readonly type="text" name="supplierID"
-								value="<c:out value="${Supplier.getSupplierID()}"/>"></td>
-							<td><input type="text" name="sname"
-								value="<c:out value="${Supplier.getSName()}"/>"></td>
-								<td><input type="text" name="pname"
-								value="<c:out value="${Supplier.getPName()}"/>"></td>
-							<td><input type="text" name="address"
-								value="<c:out value="${Supplier.getAddress()}"/>"></td>
-							<td><input type="text" name="tno"
-								value="<c:out value="${Supplier.getTno()}"/>"></td>
-							<td><input type="text" name="tno"
-								value="<c:out value="${Supplier.getStatus()}"/>"></td>
+							<td><c:out value="${Supplier.getSupplierID()}"/></td>
+							<td><c:out value="${Supplier.getSName()}"/></td>
+							<td><c:out value="${Supplier.getPName()}"/></td>
+							<td><c:out value="${Supplier.getAddress()}"/></td>
+							<td><c:out value="${Supplier.getTno()}"/></td>
+							<td><c:out value="${Supplier.getStatus()}"/></td>
 					</tr>
 
 				</c:forEach>

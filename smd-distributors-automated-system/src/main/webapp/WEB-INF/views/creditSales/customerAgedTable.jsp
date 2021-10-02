@@ -20,41 +20,45 @@ request.setAttribute("data", customerAged);
 	<jsp:include page="CenterNavWithoutSearch.jsp"></jsp:include>
 	<center>
 		<h5>Customer Aged Recivable</h5>
-	
+
 	</center>
 	<!--Creating customerage table-->
-		<form>
-		</select> <input type="month" name="month" min="2021-01"></input>
+	<form>
+		<input type="month" name="month" min="2021-01"></input> <select
+			name="status">
+			<option value="0"></option>
+			<option value="Paid">Paid</option>
+		</select>
 		<button type="submit">Submit</button>
 
 	</form>
-	
+
 	<table id="customerDetails" class="table" style="width: 100%">
-		
-					<thead class="thead-dark">
-					<tr>
 
-						<th scope="col">Hardware Name</th>
-						<th scope="col">Invoice ID</th>
-						<th scope="col">Total Price</th>
-						<th scope="col">Paid Amount</th>
-						<th scope="col">Remaining Amount</th>
-						<th scope="col">Status</th>
-						<th scope="col">Date</th>
+		<thead class="thead-dark">
+			<tr>
+
+				<th scope="col">Hardware Name</th>
+				<th scope="col">Invoice ID</th>
+				<th scope="col">Total Price</th>
+				<th scope="col">Paid Amount</th>
+				<th scope="col">Remaining Amount</th>
+				<th scope="col">Status</th>
+				<th scope="col">Date</th>
 
 
-					</tr>
-				</thead>
-				<tbody>
-				
-				<c:choose>
-				<c:when test="${param.month!=null}">
+			</tr>
+		</thead>
+		<tbody>
+
+			<c:choose>
+				<c:when test="${param.month!=null||param.status!=null}">
 					<%
 					CreditSalesM reportCon = new CreditSalesM();
-					PaymentDetails[] report = reportCon.getReport(request.getParameter("month"));
+					PaymentDetails[] report = reportCon.getReport(request.getParameter("month"),request.getParameter("status"));
 					request.setAttribute("report", report);
 					%>
-					<c:forEach items="${report}" var="item">
+					<c:forEach items="${report}" var="PaymentDetails">
 						<tr>
 							<td><c:out value="${PaymentDetails.getCusName()}" /></td>
 							<td><c:out value="${PaymentDetails.getInvoiceID()}" /></td>
@@ -63,20 +67,32 @@ request.setAttribute("data", customerAged);
 							<td><c:out value="${PaymentDetails.getBalance()}" /></td>
 							<td><c:out value="${PaymentDetails.getStatus()}" /></td>
 							<td><c:out value="${PaymentDetails.getDate()}" /></td>
-					
+
 						</tr>
 					</c:forEach>
 				</c:when>
 				<c:otherwise>
 					<%
 					CreditSalesM reportCon = new CreditSalesM();
-					PaymentDetails[] report = reportCon.getReport(request.getParameter("month"));
+					PaymentDetails[] report = reportCon.getReport("0","0");
 					request.setAttribute("report", report);
 					%>
+					<c:forEach items="${report}" var="PaymentDetails">
+						<tr>
+							<td><c:out value="${PaymentDetails.getCusName()}" /></td>
+							<td><c:out value="${PaymentDetails.getInvoiceID()}" /></td>
+							<td><c:out value="${PaymentDetails.getTotalAmount()}" /></td>
+							<td><c:out value="${PaymentDetails.getPaidAmount()}" /></td>
+							<td><c:out value="${PaymentDetails.getBalance()}" /></td>
+							<td><c:out value="${PaymentDetails.getStatus()}" /></td>
+							<td><c:out value="${PaymentDetails.getDate()}" /></td>
+
+						</tr>
+					</c:forEach>
 				</c:otherwise>
-			</c:choose>	
-				
-				</tbody>
+			</c:choose>
+
+		</tbody>
 
 	</table>
 
