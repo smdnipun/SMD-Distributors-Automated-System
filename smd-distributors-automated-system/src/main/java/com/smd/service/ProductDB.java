@@ -6,6 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import com.smd.model.Product;
+import com.smd.model.ProductReportItem;
 import com.smd.util.DBConnection;
 
 public class ProductDB {
@@ -145,6 +146,36 @@ public class ProductDB {
 			}
 
 			array = ll.toArray(new Product[ll.size()]);
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return array;
+	}
+	
+	public ProductReportItem[] getReport(String month,String product) {
+		List<ProductReportItem> ll = new LinkedList<ProductReportItem>();
+		ProductReportItem[] array = null;
+		try {
+			String command = "";
+			if(month==null) {
+				command = "SELECT * from smd.productreport WHERE Product_Name ='"+product+"'";
+			}
+			Statement stmt = con.getConnection().createStatement();
+			command = "SELECT * from smd.productreport WHERE Product_Name ='"+product+"' and Order_Date LIKE '%" + month +"-%'";
+			if(month.equals("0")&&product.equals("0")) {
+				command = "SELECT * from smd.productreport";
+			}else if(product.equals("0")){
+				command = "SELECT * from smd.productreport WHERE Order_Date LIKE '%" + month +"-%'";
+			}
+			
+			ResultSet rs = stmt.executeQuery(command);
+			while (rs.next()) {
+					ProductReportItem n = new ProductReportItem(rs.getString(1), rs.getString(2),rs.getInt(3), rs.getInt(4),rs.getString(5));
+					ll.add(n);
+			}
+			
+			array = ll.toArray(new ProductReportItem[ll.size()]);
 
 		} catch (Exception e) {
 			System.out.println(e);
