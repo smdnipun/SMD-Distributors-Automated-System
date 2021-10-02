@@ -15,22 +15,22 @@ request.setAttribute("data", customerAged);
 %>
 
 <div class="col-9">
+	<form>
+		</select> <input type="month" name="month" min="2021-01"></input>
+		<button type="submit">Submit</button>
+
+	</form>
 	<!-- Horizontal navigation bar -->
-	<jsp:include page="centerNav.jsp"></jsp:include>
+	<jsp:include page="CenterNavWithoutSearch.jsp"></jsp:include>
 	<center>
 		<h5>Customer Aged Recivable</h5>
 	</center>
+	
 	<!--Creating customerage table-->
 	<table id="customerDetails" class="table" style="width: 100%">
-		<c:choose>
-			<c:when test="${param.search==null}">
-				<%
-				CreditSalesM con = new CreditSalesM();
-				PaymentDetails[] allPayments = con.getPaymentdetails();
-				request.setAttribute("allPayments", allPayments);
-				%>
+		
 
-			
+
 				<thead class="thead-dark">
 					<tr>
 
@@ -58,51 +58,17 @@ request.setAttribute("data", customerAged);
 							<td><c:out value="${PaymentDetails.getBalance()}" /></td>
 							<td><c:out value="${PaymentDetails.getStatus()}" /></td>
 							<td><c:out value="${PaymentDetails.getDate()}" /></td>
-							
+
 
 
 
 						</tr>
 					</c:forEach>
 				</tbody>
-		
-			</c:when>
-			<c:otherwise>
-				<%
-				CreditSalesM con = new CreditSalesM();
-				PaymentDetails[] searchPay = con.search(request.getParameter("search"));
-				request.setAttribute("searchData", searchPay);
-				%>
-				<c:forEach items="${searchData}" var="PaymentDetails">
-					<thead class="thead-dark">
-						<tr>
 
-							<th scope="col">Hardware Name</th>
-							<th scope="col">Invoice ID</th>
-							<th scope="col">Total Price</th>
-							<th scope="col">Paid Amount</th>
-							<th scope="col">Remaining Amount</th>
-							<th scope="col">Status</th>
-
-
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-
-							<td><c:out value="${PaymentDetails.getCusName()}" /></td>
-							<td><c:out value="${PaymentDetails.getInvoiceID()}" /></td>
-							<td><c:out value="${PaymentDetails.getTotalAmount()}" /></td>
-							<td><c:out value="${PaymentDetails.getPaidAmount()}" /></td>
-							<td><c:out value="${PaymentDetails.getBalance()}" /></td>
-							<td><c:out value="${PaymentDetails.getStatus()}" /></td>
-							<td><c:out value="${PaymentDetails.getDate()}" /></td>
-						</tr>
-				</c:forEach>
-				</tbody>
-			</c:otherwise>
-		</c:choose>
+			
 	</table>
+
 
 	<p align="right">
 		<button id="print" class="btn btn-secondary"

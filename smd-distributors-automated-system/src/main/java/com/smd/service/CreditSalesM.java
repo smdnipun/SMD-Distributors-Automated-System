@@ -14,6 +14,7 @@ import com.smd.model.NewOrdersConf;
 import com.smd.model.Order;
 import com.smd.model.Payment;
 import com.smd.model.PaymentDetails;
+import com.smd.model.ProductReportItem;
 
 public class CreditSalesM {
 
@@ -267,20 +268,45 @@ public class CreditSalesM {
 	}
 
 	// database connection of Search
-	public PaymentDetails[] search(String search) {
+//	public PaymentDetails[] search(String search) {
+//		List<PaymentDetails> ll = new LinkedList<PaymentDetails>();
+//		PaymentDetails[] array = null;
+//		try {
+//			Statement stmt = con.getConnection().createStatement();
+//			String command = "SELECT * from smd.paymentdetails WHERE Order_Status LIKE '%" + search
+//					+ "%' OR  Hardware_Name LIKE '%" + search + "%'";
+//			ResultSet rs = stmt.executeQuery(command);
+//			while (rs.next()) {
+//				PaymentDetails n = new PaymentDetails(rs.getNString(1), rs.getString(2), rs.getDouble(3),
+//						rs.getDouble(4), rs.getDouble(5), rs.getString(6),rs.getString(7));
+//				ll.add(n);
+//			}
+//
+//			array = ll.toArray(new PaymentDetails[ll.size()]);
+//
+//		} catch (Exception e) {
+//			System.out.println(e);
+//		}
+//		return array;
+//	}
+	
+	public PaymentDetails[] getReport(String month) {
 		List<PaymentDetails> ll = new LinkedList<PaymentDetails>();
 		PaymentDetails[] array = null;
 		try {
+			String command = "";
+			if(month==null) {
+				command = "SELECT * from smd.paymentdetails ";
+			}
 			Statement stmt = con.getConnection().createStatement();
-			String command = "SELECT * from smd.paymentdetails WHERE Order_Status LIKE '%" + search
-					+ "%' OR  Hardware_Name LIKE '%" + search + "%'";
+		
 			ResultSet rs = stmt.executeQuery(command);
 			while (rs.next()) {
 				PaymentDetails n = new PaymentDetails(rs.getNString(1), rs.getString(2), rs.getDouble(3),
 						rs.getDouble(4), rs.getDouble(5), rs.getString(6),rs.getString(7));
-				ll.add(n);
+					ll.add(n);
 			}
-
+			
 			array = ll.toArray(new PaymentDetails[ll.size()]);
 
 		} catch (Exception e) {
@@ -288,7 +314,30 @@ public class CreditSalesM {
 		}
 		return array;
 	}
+	// database connection of Search
+	public Customer[] search(String search) {
+		List<Customer> ll = new LinkedList<Customer>();
+		Customer[] array = null;
+		try {
+			Statement stmt = con.getConnection().createStatement();
+			String command = "SELECT * from smd.customer WHERE Hardware_Name LIKE '%" + search
+					+ "%'";
+			ResultSet rs = stmt.executeQuery(command);
+			while (rs.next()) {
+				Customer n = new Customer(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
+						rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9),
+						rs.getString(10));
+				ll.add(n);
+			}
 
+			array = ll.toArray(new Customer[ll.size()]);
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return array;
+	}
+	
 //	// Customer previous payments
 //	public Order[] getCusRemaining(String Customerid) {
 //		List<Order> ll = new LinkedList<Order>();
