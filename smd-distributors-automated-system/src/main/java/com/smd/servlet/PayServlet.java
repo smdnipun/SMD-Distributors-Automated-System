@@ -2,6 +2,7 @@ package com.smd.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.Provider.Service;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -13,7 +14,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.smd.service.CreditSalesM;
+import com.smd.service.CusDetailsServiceImpl;
 import com.smd.util.DBConnection;
+import com.smd.util.Services;
+import com.smd.model.Customer;
 import com.smd.model.Order;
 import com.smd.model.PaymentDetails;
 
@@ -37,6 +41,8 @@ public class PayServlet extends HttpServlet {
 		Order add = check.getOrder(CID, OID);
 		double pamount = add.getPAMOUNT();
 		double ramount = add.getRAMOUNT();
+		Customer c=new Customer();
+		CusDetailsServiceImpl payaccpt = new CusDetailsServiceImpl();
 		
 //		PaymentDetails pay = (PaymentDetails) request.getSession().getAttribute("Emp_ID");
 
@@ -55,6 +61,8 @@ public class PayServlet extends HttpServlet {
 
 			try {
 				
+				 
+				
 				DBConnection pdbc = new DBConnection();
 				Statement stmt = pdbc.getConnection().createStatement();
 				// insert data into payment table
@@ -69,6 +77,7 @@ public class PayServlet extends HttpServlet {
 
 				String command1 = "update orders SET Paid_Amount =" + TotalPaid + "," + " Remaining_Amount="
 						+ TotalRemain + " WHERE Cust_ID =" + CID + " and Order_ID=" + OID;
+				
 
 				// update order status into paid
 				String command2 = "update orders SET Order_Status ='Paid'  WHERE Remaining_Amount=0 and Cust_ID =" + CID
@@ -77,7 +86,10 @@ public class PayServlet extends HttpServlet {
 				stmt.execute(command);
 				stmt.executeUpdate(command1);
 				stmt.executeUpdate(command2);
-
+				
+				c = payaccpt.getCustomerById(CID);
+				Services s=new Services();
+				 s.SendPaidAmountMail(c,add,TotalRemain,paidAmount);
 //				response.getWriter().append(command);
 //				response.getWriter().append(command1);
 
@@ -86,6 +98,8 @@ public class PayServlet extends HttpServlet {
 			    out.println("location='admin/CreditSalesManagement/CreditPayment.jsp'"); //redirect to the registration page
 			    out.println("</script>");
 
+			    
+			    
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

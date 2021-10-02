@@ -24,11 +24,13 @@ request.setAttribute("data", customerAged);
 	<jsp:include page="CenterNavWithoutSearch.jsp"></jsp:include>
 	<center>
 		<h5>Customer Aged Recivable</h5>
-	</center>
 	
+	</center>
 	<!--Creating customerage table-->
+	
 	<table id="customerDetails" class="table" style="width: 100%">
 		
+			
 
 
 				<thead class="thead-dark">
@@ -65,8 +67,39 @@ request.setAttribute("data", customerAged);
 						</tr>
 					</c:forEach>
 				</tbody>
-
+<!-- 
+			</c:when>
+			<c:otherwise>
 			
+				<c:forEach items="${searchData}" var="PaymentDetails">
+					<thead class="thead-dark">
+						<tr>
+
+							<th scope="col">Hardware Name</th>
+							<th scope="col">Invoice ID</th>
+							<th scope="col">Total Price</th>
+							<th scope="col">Paid Amount</th>
+							<th scope="col">Remaining Amount</th>
+							<th scope="col">Status</th>
+
+
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+
+							<td><c:out value="${PaymentDetails.getCusName()}" /></td>
+							<td><c:out value="${PaymentDetails.getInvoiceID()}" /></td>
+							<td><c:out value="${PaymentDetails.getTotalAmount()}" /></td>
+							<td><c:out value="${PaymentDetails.getPaidAmount()}" /></td>
+							<td><c:out value="${PaymentDetails.getBalance()}" /></td>
+							<td><c:out value="${PaymentDetails.getStatus()}" /></td>
+							<td><c:out value="${PaymentDetails.getDate()}" /></td>
+						</tr>
+				</c:forEach>
+				</tbody>
+			</c:otherwise>
+		</c:choose> -->
 	</table>
 
 

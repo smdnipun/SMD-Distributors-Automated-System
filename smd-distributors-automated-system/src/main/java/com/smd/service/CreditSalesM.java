@@ -290,6 +290,7 @@ public class CreditSalesM {
 //		return array;
 //	}
 	
+	//filter data for generate report 
 	public PaymentDetails[] getReport(String month) {
 		List<PaymentDetails> ll = new LinkedList<PaymentDetails>();
 		PaymentDetails[] array = null;
@@ -314,6 +315,39 @@ public class CreditSalesM {
 		}
 		return array;
 	}
+	
+	//filter data for generate report
+	public Payment[] getReportP(String month) {
+		List<Payment> ll = new LinkedList<Payment>();
+		Payment[] array = null;
+		try {
+			String command = "";
+			if(month==null) {
+				command = "SELECT * from smd.payment  WHERE Hardware_Name LIKE '%" +month+"%'"; 
+			}
+			Statement stmt = con.getConnection().createStatement();
+		
+			ResultSet rs = stmt.executeQuery(command);
+			while (rs.next()) {
+				Payment n = new Payment(rs.getString(1), rs.getDouble(2), rs.getString(3), rs.getString(4),
+						rs.getString(5), rs.getString(6));
+					ll.add(n);
+			}
+			
+			array = ll.toArray(new Payment[ll.size()]);
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return array;
+	}
+	
+	
+	
+	
+	
+	
+	
 	// database connection of Search
 	public Customer[] search(String search) {
 		List<Customer> ll = new LinkedList<Customer>();

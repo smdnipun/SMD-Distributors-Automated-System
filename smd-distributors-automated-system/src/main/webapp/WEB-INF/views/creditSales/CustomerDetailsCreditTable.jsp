@@ -26,81 +26,82 @@ request.setAttribute("data", customer);
 	<!--Creating Customerdetailscredit table-->
 
 	<table id="payTable" class="table" style="width: 100%">
-	
-	<c:choose>
+
+		<c:choose>
 			<c:when test="${param.search==null}">
 				<%
 				CreditSalesM con = new CreditSalesM();
-				Customer[] allPayments = con.getCustomrDetailstocredit();
-				request.setAttribute("allPayments", allPayments);
+				Customer[] allCustomer = con.getCustomrDetailstocredit();
+				request.setAttribute("allCustomer", allCustomer);
 				%>
-	
-		<thead class="thead-dark">
 
-			<tr>
-				<th>Customer ID</th>
-				<th>Hardware Name</th>
-				<th>Telephone</th>
-				<th>Email Address</th>
-				<th>Address</th>
+				<thead class="thead-dark">
 
-
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${data}" var="Customer">
-				<tr>
-					<td><c:out value="${Customer.getCusID()}" /></td>
-					<td><c:out value="${Customer.getHardwareName()}" /></td>
-					<td><c:out value="${Customer.getPhoneNo()}" /></td>
-					<td><c:out value="${Customer.getEmail() }" /></td>
-					<td><c:out value="${Customer.getAddress()}" /></td>
+					<tr>
+						<th>Customer ID</th>
+						<th>Hardware Name</th>
+						<th>Telephone</th>
+						<th>Email Address</th>
+						<th>Address</th>
 
 
-				</tr>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${data}" var="Customer">
+						<tr>
+							<td><c:out value="${Customer.getCusID()}" /></td>
+							<td><c:out value="${Customer.getHardwareName()}" /></td>
+							<td><c:out value="${Customer.getPhoneNo()}" /></td>
+							<td><c:out value="${Customer.getEmail() }" /></td>
+							<td><c:out value="${Customer.getAddress()}" /></td>
 
-			</c:forEach>
-			<tr>
-		</tbody>
-		</c:when>
-		<c:otherwise>
-		<%
+
+						</tr>
+
+					</c:forEach>
+
+				</tbody>
+			</c:when>
+			<c:otherwise>
+				<%
 				CreditSalesM con = new CreditSalesM();
-				Customer[] searchPay = con.search(request.getParameter("search"));
-				request.setAttribute("searchData", searchPay);
+				Customer[] searchCus = con.search(request.getParameter("search"));
+				request.setAttribute("searchData", searchCus);
 				%>
 				<c:forEach items="${data}" var="Customer">
-		<thead class="thead-dark">
+					<thead class="thead-dark">
 
-			<tr>
-				<th>Customer ID</th>
-				<th>Hardware Name</th>
-				<th>Telephone</th>
-				<th>Email Address</th>
-				<th>Address</th>
-
-
-			</tr>
-		</thead>
-		<tbody>
-			
-				<tr>
-					<td><c:out value="${Customer.getCusID()}" /></td>
-					<td><c:out value="${Customer.getHardwareName()}" /></td>
-					<td><c:out value="${Customer.getPhoneNo()}" /></td>
-					<td><c:out value="${Customer.getEmail() }" /></td>
-					<td><c:out value="${Customer.getAddress()}" /></td>
+						<tr>
+							<th>Customer ID</th>
+							<th>Hardware Name</th>
+							<th>Telephone</th>
+							<th>Email Address</th>
+							<th>Address</th>
 
 
-				</tr>
+						</tr>
+					</thead>
+					<tbody>
 
-			
-			<tr>
-		</tbody>
-	</c:forEach>
-	</c:otherwise>
-	</c:choose>
-		
+						<tr>
+							<td><c:out value="${Customer.getCusID()}" /></td>
+							<td><c:out value="${Customer.getHardwareName()}" /></td>
+							<td><c:out value="${Customer.getPhoneNo()}" /></td>
+							<td><c:out value="${Customer.getEmail() }" /></td>
+							<td><c:out value="${Customer.getAddress()}" /></td>
+
+
+						</tr>
+
+
+						<tr>
+				</c:forEach>
+				</tbody>
+
+			</c:otherwise>
+		</c:choose>
+
 	</table>
 </div>
 
