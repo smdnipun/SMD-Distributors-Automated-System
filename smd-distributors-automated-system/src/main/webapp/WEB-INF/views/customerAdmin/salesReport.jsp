@@ -28,7 +28,7 @@ request.setAttribute("data", cusDetails);
 					</div>
 					<div class="col-3">
 						<div class="d-flex justify-content-end">
-							<button type = "submit" name="btn" class="btn btn-success" value="">Generate Report</button>
+							<button type = "submit" class="btn btn-success" >Generate Report</button>
 						</div>
 					</div>
 				</div>
