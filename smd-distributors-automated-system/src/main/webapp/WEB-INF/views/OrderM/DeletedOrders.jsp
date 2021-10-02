@@ -9,7 +9,7 @@
 </center>
 <br>
 
-<table id="example" class="table  display nowrap"  style="width:100%">
+  <table id="example" class="table  display nowrap"  style="width:100%">
                 <thead class="thead-dark">
     <tr>
        <th scope="col">Order ID</th>
