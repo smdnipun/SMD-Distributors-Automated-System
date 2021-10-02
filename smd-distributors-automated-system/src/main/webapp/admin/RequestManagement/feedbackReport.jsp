@@ -53,7 +53,7 @@ if (request.getSession().getAttribute("Logged") != null) {
 			<!--table to display report -->
 			<div class="col-10" id="freport">
 			<br><center><h5>Feedback Report</h5></center><br>
-				<table class="table table-hover">
+				<table class="table table-hover table table-sm table table-striped" style="width:100%">
 				<!-- <table class="feedback"> -->
 					<thead class="thead-dark">
 						<tr>
