@@ -24,7 +24,7 @@ request.setAttribute("data", cusDetails);
 				<div class="row">
 					<div class="col-9">
 						<label for="date">Date</label>
-						<input type="month" id="month" name="month">
+						<input type="month" id="month" name="month" required>
 					</div>
 					<div class="col-3">
 						<div class="d-flex justify-content-end">
