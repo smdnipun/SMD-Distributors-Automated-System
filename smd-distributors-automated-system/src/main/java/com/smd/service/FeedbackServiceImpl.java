@@ -15,19 +15,13 @@ import com.smd.util.DBConnection;
 public class FeedbackServiceImpl implements IFeedback {
 
 	//creating objects
-		private static Connection con;
 		private static Statement state=null;
 		
+		DBConnection con = new DBConnection();
+		
 		public FeedbackServiceImpl() {
-			DBConnection db = new DBConnection();
-			try {
-				con=db.getConnection();
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
 		}
+	
 		
 	@Override
 	//1.method to get all the feedback details saved in the database
@@ -35,7 +29,7 @@ public class FeedbackServiceImpl implements IFeedback {
 		//to get all the feedback details saved in a tuple
 		ArrayList<Feedback> feedback1= new ArrayList<Feedback>();
 			try{
-				state=con.createStatement();//executing a query
+				state=con.getConnection().createStatement();//executing a query
 				String sql="select * from feedback";
 				ResultSet result= state.executeQuery(sql);			
 				
@@ -46,7 +40,7 @@ public class FeedbackServiceImpl implements IFeedback {
 					String Date=result.getString(3);
 					String Type=result.getString(4);
 					String Message=result.getString(5);
-					String Rating=result.getString(6);
+					int Rating=result.getInt(6);
 					String Status=result.getString(7);
 					
 					Feedback f1 = new Feedback(Feedback_ID,Cus_ID,Date, Type,Message, Rating, Status);
@@ -61,16 +55,18 @@ public class FeedbackServiceImpl implements IFeedback {
 
 	@Override
 	//2. to get the passed feedback details inserted by the customer
-	public boolean addFeedback(String Feedback_ID, String Cus_ID, String Date, String Type, String Message, String Rating,
-			String Status) {
+	public boolean addFeedback(String Feedback_ID, String Cus_ID, String Date, String Type, String Message, String Rating, String Status) {
 		boolean isSuccess = false;//assign this to false before execution of query
 		
 		try {
 			//executing a query
-			state=con.createStatement();
-			String sql="Insert into feedback "
-					+ "values(0,2,'"+Date+"','"+Type+"','"+Message+"','"+Rating+"',null)";
+			state=con.getConnection().createStatement();
 			
+			String sql="Insert into feedback "
+					+ "values(0,'"+Cus_ID+"',NOW(),'"+Type+"','"+Message+"','"+Rating+"',null)";
+			
+			//PreparedStatement stmt = (PreparedStatement) con.prepareStatement(sql);
+				
 			int result= state.executeUpdate(sql);
 			
 			if(result>0) {
@@ -94,12 +90,10 @@ public class FeedbackServiceImpl implements IFeedback {
 		boolean isSuccess = false;//assign this to false before execution of query
 		
 		try {
-			state=con.createStatement();//executing a query
-			String sql="update feedback set Date='"+Date+"',"
-					+ "Type='"+Type+"',Message='"+Message+"',Rating='"+Rating+"',Status='"+Status+"'"
-							+ "where Feedback_ID='"+Feedback_ID+"'";
-			//feedbackid is unique auto-incremented
 			
+			String sql="update feedback set Date='"+Date+"', Type='"+Type+"',Message='"+Message+"',Rating='"+Rating+"',Status='"+Status+"' where Feedback_ID='"+Feedback_ID+"'";
+			//feedbackid is unique auto-incremented
+			state=con.getConnection().prepareStatement(sql); //executing a query
 			int result=state.executeUpdate(sql);
 			
 			if(result>0) {
@@ -122,7 +116,7 @@ public class FeedbackServiceImpl implements IFeedback {
 		boolean isSuccess=false;//assign this to false before execution of query
 		
 		try {
-			state=con.createStatement();//executing a query
+			state=con.getConnection().createStatement();//executing a query
 			
 			String sql="delete from feedback where Feedback_ID='"+Feedback_ID+"'"; //feedbackid is unique auto-incremented
 			
@@ -144,12 +138,12 @@ public class FeedbackServiceImpl implements IFeedback {
 
 	@Override
 	//5.method to search feedback by date
-	public Feedback[] searchFeedback(String DATE) throws Exception {
+	public Feedback[] searchFeedback(String serach) throws Exception {
 		List<Feedback> f1= new LinkedList<Feedback>();
 		Feedback[] feedarray= null;
 		
-		state=con.createStatement();
-		String sql="select * from feedback where Date LIKE '%"+DATE+"%'";
+		state=con.getConnection().createStatement();
+		String sql="select * from feedback where Date LIKE '%"+ serach +"%'";
 		ResultSet result= state.executeQuery(sql);
 			
 		while(result.next()) {
@@ -159,13 +153,38 @@ public class FeedbackServiceImpl implements IFeedback {
 					result.getString(3),
 					result.getString(4),
 					result.getString(5),
-					result.getString(6),
+					result.getInt(6),
 					result.getString(7)
 			);	
 			f1.add(fed);
 		}
 		feedarray=f1.toArray(new Feedback[f1.size()]);
 		return feedarray;
+	}
+	
+	//generating monthly feedback reports
+	public List<Feedback> viewMonthlyFeedbackReport(String date){
+		ArrayList<Feedback> feed= new ArrayList<Feedback>();
+		try {
+			state=con.getConnection().createStatement();
+			String sql="select * from feedback where month(Date)=extract(month from '"+date+"') and year(Date)=extract(year from '"+date+"')";
+			ResultSet rs= state.executeQuery(sql);
+			
+			while(rs.next()) {
+				int Feedback_ID=rs.getInt(1);
+				int Cus_ID= rs.getInt(2);
+				String Date= rs.getString(3);
+				String Message=rs.getString(5);
+				String Status=rs.getString(7);
+				
+				Feedback f1= new Feedback(Feedback_ID,Cus_ID,Date, Message, Status);
+				feed.add(f1);
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return feed;
 	}
 	
 }

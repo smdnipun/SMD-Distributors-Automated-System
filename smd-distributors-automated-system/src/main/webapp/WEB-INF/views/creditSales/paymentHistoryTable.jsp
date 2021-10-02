@@ -18,14 +18,16 @@ request.setAttribute("payments", payments);
 
 
 <div class="col-9">
-	<jsp:include page="centerNav.jsp"></jsp:include>
+	<!-- Horizontal navigation bar -->
+	<jsp:include page="CenterNavWithoutSearch.jsp"></jsp:include>
 	<center>
 		<h5>Customer Payments</h5>
 	</center>
 
-	<table id="customerDetails" class="display nowrap" style="width: 100%">
+	<!--Creating payment history table-->
+	<table id="payTable" class="table" style="width: 100%">
 
-		<thead>
+		<thead class="thead-dark">
 			<tr>
 
 				<th scope="col">Payment ID</th>
@@ -42,10 +44,10 @@ request.setAttribute("payments", payments);
 				<tr>
 
 					<td><c:out value="${Payment.getPaymentID()}" /></td>
+					<td><c:out value="${Payment.getPaidAmount()}" /></td>
+					<td><c:out value="${Payment.getDate()}" /></td>
 					<td><c:out value="${Payment.getCusID()}" /></td>
 					<td><c:out value="${Payment.getInvoiceID()}" /></td>
-					<td><c:out value="${Payment.getDate()}" /></td>
-					<td><c:out value="${Payment.getPaidAmount()}" /></td>
 					<td><c:out value="${Payment.getEmpID()}" /></td>
 				</tr>
 			</c:forEach>
@@ -55,4 +57,8 @@ request.setAttribute("payments", payments);
 		<button type="button" class="btn btn-secondary"
 			style="background-color: #b8b8b8">Generate Report</button>
 	</p>
+	<br>
+<br>
+<br>
 </div>
+

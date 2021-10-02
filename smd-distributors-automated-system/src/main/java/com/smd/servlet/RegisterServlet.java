@@ -1,6 +1,7 @@
 package com.smd.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.smd.model.Customer;
 import com.smd.service.CusDetailsServiceImpl;
 import com.smd.service.ICustomerDetails;
+import com.smd.util.Services;
 
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
@@ -35,6 +37,11 @@ public class RegisterServlet extends HttpServlet {
 		//Creating customer array to get customer details from CusDetailsServiceImpl
 		Customer[] CustomerData = cusDetails.getCustomerDetails();
 		
+		//Creating service class object
+		Services sv = new Services();
+		
+		PrintWriter out = response.getWriter();
+		
 		boolean cFound = false;
 		
 		//setting the values taken from the registration page
@@ -49,7 +56,8 @@ public class RegisterServlet extends HttpServlet {
 				request.getParameter("city")+ ", " +
 				request.getParameter("State")
 				);
-		customer.setPassword(request.getParameter("pwd"));
+		String pwd = sv.doHashing(request.getParameter("pwd"));
+		customer.setPassword(pwd);
 		
 		//checking the password is correctly enter in both fields(password and re-enter password)
 		if(request.getParameter("pwd").equals(request.getParameter("rpwd"))) {
@@ -67,12 +75,16 @@ public class RegisterServlet extends HttpServlet {
 				boolean status = cusDetails.addCustomer(customer);
 				
 				if(status == true){//if the data was passed to the database successfully
-					response.sendRedirect("/login.jsp");
+					//display an error message
+					out.println("<script type=\"text/javascript\">");
+				    out.println("alert('Successfly Registered!!!');");
+				    out.println("location='./login.jsp'"); //redirect to the registration page
+				    out.println("</script>");
+//					response.sendRedirect("./login.jsp");
 				}
-				else{//if the data was not passed to the database
+				else{//if the data was not passed to the database--
 					//redirect to the registration page
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/registration.jsp");
-					
 					//display an error message
 					request.setAttribute("message", "There was an error please try again!!!");
 					dispatcher.forward(request, response);
@@ -89,9 +101,6 @@ public class RegisterServlet extends HttpServlet {
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/registration.jsp");
 			//display error message
 			request.setAttribute("message", "Password mismatch!!!");
-			
-//			request.getSession().setAttribute("CustomerObj",customer);
-			
 			//redirect page
 			dispatcher.forward(request, response);
 		}

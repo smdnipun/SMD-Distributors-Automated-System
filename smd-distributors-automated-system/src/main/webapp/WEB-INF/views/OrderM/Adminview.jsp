@@ -8,7 +8,7 @@
 <h1>Orders</h1>
 </center>
 <br>
-  <table id="example" class="table  display nowrap"  style="width:100%">
+<table id="example" class="table  display nowrap"  style="width:100%">
                 <thead class="thead-dark">
     <tr>
        <th scope="col">Order ID</th>
@@ -20,7 +20,7 @@
        <th scope="col">Remain Amount</th>
        <th scope="col">Quantity</th>
        <th scope="col">Product ID</th>
-       <th scope="col">Update</th>
+       <!--<th scope="col">Update</th>-->
        <th scope="col">Delete</th>
     </tr>
   </thead>
@@ -50,7 +50,7 @@
       <td>${orders.RAMOUNT}</td>
       <td>${orders.QTY}</td>
       <td> ${orders.PID}</td>
-      <td>
+     <!--<td>
      
       <c:url value="admin/OrderManagement/UpdateOrderAdmin.jsp" var="orderupdate">
       <c:param name="oid" value="${oid}"/>
@@ -70,7 +70,7 @@
       </a>
     
       
-      </td>
+      </td>-->
       
       <td>
       <c:url value="admin/OrderManagement/DeleteOrderAdmin.jsp" var="orderdelete">

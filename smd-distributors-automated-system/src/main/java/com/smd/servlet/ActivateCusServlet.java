@@ -1,6 +1,7 @@
 package com.smd.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -32,48 +33,56 @@ public class ActivateCusServlet extends HttpServlet {
 		//creating object to execute setStatus function
 		ICustomerDetails cusDetails = new CusDetailsServiceImpl();
 		
-//		if(request.getParameter("btn").equals("delete")) {
-//			boolean status = cusDetails.deleteCustomer(customerID);
-//			
-//			//if data was passed to database correctly
-//			if(status == true) {
-//				//display an success message
-////				request.getSession().setAttribute("message", "Customer is succesfully Activated");
-//				
-//				//redirecting to the same page
-//				response.sendRedirect("admin/CustomerManagement/inactiveCustomers.jsp");
-////				dispatcher.forward(request, response);
-//			}
-//			else {
-//				//redirect to the same page
-//				RequestDispatcher dispatcher = request.getRequestDispatcher("admin/CustomerManagement/inactiveCustomers.jsp");
-//				
-//				//display an error message
-//				request.setAttribute("message", "There was an error please try again!!!");
-//				dispatcher.forward(request, response);
-//			}
-//		}
-//		else {
+		PrintWriter out = response.getWriter();
+		
 			boolean status = cusDetails.setActive(customerID);
 			
 			//if data was passed to database correctly
 			if(status == true) {
-				//display an success message
-//				request.getSession().setAttribute("message", "Customer is succesfully Activated");
-				
-				//redirecting to the same page
-				response.sendRedirect("admin/CustomerManagement/inactiveCustomers.jsp");
+				//display an successful message
+				out.println("<script type=\"text/javascript\">");
+			    out.println("alert('Customer Activated Successfully !!!');");
+			    out.println("location='admin/CustomerManagement/inactiveCustomers.jsp'"); //redirect to the registration page
+			    out.println("</script>");
 			}
 			else {
-				//redirect to the same page
-				RequestDispatcher dispatcher = request.getRequestDispatcher("admin/CustomerManagement/inactiveCustomers.jsp");
-				
 				//display an error message
-				request.setAttribute("message", "There was an error please try again!!!");
-				dispatcher.forward(request, response);
+				out.println("<script type=\"text/javascript\">");
+			    out.println("alert('There was an error please try again!!!');");
+			    out.println("location='admin/CustomerManagement/inactiveCustomers.jsp'"); //redirect to the registration page
+			    out.println("</script>");
 			}
-//		}
 		
 	}
 
 }
+
+
+
+
+
+
+//if(request.getParameter("btn").equals("delete")) {
+//boolean status = cusDetails.deleteCustomer(customerID);
+//
+////if data was passed to database correctly
+//if(status == true) {
+//	//display an success message
+////	request.getSession().setAttribute("message", "Customer is succesfully Activated");
+//	
+//	//redirecting to the same page
+//	response.sendRedirect("admin/CustomerManagement/inactiveCustomers.jsp");
+////	dispatcher.forward(request, response);
+//}
+//else {
+//	//redirect to the same page
+//	RequestDispatcher dispatcher = request.getRequestDispatcher("admin/CustomerManagement/inactiveCustomers.jsp");
+//	
+//	//display an error message
+//	request.setAttribute("message", "There was an error please try again!!!");
+//	dispatcher.forward(request, response);
+//}
+//}
+//else {
+// upper code here ----
+//}

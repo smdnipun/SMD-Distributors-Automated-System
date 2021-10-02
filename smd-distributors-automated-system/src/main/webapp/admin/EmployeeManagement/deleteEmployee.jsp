@@ -1,13 +1,26 @@
 <jsp:include page="../../WEB-INF/views/common/head.jsp">
 	<jsp:param name="Title" value="SMD Distributors" /></jsp:include>
-<body>
-	<jsp:include page="../../WEB-INF/views/common/header.jsp"></jsp:include>
-	<jsp:include page="../../WEB-INF/views/common/navbar.jsp">
-		<jsp:param name="navs" value="ttt,ffff ddddd,fff"  />
-	</jsp:include> 
-
-<div class="(col-10)">
+	<link rel="stylesheet" href=<%=request.getContextPath() + "/css/Employe.css"%>>
 	
+<%@ page import="java.io.PrintWriter"%>
+<%
+if (request.getSession().getAttribute("Logged") != null) {
+    //request.getSession().setAttribute("Logged", "Guest");
+%>
+	
+<body>
+	<jsp:include page="../../WEB-INF/views/common/adminHeader.jsp"></jsp:include>
+
+<div class="row">
+<jsp:include
+page="EmployeeNav.jsp"></jsp:include>
+<div class="col-9">
+
+<br>
+<center>
+ <h2>Delete Employee</h2>
+</center>
+		
 	
 	
       <%
@@ -15,15 +28,13 @@
          String fname = request.getParameter("fname");
          String lname = request.getParameter("lname");
          String phone = request.getParameter("phone");
-         String uname = request.getParameter("uname");
-         String pwd = request.getParameter("pwd");
          String nic = request.getParameter("nic");
          String email = request.getParameter("email");
          String address = request.getParameter("address");
       %> 
       
 	
-	<form action=<%=request.getContextPath() +"/delete" %> method="post">
+	<form action=<%=request.getContextPath() +"/deleteemp" %> class="content" method="post">
 	
 	<div class="form-group">
     <label for="fname">EmployeeID</label>
@@ -44,12 +55,6 @@
     <label for="phone">Phone Number</label>
     <input type="text" class="form-control" id="phone"  name="phone" aria-describedby=""  readonly value="<%=phone%>">
   </div>
-
-  <div class="form-group">
-    <label for="Username">Username</label>
-    <input type="text" class="form-control"  name="uname" id="uname" aria-describedby="" readonly value="<%=uname%>">
-  </div>
-
 
 
   <div class="form-group">
@@ -72,25 +77,30 @@
 
 
   <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+    <label class="form-check-label" for="exampleCheck1">Checked</label>
   </div>
-  <button type="submit" class="btn btn-primary">Update Employee</button>
+  <button type="submit" class="btn btn-primary">Delete Employee</button>
 </form>
 
 
 
 
 	</div>
+    </div>
 
-
-		<br>
-		<br>	
-		<br>	
-		<br>	
 		<br>
 
 
-
+<jsp:include page="../../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
 </body>
 </html>
+
+<%
+} else {
+    PrintWriter redirect = response.getWriter();
+    redirect.println("<script>");
+    redirect.println("location='./login.jsp'");//put the location from your jsp file
+    redirect.println("</script>");
+}
+%>

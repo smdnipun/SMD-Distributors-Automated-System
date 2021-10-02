@@ -1,4 +1,6 @@
-
+<%
+int id = Integer.parseInt(request.getSession().getAttribute("CustomerID").toString());
+%>
      <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <div class="col-9">
@@ -7,6 +9,7 @@
 <h1>My Orders</h1>
 </center>
 <br>
+
  <table id="example" class="table  display nowrap"  style="width:100%">
                 <thead class="thead-dark">
       <tr>

@@ -1,4 +1,8 @@
-<script>
+<%
+int id = Integer.parseInt(request.getSession().getAttribute("CustomerID").toString());
+%>
+
+ 		<script>
             
             function isInputNumber(evt){
                 
@@ -13,6 +17,19 @@
             
             
         </script>
+        
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript">
+        function sum() {
+            var txtFirstNo = document.getElementById('txtFirstNo').value;
+            var txtSecondNo = document.getElementById('txtSecondNo').value;
+            var result = parseInt(txtFirstNo) * parseInt(txtSecondNo);
+            if (!isNaN(result)) {
+                document.getElementById('txtResult').value = result;
+            }
+        }
+    </script>
+        
 	
 <div class="col-9">
 <br>
@@ -28,20 +45,24 @@
 	
 <div class="mb-3">
   <label for="formGroupExampleInput2" class="form-label">Customer ID</label>
-  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter Customer ID" name="CID" required="true">
+  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter Customer ID" name="CID" required="true" value="<%=id %>" readonly>
 </div>
 <div class="mb-3">
-  <label for="formGroupExampleInput2" class="form-label">Product ID</label>
-  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter " name="PID" required="true">
+<label for="formGroupExampleInput2" class="form-label">Product ID</label>
+<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter " name="PID" value="${product.getProductID()}" required="true" readonly>
+</div>
+<div class="mb-3">
+  <label for="formGroupExampleInput2" class="form-label">Unit Price</label>
+  <input type="text" class="form-control" id="txtFirstNo" placeholder="Enter " name="PID" required="true" onkeypress="sum()" value="${product.getPrice()}" readonly>
 </div>
 <div class="mb-3">
   <label for="formGroupExampleInput2" class="form-label">Quantity</label>
-  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter Quantity" name="QTY" onkeypress="isInputNumber(event)" required="true">
+  <input type="text" class="form-control" id="txtSecondNo" placeholder="Enter Quantity" name="QTY" onkeypress="isInputNumber(event)" required="true" onkeyup="sum()">
 </div>
 
 <div class="mb-3">
   <label for="formGroupExampleInput" class="form-label">Total price</label>
-  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Total price" name="TPRICE" onkeypress="isInputNumber(event)" required="true">
+  <input type="text" class="form-control" placeholder="Enter Total price" name="TPRICE" onkeyup="isInputNumber(event)" required="true" id="txtResult" readonly>
 </div>
 
 

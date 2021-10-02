@@ -1,7 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-    
+
+<%@ page import="java.io.PrintWriter"%>
+<%
+if (request.getSession().getAttribute("Logged") != null) {
+    //request.getSession().setAttribute("Logged", "Guest");
+%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,13 +14,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+		
 		<jsp:include page="../../WEB-INF/views/common/head.jsp"></jsp:include>
 		<jsp:include page="../../WEB-INF/views/common/adminHeader.jsp"></jsp:include>
 		
 		<div class="row">
 			<jsp:include
-				page="../../WEB-INF/views/Delivery/DeliveryNavigationbar.jsp"></jsp:include>
+				page="../../WEB-INF/views/Delivery/AddDeliveryNavi.jsp"></jsp:include>
 			<div class="col-9">
 				
 				<h2 >Add Delivery</h2>	
@@ -62,7 +67,7 @@
 				<td><c:out value="${odr.PID}" /></td>
 				<td>
 				
-				<c:url value="AdminUI/DeliveryManage/AddDelivery.jsp" var="getOrd">
+				<c:url value="admin/DeliveryManage/AddDelivery.jsp" var="getOrd">
 	
 					<c:param name="oid" value="${odr.OID}"/>
 					<c:param name="cid" value="${odr.CID}"/>
@@ -85,7 +90,15 @@
 </form>
 			</div>
 		</div>
-		
+		<br/>
 		<jsp:include page="../../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
 </body>
 </html>
+<%
+} else {
+    PrintWriter redirect = response.getWriter();
+    redirect.println("<script>");
+    redirect.println("location='../../login.jsp'");//put the location from your jsp file
+    redirect.println("</script>");
+}
+%>

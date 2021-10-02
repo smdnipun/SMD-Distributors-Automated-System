@@ -22,7 +22,7 @@ public class ViewFeedbackServlet extends HttpServlet {
 		
 		try {
 			IFeedback iFeedbackService= new FeedbackServiceImpl();
-			//get the payment details to display it 
+			//get the feedback details to display it 
 			List<Feedback> feedbackdetails= iFeedbackService.getFeedback();
 			request.setAttribute("feedbackdetails",feedbackdetails);
 
@@ -31,7 +31,7 @@ public class ViewFeedbackServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		//redirecting from the servlet to
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/RequestManage/requestHome.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/RequestManagement/requestHome.jsp");
 		
 		//RequestDispatcher dispatcher= request.getRequestDispatcher("/RequestManage/requestHome.jsp");
 		if(dispatcher!=null)

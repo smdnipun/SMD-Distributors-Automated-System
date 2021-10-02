@@ -6,13 +6,13 @@ public class Feedback {
 	private String date;
 	private String type;
 	private String message;
-	private String rating;
+	private int rating;
 	private String status;
 	
 	public Feedback() {}
 
 	//overloaded constructor to set values
-	public Feedback(int Feedback_ID, int Cus_ID, String Date, String Type, String Message, String Rating,
+	public Feedback(int Feedback_ID, int Cus_ID, String Date, String Type, String Message, int Rating,
 			String Status) {
 		this.feedback_ID = Feedback_ID;
 		this.cus_ID = Cus_ID;
@@ -20,6 +20,15 @@ public class Feedback {
 		this.type = Type;
 		this.message = Message;
 		this.rating = Rating;
+		this.status = Status;
+	}
+
+	//constructor for reports
+	public Feedback(int Feedback_ID, int Cus_ID, String Date, String Message, String Status) {
+		this.feedback_ID = Feedback_ID;
+		this.cus_ID = Cus_ID;
+		this.date = Date;
+		this.message = Message;
 		this.status = Status;
 	}
 
@@ -44,7 +53,7 @@ public class Feedback {
 		return message;
 	}
 
-	public String getRating() {
+	public int getRating() {
 		return rating;
 	}
 
@@ -72,7 +81,7 @@ public class Feedback {
 		this.message = message;
 	}
 
-	public void setRating(String rating) {
+	public void setRating(int rating) {
 		this.rating = rating;
 	}
 

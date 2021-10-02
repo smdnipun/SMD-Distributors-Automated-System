@@ -3,7 +3,8 @@
 <%@ page import="com.smd.service.ProductDB"%>
 <div class="row">
 	<jsp:include page="../common/navbar.jsp">
-		<jsp:param name="navs" value="home,/" />
+		<jsp:param name="navs"
+			value="View All Products,all.jsp_Add Products,add.jsp" />
 	</jsp:include>
 	<%
 	if (request.getParameter("product") != null) {
@@ -12,47 +13,76 @@
 		request.setAttribute("product", product);
 	%>
 	<div class="col-10 my-auto">
-		<form action="../../updateproduct" method="post">
-			<div class="row">
-				<div class="col-4">
-					<div class="form-inline">
-						<label>Product ID</label> <input name="pid" size="20"
-							value="${product.getProductID()}" readonly />
-					</div>
-					<div class="form-inline">
-						<label>Product Name</label> <input name="pname" size="20"
-							value="${product.getName()}" />
-					</div>
-					<div class="form-inline">
-						<label>Product Weight</label> <input name="pweight" size="2"
-							value="${product.getWeight()}" type="number" />
-					</div>
-					<div class="form-inline">
-						<label>Product Price</label> <input name="pprice" size="10"
-							value="${product.getPrice()}" type="number" />
-					</div>
-					<div class="form-inline">
-						<label>Product Availability</label> <label class="switch">
-							<c:choose>
-								<c:when test="${product.getAvailablity()}">
-									<input type="checkbox" name="availablity"
-										checked="${product.getAvailablity()}">
-									<span class="slider round"></span>
-								</c:when>
-								<c:otherwise>
-									<input type="checkbox" name="availablity">
-									<span class="slider round"></span>
-								</c:otherwise>
-							</c:choose>
-						</label>
+		<div class="content">
+			<form action="../../updateproduct" method="post">
+				<div class="row">
+					<div class="col-4 mx-auto">
+						<div class="text-center">
+							<img
+								src="<%=request.getContextPath()+"/img/"%>${product.getImage()}.jpg"
+								class="img-thumbnail">
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Product ID</label> <input name="pid"
+								size="20" value="${product.getProductID()}" readonly
+								class="form-control" />
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Product Name</label> <input
+								name="pname" size="20" value="${product.getName()}"
+								class="form-control" required/>
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Product Weight</label> <input
+								name="pweight" size="2" value="${product.getWeight()}"
+								type="number" class="form-control" min="1" required/>
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Product Price</label> <input
+								name="pprice" size="10" value="${product.getPrice()}"
+								type="number" class="form-control" min="1" required/>
+						</div>
+						<div class="mb-3">
+						<label class="form-label">Product Image</label>
+							<%
+							Product n = (Product) request.getAttribute("product");
+							%>
+							<select name="image" required>
+								<option value="sanstha"
+									<%=n.getImage().equals("sanstha") ? "selected" : ""%>>Sanstha</option>
+								<option value="tokyo"
+									<%=n.getImage().equals("tokyo") ? "selected" : ""%>>tokyo</option>
+								<option value="powertech"
+									<%=n.getImage().equals("powertech") ? "selected" : ""%>>powertech</option>
+								<option value="nippon"
+									<%=n.getImage().equals("nippon") ? "selected" : ""%>>nippon</option>
+							</select>
+						</div>
+						<div class="mb-3">
+							<label class="form-label">Product Availability</label> <label
+								class="switch"> <c:choose>
+									<c:when test="${product.getAvailablity()}">
+										<input type="checkbox" name="availablity"
+											checked="${product.getAvailablity()}">
+										<span class="slider round"></span>
+									</c:when>
+									<c:otherwise>
+										<input type="checkbox" name="availablity">
+										<span class="slider round"></span>
+									</c:otherwise>
+								</c:choose>
+							</label>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div>
-				<button type="submit" name="update">Update</button>
-				<button type="submit" name="delete">Delete</button>
-			</div>
-		</form>
+				<div class="text-center">
+					<button type="submit" name="button" value="update" class="btn btn-primary">Update</button>
+					<button type="submit" name="button" value="delete" class="btn btn-primary">Delete</button>
+				</div>
+				<br>
+				<br>
+			</form>
+		</div>
 	</div>
 	<%
 	}

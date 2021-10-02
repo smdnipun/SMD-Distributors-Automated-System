@@ -1,6 +1,7 @@
 package com.smd.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -28,11 +29,15 @@ public class PayServlet extends HttpServlet {
 	@SuppressWarnings("unused")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		PrintWriter out = response.getWriter();
 		int CID = (Integer.parseInt(request.getParameter("CID")));
 		int OID = (Integer.parseInt(request.getParameter("OID")));
+		double paidAmount = Double.parseDouble(request.getParameter("PaidAmount"));
 		CreditSalesM check = new CreditSalesM();
 		Order add = check.getOrder(CID, OID);
+		double pamount = add.getPAMOUNT();
+		double ramount = add.getRAMOUNT();
+		
 //		PaymentDetails pay = (PaymentDetails) request.getSession().getAttribute("Emp_ID");
 
 //		pay.setPaidAmount(Double.parseDouble(request.getParameter("PaidAmount")));
@@ -42,25 +47,26 @@ public class PayServlet extends HttpServlet {
 //		pay.setEmpID(request.getParameter("EmpID"));
 
 		// Check customer ID and order ID
-		boolean status = check.getPayCredit(CID, OID);
-
-		if (status == false) {
+		//get boolean status from database connection
+		boolean status = check.getPayCredit(CID, OID,paidAmount);
+		
+		//check status and entered amount is greater than zero
+		if (status == false && paidAmount>=0) {
 
 			try {
-
+				
 				DBConnection pdbc = new DBConnection();
 				Statement stmt = pdbc.getConnection().createStatement();
 				// insert data into payment table
 				String command = "INSERT INTO payment(Amount,Date,Order_ID,Cus_ID,Emp_ID)" + "VALUES('"
 						+ request.getParameter("PaidAmount") + "'" + "," + "'" + request.getParameter("Date") + "'"
-						+ "," + "'" + OID + "'" + "," + "'" + CID + "'" + "," + "'1'" + ")";
-				double pamount = add.getPAMOUNT();
-				double ramount = add.getRAMOUNT();
-				double paidAmount = Double.parseDouble(request.getParameter("PaidAmount"));
+						+ "," + "'" + OID + "'" + "," + "'" + CID + "'" + "," + request.getSession().getAttribute("empID") + ")";
+				
+				
 				double TotalPaid = pamount + paidAmount;
 				double TotalRemain = ramount - paidAmount;
 
-				// update the order table
+
 				String command1 = "update orders SET Paid_Amount =" + TotalPaid + "," + " Remaining_Amount="
 						+ TotalRemain + " WHERE Cust_ID =" + CID + " and Order_ID=" + OID;
 
@@ -75,21 +81,22 @@ public class PayServlet extends HttpServlet {
 //				response.getWriter().append(command);
 //				response.getWriter().append(command1);
 
-				RequestDispatcher dispatcher = getServletContext()
-						.getRequestDispatcher("/admin/CreditSalesManagement/CreditPayment.jsp");
-				request.setAttribute("message", "You have successfully paid");
-				dispatcher.forward(request, response);
+				out.println("<script type=\"text/javascript\">");
+			    out.println("alert('You have successfully paid!!!');");
+			    out.println("location='admin/CreditSalesManagement/CreditPayment.jsp'"); //redirect to the registration page
+			    out.println("</script>");
 
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
-
+		
 		else {
-			RequestDispatcher dispatcher = getServletContext()
-					.getRequestDispatcher("/admin/CreditSalesManagement/CreditPayment.jsp");
-			request.setAttribute("message", "You entered the Order ID or Customer ID incorrectly, please try again !!");
-			dispatcher.forward(request, response);
+			//display an error message
+			out.println("<script type=\"text/javascript\">");
+		    out.println("alert('You entered the order ID or customer ID or entered the payment incorrectly, please try again !!');");
+		    out.println("location='admin/CreditSalesManagement/CreditPayment.jsp'");//redirect to the registration page
+		    out.println("</script>");
 
 		}
 

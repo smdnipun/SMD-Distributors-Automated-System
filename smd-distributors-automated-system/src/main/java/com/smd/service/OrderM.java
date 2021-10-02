@@ -151,7 +151,7 @@ public class OrderM {
 	}
 	
 	//view order method
-public static List<Order> ViewOrderCustomer(){
+public static List<Order> ViewOrderCustomer(int id){
 		
 	//create order type array list object
 		ArrayList<Order> odr=new ArrayList<>(); 
@@ -161,7 +161,7 @@ public static List<Order> ViewOrderCustomer(){
 		
 		try {
 			Statement stmt = con.getConnection().createStatement();//create statement object by using DBConnection object
-			String Sql="select * from orders";
+			String Sql="select * from orders where Cust_ID='"+id+"'";
 			ResultSet rs= stmt.executeQuery(Sql);//executing a query
 			
 			//assigned details retrieved from the database to order object
@@ -200,13 +200,13 @@ public static List<Order> ViewOrderCustomer(){
 	}
 
 	//customer's update method
-public static boolean updateordercustomer(int oid,int qty){
+public static boolean updateordercustomer(int oid,int qty,double tprice){
 	boolean isdone=false; //assign isdone to false before execution of query
 	
 	try {
 		DBConnection con = new DBConnection();//create DBConnection object
 		Statement stmt = con.getConnection().createStatement();//create statement object by using DBConnection object
-		String sql="update orders set Qty='"+qty+"'"+"where Order_ID='"+oid+"'";
+		String sql="update orders set Qty='"+qty+"',Total_Price='"+tprice+"',Paid_Amount='"+0+"'"+"where Order_ID='"+oid+"'";
 		int rs=stmt.executeUpdate(sql);//executing a query
 		
 		if(rs>0) {

@@ -33,16 +33,6 @@ public class addDeliveryServlet extends HttpServlet {
 		int ccid = Integer.parseInt(cid);
 		
 		
-		try{	
-			List<Order> orderdetails=	DeliveryOrderUtill.ViewOrder();
-			request.setAttribute("orderdetails", orderdetails);
-		}
-		catch(Exception e) {
-				e.printStackTrace();
-	
-		}	
-			RequestDispatcher dis3=request.getRequestDispatcher("AdminUI/DeliveryManage/AddDelivery.jsp");
-			dis3.forward(request, response);
 		
 		
 		boolean isTrue;
@@ -51,12 +41,12 @@ public class addDeliveryServlet extends HttpServlet {
 		
 		if(isTrue==true) {
 			
-			RequestDispatcher dis = request.getRequestDispatcher("AdminUI/DeliveryManage/AddDelivery.jsp");
+			RequestDispatcher dis = request.getRequestDispatcher("admin/DeliveryManage/deliveryHome.jsp");
 			dis.forward(request, response);
 			
 		}
 		else {
-			RequestDispatcher dis2 = request.getRequestDispatcher("AdminUI/DeliveryManage/Unsuccess.jsp");
+			RequestDispatcher dis2 = request.getRequestDispatcher("admin/DeliveryManage/deliveryHome.jsp");
 			dis2.forward(request, response);
 		}
 		

@@ -32,7 +32,7 @@ public class DeleteCustomerOrders extends HttpServlet {
         if(request.getParameter("OSTATES").equals("delivered")) {
         	out.println("<script type='text/javascript'>");
             out.println("alert('Sorry Order is already in Delivery process');");
-            out.println("location='AddOrder.jsp'"); 
+            out.println("location='index.jsp'"); 
             out.println("</script>");
         }else {
         	//call the delete order admin method
@@ -42,7 +42,7 @@ public class DeleteCustomerOrders extends HttpServlet {
     			// if successful then show the alert and redirect to Addorder
     			out.println("<script type='text/javascript'>");
                 out.println("alert('successfully deleted');");
-                out.println("location='AddOrder.jsp'"); 
+                out.println("location='index.jsp'"); 
                 out.println("</script>");
     			
 
@@ -50,7 +50,7 @@ public class DeleteCustomerOrders extends HttpServlet {
     			// if successful then show the alert and redirect to Addorder
     			out.println("<script type='text/javascript'>");
                 out.println("alert('something went wrong');");
-                out.println("location='AddOrder.jsp'"); 
+                out.println("location='index.jsp'"); 
                 out.println("</script>");
     			
 

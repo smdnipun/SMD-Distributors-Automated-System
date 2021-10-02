@@ -35,12 +35,11 @@ public class UpdateFeedbackServlet extends HttpServlet {
 		
 		IFeedback iFeedbackService = new FeedbackServiceImpl();
 		//to catch the result got from the model class method
-		istrue=iFeedbackService.updateFeedback(Feedback_ID, Cus_ID, Date, Type, Message, Rating, Status);
+		istrue=iFeedbackService.updateFeedback(Feedback_ID, Cus_ID, Date,Type, Message, Rating, Status);
 		
 		//if the data was passed to the database successfully 
 				try{
 					if(istrue==true) {
-						
 						PrintWriter out = response.getWriter();
 						out.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js'></script>");
 						out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>");
@@ -51,7 +50,7 @@ public class UpdateFeedbackServlet extends HttpServlet {
 						out.println("</script>");
 						
 						//redirecting from the servlet to
-						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/RequestManage/viewFeedback.jsp");
+						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/RequestManagement/viewFeedback.jsp");
 						dispatcher.include(request, response);
 						
 						//RequestDispatcher dis= request.getRequestDispatcher("/RequestManage/requestHome.jsp");
@@ -70,7 +69,7 @@ public class UpdateFeedbackServlet extends HttpServlet {
 						out.println("</script>");
 						
 						//redirecting from the servlet to
-						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/RequestManage/viewFeedback.jsp");
+						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/RequestManagement/viewFeedback.jsp");
 						dispatcher.include(request, response);
 						
 						//RequestDispatcher dis= request.getRequestDispatcher("/RequestManage/requestHome.jsp");

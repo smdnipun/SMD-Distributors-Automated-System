@@ -18,13 +18,18 @@ NewOrdersConf[] newOrders = (NewOrdersConf[]) dbc.getNewOrderDetails();
 request.setAttribute("data", newOrders);
 %>
 <div class="col-9">
-	<jsp:include page="centerNav.jsp"></jsp:include>
-	<table id="customerDetails" class="display nowrap" style="width: 100%">
+	<!-- Horizontal navigation bar -->
+	<jsp:include page="CenterNavWithoutSearch.jsp"></jsp:include>
 
-		<thead>
+	<!-- Creating Accept order table -->
+	<table id="customerDetails" class="table" style="width: 100%">
+
+
+		<thead class="thead-dark">
 			<tr>
 				<th scope="col">Invoice ID</th>
 				<th scope="col">Date</th>
+				<th scope="col">Customer ID</th>
 				<th scope="col">Customer</th>
 				<th scope="col">Quantity</th>
 				<th scope="col">Total Amount</th>
@@ -34,20 +39,33 @@ request.setAttribute("data", newOrders);
 		<tbody>
 			<c:forEach items="${data}" var="NewOrdersConf">
 				<tr>
-					<form action="../../NewOrdersConf/AcceptOrders" method="post">
-					<td><input name="id" value="<c:out value="${NewOrdersConf.getOrderID()}" />"></td>
-					<td><c:out value="${NewOrdersConf.getCustomer()}" /></td>
-					<td><c:out value="${NewOrdersConf.getDate()}" /></td>
-					<td><c:out value="${NewOrdersConf.getQuantity()}" /></td>
-					<td><c:out value="${NewOrdersConf.getTotalPrice()}" /></td>
-					<td><button type="button" class="btn btn-secondary"
-							style="background-color: #b8c248">Customer Details</button> <br>
-						<button type="submit" class="btn btn-secondary" style="background-color: #c28f48" name="button" value="accept" />Accept</button>
-						 <br>
+					<form action="../../AcceptOrders" method="post">
+						<td><input type="text" name="id"
+							value="<c:out value="${NewOrdersConf.getOrderID()}" />" readonly></td>
+							
+						<td><c:out value="${NewOrdersConf.getDate()}" /></td>
+						
+						
+						<td><input type="text" name="id1"
+							value="<c:out value="${NewOrdersConf.getCusID()}" />" readonly></td>
+						<td><c:out value="${NewOrdersConf.getCustomer()}" /></td>
+						<td><c:out value="${NewOrdersConf.getQuantity()}" /></td>
+						<td><c:out value="${NewOrdersConf.getTotalPrice()}" /></td>
+
+						<!-- creating buttons and passing buttons to accept,delete and redirect to customer details page -->
+						<td><a
+							href="CustomerPayPrev.jsp?credit=${NewOrdersConf.getCusID()}"
+							class="btn btn-secondary" role="button"
+							style="background-color: #b8c248">Customer Details</a><br>
+							<button type="submit" class="btn btn-secondary"
+								style="background-color: #c28f48" name="button" value="accept">Accept
+							</button> <br>
 
 							<button type="submit" class="btn btn-secondary"
-								style="background-color: #9a4832" name="button" value="decline">Decline</button></form>
-						</td>
+								style="background-color: #9a4832" name="button" value="decline">Decline</button>
+							<br> <br>
+					</form>
+					</td>
 
 				</tr>
 			</c:forEach>
@@ -55,5 +73,5 @@ request.setAttribute("data", newOrders);
 	</table>
 </div>
 
-<!--  Code Here -->
+
 

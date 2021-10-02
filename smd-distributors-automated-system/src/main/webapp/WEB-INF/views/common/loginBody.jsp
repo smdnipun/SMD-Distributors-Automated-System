@@ -13,7 +13,7 @@
 					<div class="card px-4 py-4 my-auto mx-auto w-75">
 						<div class="row justify-content-center">
 							<img src=<%=request.getContextPath() + "/img/Logo.png"%> class="logo">
-							<h3 class="ml-3">Login</h3>
+							<h3 class="ml-4">Login</h3>
 						</div>
 						<form action="login" method="post">
 							<div style = "color:red;" class="mb-0 text-sm row">
@@ -21,7 +21,7 @@
 		                    		<%=request.getAttribute("login_err") == null ? "" : request.getAttribute("login_err") %>
 		                    	</p>
 		                    </div>
-							<div class="row px-3 pt-4">
+							<div class="row px-3 pt-2">
 								<label for="email" class="mb-1">
 									<h6 class="mb-0 text-sm">Email Address</h6>
 								</label> 
@@ -34,7 +34,7 @@
 								<input type="password" name="password" placeholder="Enter password">
 							</div>
 							<div class="row px-3 mb-4">
-								<a href=<%=request.getContextPath() + "/forgetpassword1.jsp"%> class="ml-auto mb-0 text-sm">Forgot Password?</a>
+								<a href=<%=request.getContextPath() + "/EmailVerification.jsp"%> class="ml-auto mb-0 text-sm">Forgot Password?</a>
 							</div>
 							<div class="row mb-3 px-3">
 								<button type="submit" value="login" class="btn btn-blue text-center">Login</button>

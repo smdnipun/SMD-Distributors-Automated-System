@@ -24,5 +24,8 @@ public interface IFeedback {
 		public boolean removeFeedback(String Feedback_ID);
 		
 		//search a feedback
-		public Feedback[] searchFeedback(String Date) throws Exception;
+		public Feedback[] searchFeedback(String Status) throws Exception;
+
+		//report 
+		public List<Feedback> viewMonthlyFeedbackReport(String Date);
 }
