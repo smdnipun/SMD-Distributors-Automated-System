@@ -15,11 +15,7 @@ request.setAttribute("data", customerAged);
 %>
 
 <div class="col-9">
-	<form>
-		</select> <input type="month" name="month" min="2021-01"></input>
-		<button type="submit">Submit</button>
 
-	</form>
 	<!-- Horizontal navigation bar -->
 	<jsp:include page="CenterNavWithoutSearch.jsp"></jsp:include>
 	<center>
@@ -27,13 +23,15 @@ request.setAttribute("data", customerAged);
 	
 	</center>
 	<!--Creating customerage table-->
+		<form>
+		</select> <input type="month" name="month" min="2021-01"></input>
+		<button type="submit">Submit</button>
+
+	</form>
 	
 	<table id="customerDetails" class="table" style="width: 100%">
 		
-			
-
-
-				<thead class="thead-dark">
+					<thead class="thead-dark">
 					<tr>
 
 						<th scope="col">Hardware Name</th>
@@ -48,11 +46,16 @@ request.setAttribute("data", customerAged);
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${data}" var="PaymentDetails">
+				
+				<c:choose>
+				<c:when test="${param.month!=null}">
+					<%
+					CreditSalesM reportCon = new CreditSalesM();
+					PaymentDetails[] report = reportCon.getReport(request.getParameter("month"));
+					request.setAttribute("report", report);
+					%>
+					<c:forEach items="${report}" var="item">
 						<tr>
-
-
-
 							<td><c:out value="${PaymentDetails.getCusName()}" /></td>
 							<td><c:out value="${PaymentDetails.getInvoiceID()}" /></td>
 							<td><c:out value="${PaymentDetails.getTotalAmount()}" /></td>
@@ -60,46 +63,21 @@ request.setAttribute("data", customerAged);
 							<td><c:out value="${PaymentDetails.getBalance()}" /></td>
 							<td><c:out value="${PaymentDetails.getStatus()}" /></td>
 							<td><c:out value="${PaymentDetails.getDate()}" /></td>
-
-
-
-
+					
 						</tr>
 					</c:forEach>
+				</c:when>
+				<c:otherwise>
+					<%
+					CreditSalesM reportCon = new CreditSalesM();
+					PaymentDetails[] report = reportCon.getReport(request.getParameter("month"));
+					request.setAttribute("report", report);
+					%>
+				</c:otherwise>
+			</c:choose>	
+				
 				</tbody>
-<!-- 
-			</c:when>
-			<c:otherwise>
-			
-				<c:forEach items="${searchData}" var="PaymentDetails">
-					<thead class="thead-dark">
-						<tr>
 
-							<th scope="col">Hardware Name</th>
-							<th scope="col">Invoice ID</th>
-							<th scope="col">Total Price</th>
-							<th scope="col">Paid Amount</th>
-							<th scope="col">Remaining Amount</th>
-							<th scope="col">Status</th>
-
-
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-
-							<td><c:out value="${PaymentDetails.getCusName()}" /></td>
-							<td><c:out value="${PaymentDetails.getInvoiceID()}" /></td>
-							<td><c:out value="${PaymentDetails.getTotalAmount()}" /></td>
-							<td><c:out value="${PaymentDetails.getPaidAmount()}" /></td>
-							<td><c:out value="${PaymentDetails.getBalance()}" /></td>
-							<td><c:out value="${PaymentDetails.getStatus()}" /></td>
-							<td><c:out value="${PaymentDetails.getDate()}" /></td>
-						</tr>
-				</c:forEach>
-				</tbody>
-			</c:otherwise>
-		</c:choose> -->
 	</table>
 
 
