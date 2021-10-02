@@ -54,7 +54,7 @@ request.setAttribute("payments", payments);
 		</tbody>
 	</table>
 	<p align="right">
-		<button type="button" class="btn btn-secondary"
+		<button type="button" id="genRep" class="btn btn-secondary"
 			style="background-color: #b8b8b8">Generate Report</button>
 	</p>
 	<br>
