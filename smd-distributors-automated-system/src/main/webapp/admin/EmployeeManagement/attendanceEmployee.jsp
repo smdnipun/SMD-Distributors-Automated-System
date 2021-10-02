@@ -18,10 +18,6 @@ page="EmployeeNav.jsp"></jsp:include>
 
 
 
-
-
-
-
 <br>
 <center>
  <h2>Employee Salary and Attendance Calculation</h2>
