@@ -28,11 +28,11 @@
 			
 			<div class="mb-3">
 				<label for="formGroupExampleInput" class="form-label">Route</label>
-				<input type="text" name="route"  aria-describedby="" class="form-control" id="formGroupExampleInput" required>
+				<input type="text" name="route"  aria-describedby="" class="form-control" id="formGroupExampleInput" placeholder="Peradeniya,Kandy" required>
 			</div>
 			<div class="mb-3">
 				<label for="formGroupExampleInput" class="form-label">Date</label>
-				<input type="date" name="date" aria-describedby="" class="form-control" id="formGroupExampleInput"required>
+				<input type="date" name="date" aria-describedby="" class="form-control" id="formGroupExampleInput"  required>
 			</div>
 			<div class="mb-3">
 				<label for="formGroupExampleInput" class="form-label">Status</label>

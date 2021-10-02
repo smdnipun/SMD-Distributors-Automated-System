@@ -15,6 +15,7 @@ import javax.mail.PasswordAuthentication;
 
 //import com.mysql.cj.Session;
 import com.smd.model.Customer;
+import com.smd.model.Feedback;
 import com.smd.model.Order;
 
 public class Services {	
@@ -65,7 +66,7 @@ public class Services {
 		//creating the needed variables
 		String toEmail = customer.getEmail();	//receiver email
 		String fromEmail = "distributionsmd5@gmail.com";	//sender email
-		String password = "smddistributor123@";		//password
+		String password = "smddistributor123@";	
 		
 		try {
 			//set email server
@@ -144,6 +145,7 @@ public class Services {
 			message.setSubject("SMD Distributors Payment Accept");//set subject
 			message.setText("Hello,This message is to confirm our acceptance of  order number :"  + order.getOID() + " which we received on "+ order.getODATE() + ". We are truly excited to do business with you and thank you for putting your trust in our products and services."
 					+ "Your order will delivered as soon as possible. Should you have any queries regarding your order, please call our customer support number(0776208209). ");
+
 			
 			//sending the mail
 			Transport.send(message);
@@ -208,7 +210,53 @@ public class Services {
 		return status;
 	}
 	
-	
+	//send feedback email
+		public boolean SendFeedbackMail(String email) {
+			boolean status = false;
+			
+			String toEmail = email;//get customers email
+			String fromEmail = "distributionsmd5@gmail.com";//smd email
+			String password = "smddistributor123@";	//smd password
+			
+			try {
+				//setting the email server
+				Properties pr = new Properties();
+				pr.setProperty("mail.smtp.host", "smtp.gmail.com");	//smtp server
+				pr.setProperty("mail.smtp.port", "465");	//port number
+				pr.setProperty("mail.smtp.auth", "true");	//Authentication
+				pr.setProperty("mail.smtp.socketFactory.port", "465"); //SSL port
+				pr.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");	//SSL properties
+				
+				//get Session
+				Session session = Session.getInstance(pr, new Authenticator() {
+					@Override
+					protected PasswordAuthentication getPasswordAuthentication() {
+						//gives authentication from the sender's email
+						return new PasswordAuthentication(fromEmail, password);
+					}
+				});
+				
+				//Creating a message
+				Message message = new MimeMessage(session);
+				
+				message.setFrom(new InternetAddress(fromEmail)); //get the senders email
+				message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail)); //get the receivers email
+				
+				//body of the message
+				message.setSubject("SMD Distributors Feedback Confirmation");//subject for feedback emails
+				message.setText("Dear customer, we have received your feedback and we will get back to you shortly");
+				
+				//send the mail
+				Transport.send(message);
+				
+				status = true;
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+			return status;
+		}
 }
 
 

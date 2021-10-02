@@ -92,7 +92,7 @@
 	<button type="submit" name="pdf" onclick="generatePdf()" class="btn btn-primary"style="background-color:#fbda57; color:#000000">Print </button>
 	
 	
-	
+	<br><br><br><br><br><br>
 	</div>
 	</div>
 	
