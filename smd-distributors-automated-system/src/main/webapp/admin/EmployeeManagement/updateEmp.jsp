@@ -9,7 +9,7 @@ if (request.getSession().getAttribute("Logged") != null) {
 	<jsp:param name="Title" value="SMD Distributors" /></jsp:include>
 	<link rel="stylesheet" href=<%=request.getContextPath() + "/css/Employe.css"%>>
 <body>
-	<jsp:include page="../../WEB-INF/views/common/header.jsp"></jsp:include>
+	<jsp:include page="../../WEB-INF/views/common/adminHeader.jsp"></jsp:include>
 	
 <div class="row">
 <jsp:include

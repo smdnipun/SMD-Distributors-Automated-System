@@ -16,6 +16,8 @@ if (request.getSession().getAttribute("Logged") != null) {
 page="EmployeeNav.jsp"></jsp:include>
 <div class="col-9">
 
+
+
 <br>
 <center>
  <h2>Employee Salary and Attendance Calculation</h2>
@@ -56,7 +58,7 @@ page="EmployeeNav.jsp"></jsp:include>
 
  <div class="form-group">
     <label for="date">Enter Month</label>
-    <input type="date" class="form-control"  name="date" id="date" aria-describedby="" required>
+    <input type="date" class="form-control"  name="date" id="dateinput" aria-describedby="" required>
   </div>
 
  
@@ -80,6 +82,33 @@ page="EmployeeNav.jsp"></jsp:include>
 		<br>	
 		<br>	
 		<br>
+
+<script>
+
+var date = new Date();
+var tdate = date.getDate();
+var month = date.getMonth() +1;
+
+if(tdate<10){
+	tdate = '0'+tdate;
+}
+
+if(month<10){
+	month='0'+ month;
+}
+
+var year = date.getUTCFullYear();
+var minDate = year + "-" + month + "-" + tdate;
+document.getElementById("dateinput").setAttribute('min',minDate);
+
+</script>
+
+
+
+
+
+
+
 
 
 

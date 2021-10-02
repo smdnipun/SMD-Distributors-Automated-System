@@ -21,3 +21,8 @@ div.dataTables_wrapper {
         width: 800px;
         margin: 0 auto;
     }
+    
+    
+thead input {
+        width: 100%;
+    }
