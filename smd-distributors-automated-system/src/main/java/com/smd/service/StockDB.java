@@ -18,14 +18,14 @@ public class StockDB {
 		try {
 			String command = "";
 			if(month==null) {
-				command = "SELECT * from smd.stock WHERE Product_Name ='"+itemName+"'";
+				command = "SELECT * from smd.stock WHERE Item_Name ='"+itemName+"'";
 			}
 			Statement stmt = con.getConnection().createStatement();
-			command = "SELECT * from smd.stock WHERE Product_Name ='"+itemName+"' and Order_Date LIKE '%" + month +"-%'";
+			command = "SELECT * from smd.stock WHERE Item_Name ='"+itemName+"' and Date LIKE '%" + month +"-%'";
 			if(month.equals("0")&&itemName.equals("0")) {
 				command = "SELECT * from smd.stock";
 			}else if(itemName.equals("0")){
-				command = "SELECT * from smd.stock WHERE Order_Date LIKE '%" + month +"-%'";
+				command = "SELECT * from smd.stock WHERE Date LIKE '%" + month +"-%'";
 			}
 			
 			ResultSet rs = stmt.executeQuery(command);

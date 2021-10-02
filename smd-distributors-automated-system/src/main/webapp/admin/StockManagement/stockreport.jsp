@@ -48,7 +48,7 @@
 			"click",
 			"#repgenerate1",
 			function() {
-				html2canvas($('#table2')[0], {
+				html2canvas($('#stock')[0], {
 					onrendered : function(canvas) {
 						var data = canvas.toDataURL();
 						var docDefinition = {
