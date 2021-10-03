@@ -15,7 +15,6 @@ import javax.mail.PasswordAuthentication;
 
 //import com.mysql.cj.Session;
 import com.smd.model.Customer;
-import com.smd.model.Feedback;
 import com.smd.model.Order;
 
 public class Services {

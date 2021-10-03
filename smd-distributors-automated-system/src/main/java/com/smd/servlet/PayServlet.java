@@ -2,11 +2,8 @@ package com.smd.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.security.Provider.Service;
-import java.sql.SQLException;
 import java.sql.Statement;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +16,6 @@ import com.smd.util.DBConnection;
 import com.smd.util.Services;
 import com.smd.model.Customer;
 import com.smd.model.Order;
-import com.smd.model.PaymentDetails;
 
 @WebServlet("/pay")
 public class PayServlet extends HttpServlet {
@@ -30,7 +26,6 @@ public class PayServlet extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-	@SuppressWarnings("unused")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		PrintWriter out = response.getWriter();

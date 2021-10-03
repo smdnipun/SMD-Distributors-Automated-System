@@ -1,12 +1,12 @@
 # SMD-Distributors-Automated-System
-Automated system for SMD Distributors with Java Servlet and MySQL
+Automated system for SMD Distributors with Java Servlet and MySQL as a project in SLIIT 2nd year ITP module.
 
 ## Getting Started
 
 1. Clone the repo to your local machine using
 
 ```
-git clone https://github.com/geethmaka/itp.git
+git clone https://github.com/smdnipun/itp.git
 ```
 
 2. Navigate to your repository
@@ -38,3 +38,20 @@ git merge <branch name you want to merge>
 
 ## Reference
 1. Bootstrap - https://getbootstrap.com/docs/5.0/getting-started/introduction/
+
+## Team
+* [Nipun Senarath](https://github.com/smdnipun)
+
+* [Geethmaka Dissanayake](https://github.com/geethmaka)
+
+* [Pamuditha Kekulandara](https://github.com/pamudithaKekulandara)
+
+* [Hirosha Samarasekara](https://github.com/Hiroshac)
+
+* [Poorna Ranasinghe](https://github.com/PoornaGTX)
+
+* [Thameera Fernando](https://github.com/ThameeraFernando)
+
+* [Dilupa Gimhan](https://github.com/DilupaG)
+
+* [Madhumini Gunarathne](https://github.com/madda01)

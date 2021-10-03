@@ -10,7 +10,6 @@ import com.smd.model.BestCustomers;
 import com.smd.model.Customer;
 import com.smd.model.OrderSummary;
 import com.smd.model.PaySummary;
-import com.smd.model.Payment;
 
 public class CusDetailsServiceImpl implements ICustomerDetails {
 	
@@ -187,10 +186,10 @@ public class CusDetailsServiceImpl implements ICustomerDetails {
 	@Override
 	public Customer getCustomerById(int id) {
 		//create linked list to take the data from the database.
-		List<Customer> ll = new LinkedList<Customer>();
+//		List<Customer> ll = new LinkedList<Customer>();
 		
 		//Created an array to store all the customer details.
-		Customer[] array = null;
+//		Customer[] array = null;
 		
 		//Make the connection with Database
 		DBConnection con = new DBConnection();

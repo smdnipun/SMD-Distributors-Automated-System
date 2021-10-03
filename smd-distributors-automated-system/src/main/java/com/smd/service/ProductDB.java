@@ -24,10 +24,7 @@ public class ProductDB {
 			Statement stmt = con.getConnection().createStatement();
 			String command = "SELECT * from smd.product WHERE Name LIKE '%" + search + "%'";
 			ResultSet rs = stmt.executeQuery(command);
-//			while (rs.next()) {
-//				Product n = new Product(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getInt(5));
-//				ll.add(n);
-//			}
+
 
 			while (rs.next()) {
 				if (rs.getInt(6) == 1) {
@@ -130,6 +127,7 @@ public class ProductDB {
 		return array;
 	}
 
+	//Function for search in available products
 	public Product[] SeachInAvailable(String search) {
 		List<Product> ll = new LinkedList<Product>();
 		Product[] array = null;
@@ -153,6 +151,7 @@ public class ProductDB {
 		return array;
 	}
 	
+	//Function for report generating
 	public ProductReportItem[] getReport(String month,String product) {
 		List<ProductReportItem> ll = new LinkedList<ProductReportItem>();
 		ProductReportItem[] array = null;

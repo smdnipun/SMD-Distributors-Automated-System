@@ -51,6 +51,7 @@ public class UpdateProduct extends HttpServlet {
 			}
 //			response.getWriter().append(command);
 
+			@SuppressWarnings("unused")
 			int rows=stmt.executeUpdate(command);
 			
 //			Staff[] data=dbc.getStaffdetails();

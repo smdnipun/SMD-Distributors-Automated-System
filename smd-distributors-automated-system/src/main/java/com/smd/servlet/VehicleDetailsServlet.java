@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.smd.model.Delivery;
 import com.smd.model.Vehicle;
 import com.smd.service.DeliveryDBUtill;
 
