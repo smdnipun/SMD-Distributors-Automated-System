@@ -23,7 +23,8 @@ request.setAttribute("allProducts", allProducts);
 <!-- Import Horizontal navigation bar -->
 <jsp:include page="./stockreportupnav.jsp"></jsp:include>
 </div>
-<div class="col-5 text-center align">
+<center>
+<div class="col-7 text-center align">
 	<div class="d-flex justify-content-center">
 		<h4>Stock Details</h4>
 	</div>
@@ -96,3 +97,4 @@ request.setAttribute("allProducts", allProducts);
 	</table>
 	<button type="button" id ="repgenerate1" class="btn btn-light">GENERATE REPORT</button>
 </div>
+<center>
