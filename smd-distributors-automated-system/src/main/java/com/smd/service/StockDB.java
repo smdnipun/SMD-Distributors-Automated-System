@@ -11,24 +11,62 @@ import com.smd.model.Stocksummary;
 
 public class StockDB {
 	// Database connection of Stock
-	public Stock[] getAllStockdetails() {
+	public Stock[] getAllStockdetails(String month,String itemName) {
 		List<Stock> ll = new LinkedList<Stock>();
 		Stock[] array = null;
 		DBConnection con = new DBConnection();
 		try {
+			String command = "";
+			if(month==null) {
+				command = "SELECT * from smd.stock WHERE Item_Name ='"+itemName+"'";
+			}
 			Statement stmt = con.getConnection().createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT * FROM stock;");
+			command = "SELECT * from smd.stock WHERE Item_Name ='"+itemName+"' and Date LIKE '%" + month +"-%'";
+			if(month.equals("0")&&itemName.equals("0")) {
+				command = "SELECT * from smd.stock";
+			}else if(itemName.equals("0")){
+				command = "SELECT * from smd.stock WHERE Date LIKE '%" + month +"-%'";
+			}
+			
+			ResultSet rs = stmt.executeQuery(command);
 			while (rs.next()) {
 				Stock n = new Stock(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5));
-				ll.add(n);
+					ll.add(n);
 			}
+			
 			array = ll.toArray(new Stock[ll.size()]);
 
 		} catch (Exception e) {
+			System.out.println(e);
 		}
 		return array;
-
 	}
+//	public Stock[] getAllStockdetails(String month) {
+//		List<Stock> ll = new LinkedList<Stock>();
+//		Stock[] array = null;
+//		DBConnection con = new DBConnection();
+//		try {
+//			
+//				String command = "";
+//				if(month.equals("0"))
+//				{
+//				command = "SELECT * from smd.stock";
+//				}else {
+//				command = "SELECT * from smd.stock WHERE Date LIKE '%" +month+"-%'";
+//				}
+//			Statement stmt = con.getConnection().createStatement();
+//			ResultSet rs = stmt.executeQuery("SELECT * FROM stock;");
+//			while (rs.next()) {
+//				Stock n = new Stock(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5));
+//				ll.add(n);
+//			}
+//			array = ll.toArray(new Stock[ll.size()]);
+//
+//		} catch (Exception e) {
+//		}
+//		return array;
+//
+//	}
 	
 	// Database connection of Stock
 	public Stock[] getStockdetails() {
@@ -37,7 +75,7 @@ public class StockDB {
 		DBConnection con = new DBConnection();
 		try {
 			Statement stmt = con.getConnection().createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT * FROM stock where Status ='add';");
+			ResultSet rs = stmt.executeQuery("SELECT * FROM stock where Status ='Add';");
 			while (rs.next()) {
 				Stock n = new Stock(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5));
 				ll.add(n);
@@ -57,7 +95,7 @@ public class StockDB {
 		DBConnection con = new DBConnection();
 		try {
 			Statement stmt = con.getConnection().createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT * FROM stock where Status ='delete';");
+			ResultSet rs = stmt.executeQuery("SELECT * FROM stock where Status ='Sold';");
 			while (rs.next()) {
 				Stock n = new Stock(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5));
 				ll.add(n);

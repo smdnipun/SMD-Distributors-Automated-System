@@ -291,16 +291,16 @@ public class CreditSalesM {
 //	}
 	
 	//filter data for generate report 
-	public PaymentDetails[] getReport(String month) {
+	public PaymentDetails[] getReport(String month,String status) {
 		List<PaymentDetails> ll = new LinkedList<PaymentDetails>();
 		PaymentDetails[] array = null;
 			try {
 				String command = "";
-				if(month.equals("0")) 
+				if(month.equals("0")&&status.equals("0")) 
 				{
 					command = "SELECT * from smd.paymentdetails";
 				}else {
-					command = "SELECT * from smd.paymentdetails WHERE Order_Date LIKE '%" +month+"-%'";
+					command = "SELECT * from smd.paymentdetails WHERE Order_Date LIKE '%" +month+"-%' or Order_Status='"+status+"'";
 				}
 				
 			Statement stmt = con.getConnection().createStatement();
