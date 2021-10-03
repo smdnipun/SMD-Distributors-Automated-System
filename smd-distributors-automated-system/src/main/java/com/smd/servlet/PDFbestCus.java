@@ -36,12 +36,15 @@ public class PDFbestCus extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html");
-
+		
+		//creating the database connection
+		DBConnection con = new DBConnection();
 		PrintWriter pw = response.getWriter();
 
 		// getting the month
 		String date = request.getParameter("month");
 
+		//split the array to get the month and year separately
 		String[] x = date.split("-");
 		String month = null;
 
@@ -84,45 +87,53 @@ public class PDFbestCus extends HttpServlet {
 			month = "December";
 			break;
 		}
-
+		
+		//prompt success message
 		pw.print("<script>alert('PDF Generated...')</script>");
 
 		try {
 			Document document = new Document();
+			//defining the download path
 			PdfWriter.getInstance(document, new FileOutputStream("C://Users//Nipun//Downloads//Best_Customer.pdf"));
+			//opening the document
 			document.open();
 
 			Paragraph p = new Paragraph();
+			//add the heading of the report
 			p.add("Best Customer List " + month + " " + x[0]);
 			p.setAlignment(Element.ALIGN_CENTER);
-
+			
+			//adding the paragraph to the document
 			document.add(p);
 			document.add(Chunk.NEWLINE);
-
+			
+			//defining table column parameters
 			PdfPTable table = new PdfPTable(new float[] { 10, 30, 25, 40, 15 });
 
 			table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
-
+			
+			//defining the table headers
 			table.addCell("Cus.No");
 			table.addCell("Hardware Name");
 			table.addCell("Phone No.");
 			table.addCell("Address");
 			table.addCell("Quantity");
-
+			
 			table.setHeaderRows(1);
 			PdfPCell[] cells = table.getRow(0).getCells();
-
+			
+			//setting the background color of the header
 			for (int j = 0; j < cells.length; j++) {
 				cells[j].setBackgroundColor(BaseColor.GRAY);
 			}
-
-			DBConnection con = new DBConnection();
-
+			
+			//creating the SQL statement and executing
 			String q = "select Cust_ID, Hardware_Name, Phone, Address, Total_Quantity from bestCustomers where Month = '"
 					+ month + " " + x[0] + "'";
 			Statement st = con.getConnection().createStatement();
 			ResultSet rs = st.executeQuery(q);
-
+			
+			//getting the data from the database 
 			while (rs.next()) {
 				table.addCell(rs.getString(1));
 				table.addCell(rs.getString(2));
@@ -130,7 +141,8 @@ public class PDFbestCus extends HttpServlet {
 				table.addCell(rs.getString(4));
 				table.addCell(rs.getString(5));
 			}
-
+			
+			//inserting the data from the database to document
 			document.add(table);
 			document.close();
 
