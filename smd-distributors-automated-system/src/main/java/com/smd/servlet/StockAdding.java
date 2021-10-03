@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Statement;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.smd.service.StockDB;
 import com.smd.util.DBConnection;
-import com.smd.model.Stock;
 
 @WebServlet("/StockAdding")
 public class StockAdding extends HttpServlet {

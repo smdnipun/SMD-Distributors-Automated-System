@@ -11,8 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.smd.util.DBConnection;
-import com.smd.model.*;
-import com.smd.service.SupplierDB;
 
 @WebServlet("/SupplierUpdate")
 public class SupplierUpdate extends HttpServlet {

@@ -20,7 +20,6 @@
 					<button type="submit" class="btn btn-outline-danger">LogOut</button>
 				</form>
 				
-				<%//TODO logout %>
 			</div>
 		</div>
 	</div>
