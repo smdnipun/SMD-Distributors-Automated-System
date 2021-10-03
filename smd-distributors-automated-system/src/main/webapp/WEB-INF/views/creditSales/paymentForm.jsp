@@ -9,14 +9,14 @@
 		<div class="mb-3">
 			<label for="formGroupExampleInput" class="form-label">Customer
 				ID :</label><br> <input type="number" class="form-control" id="CID"
-				name="CID" Required>
+				name="CID" Readonly>
 
 			<!--input OID -->
 		</div>
 		<div class="mb-3">
 			<label for="formGroupExampleInput" class="form-label">Invoice
 				ID :</label> <input type="number" class="form-control" id="OID" name="OID"
-				Required>
+				Readonly>
 		</div>
 		<!--input Amount -->
 		<div class="mb-3">

@@ -1,5 +1,5 @@
 
-<div style="background-color: #e4e4e4;">
+<div style="background-color: #e4e4e4;min-height:100vh">
 	<!-- Tab navs -->
 	<div class="nav flex-column nav-tabs text-center" id="v-tabs-tab" role="tablist"
 		aria-orientation="vertical">

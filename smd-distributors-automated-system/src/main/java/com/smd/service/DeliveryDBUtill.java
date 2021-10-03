@@ -6,7 +6,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mysql.jdbc.CallableStatement;
 import com.smd.model.Delivery;
 import com.smd.model.Vehicle;
 import com.smd.util.DBConnection;

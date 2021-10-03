@@ -11,8 +11,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
@@ -96,7 +94,7 @@ public class PDFbestCus extends HttpServlet {
 		try {
 			Document document = new Document();
 			//defining the download path
-			PdfWriter.getInstance(document, new FileOutputStream("C://Users//Nipun//Downloads//Best_Customer.pdf"));
+			PdfWriter.getInstance(document, new FileOutputStream("D://Best_Customer.pdf"));
 			//opening the document
 			document.open();
 

@@ -9,7 +9,7 @@
 		<jsp:param name="navs"
 			value="View All Products,all.jsp_Add Products,add.jsp_Reports,report.jsp" />
 	</jsp:include>
-	<div class="col-10 my-auto">
+	<div class="col-10 py-4">
 		<div class="row text-center pb-4">
 			<form action="../../searchP" method="post">
 				<input type="text" size="50" name="search" />
@@ -52,10 +52,6 @@
 				<table class="table table-striped">
 					<tbody>
 						<c:forEach items="${searchData}" var="product">
-							<!--<tr>
-								<td><a href="update.jsp?product=${product.getProductID()}"><c:out
-											value="${product.getName()}"></c:out></a></td>
-							</tr>-->
 							<tr>
 								<td><a href="update.jsp?product=${product.getProductID()}">
 										<img

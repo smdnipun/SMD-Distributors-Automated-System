@@ -2,15 +2,9 @@ package com.smd.service;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.sql.CallableStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.sql.Types;
-
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import com.smd.model.Customer;
 import com.smd.model.Employee;
 import com.smd.model.EmployeeAttendance;
 import com.smd.model.EmployeeBasicInfo;

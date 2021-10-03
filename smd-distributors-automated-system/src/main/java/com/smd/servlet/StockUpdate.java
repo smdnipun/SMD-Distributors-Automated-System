@@ -12,9 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.smd.model.Order;
-import com.smd.model.Stocksummary;
-import com.smd.service.CreditSalesM;
 import com.smd.service.StockDB;
 import com.smd.util.DBConnection;
 

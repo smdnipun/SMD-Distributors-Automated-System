@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.smd.model.Customer;
 import com.smd.service.CusDetailsServiceImpl;
 import com.smd.service.ICustomerDetails;
 import com.smd.util.Services;
