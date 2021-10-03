@@ -31,33 +31,32 @@ int total = 0;
 		</form>
 		<table class="table" id="tblCustomers">
 			<tr>
-				<c:choose>
-					<c:when test="${param.month!=null && param.product!=null}">
+				<td colspan=5 style="text-align: center;"><h3>
 						<c:choose>
-							<c:when test="${param.product=='0' && param.month==''}">
-								<td colspan=5 style="text-align: center;"><h3>SMD
-										Distributors Overall Summary Report</h3></td>
-							</c:when>
-							<c:when test="${param.product=='0' && param.month!=''}">
-								<td colspan=5 style="text-align: center;"><h3>SMD
-										Distributors Overall Summary Report for ${param.month }</h3></td>
-							</c:when>
-							<c:when test="${param.product!='0' && param.month==''}">
-								<td colspan=5 style="text-align: center;"><h3>SMD
-										Distributors Overall Summary Report of ${param.product }</h3></td>
+							<c:when test="${param.month!=null && param.product!=null}">
+								<c:choose>
+									<c:when test="${param.product=='0' && param.month==''}">
+										<span>SMD Distributors Overall Summary Report</span>
+									</c:when>
+									<c:when test="${param.product=='0' && param.month!=''}">
+										<span>SMD Distributors Overall Summary Report for
+											${param.month }</span>
+									</c:when>
+									<c:when test="${param.product!='0' && param.month==''}">
+										<span>SMD Distributors Overall Summary Report of
+											${param.product }</span>
+									</c:when>
+									<c:otherwise>
+										<span>SMD Distributors Summary report of
+											${param.product} for ${param.month}</span>
+									</c:otherwise>
+								</c:choose>
 							</c:when>
 							<c:otherwise>
-								<td colspan=5 style="text-align: center;"><h3>SMD
-										Distributors Summary report of ${param.product} for
-										${param.month}</h3></td>
+								<span>SMD Distributors Overall Summary Report</span>
 							</c:otherwise>
 						</c:choose>
-					</c:when>
-					<c:otherwise>
-						<td colspan=5 style="text-align: center;"><h3>SMD
-								Distributors Overall Summary Report</h3></td>
-					</c:otherwise>
-				</c:choose>
+					</h3></td>
 			</tr>
 			<tr>
 				<th>Product Name</th>
