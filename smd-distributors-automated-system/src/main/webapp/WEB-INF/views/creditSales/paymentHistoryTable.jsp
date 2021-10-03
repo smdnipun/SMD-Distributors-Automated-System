@@ -10,7 +10,7 @@
 if (request.getSession().getAttribute("Logged") == null) {
 	request.getSession().setAttribute("Logged", "Guest");
 }
-
+//Creating a connection to the database and fetching all the customerage details .
 CreditSalesM dbc = new CreditSalesM();
 Payment[] payments = (Payment[]) dbc.getPayment();
 request.setAttribute("payments", payments);
@@ -45,11 +45,9 @@ request.setAttribute("payments", payments);
 		</thead>
 		<tbody>
 
-
-
-
 			<c:choose>
 				<c:when test="${param.month!=null}">
+					<!-- If the "month" URL parameter is not null it fill fetch the data related to the specified data on the URL parameters-->
 					<%
 					CreditSalesM reportCon = new CreditSalesM();
 					Payment[] report = reportCon.getReportP(request.getParameter("month"));
@@ -67,12 +65,13 @@ request.setAttribute("payments", payments);
 					</c:forEach>
 				</c:when>
 				<c:otherwise>
+					<!--Show all fetched data -->
 					<%
 					CreditSalesM reportCon = new CreditSalesM();
 					Payment[] report = reportCon.getReportP("0");
 					request.setAttribute("report", report);
 					%>
-										<c:forEach items="${report}" var="Payment">
+					<c:forEach items="${report}" var="Payment">
 						<tr>
 							<td><c:out value="${Payment.getPaymentID()}" /></td>
 							<td><c:out value="${Payment.getPaidAmount()}" /></td>
@@ -89,6 +88,7 @@ request.setAttribute("payments", payments);
 		</tbody>
 	</table>
 	<p align="right">
+		<!--Button to generate report-->
 		<button type="button" id="genRep" class="btn btn-secondary"
 			style="background-color: #b8b8b8">Generate Report</button>
 	</p>

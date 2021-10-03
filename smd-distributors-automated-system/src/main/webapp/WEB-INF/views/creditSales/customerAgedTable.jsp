@@ -103,7 +103,7 @@ request.setAttribute("data", customerAged);
 	</table>
 
 	<!--Button to generate report-->
-	v
+	
 	<p align="right">
 		<button id="print" class="btn btn-secondary"
 			style="background-color: #b8b8b8">Generate Report</button>
