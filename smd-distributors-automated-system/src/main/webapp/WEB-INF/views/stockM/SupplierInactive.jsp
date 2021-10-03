@@ -15,6 +15,7 @@ Supplier[] newsupplier = (Supplier[]) dbc.getSupplierInactivedetails();
 request.setAttribute("supplierdata", newsupplier);
 %>
 <div>
+<!-- Import Horizontal navigation bar -->
 	<jsp:include page="./supplierupnav.jsp"></jsp:include>
 </div>
 <div>
@@ -66,6 +67,5 @@ request.setAttribute("supplierdata", newsupplier);
 				</c:forEach>
 			</tbody>
 		</table>
-		<button type="button" class="btn btn-light">GENERATE REPORT</button>
 	</div>
 </div>

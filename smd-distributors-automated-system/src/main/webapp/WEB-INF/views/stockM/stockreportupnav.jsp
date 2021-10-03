@@ -4,9 +4,11 @@
 	<div class="container-fluid">
 		<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			<!--Inactive supplier report button -->
 				<li class="nav-item">
 					<a class="nav-link" href="supplier_report.jsp">Supplier </a>
 				</li>
+				<!--Inactive stock report button -->
 				<li class="nav-item">
 					<a class="nav-link" href="stockreport.jsp">Stock</a>
 				</li>

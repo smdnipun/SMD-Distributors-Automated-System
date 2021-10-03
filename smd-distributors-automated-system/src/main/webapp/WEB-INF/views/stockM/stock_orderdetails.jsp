@@ -33,7 +33,7 @@ request.setAttribute("stockorderdata", newstock);
 			</tr>
 		</thead>
 		<tbody>
-			<!-- Pass the data from DB -->
+			<!-- Pass the data from DB for the display the data frme table-->
 			<c:forEach items="${stockorderdata}" var="Stockorder">
 				<form action="../../ReleasOrders" method="post">
 					<tr>
@@ -42,9 +42,10 @@ request.setAttribute("stockorderdata", newstock);
 						<td><c:out value="${Stockorder.getQty()}" /></td>
 						<td><c:out value="${Stockorder.getOdate()}" /></td>
 						<td><c:out value="${Stockorder.getpName()}" /></td>
-						<td><button type="submit" class="btn btn-secondary"
-								style="background-color: #c28f48" name="button" value="accept" />Accept
-							</button>
+						<td>
+						<button type="submit" class="btn btn-secondary"style="background-color: #c28f48" name="button" value="accept" />
+						Accept
+						</button>
 				</form>
 				</td>
 				</tr>

@@ -15,6 +15,7 @@ Supplier[] newsupplier = (Supplier[]) dbc.getAllSupplier();
 request.setAttribute("supplierdata", newsupplier);
 %>
 <div>
+<!-- Import Horizontal navigation bar -->
 	<jsp:include page="./stockreportupnav.jsp"></jsp:include>
 </div>
 <div >
@@ -34,6 +35,7 @@ request.setAttribute("supplierdata", newsupplier);
 				</tr>
 			</thead>
 			<tbody>
+			<!-- get the stock data from Stock database table connection -->
 				<c:forEach items="${supplierdata}" var="Supplier">
 				
 						<tr>

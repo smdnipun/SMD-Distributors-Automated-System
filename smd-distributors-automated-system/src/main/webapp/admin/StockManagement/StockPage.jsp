@@ -3,7 +3,7 @@
 	
 	<jsp:param name="Title" value="SMD Distributors|Stock Management" />
 	</jsp:include>
-	<!-- Import table css  file -->
+	<!-- Import table css file -->
 <link rel="stylesheet"
 	href=<%=request.getContextPath() + "/css/table.css"%>>
 <body>
