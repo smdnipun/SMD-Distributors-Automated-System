@@ -39,6 +39,9 @@ public class AcceptOrderServlet extends HttpServlet {
 		// check button value and delete order
 		if (request.getParameter("button").equals("decline")) {
 			try {
+				cus = payaccpt.getCustomerById(cusID);
+				ord = paydbc.getOrder(cusID, orderID);
+				sm.SendDeclineMail(cus,ord); 
 				Statement stmt = dbc.getConnection().createStatement();
 				String command = "delete from orders where Order_ID=" + request.getParameter("id");
 
