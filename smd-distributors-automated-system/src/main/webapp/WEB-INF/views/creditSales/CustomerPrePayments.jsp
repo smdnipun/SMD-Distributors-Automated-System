@@ -59,12 +59,6 @@ if (request.getParameter("credit") != null) {
 			</tbody>
 		</table>
 
-		<!-- create button to back-->
-		<form action="../../AcceptOrders" method="post">
-
-			<button type="submit" class="btn btn-secondary"
-				style="background-color: #DE431F" name="button" value="decline">Back</button>
-		</form>
 	</div>
 </div>
 <%

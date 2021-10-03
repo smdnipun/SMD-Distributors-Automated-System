@@ -111,4 +111,5 @@ request.setAttribute("data", customerAged);
 		<button id="print" class="btn btn-secondary"
 			style="background-color: #b8b8b8">Generate Report</button>
 	</p>
+	<br><br><br><br>
 </div>
