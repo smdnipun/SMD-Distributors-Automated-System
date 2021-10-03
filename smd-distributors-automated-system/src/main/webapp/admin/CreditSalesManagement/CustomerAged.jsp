@@ -21,6 +21,7 @@
 	</div>
 	<jsp:include page="../../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
 
+	<!-- importing required js frameworks for convert table to pdf -->
 	<script type="text/javascript"
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<script type="text/javascript"
@@ -28,24 +29,25 @@
 	<script type="text/javascript"
 		src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 	<script type="text/javascript">
-	$("body").on(
-			"click",
-			"#print",
-			function() {
-				html2canvas($('#customerDetails')[0], {
-					onrendered : function(canvas) {
-						var data = canvas.toDataURL();
-						var docDefinition = {
-							content : [ {
-								image : data,
-								width : 500
-							} ]
-						};
-						pdfMake.createPdf(docDefinition).download(
-								"CustomerAged.pdf");
-					}
+	<!-- Converting the table on the page to pdf and downloading -->
+		$("body").on(
+				"click",
+				"#print",
+				function() {
+					html2canvas($('#customerDetails')[0], {
+						onrendered : function(canvas) {
+							var data = canvas.toDataURL();
+							var docDefinition = {
+								content : [ {
+									image : data,
+									width : 500
+								} ]
+							};
+							pdfMake.createPdf(docDefinition).download(
+									"CustomerAged.pdf");
+						}
+					});
 				});
-			});
-</script>
+	</script>
 </body>
 </html>
