@@ -253,7 +253,7 @@ public class Services {
 				// message body
 				message.setSubject("SMD Distributors Payments");// set subject
 				message.setText("Invoice ID :" + order.getOID() + "\n" + "Paid Amount :" + Paid + "\n" + "Balance :"
-						+ Remaining + "\n " + "Thank you for your payment ");
+						+ Remaining + "\n" + "Thank you for your payment ");
 
 			}
 

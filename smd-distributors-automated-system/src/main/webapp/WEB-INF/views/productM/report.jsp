@@ -29,6 +29,7 @@ int total = 0;
 			</select> <input type="month" name="month" min="2021-01"></input>
 			<button type="submit" class="btn btn-primary">Filter</button>
 		</form>
+		<button id="btnExport" class="btn btn-primary">Print Report</button>
 		<table class="table" id="tblCustomers">
 			<tr>
 				<td colspan=5 style="text-align: center;"><h3>
@@ -113,6 +114,6 @@ int total = 0;
 				<th>Rs.<%=Integer.toString(total)%></th>
 			</tr>
 		</table>
-		<button id="btnExport" class="btn btn-primary">Print Report</button>
+		<br><br><br>
 	</div>
 </div>
