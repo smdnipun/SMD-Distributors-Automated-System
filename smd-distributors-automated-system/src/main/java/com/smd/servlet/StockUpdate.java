@@ -52,39 +52,7 @@ public class StockUpdate extends HttpServlet {
 				e.printStackTrace();
 			}
 			//Compier the databse and input value of quantity and delete the data 
-		} else if (request.getParameter("button").equals("delete")) {
-
-			String name = request.getParameter("itemname");
-			int InQuantity = Integer.parseInt(request.getParameter("quntity"));
-			int quantityOnhand = stockdb.getQuantity(name);
-			response.getWriter().append(name);
-			response.getWriter().append(request.getParameter("quntity"));
-			response.getWriter().append(Integer.toString(quantityOnhand));
-
-			if (quantityOnhand > InQuantity) {
-
-				try {
-					DBConnection sdbc = new DBConnection();
-					Statement stmt = sdbc.getConnection().createStatement();
-					String command1 = "INSERT INTO stock(Item_name,Date,Quantity,Status)" + "" + "VALUES('"
-							+ request.getParameter("itemname") + "','" + request.getParameter("date") + "','"
-							+ request.getParameter("quntity") + "','delete')";
-					
-					response.getWriter().append(command1);
-
-				
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			} else {
-				RequestDispatcher dispatcher = getServletContext()
-						.getRequestDispatcher("admin/StockManagement/StockPage.jsp");
-				request.setAttribute("message", "Invalid !!");
-				dispatcher.forward(request, response);
-
-			}
-
-		}
+		} 
 	}
 
 }

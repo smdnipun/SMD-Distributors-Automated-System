@@ -18,14 +18,15 @@
 	</div>
 	<!-- Import common footer -->
 	<jsp:include page="../../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
-	
+	<!-- importing required js frameworks for convert table to pdf -->
 	<script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script type="text/javascript"
+	<script type="text/javascript"
 	src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
-<script type="text/javascript"
+	<script type="text/javascript"
 	src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-<script type="text/javascript">
+	<!-- Converting the table on the page to pdf and downloading -->
+	<script type="text/javascript">
 	$("body").on(
 			"click",
 			"#repgenerate",

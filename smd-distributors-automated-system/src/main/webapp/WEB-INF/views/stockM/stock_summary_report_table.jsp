@@ -1,4 +1,4 @@
-
+<%-- 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="com.smd.model.Stocksummary"%><!--Import Stocksummary.class-->
@@ -43,4 +43,4 @@ request.setAttribute("stocksum", newstock);
 		</tbody>
 	</table>
 	<button type="button" id ="repgenerate3" class="btn btn-light">GENERATE REPORT</button>
-</div>
+</div> --%>
