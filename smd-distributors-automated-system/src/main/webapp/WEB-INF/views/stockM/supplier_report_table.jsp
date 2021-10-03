@@ -22,6 +22,7 @@ request.setAttribute("supplierdata", newsupplier);
 	<div class="d-flex justify-content-center">
 		<h4>Supplier Details</h4>
 	</div>
+	<center>
 	<div class="col-7 justify-content-center">
 		<table id="table" class="display nowrap" style="width: 100%">
 			<thead>
@@ -53,4 +54,5 @@ request.setAttribute("supplierdata", newsupplier);
 		</table>
 		<button type="button" id ="repgenerate" class="btn btn-light">GENERATE REPORT</button>
 	</div>
+	<center>
 </div>
