@@ -88,6 +88,7 @@ int total = 0;
 					</c:forEach>
 				</c:when>
 				<c:otherwise>
+				<!-- If both month and product in the URL is null the page will fetch all the summary details and show the report -->
 					<%
 					ProductDB reportCon = new ProductDB();
 					ProductReportItem[] report = reportCon.getReport("0", "0");
