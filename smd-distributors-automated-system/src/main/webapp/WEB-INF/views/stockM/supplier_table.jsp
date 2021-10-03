@@ -15,6 +15,7 @@ Supplier[] newsupplier = (Supplier[]) dbc.getSupplierdetails();
 request.setAttribute("supplierdata", newsupplier);
 %>
 <div>
+<!-- Import Horizontal navigation bar -->
 	<jsp:include page="./supplierupnav.jsp"></jsp:include>
 </div>
 <div >
@@ -35,10 +36,10 @@ request.setAttribute("supplierdata", newsupplier);
 				</tr>
 			</thead>
 			<tbody>
+			<!-- get the stock data from Stock database table connection -->
 				<c:forEach items="${supplierdata}" var="Supplier">
 				<form action="../../SupplierUpdate" method="post">
 						<tr>
-
 							<td><input readonly type="text" name="supplierID"
 								value="<c:out value="${Supplier.getSupplierID()}"/>"></td>
 							<td><input type="text" name="sname"
@@ -52,24 +53,20 @@ request.setAttribute("supplierdata", newsupplier);
 							<td><input type="text" name="tno"
 								value="<c:out value="${Supplier.getStatus()}"/>"></td>
 
-
 							<td>
 								<button name="button" value="update" type="submit" name="id"
 									class="btn btn-light"
 									value="<c:out value= "${Supplier.getSupplierID()}"/>">UPDATE</button>
-
 								<button name="button" value="delete" type="submit"
 									class="btn btn-light"
 									value="<c:out value= "${Supplier.getSupplierID()}"/>">Delete</button>
 					</form>
-
 					</td>
-
 					</tr>
 
 				</c:forEach>
 			</tbody>
 		</table>
-		<button type="button" id ="repgenerate" class="btn btn-light">GENERATE REPORT</button>
+	
 	</div>
 </div>

@@ -123,6 +123,7 @@ if (request.getSession().getAttribute("Logged") != null) {
 				<th scope="col">Customer_ID</th>
 				<th scope="col">Vehicle</th>
 				<th scope="col"></th>
+				<th scope="col"></th>
 				
 				
 	
@@ -130,30 +131,65 @@ if (request.getSession().getAttribute("Logged") != null) {
 		</thead>
 		<tbody>
 			<c:forEach var="del" items="${deliveryDetails}">
-				<form action=<%=request.getContextPath() + "/updated"%> method="post">
+
 				<tr>
-					<td><input type="text" value="${del.delivryID}" name="did" class="form-control" readonly/></td>
+				
+				  <c:set var="did" value="${del.delivryID}"/>
+				  <c:set var="droute" value="${del.route}"/>
+				  <c:set var="ddate" value="${del.date}"/>
+				  <c:set var="dstatus" value="${del.status}"/>
+				  <c:set var="doid" value="${del.oID}"/>
+				  <c:set var="dcid" value="${del.cID}"/>
+				  <c:set var="vehicle" value="${del.vehicle}"/>
+				  
+				
+				
+					<td><c:out value="${del.delivryID}"/></td>
 					<td><c:out value="${del.route}" /></td>
 					<td><c:out value="${del.date}" /></td>
-					<td><select class="dropdown-header" name="upStatus" id="formGroupExampleInput">
-				    <option value="${del.status}">${del.status}</option>
-				    <option value="NotDelivered">NotDelivered</option>
-				    <option value="delivered">delivered</option>
-				   </select></td>
+					<td><c:out value="${del.status}" /></td>				    				
 					<td><c:out value="${del.oID}" /></td>
 					<td><c:out value="${del.cID}" /></td>
 					<td><c:out value="${del.vehicle}" /></td>
-					<td><input type="submit" name="uodate" value="Update" class="btn btn-primary"style="background-color:#fbda57; color:#000000"> </td>
+					<td>
+					
+					<c:url value="admin/DeliveryManage/UpdateDelivery.jsp" var="updateDelivery">
+				      <c:param name="ddid" value="${did}"/>
+				      <c:param name="droute" value="${droute}"/>
+				      <c:param name="ddate" value="${ddate}"/>
+				      <c:param name="dstatus" value="${dstatus}"/>
+				      <c:param name="doid" value="${doid}"/>
+				      <c:param name="dcid" value="${dcid}"/>
+				      <c:param name="vehicle" value="${vehicle}"/>
+				    </c:url>
+				      	<a href="${updateDelivery}">
+				        <input type="button" name="update" value="Update" class="btn btn-primary"style="background-color:#fbda57; color:#000000">
+				      </a>
+					
+					</td>
+					
+					<td>
+						<c:url value="admin/DeliveryManage/DeleteDelevery.jsp" var="deleteDelivery">
+				      <c:param name="ddid" value="${did}"/>
+				      <c:param name="droute" value="${droute}"/>
+				      <c:param name="ddate" value="${ddate}"/>
+				      <c:param name="dstatus" value="${dstatus}"/>
+				      <c:param name="doid" value="${doid}"/>
+				      <c:param name="dcid" value="${dcid}"/>
+				      <c:param name="vehicle" value="${vehicle}"/>
+				    </c:url>
+				      	<a href="${deleteDelivery}">
+				        <input type="button" name="delete" value="Delete" class="btn btn-primary"style="background-color:#fbda57; color:#000000">
+				      </a>
+					
+					</td>
+					
 				</tr>
-				</form>
 				
-				<form  action=<%=request.getContextPath() + "/deleted"%>  method="post">
-				<tr>
-					<td/><td/><td/><td/><td/><td/>
-					<td><input type="hidden" value="${del.delivryID}" name="did" class="form-control" id="formGroupExampleInput" readonly/></td>
-					<td><input type="submit" name="delete" value="Delete" class="btn btn-primary"style="background-color:#fbda57; color:#000000"> </td>
-				</tr>
-				</form>
+				
+				
+	
+				
 			</c:forEach>
 	
 		</tbody>
@@ -168,6 +204,10 @@ if (request.getSession().getAttribute("Logged") != null) {
 	<div class="mb-4">
 				<label for="formGroupExampleInput" class="form-label">Date</label>
 				<input type="date" name="rdate" aria-describedby="" class="form-control" id="formGroupExampleInput" required>
+				<select class="dropdown-header" name="rstatus" id="formGroupExampleInput"required>
+				    <option value="NotDelivered">NotDelivered</option>
+				    <option value="delivered">delivered</option>
+				</select>    
 	</div>
 	<button type="submit" name="report" class="btn btn-primary"style="background-color:#fbda57; color:#000000">Generate Report </button>
 	

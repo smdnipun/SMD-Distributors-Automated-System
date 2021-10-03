@@ -32,7 +32,7 @@
 			</div>
 			<div class="mb-3">
 				<label for="formGroupExampleInput" class="form-label">Date</label>
-				<input type="date" name="date" aria-describedby="" class="form-control" id="formGroupExampleInput"  required>
+				<input type="date" name="date" aria-describedby="" class="form-control" id="dateinput"  required>
 			</div>
 			<div class="mb-3">
 				<label for="formGroupExampleInput" class="form-label">Status</label>
@@ -63,3 +63,22 @@
 		</form>
 		
 	</div>
+<script>
+
+var date = new Date();
+var tdate = date.getDate();
+var month = date.getMonth() +1;
+
+if(tdate<10){
+tdate = '0'+tdate;
+}
+
+if(month<10){
+month='0'+ month;
+}
+
+var year = date.getUTCFullYear();
+var minDate = year + "-" + month + "-" + tdate;
+document.getElementById("dateinput").setAttribute('min',minDate);
+
+</script>

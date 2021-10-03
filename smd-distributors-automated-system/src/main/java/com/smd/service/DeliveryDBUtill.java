@@ -128,7 +128,7 @@ public class DeliveryDBUtill {
 		return isSuccess;
 	}
 	
-public static List<Delivery> deliveryReport(String date){
+public static List<Delivery> deliveryReport(String date, String status){
 		
 		ArrayList<Delivery> report = new ArrayList<>();
 		
@@ -136,7 +136,7 @@ public static List<Delivery> deliveryReport(String date){
 			
 			con = DBConnection.getConnection();
 			stmt = con.createStatement();
-			String sql = "select * from Delivery where month(Date)=extract(month from '"+date+"') and year(Date)=extract(year from '"+date+"')";
+			String sql = "select * from Delivery where month(Date)=extract(month from '"+date+"') and year(Date)=extract(year from '"+date+"') and Status='"+status+"'";
 			rs = stmt.executeQuery(sql);
 			
 			while(rs.next()) {

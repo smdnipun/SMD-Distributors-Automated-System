@@ -17,8 +17,6 @@ request.setAttribute("products", products);
 			
 		<!-- input Item name -->
 			<div class="form-group">
-				<!-- <label for="exampleInputPassword1">Item Name</label> <input type="text"
-					class="form-control" id="exampleInputPassword1" name="itemname" Required> -->
 						<label for="exampleInputEmail1">Product Name</label> <select
 				name="itemname">
 				<c:forEach items="${products}" var="product">

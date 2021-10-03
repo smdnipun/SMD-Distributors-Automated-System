@@ -92,7 +92,10 @@ if (request.getSession().getAttribute("Logged") != null) {
 		</div>
 		<br/>
 		<jsp:include page="../../WEB-INF/views/common/adminFooter.jsp"></jsp:include>
+		
+		
 </body>
+
 </html>
 <%
 } else {
