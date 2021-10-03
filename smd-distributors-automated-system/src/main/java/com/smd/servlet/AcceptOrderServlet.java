@@ -26,22 +26,28 @@ public class AcceptOrderServlet extends HttpServlet {
 	@SuppressWarnings("unused")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		// Database connections
 		DBConnection dbc = new DBConnection();
 		CreditSalesM paydbc = new CreditSalesM();
 		CusDetailsServiceImpl payaccpt = new CusDetailsServiceImpl();
+		// Connections with classes
 		Services sm = new Services();
 		Customer cus = new Customer();
 		Order ord = new Order();
-		String id=request.getParameter("id1");
+		// get values
+		String id = request.getParameter("id1");
 		int cusID = Integer.parseInt(id);
 		int orderID = Integer.parseInt(request.getParameter("id").toString());
 
 		// check button value and delete order
 		if (request.getParameter("button").equals("decline")) {
 			try {
+				// send decline email
 				cus = payaccpt.getCustomerById(cusID);
 				ord = paydbc.getOrder(cusID, orderID);
-				sm.SendDeclineMail(cus,ord); 
+				sm.SendDeclineMail(cus, ord);
+
+				// delete query
 				Statement stmt = dbc.getConnection().createStatement();
 				String command = "delete from orders where Order_ID=" + request.getParameter("id");
 
@@ -59,9 +65,12 @@ public class AcceptOrderServlet extends HttpServlet {
 
 		else {
 			try {
+				// send accept email
 				cus = payaccpt.getCustomerById(cusID);
 				ord = paydbc.getOrder(cusID, orderID);
 				sm.SendSuccessfulMail(cus, ord);
+
+				// update query
 				Statement stmt = dbc.getConnection().createStatement();
 				String command = "UPDATE orders SET order_status = 'Accepted' WHERE Order_ID = "
 						+ request.getParameter("id");

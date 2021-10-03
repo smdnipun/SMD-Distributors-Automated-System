@@ -13,15 +13,20 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/PaymentSearch")
 public class PaymentSearch extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    public PaymentSearch() {
-        super();
-    }
-    
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	public PaymentSearch() {
+		super();
 	}
-	//redirection 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url="admin/CreditSalesManagement/CustomerDetailsCredit.jsp?search="+request.getParameter("search");
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+	}
+
+	// redirect to the customerDetailsCredit page with search data
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		String url = "admin/CreditSalesManagement/CustomerDetailsCredit.jsp?search=" + request.getParameter("search");
 		response.sendRedirect(url);
 	}
 

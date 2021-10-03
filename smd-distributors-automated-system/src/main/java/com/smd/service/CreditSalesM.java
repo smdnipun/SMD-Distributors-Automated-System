@@ -57,7 +57,7 @@ public class CreditSalesM {
 			while (rs.next()) {
 				// rs.getNString(2)
 				PaymentDetails n = new PaymentDetails(rs.getNString(1), rs.getString(2), rs.getDouble(3),
-						rs.getDouble(4), rs.getDouble(5), rs.getString(6),rs.getString(7));
+						rs.getDouble(4), rs.getDouble(5), rs.getString(6), rs.getString(7));
 				ll.add(n);
 			}
 			array = ll.toArray(new PaymentDetails[ll.size()]);
@@ -80,7 +80,7 @@ public class CreditSalesM {
 			ResultSet rs = stmt.executeQuery("select * from paymentdetails where Order_ID=" + i);
 			while (rs.next()) {
 				PaymentDetails n = new PaymentDetails(rs.getNString(1), rs.getString(2), rs.getDouble(3),
-						rs.getDouble(4), rs.getDouble(5), rs.getString(6),rs.getString(7));
+						rs.getDouble(4), rs.getDouble(5), rs.getString(6), rs.getString(7));
 				ll.add(n);
 			}
 			array = ll.toArray(new PaymentDetails[ll.size()]);
@@ -184,7 +184,7 @@ public class CreditSalesM {
 			while (rs.next()) {
 				Customer n = new Customer(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
 						rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9),
-						rs.getString(10),rs.getString(11));
+						rs.getString(10), rs.getString(11));
 				ll.add(n);
 			}
 
@@ -196,6 +196,7 @@ public class CreditSalesM {
 	}
 
 	// database connection of PaymentVerification
+	// check paid amount and cid and oid
 	public boolean getPayCredit(int CID, int OID, double paidAmount) {
 
 		List<Order> ll = new LinkedList<Order>();
@@ -232,7 +233,7 @@ public class CreditSalesM {
 
 		try {
 			Statement stmt = con.getConnection().createStatement();
-			String command = "select * from orders where Cust_ID=" + id  ;
+			String command = "select * from orders where Cust_ID=" + id;
 			ResultSet rs = stmt.executeQuery(command);
 			while (rs.next()) {
 				Order n = new Order(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getDouble(5),
@@ -248,6 +249,7 @@ public class CreditSalesM {
 	}
 
 //database connection of Calculation
+	// filter data according to relevant oid and cus id
 	public Order getOrder(int CID, int OID) {
 
 		try {
@@ -288,29 +290,30 @@ public class CreditSalesM {
 //		}
 //		return array;
 //	}
-	
-	//filter data for generate report 
-	public PaymentDetails[] getReport(String month,String status) {
+
+	// filter data for generate report
+	public PaymentDetails[] getReport(String month, String status) {
 		List<PaymentDetails> ll = new LinkedList<PaymentDetails>();
 		PaymentDetails[] array = null;
-			try {
-				String command = "";
-				if(month.equals("0")&&status.equals("0")) 
-				{
-					command = "SELECT * from smd.paymentdetails";
-				}else {
-					command = "SELECT * from smd.paymentdetails WHERE Order_Date LIKE '%" +month+"-%' or Order_Status='"+status+"'";
-				}
-				
+		try {
+			// check month null or not and filter data
+			String command = "";
+			if (month.equals("0") && status.equals("0")) {
+				command = "SELECT * from smd.paymentdetails";
+			} else {
+				command = "SELECT * from smd.paymentdetails WHERE Order_Date LIKE '%" + month + "-%' or Order_Status='"
+						+ status + "'";
+			}
+
 			Statement stmt = con.getConnection().createStatement();
-		
+
 			ResultSet rs = stmt.executeQuery(command);
 			while (rs.next()) {
 				PaymentDetails n = new PaymentDetails(rs.getNString(1), rs.getString(2), rs.getDouble(3),
-						rs.getDouble(4), rs.getDouble(5), rs.getString(6),rs.getString(7));
-					ll.add(n);
+						rs.getDouble(4), rs.getDouble(5), rs.getString(6), rs.getString(7));
+				ll.add(n);
 			}
-			
+
 			array = ll.toArray(new PaymentDetails[ll.size()]);
 
 		} catch (Exception e) {
@@ -318,29 +321,29 @@ public class CreditSalesM {
 		}
 		return array;
 	}
-	
-	//filter data for generate report
+
+	// filter data for generate report
 	public Payment[] getReportP(String month) {
 		List<Payment> ll = new LinkedList<Payment>();
 		Payment[] array = null;
 		try {
+			// check month is null or not and filter display
 			String command = "";
-			if(month.equals("0")) 
-			{
+			if (month.equals("0")) {
 				command = "SELECT * from smd.payment";
-			}else {
-				command = "SELECT * from smd.payment  WHERE Date LIKE '%" +month+"-%'";
+			} else {
+				command = "SELECT * from smd.payment  WHERE Date LIKE '%" + month + "-%'";
 			}
-				 
+
 			Statement stmt = con.getConnection().createStatement();
-		
+
 			ResultSet rs = stmt.executeQuery(command);
 			while (rs.next()) {
 				Payment n = new Payment(rs.getString(1), rs.getDouble(2), rs.getString(3), rs.getString(4),
 						rs.getString(5), rs.getString(6));
-					ll.add(n);
+				ll.add(n);
 			}
-			
+
 			array = ll.toArray(new Payment[ll.size()]);
 
 		} catch (Exception e) {
@@ -348,26 +351,19 @@ public class CreditSalesM {
 		}
 		return array;
 	}
-	
-	
-	
-	
-	
-	
-	
-	// database connection of Search
+
+	// database connection of customer Search
 	public Customer[] search(String search) {
 		List<Customer> ll = new LinkedList<Customer>();
 		Customer[] array = null;
 		try {
 			Statement stmt = con.getConnection().createStatement();
-			String command = "SELECT * from smd.customer WHERE Hardware_Name LIKE '%" + search
-					+ "%'";
+			String command = "SELECT * from smd.customer WHERE Hardware_Name LIKE '%" + search + "%'";
 			ResultSet rs = stmt.executeQuery(command);
 			while (rs.next()) {
 				Customer n = new Customer(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
 						rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9),
-						rs.getString(10),rs.getString(11));
+						rs.getString(10), rs.getString(11));
 				ll.add(n);
 			}
 
@@ -378,7 +374,7 @@ public class CreditSalesM {
 		}
 		return array;
 	}
-	
+
 //	// Customer previous payments
 //	public Order[] getCusRemaining(String Customerid) {
 //		List<Order> ll = new LinkedList<Order>();

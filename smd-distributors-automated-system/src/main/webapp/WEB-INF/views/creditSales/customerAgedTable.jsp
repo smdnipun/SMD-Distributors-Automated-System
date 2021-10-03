@@ -8,7 +8,7 @@
 if (request.getSession().getAttribute("Logged") == null) {
 	request.getSession().setAttribute("Logged", "Guest");
 }
-
+//Creating a connection to the database and fetching all the customerage details .
 CreditSalesM cdbc = new CreditSalesM();
 PaymentDetails[] customerAged = (PaymentDetails[]) cdbc.getPaymentdetails();
 request.setAttribute("data", customerAged);
@@ -23,9 +23,13 @@ request.setAttribute("data", customerAged);
 
 	</center>
 	<!--Creating customerage table-->
+
+
 	<form>
-		<input type="month" name="month" min="2021-01"></input> <select
-			name="status">
+		<!-- get the month -->
+		<input type="month" name="month" min="2021-01"></input>
+		<!-- get the status -->
+		<select name="status">
 			<option value="0"></option>
 			<option value="Paid">Paid</option>
 		</select>
@@ -53,9 +57,10 @@ request.setAttribute("data", customerAged);
 
 			<c:choose>
 				<c:when test="${param.month!=null||param.status!=null}">
+					<!-- If the "month" URL parameter is not null it fill fetch the data related to the specified data on the URL parameters-->
 					<%
 					CreditSalesM reportCon = new CreditSalesM();
-					PaymentDetails[] report = reportCon.getReport(request.getParameter("month"),request.getParameter("status"));
+					PaymentDetails[] report = reportCon.getReport(request.getParameter("month"), request.getParameter("status"));
 					request.setAttribute("report", report);
 					%>
 					<c:forEach items="${report}" var="PaymentDetails">
@@ -72,9 +77,10 @@ request.setAttribute("data", customerAged);
 					</c:forEach>
 				</c:when>
 				<c:otherwise>
+					<!--Show all fetched data -->
 					<%
 					CreditSalesM reportCon = new CreditSalesM();
-					PaymentDetails[] report = reportCon.getReport("0","0");
+					PaymentDetails[] report = reportCon.getReport("0", "0");
 					request.setAttribute("report", report);
 					%>
 					<c:forEach items="${report}" var="PaymentDetails">
@@ -96,7 +102,8 @@ request.setAttribute("data", customerAged);
 
 	</table>
 
-
+	<!--Button to generate report-->
+	v
 	<p align="right">
 		<button id="print" class="btn btn-secondary"
 			style="background-color: #b8b8b8">Generate Report</button>
