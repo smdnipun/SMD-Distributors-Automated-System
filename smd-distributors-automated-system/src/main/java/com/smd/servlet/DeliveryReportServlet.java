@@ -22,9 +22,9 @@ public class DeliveryReportServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String rdate = request.getParameter("rdate");
-		
+		String rstatus = request.getParameter("rstatus");	
 		try{					
-			List<Delivery> deliveryDetails = DeliveryDBUtill.deliveryReport(rdate);
+			List<Delivery> deliveryDetails = DeliveryDBUtill.deliveryReport(rdate,rstatus);
 			request.setAttribute("deliveryDetails", deliveryDetails);
 		}
 		catch(Exception e) {
