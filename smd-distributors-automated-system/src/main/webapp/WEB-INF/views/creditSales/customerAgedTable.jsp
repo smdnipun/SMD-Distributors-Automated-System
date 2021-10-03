@@ -32,6 +32,9 @@ request.setAttribute("data", customerAged);
 		<select name="status">
 			<option value="0"></option>
 			<option value="Paid">Paid</option>
+			<option value="Accepted">Accepted</option>
+			<option value="Release">Released</option>
+			<option value="Delivered">Delivered</option>
 		</select>
 		<button type="submit">Submit</button>
 
@@ -56,7 +59,7 @@ request.setAttribute("data", customerAged);
 		<tbody>
 
 			<c:choose>
-				<c:when test="${param.month!=null||param.status!=null}">
+				<c:when test="${param.month!=null && param.status!=null}">
 					<!-- If the "month" URL parameter is not null it fill fetch the data related to the specified data on the URL parameters-->
 					<%
 					CreditSalesM reportCon = new CreditSalesM();

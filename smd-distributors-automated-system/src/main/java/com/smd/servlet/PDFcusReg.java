@@ -94,7 +94,7 @@ public class PDFcusReg extends HttpServlet {
 		try {
 			Document document = new Document();
 			//defining the download path
-			PdfWriter.getInstance(document, new FileOutputStream("C://Users//Nipun//Downloads//NewCustomers.pdf"));
+			PdfWriter.getInstance(document, new FileOutputStream("D://NewCustomers.pdf"));
 			//opening the document
 			document.open();
 
@@ -124,7 +124,7 @@ public class PDFcusReg extends HttpServlet {
 
 			//setting the background color of the header
 			for (int j = 0; j < cells.length; j++) {
-				cells[j].setBackgroundColor(BaseColor.BLUE);
+				cells[j].setBackgroundColor(BaseColor.GRAY);
 			}
 
 			//creating the SQL statement and executing

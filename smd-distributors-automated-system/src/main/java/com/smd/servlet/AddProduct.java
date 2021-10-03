@@ -2,6 +2,8 @@ package com.smd.servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
@@ -52,10 +54,15 @@ public class AddProduct extends HttpServlet {
 			} else {
 				availability = 1;
 			}
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
+			LocalDateTime now = LocalDateTime.now();
+			String date = dtf.format(now);
+
 			String command = "insert into product(Product_Weight,Added_Date,Name,Unit_Price,Availability,image) VALUES('"
-					+ request.getParameter("pweight") + "','2030-10-01','" + request.getParameter("pname") + "','"
+					+ request.getParameter("pweight") + "','"+date+"','" + request.getParameter("pname") + "','"
 					+ request.getParameter("pprice") + "','" + availability + "','" + request.getParameter("image")
 					+ "')";
+
 			try {
 
 				int rows = con.getConnection().createStatement().executeUpdate(command);

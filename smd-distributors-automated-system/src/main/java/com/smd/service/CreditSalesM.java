@@ -300,8 +300,18 @@ public class CreditSalesM {
 			String command = "";
 			if (month.equals("0") && status.equals("0")) {
 				command = "SELECT * from smd.paymentdetails";
-			} else {
-				command = "SELECT * from smd.paymentdetails WHERE Order_Date LIKE '%" + month + "-%' or Order_Status='"
+			} 
+			else if(month.equals("")&&!status.equals("0")) {
+				command = "SELECT * from smd.paymentdetails WHERE Order_Status='"
+				+ status + "'";
+			}else if(status.equals("")&&!month.equals("0")) {
+				command = "SELECT * from smd.paymentdetails WHERE Order_Date LIKE '%" + month + "-%'";
+			}
+			else if(status.equals("0")&&month.equals("")){
+				command = "SELECT * from smd.paymentdetails";
+			}
+			else {
+				command = "SELECT * from smd.paymentdetails WHERE Order_Date LIKE '%" + month + "-%' and Order_Status='"
 						+ status + "'";
 			}
 

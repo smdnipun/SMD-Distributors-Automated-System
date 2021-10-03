@@ -94,7 +94,7 @@ public class PDFbestCus extends HttpServlet {
 		try {
 			Document document = new Document();
 			//defining the download path
-			PdfWriter.getInstance(document, new FileOutputStream("C://Users//Nipun//Downloads//Best_Customer.pdf"));
+			PdfWriter.getInstance(document, new FileOutputStream("D://Best_Customer.pdf"));
 			//opening the document
 			document.open();
 
