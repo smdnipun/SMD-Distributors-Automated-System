@@ -107,7 +107,7 @@ public class PayServlet extends HttpServlet {
 			// display an error message
 			out.println("<script type=\"text/javascript\">");
 			out.println(
-					"alert('You entered the order ID or customer ID or entered the payment incorrectly, please try again !!');");
+					"alert('You entered the payment incorrectly, please try again !!');");
 			out.println("location='admin/CreditSalesManagement/CreditPayment.jsp'");// redirect to the registration page
 			out.println("</script>");
 
