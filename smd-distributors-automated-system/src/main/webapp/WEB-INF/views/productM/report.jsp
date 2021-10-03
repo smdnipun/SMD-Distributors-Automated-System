@@ -27,9 +27,38 @@ int total = 0;
 					<option value="<c:out value="${product.getName()}"></c:out>">${product.getName()}</option>
 				</c:forEach>
 			</select> <input type="month" name="month" min="2021-01"></input>
-			<button type="submit">Submit</button>
+			<button type="submit" class="btn btn-primary">Filter</button>
 		</form>
 		<table class="table" id="tblCustomers">
+			<tr>
+				<c:choose>
+					<c:when test="${param.month!=null && param.product!=null}">
+						<c:choose>
+							<c:when test="${param.product=='0' && param.month==''}">
+								<td colspan=5 style="text-align: center;"><h3>SMD
+										Distributors Overall Summary Report</h3></td>
+							</c:when>
+							<c:when test="${param.product=='0' && param.month!=''}">
+								<td colspan=5 style="text-align: center;"><h3>SMD
+										Distributors Overall Summary Report for ${param.month }</h3></td>
+							</c:when>
+							<c:when test="${param.product!='0' && param.month==''}">
+								<td colspan=5 style="text-align: center;"><h3>SMD
+										Distributors Overall Summary Report of ${param.product }</h3></td>
+							</c:when>
+							<c:otherwise>
+								<td colspan=5 style="text-align: center;"><h3>SMD
+										Distributors Summary report of ${param.product} for
+										${param.month}</h3></td>
+							</c:otherwise>
+						</c:choose>
+					</c:when>
+					<c:otherwise>
+						<td colspan=5 style="text-align: center;"><h3>SMD
+								Distributors Overall Summary Report</h3></td>
+					</c:otherwise>
+				</c:choose>
+			</tr>
 			<tr>
 				<th>Product Name</th>
 				<th>Customer Name</th>
@@ -39,8 +68,8 @@ int total = 0;
 			</tr>
 			<c:choose>
 				<c:when test="${param.month!=null}">
-				<!-- If the "month" URL parameter is not null it fill fetch the data related to the specified data on the URL parameters-->
-					<% 
+					<!-- If the "month" URL parameter is not null it fill fetch the data related to the specified data on the URL parameters-->
+					<%
 					ProductDB reportCon = new ProductDB();
 					ProductReportItem[] report = reportCon.getReport(request.getParameter("month"), request.getParameter("product"));
 					for (ProductReportItem itm : report) {
@@ -84,6 +113,6 @@ int total = 0;
 				<th>Rs.<%=Integer.toString(total)%></th>
 			</tr>
 		</table>
-		<button id="btnExport">Print Report</button>
+		<button id="btnExport" class="btn btn-primary">Print Report</button>
 	</div>
 </div>
