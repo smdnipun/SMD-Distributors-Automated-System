@@ -73,7 +73,7 @@ public class EmployeeDBUtill {
 		    String sql = "select * from employee";
 			ResultSet rs = stmt.executeQuery(sql);
 			
-			//get employee details and store the details in to employee class
+			//get employee details and store the details in to employee model class
 			
 			while(rs.next()) {
 				int id = rs.getInt(1);
@@ -259,7 +259,7 @@ public class EmployeeDBUtill {
 		    String sql = "select * from bestattend";
 			ResultSet rs = stmt.executeQuery(sql);
 			
-			//get employee attendance details and store the details in to EmployeeAttendance class
+			//get employee attendance details and store the details in to EmployeeAttendance model class
 			
 			while(rs.next()) {
 				int eid = rs.getInt(1);
@@ -270,7 +270,7 @@ public class EmployeeDBUtill {
 				int othour= rs.getInt(6);
 				String empmonth = rs.getString(7);
 				
-				//create object from EmployeeAttendance class and pass the database values to the constructor	
+				//create object from EmployeeAttendance model class and pass the database values to the constructor	
 				
 				EmployeeAttendance d = new EmployeeAttendance(eid,etype,efname,hourworked,workhour,othour,empmonth);
 				eb.add(d);
@@ -337,7 +337,7 @@ public class EmployeeDBUtill {
 		    String sql = "select * from employee_type ";
 			ResultSet rs = stmt.executeQuery(sql);
 			
-			//get employee details and store the details in to EmployeeBasicInfo class
+			//get employee details and store the details in to EmployeeBasicInfo model class
 			
 			while(rs.next()) {
 				String empbasictype = rs.getString(1);
@@ -346,7 +346,7 @@ public class EmployeeDBUtill {
 				double empOTRate= rs.getInt(4);
 			
 				
-				//create object from EmployeeBasicInfo class and pass the database values to the constructor	
+				//create object from EmployeeBasicInfo model class and pass the database values to the constructor	
 						
 				EmployeeBasicInfo ebn = new EmployeeBasicInfo(empbasictype,empbasicSalInfo,empbasichour,empOTRate);
 				empinfo.add(ebn);
@@ -374,7 +374,7 @@ public class EmployeeDBUtill {
 		    String sql = "select * from resigned_employees ";
 			ResultSet rs = stmt.executeQuery(sql);
 			
-			//get employee resigned details and store the details in to EmployeeResignDetails class
+			//get employee resigned details and store the details in to EmployeeResignDetails model class
 			
 			while(rs.next()) {
 				int empreid = rs.getInt(1);
@@ -386,7 +386,7 @@ public class EmployeeDBUtill {
 				String empreaddress= rs.getString(7);
 				String empredate= rs.getString(8);		
 			
-				//create object from EmployeeResignDetails class and pass the database values to the constructor	
+				//create object from EmployeeResignDetails modelclass and pass the database values to the constructor	
 					
 				EmployeeResignDetails empsign = new EmployeeResignDetails(empreid,empretype,emprefname,emprelname,emprephone,emprenic,empreaddress,empredate);
 				empresigninfo.add(empsign);
