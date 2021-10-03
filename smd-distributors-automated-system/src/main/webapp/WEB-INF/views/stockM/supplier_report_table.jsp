@@ -15,44 +15,48 @@ Supplier[] newsupplier = (Supplier[]) dbc.getAllSupplier();
 request.setAttribute("supplierdata", newsupplier);
 %>
 <div>
-<!-- Import Horizontal navigation bar -->
+	<!-- Import Horizontal navigation bar -->
 	<jsp:include page="./stockreportupnav.jsp"></jsp:include>
 </div>
-<div >
-	<div class="d-flex justify-content-center">
-		<h4>Supplier Details</h4>
-	</div>
+<div>
+	<div class="d-flex justify-content-center"></div>
 	<center>
-	<div class="col-7 justify-content-center">
-		<table id="table" class="display nowrap" style="width: 100%">
-			<thead>
-				<tr>
-					<th scope="col">Supplier ID</th>
-					<th scope="col">Supplier Name</th>
-					<th scope="col">Product Name</th>
-					<th scope="col">Address</th>
-					<th scope="col">Telephone Number</th>
-					<th scope="col">Status</th>
-				</tr>
-			</thead>
-			<tbody>
-			<!-- get the stock data from Stock database table connection -->
-				<c:forEach items="${supplierdata}" var="Supplier">
-				
+		<div class="col-7 justify-content-center">
+			<table id="table" class="display nowrap" style="width: 100%">
+				<thead>
+					<tr>
+						<td colspan=6 style="text-align: center">
+							<h4>Supplier Details</h4>
+						</td>
+					</tr>
+					<tr>
+						<th scope="col">Supplier ID</th>
+						<th scope="col">Supplier Name</th>
+						<th scope="col">Product Name</th>
+						<th scope="col">Address</th>
+						<th scope="col">Telephone Number</th>
+						<th scope="col">Status</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- get the stock data from Stock database table connection -->
+					<c:forEach items="${supplierdata}" var="Supplier">
+
 						<tr>
 
-							<td><c:out value="${Supplier.getSupplierID()}"/></td>
-							<td><c:out value="${Supplier.getSName()}"/></td>
-							<td><c:out value="${Supplier.getPName()}"/></td>
-							<td><c:out value="${Supplier.getAddress()}"/></td>
-							<td><c:out value="${Supplier.getTno()}"/></td>
-							<td><c:out value="${Supplier.getStatus()}"/></td>
-					</tr>
+							<td><c:out value="${Supplier.getSupplierID()}" /></td>
+							<td><c:out value="${Supplier.getSName()}" /></td>
+							<td><c:out value="${Supplier.getPName()}" /></td>
+							<td><c:out value="${Supplier.getAddress()}" /></td>
+							<td><c:out value="${Supplier.getTno()}" /></td>
+							<td><c:out value="${Supplier.getStatus()}" /></td>
+						</tr>
 
-				</c:forEach>
-			</tbody>
-		</table>
-		<button type="button" id ="repgenerate" class="btn btn-light">GENERATE REPORT</button>
-	</div>
-	<center>
+					</c:forEach>
+				</tbody>
+			</table>
+			<button type="button" id="repgenerate" class="btn btn-light">GENERATE
+				REPORT</button>
+		</div>
+		<center>
 </div>

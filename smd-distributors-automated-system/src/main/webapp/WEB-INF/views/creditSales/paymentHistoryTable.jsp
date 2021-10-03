@@ -20,9 +20,7 @@ request.setAttribute("payments", payments);
 <div class="col-9">
 	<!-- Horizontal navigation bar -->
 	<jsp:include page="CenterNavWithoutSearch.jsp"></jsp:include>
-	<center>
-		<h5>Customer Payments</h5>
-	</center>
+
 
 	<!--Creating payment history table-->
 	<form>
@@ -32,6 +30,11 @@ request.setAttribute("payments", payments);
 	<table id="payTable" class="table" style="width: 100%">
 
 		<thead class="thead-dark">
+			<tr>
+				<td colspan=6 style="text-align: center;">
+					<h5>Customer Payments</h5>
+				</td>
+			</tr>
 			<tr>
 
 				<th scope="col">Payment ID</th>

@@ -18,10 +18,7 @@ request.setAttribute("data", customerAged);
 
 	<!-- Horizontal navigation bar -->
 	<jsp:include page="CenterNavWithoutSearch.jsp"></jsp:include>
-	<center>
-		<h5>Customer Aged Recivable</h5>
 
-	</center>
 	<!--Creating customerage table-->
 
 
@@ -43,6 +40,9 @@ request.setAttribute("data", customerAged);
 	<table id="customerDetails" class="table" style="width: 100%">
 
 		<thead class="thead-dark">
+			<tr>
+				<td colspan="7" style="text-align: center;"><h5>Customer Aged Recivable</h5></td>
+			</tr>
 			<tr>
 
 				<th scope="col">Hardware Name</th>
@@ -106,10 +106,13 @@ request.setAttribute("data", customerAged);
 	</table>
 
 	<!--Button to generate report-->
-	
+
 	<p align="right">
 		<button id="print" class="btn btn-secondary"
 			style="background-color: #b8b8b8">Generate Report</button>
 	</p>
-	<br><br><br><br>
+	<br>
+	<br>
+	<br>
+	<br>
 </div>
